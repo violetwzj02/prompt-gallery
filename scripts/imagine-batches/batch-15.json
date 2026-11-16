@@ -1,0 +1,97 @@
+{
+  "batch": "15",
+  "count": 8,
+  "note": "Continue the 仙侠特效 series with the SAME fully clothed adult xianxia woman in layered high-collar robes and a simple hairpin. Aspect: all eight are source 3:4 → 2:3 Poster. Imagine should already be on 2:3; confirm and keep it there. Each still must clearly show its named spiritual effect, and near-duplicate themes must stay visually distinct: 21 deep cyan/teal underworld yin mist with dark motes — not grey-white fog and not blue water; 22 still, stagnant grey-white deathly mist with light dying down — not the earlier flowing chaotic primordial mist (texiao-1-20) and not the dissolving silhouette (texiao-1-18); 23 MUST show a clear six-path samsara wheel under her feet plus thin karma-chain rings on the limbs; if the wheel is missing, treat it as a miss; 24 heavy ochre/earth-yellow aura with rock-layer patterns, mountain-like, not gold sunlight or Buddha light; 25 ice-blue water-element cold: frost on hair tips and robe edges, ice crystals at her sides, abyss-like — not liquid water ribbons (13), not a snowy-path frost trail (14), and not only close-fitting frost flowers (09); 26 is a known duplicate of the exploding shockwave (16) and must be a DISTINCT second blast (different angle, light color, or composition; do not reuse or recrop 16); 27 warm gilt Buddha light on a creamy white glow, gold dust, regular Sanskrit/Buddhist script rings, falling bodhi motes — not a sun-wheel (10); prefer cleaner script if typography appears; 28 is a known duplicate of 27 and must be a DISTINCT second Buddha-light still (different pose, crop, or setting; do not reuse or recrop 27). If an effect is weak, missing, letterboxed, or looks like a previously generated effect, prefer the more distinct unletterboxed variant or report a miss.",
+  "items": [
+    {
+      "id": "texiao-1-21",
+      "title": "幽青九幽冥气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 幽青九幽冥气：薄冷阴雾层层裹体，幽暗灵点忽明忽灭地游走，气场阴冷死寂、肃穆诡异，清冷魔道灵效。色彩必须是幽青、冷青，不要画成灰白雾或普通蓝水。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-21.jpg",
+      "final": "public/covers/entries/texiao-1-21.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-22",
+      "title": "灰白死寂灵雾",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 灰白死寂灵雾：人物周身笼罩灰白死寂灵雾，所有灵光趋于收敛凝滞，气息荒凉静谧、不生不灭，气场苍凉超脱，寂灭意境。这是静止、收敛、死寂的灰白雾，不要画成流动翻涌的混沌星尘，也不要画成半透明虚化轮廓的虚空灵雾。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-22.jpg",
+      "final": "public/covers/entries/texiao-1-22.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-23",
+      "title": "灰白轮回灵力",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 灰白轮回灵力：六道轮盘虚影必须在足底清晰可见并缓缓转动，因果链纹如细圈缠绕四肢，光芒晦明交替似日夜轮换，气场循环往复、深邃不压抑。如果没有足底轮盘，这张就不合格。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-23.jpg",
+      "final": "public/covers/entries/texiao-1-23.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-24",
+      "title": "赭黄大地灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 赭黄大地灵气：厚重赭黄灵雾沉稳包裹身躯，岩层般的灵纹淡淡流转，气场稳固如山、镇压四方，浑厚磅礴。色彩必须是赭黄、土石色，不要画成金色阳光或佛光。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-24.jpg",
+      "final": "public/covers/entries/texiao-1-24.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-25",
+      "title": "冰蓝水行灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 冰蓝水行灵气：寒雾凝结成细碎冰晶悬浮身侧，发梢与衣角覆上薄霜，气场幽寒如渊、至柔至寒。这是北冥玄水般的水行寒气：霜在发梢衣角、冰晶在身侧。不要画成环绕的液态水缎带，不要画成雪林里走过留下的霜痕轨迹，也不要只是贴身霜花而不见水行之意。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-25.jpg",
+      "final": "public/covers/entries/texiao-1-25.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-26",
+      "title": "仙力瞬间暴涨炸开（二）",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 仙力瞬间暴涨炸开（这是已知重复条目，必须是另一张完全不同的爆发静帧）：环形灵气光波层层震荡外放，漫天细碎光粒纷飞涌动，衣袂被灵力冲击波掀动翻飞，气场炸裂张力拉满，画面干净高级不杂乱。请使用不同的角度、光色或构图，不要复用或裁切先前那张白光同心环爆发图。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-26.jpg",
+      "final": "public/covers/entries/texiao-1-26.jpg",
+      "flags": [
+        {
+          "type": "duplicate",
+          "note": "与截图 4 第 1 条内容相同。"
+        }
+      ]
+    },
+    {
+      "id": "texiao-1-27",
+      "title": "温润鎏金佛光（一）",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 温润鎏金佛光：米白柔光为底，细密金尘缓慢漂浮流转，规整的梵文或佛教符文环绕，金色菩提灵粒轻轻垂落，气场祥和圣洁、禅意十足。这是佛光与符文，不是日轮金沙，也不要刺目的太阳光环。若文字出现乱码，选择符文更规整的一张。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-27.jpg",
+      "final": "public/covers/entries/texiao-1-27.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-28",
+      "title": "温润鎏金佛光（二）",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 温润鎏金佛光（这是已知重复条目，必须是另一张完全不同的佛光静帧）：米白柔光为底，细密金尘缓慢漂浮，规整梵文或佛教符文环绕，金色菩提灵粒轻轻垂落，气场祥和圣洁。请使用不同的姿态、构图或场景，不要复用或裁切先前那张佛光图。若文字出现乱码，选择符文更规整的一张。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-28.jpg",
+      "final": "public/covers/entries/texiao-1-28.jpg",
+      "flags": [
+        {
+          "type": "duplicate",
+          "note": "与本截图第 3 条内容相同。"
+        }
+      ]
+    }
+  ]
+}
