@@ -1,0 +1,87 @@
+{
+  "batch": "23",
+  "count": 8,
+  "note": "Continue 艺术 covers: the seven black-background handwritten art-type posters (yishu-28-01 through 28-07), then yishu-29. ASPECT: Imagine is already on 2:3 Poster after batch 22. KEEP 2:3 for every item. No mid-batch switch. Image mode, Quality 2.0, Image Count ×2, one at a time. For 28-01 to 28-07: typography-only on pure black, the exact Chinese phrase and the specified ink color, no other words. Characters must be complete, correctly written, and clearly readable — if one ×2 variant has a wrong or messy character, save the cleaner correctly written one. Keep them visually distinct from each other and from the earlier white-and-cinnabar 纵有疾风起 poster: 01 lake-blue #00CCF5 我还有一生可以浪费, wind-blown elongated endings; 02 duskier violet #8A5AE4 突然好想你, spread signature flourish; 03 deep blue #1C72C4 漂洋过海来看你, extremely thin wild cursive with long dragged strokes; 04 orange #DE7D24 黄昏咬碎了最后一颗柑橘, staggered vintage faded ink, every character correct; 05 yellow-green #A6D056 我怀念的是无话不说, mottled worn ink; 06 brighter magenta-violet #A060F8 可惜不是你, compact signature, not a recolor of 02; 07 dark green #3C6444 起风时 我们唱歌, mottled, keep the pause between the two phrases, not yellow-green. yishu-29 is NOT calligraphy: invent a photoreal alley stairway with an ORIGINAL 2D anime adult woman in a camel coat standing on the steps, 2.5D fusion, correct scale/shadow/occlusion, no existing IP characters, no typography. Do not type any “use the reference image” language. Do not generate ids beyond this batch of 8. Leave Imagine open and signed in on 2:3.",
+  "items": [
+    {
+      "id": "yishu-28-01",
+      "title": "我还有一生可以浪费（湖蓝）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。整批保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 typography-only art poster on a pure black background. Handwritten Chinese calligraphy of exactly these five characters, and no others: 我还有一生可以浪费. Lake-blue ink, about #00CCF5. The script is flowing and lively; some stroke endings rise or elongate as if blown by wind, free and unrestrained. Only this phrase, this color, and the black field. Typography-only poster on a pure black (#000000) background. The specified Chinese characters must be complete, correctly written, and clearly readable — if one variant has a wrong, missing, or garbled character, choose the cleaner correctly written one. No other words, English, numbers, logos, seals, or watermarks. This is colored handwriting on black, not the earlier white-and-cinnabar calligraphy poster, and not a photo diptych.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-28-01.jpg",
+      "final": "public/covers/entries/yishu-28-01.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-28-02",
+      "title": "突然好想你（紫）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。与 28-06 同为紫色签名风，本条用较沉的紫罗兰 #8A5AE4，布局更舒展。",
+      "imaginePrompt": "A vertical 2:3 typography-only art poster on a pure black background. Handwritten Chinese calligraphy of exactly these five characters, and no others: 突然好想你. A duskier violet ink, about #8A5AE4, not a bright magenta. Casual modern-signature handwriting: fluid, freely written, stroke thickness varying with a natural rhythm, as if dashed off in one emotional burst. Let the layout spread a little, with a signature-like flourish, so it stays distinct from a later brighter-purple compact version of a different phrase. Only this phrase, this color, and the black field. Typography-only poster on a pure black (#000000) background. The specified Chinese characters must be complete, correctly written, and clearly readable — if one variant has a wrong, missing, or garbled character, choose the cleaner correctly written one. No other words, English, numbers, logos, seals, or watermarks. This is colored handwriting on black, not the earlier white-and-cinnabar calligraphy poster, and not a photo diptych.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-28-02.jpg",
+      "final": "public/covers/entries/yishu-28-02.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-28-03",
+      "title": "漂洋过海来看你（蓝 · 狂草）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 typography-only art poster on a pure black background. Wild-cursive Chinese calligraphy of exactly these seven characters, and no others: 漂洋过海来看你. Deep blue ink, about #1C72C4, not lake-blue cyan. Extremely thin wild-cursive (狂草) strokes, long sweeping 捺 and 撇, uneven ink, bold tension and leaping rhythm, some strokes exaggerated and dragged very far. Still keep every character recognizable. Only this phrase, this color, and the black field. Typography-only poster on a pure black (#000000) background. The specified Chinese characters must be complete, correctly written, and clearly readable — if one variant has a wrong, missing, or garbled character, choose the cleaner correctly written one. No other words, English, numbers, logos, seals, or watermarks. This is colored handwriting on black, not the earlier white-and-cinnabar calligraphy poster, and not a photo diptych.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-28-03.jpg",
+      "final": "public/covers/entries/yishu-28-03.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-28-04",
+      "title": "黄昏咬碎了最后一颗柑橘（橘 · 复古）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。这句较长，务必字字正确可读。",
+      "imaginePrompt": "A vertical 2:3 typography-only art poster on a pure black background. Handwritten Chinese calligraphy of exactly this eleven-character line, and no other words: 黄昏咬碎了最后一颗柑橘. Orange ink, about #DE7D24. Casual, lyrical handwriting with rich thick-and-thin rhythm, some ligatures and hairline connections (连笔、牵丝), romantic and literary. Characters are spaced unevenly and staggered, not on one rigid line. The ink has a faded-photograph vintage wear. Every character must stay complete and readable. Only this phrase, this color, and the black field. Typography-only poster on a pure black (#000000) background. The specified Chinese characters must be complete, correctly written, and clearly readable — if one variant has a wrong, missing, or garbled character, choose the cleaner correctly written one. No other words, English, numbers, logos, seals, or watermarks. This is colored handwriting on black, not the earlier white-and-cinnabar calligraphy poster, and not a photo diptych.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-28-04.jpg",
+      "final": "public/covers/entries/yishu-28-04.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-28-05",
+      "title": "我怀念的是无话不说（黄绿 · 斑驳）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。与 28-07 同为斑驳，本条是黄绿而非深绿。",
+      "imaginePrompt": "A vertical 2:3 typography-only art poster on a pure black background. Handwritten Chinese calligraphy of exactly these nine characters, and no others: 我怀念的是无话不说. Yellow-green ink, about #A6D056, not a dark forest green. Casual natural handwriting with a mottled, worn, slightly eroded ink texture. Strokes vary from fairly thick to very slender, as if written quickly and lightly, poetic and easy. Every character must stay complete and readable. Only this phrase, this yellow-green color, and the black field. Typography-only poster on a pure black (#000000) background. The specified Chinese characters must be complete, correctly written, and clearly readable — if one variant has a wrong, missing, or garbled character, choose the cleaner correctly written one. No other words, English, numbers, logos, seals, or watermarks. This is colored handwriting on black, not the earlier white-and-cinnabar calligraphy poster, and not a photo diptych.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-28-05.jpg",
+      "final": "public/covers/entries/yishu-28-05.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-28-06",
+      "title": "可惜不是你（亮紫）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。与 28-02 区分：本条为更亮的品红紫 #A060F8，布局更紧凑。",
+      "imaginePrompt": "A vertical 2:3 typography-only art poster on a pure black background. Handwritten Chinese calligraphy of exactly these five characters, and no others: 可惜不是你. A brighter magenta-violet ink, about #A060F8 — clearly brighter than a duskier violet. Casual modern-signature handwriting: fluid, varying thickness, as if dashed off, but keep the layout more compact or slightly stacked so it does not look like a recolor of 突然好想你. Only this phrase, this brighter purple, and the black field. Typography-only poster on a pure black (#000000) background. The specified Chinese characters must be complete, correctly written, and clearly readable — if one variant has a wrong, missing, or garbled character, choose the cleaner correctly written one. No other words, English, numbers, logos, seals, or watermarks. This is colored handwriting on black, not the earlier white-and-cinnabar calligraphy poster, and not a photo diptych.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-28-06.jpg",
+      "final": "public/covers/entries/yishu-28-06.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-28-07",
+      "title": "起风时 我们唱歌（深绿 · 斑驳）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。与 28-05 同为斑驳，本条是深绿，并保留「起风时 / 我们唱歌」的停顿。",
+      "imaginePrompt": "A vertical 2:3 typography-only art poster on a pure black background. Handwritten Chinese calligraphy of exactly this line, and no other words: 起风时 我们唱歌. Keep a visible pause or line break between 起风时 and 我们唱歌. Dark green ink, about #3C6444, not yellow-green. Casual natural handwriting with a mottled, worn, slightly eroded ink texture, mixed thick and slender strokes, easy and poetic. Every character must stay complete and readable. Only this phrase, this dark green, and the black field. Typography-only poster on a pure black (#000000) background. The specified Chinese characters must be complete, correctly written, and clearly readable — if one variant has a wrong, missing, or garbled character, choose the cleaner correctly written one. No other words, English, numbers, logos, seals, or watermarks. This is colored handwriting on black, not the earlier white-and-cinnabar calligraphy poster, and not a photo diptych.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-28-07.jpg",
+      "final": "public/covers/entries/yishu-28-07.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-29",
+      "title": "2.5D 实景融合（现实照片 + 二维动漫角色）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。这是实景照片与二维角色的融合，不是书法海报。不要使用任何已有动漫 IP 角色。",
+      "imaginePrompt": "A vertical 2:3 2.5D fusion still: a strictly photoreal environment with one original 2D anime character standing in it. Invent the complete scene — do not ask for a reference photo, and do not use any existing anime, game, or franchise character. ENVIRONMENT: a photoreal sunlit narrow stone stairway between old plaster walls in a quiet alley, a metal handrail on one side, late-afternoon light, real photographic texture, unaltered architecture. Keep the alley looking like an unedited real photograph — do not redraw or stylize the walls, stairs, sky, or ground. CHARACTER: an original 2D anime-style fully clothed adult woman with short dark hair, a long camel coat over a white shirt and dark trousers, standing on a step, one hand resting on the rail, looking slightly aside. She must remain a 2D cel-shaded animation character — not a live-action person, not cosplay, not photoreal skin, not a 3D or plastic CG figure. INTEGRATION: correct perspective and scale against the stairs and rail; her feet firmly planted on a step with a natural contact shadow; light and shadow direction matching the late-afternoon sun; if she stands beside or partly behind the rail, the rail must occlude her correctly. No sticker-like cutout, no floating feet, no redesigned background. The final effect should feel like a real photograph in which a 2D anime character is actually standing. No typography, logos, watermarks, or UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-29.jpg",
+      "final": "public/covers/entries/yishu-29.jpg",
+      "flags": []
+    }
+  ]
+}
