@@ -1,0 +1,87 @@
+{
+  "batch": "17",
+  "count": 8,
+  "note": "First full 周边 product-photography batch after zhoubian-1. ASPECT: Imagine is already on 4:3 Presentation after zhoubian-1; confirm and KEEP 4:3 for every item in this batch (do not switch back to 2:3). Image mode, Quality 2.0, Image Count ×2, one at a time. These source prompts are written as retouch/reference-image recipes; do not type any ‘use the reference image’ language, and invent a complete unbranded hero product for each still so they stay visually distinct: 2 cinematic backlit matte-black wireless over-ear headphones on a dark curved horizon with volumetric rim light and a soft blue gradient (not a white catalog shot); 3 pure-white seamless hero of a glass-and-steel electric kettle with only a faint contact shadow (not lifestyle, not dramatic backlight); 4 a matte-gray Bluetooth speaker naturally placed on a warm wooden living-room side table, light from upper left, no cutout halo or floating; 5 a translucent custom mechanical keyboard with orange-and-blue energy/tech light ribbons flowing along the internals, darkened background (not headphones, not a white catalog); 6 a white-studio 3D render of an unbranded mirrorless camera showing glass refraction, brushed metal, leather grip and matte plastic; 7 a modest fully-clothed adult fashion-ecommerce on-body look (camel wool coat, cream mock-neck, taupe trousers) in a clean studio — adult only, no sexualization; 8 a navy merino crewneck sweater laid perfectly flat and symmetric on pale gray (not the coat from 7, not a model); 9 a pair of unbranded white leather sneakers on pure white, three-quarter view showing toe, side, outsole and heel. No copyrighted brand logos (no Apple, Sony, Bose, Nike, Adidas, etc.). If a variant is letterboxed, glitched, logo-heavy, or looks like another item in this batch, save the cleaner distinct one. Prefer any product lettering that is clean, otherwise no extra typography. Do not generate ids beyond this batch of 8. Leave Imagine open and signed in.",
+  "items": [
+    {
+      "id": "zhoubian-2",
+      "title": "产品打光 · 高端商品摄影",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Premium commercial product photograph, 4:3 landscape, photoreal Octane-style, 8k, ray-traced. A single pair of unbranded high-end wireless over-ear headphones in matte black with soft-touch earcups and a slim metal headband, placed on a dark curved horizon plane. Strong backlight from behind carves a brilliant rim of light along every edge; cinematic volumetric shafts wrap the silhouette; a soft glowing light leak pools at the base. Low camera angle, clean background with a gentle blue gradient, minimalist tech advertising. No brand logos, no readable trademarks, no reference-image placeholders, no watermark, no UI chrome, no extra typography. Keep the product angle heroic and stable; do not invent a second product.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-2.jpg",
+      "final": "public/covers/entries/zhoubian-2.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-3",
+      "title": "电商商品图 01｜白底图精修",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Clean ecommerce hero photograph on a pure seamless white, shadowless cyclorama, 4:3 landscape, photoreal studio lighting at about 5600K. A single unbranded premium electric kettle centered in frame: clear glass body, brushed stainless-steel base and lid, matte plastic handle. Soft large softbox lighting, gentle highlight roll-off, only a very faint natural contact shadow on the white floor. Metal is bright but not blown out, glass is clear and not grey, plastic is matte not greasy. Brand-new, no fingerprints, dust, scratches or lint. Even brightness, moderate contrast, sharp detail, no leftover cutout fringing, no props, no extra typography, no logos, no watermark, no UI chrome. This is a platform-ready white-background main image, not a lifestyle scene and not a dramatic backlit ad.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-3.jpg",
+      "final": "public/covers/entries/zhoubian-3.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-4",
+      "title": "电商商品图 02｜主图场景融合",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Photoreal lifestyle ecommerce main image, 4:3 landscape. An unbranded compact matte-gray Bluetooth speaker sits naturally on a warm wooden side table in a lived-in living room. Morning light enters from the upper left; the speaker’s highlights, shadows, and color temperature match the room exactly. Soft tabletop reflections, gentle floor or table bounce, and a naturally defocused background of a sofa and window. No hard cutout edges, no halo, no double outline, no floating product. Warm home atmosphere, the speaker remains the clear hero, nothing in the set steals attention. No logos, no watermark, no UI chrome, no extra typography, no people. This is a real-scene fusion shot, not a white-background catalog still.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-4.jpg",
+      "final": "public/covers/entries/zhoubian-4.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-5",
+      "title": "电商商品图 03｜产品光效增强",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Photoreal ecommerce tech hero, 4:3 landscape. An unbranded high-end custom mechanical keyboard with a translucent case that reveals switches, stabilizers, and the PCB. Around the internal mechanical parts, add vivid dual-color motion light: orange energy ribbons and blue tech ribbons flowing along the structure, suspended particles, and thin light streaks. High saturation, strong glow, deep shadows, highlights that do not blow out. A slight lens flare, darkened background, the keyboard itself kept sharp and its original local colors unchanged. Light effects must not cover key structure. Futuristic gaming / 3C atmosphere, no brand logos, no watermark, no UI chrome, no extra typography. This is a light-enhanced product shot, not a plain white catalog image and not a pair of headphones.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-5.jpg",
+      "final": "public/covers/entries/zhoubian-5.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-6",
+      "title": "电商商品图 04｜3D 渲染材质",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "High-end 3D product render in a pure white studio, 4:3 landscape, clean ecommerce quality, no noise, no clipping, accurate reflections. An unbranded compact mirrorless camera with a glass lens (clear refraction in the front element), brushed-metal body, a leather grip with visible grain and softness, and small matte-plastic control dials. Soft key light, even fill, a thin rim light on the silhouette, dimensional but not harsh. Brand-new, no fingerprints or dust. Colors accurate, materials physically believable. No logos or readable brand marks, no watermark, no UI chrome, no extra typography. This is a material-showcase studio render, not a lifestyle scene and not a backlit headphone ad.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-6.jpg",
+      "final": "public/covers/entries/zhoubian-6.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-7",
+      "title": "电商商品图 05｜模特换装",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Clean fashion-ecommerce lookbook photograph, 4:3 landscape, photoreal, simple light-gray studio. An adult East Asian woman in her mid-20s, fully clothed and modest, standing in a natural catalog pose. She wears a structured camel wool coat over a cream merino mock-neck sweater and straight taupe trousers; fabric follows the body, folds change with the pose, collar, cuffs and hem sit correctly, and shadows fall in the right places. Skin tone and lighting are consistent. Fashionable, tidy, and commercial; no nudity, no sexualization, no visible underwear, no logos, no watermark, no UI chrome, no extra typography. This is a finished on-body clothing shot, not a flat-lay and not a beauty close-up.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-7.jpg",
+      "final": "public/covers/entries/zhoubian-7.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-8",
+      "title": "电商商品图 06｜服装平铺图",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Ecommerce garment flat-lay photograph, 4:3 landscape, photoreal, neatly composed. A navy merino-wool crewneck sweater is laid perfectly flat and symmetric on a pale-gray seamless background. Collar, cuffs, hem and any small buttons or label tab are complete and clearly visible. The knit drapes naturally with only a few true, slight folds; no wrinkle mess, no loose threads, no stretching or squashing of the pattern. Soft even lighting, accurate navy color, clear yarn texture, almost no distracting shadow. No model, no hangers crowding the frame, no logos, no watermark, no UI chrome, no extra typography. This is a clean spec flat-lay, not an on-body lookbook and not a white-background shoe shot.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-8.jpg",
+      "final": "public/covers/entries/zhoubian-8.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-9",
+      "title": "电商商品图 07｜鞋类白底图",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Ecommerce footwear photograph on a pure white background, 4:3 landscape, photoreal softbox lighting. A pair of unbranded premium white leather sneakers, shown at a three-quarter side angle that clearly presents the toe, medial/lateral side, outsole rubber tread, and heel. Leather grain, stitching, and sole texture are sharp. Soft highlights, faint natural contact shadow, brand-new with no dust, glue marks or loose threads. Full, plump shoe shape, laces tied naturally, tongue sitting straight. Accurate color, platform-ready white-background main image. No brand logos or swooshes, no watermark, no UI chrome, no extra typography, no props. This is a shoe catalog still, not a clothing flat-lay and not a lifestyle interior.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-9.jpg",
+      "final": "public/covers/entries/zhoubian-9.jpg",
+      "flags": []
+    }
+  ]
+}
