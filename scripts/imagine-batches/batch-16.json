@@ -1,0 +1,87 @@
+{
+  "batch": "16",
+  "count": 8,
+  "note": "Finish the last seven 仙侠特效 stills (texiao-1-29 through 1-35) with the SAME fully clothed adult xianxia woman in layered high-collar robes and a simple hairpin, then start 周边 with zhoubian-1. ASPECT: texiao-1-29 to 1-35 stay on 2:3 Poster (confirm and keep it). After 1-35, SWITCH aspect for zhoubian-1: use 4:3 if that option exists in Imagine’s aspect menu; if it does not, use 3:2 if present, otherwise 16:9 Widescreen, and report which was used. Distinct effects: 29 silver-BLUE starlight motes traveling along meridians, thin star-mist clinging to the body — not purple star-sand streams (01) and not scattered silver motes under an open night sky (15); 30 pale-cyan frost patterns flowing on the skin and thin cold mist — not chunky side crystals (25), not a snowy frost trail (14), and not close-fitting frost-flower 寒魄 (09); 31 a thick warm-white protective shield with faint surface runes AND warm-red yang fire inside the body with rising gold sparks — not Buddha light (27/28) and not a sun-wheel (10); 32 orange-red elixir/rosy-cloud mist with dan patterns on palms and chest, warm not scorching — not a white shield and not a gold sun-wheel; 33 ink-black and dark-purple killing aura with dark-red ghost fires and binding red threads — not teal underworld mist (21) and not grey death-mist (22); 34 orderly golden Dao-gang rings with small Daoist talisman script on the limbs, orthodox and solemn — not Buddhist Sanskrit rings (27/28) and not a sun-wheel; prefer cleaner talisman script; 35 blazing WHITE sunrise radiance with only a faint annular sun-wheel afterimage behind her — not the softer warm gold-sand 金曜日 of 10, and not Buddha light. zhoubian-1 is a product shot of a West Lake enamel fridge magnet on white, metal rim, relief, large bottom caption 「西湖」; prefer cleaner typography. If an effect is weak, missing, letterboxed, or looks like a previously generated effect, prefer the more distinct unletterboxed variant or report a miss.",
+  "items": [
+    {
+      "id": "texiao-1-29",
+      "title": "银蓝星河柔光",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 银蓝星河柔光：细碎星屑光点沿身躯脉络缓缓游走，薄薄星雾贴合体表流转，气场浩瀚空灵，画面通透高级。色彩必须是银蓝色。星点要紧贴脉络游走，不要画成银紫色星砂长带，也不要画成仰望夜空中散开的银白星点。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-29.jpg",
+      "final": "public/covers/entries/texiao-1-29.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-30",
+      "title": "淡青寒霜灵雾",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 淡青寒霜灵雾：细微冰晶纹路附着肌肤流转，冷色微光均匀闪烁，空气萦绕清冷薄雾，气场凛冽绝尘、干净通透。这是淡青色、贴肤的霜纹与薄雾，不要画成碎冰块悬浮身侧，不要画成雪林霜痕，也不要画成贴身霜花密布的寒魄。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-30.jpg",
+      "final": "public/covers/entries/texiao-1-30.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-31",
+      "title": "凝结厚实暖白光罩",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 凝结厚实暖白光罩：表层符文淡淡闪烁，体内同时流转暖红纯阳火韵，细碎金芒与火星粒子交织升腾，气场稳固厚重，隔绝外界侵袭，圣洁炽热。必须同时看见厚实的暖白护罩，以及体内的暖红火韵。不要画成佛光梵文环，也不要画成日轮金沙。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-31.jpg",
+      "final": "public/covers/entries/texiao-1-31.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-32",
+      "title": "橘红丹霞灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 橘红丹霞灵气：药香凝成流霞状薄雾包裹，丹纹在掌心和胸口如炉火明灭，热气氤氲却无灼烧感，气场温和煦、生生不息，九转金丹的醇厚暖意，暖融不燥热。色彩必须是橘红流霞，掌心与胸口要有丹纹。不要画成暖白光罩，也不要画成金色日轮。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-32.jpg",
+      "final": "public/covers/entries/texiao-1-32.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-33",
+      "title": "墨黑暗紫煞气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 墨黑暗紫煞气：雾状灵力层层萦绕翻滚，暗红幽火点点跳动，细密暗红灵纹如丝缠缚搏动，气场诡谲压抑，暗黑仙侠质感。色彩必须是墨黑与暗紫，并带暗红幽火。不要画成幽青冥气，也不要画成灰白死寂雾。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-33.jpg",
+      "final": "public/covers/entries/texiao-1-33.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-34",
+      "title": "规整金色道罡",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 规整金色道罡：圈层灵气匀速流转，细小道家符文缠绕四肢躯干，灵气厚重沉稳，光影温润不刺眼，正道肃穆、道法浩然。这是规整的金色道罡与道家符文，不是佛光梵文，也不是日轮。若符文出现乱码，选择更规整的一张。不要在画面上加标题或水印。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-34.jpg",
+      "final": "public/covers/entries/texiao-1-34.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-35",
+      "title": "炽白辉光灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 炽白辉光灵气：光芒万丈如旭日初升，身后隐现环形日轮虚影，气场光明浩荡、邪祟避散，煌煌正大。这是炽烈的白炽辉光，日轮只是身后隐现的虚影。不要画成温热金沙垂落的金曜日柔光，也不要画成佛光。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-35.jpg",
+      "final": "public/covers/entries/texiao-1-35.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-1",
+      "title": "立体冰箱贴转绘",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3",
+      "imaginePrompt": "Product render of a high-quality collectible tourist souvenir fridge magnet, front view on a clean white background with a soft natural drop shadow. The magnet depicts a Jiangnan West Lake scene: a lakeside pavilion and willow or lotus as supporting decoration, in a regular, complete, slightly irregular but symmetrical enamel-magnet silhouette. Fine metal rim, enamel / baked-lacquer color fills, slight relief, a finished commercial collectible look. Tight, balanced, uncluttered composition. A clearly larger decorative caption area at the bottom with the readable Chinese title 「西湖」 (and optional small Latin 'WEST LAKE'). Elegant, collectible, as if it could be sold in a gift shop. No UI chrome, no watermark, no extra typography outside the magnet itself. Prefer the variant with cleaner, more readable caption lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-1.jpg",
+      "final": "public/covers/entries/zhoubian-1.jpg",
+      "flags": []
+    }
+  ]
+}
