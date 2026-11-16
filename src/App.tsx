@@ -2,9 +2,11 @@ import { useEffect, useMemo, useState } from 'react'
 import type { PromptItem } from './types'
 import { CATEGORIES, MEDIUMS } from './types'
 import { usePrompts } from './hooks/usePrompts'
+import { useTheme } from './hooks/useTheme'
 import { PromptCard } from './components/PromptCard'
 import { PromptDetail } from './components/PromptDetail'
 import { AddStylePanel } from './components/AddStylePanel'
+import { ThemeToggle } from './components/ThemeToggle'
 import { FilterRail } from './components/FilterRail'
 import {
   EMPTY_FILTERS,
@@ -23,6 +25,7 @@ export default function App() {
   const [filters, setFilters] = useState<GalleryFilters>(() =>
     typeof window !== 'undefined' ? parseHash(window.location.hash) : EMPTY_FILTERS,
   )
+  const { pref: themePref, resolved: themeResolved, setPref: setThemePref } = useTheme()
   const [addOpen, setAddOpen] = useState(false)
   const [railOpen, setRailOpen] = useState(false)
 
@@ -167,6 +170,7 @@ export default function App() {
           >
             筛选
           </button>
+          <ThemeToggle pref={themePref} resolved={themeResolved} onChange={setThemePref} />
           <div className="density" role="group" aria-label="网格密度">
             <button
               type="button"

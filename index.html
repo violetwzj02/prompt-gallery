@@ -3,6 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var KEY = 'prompt-gallery-theme'
+        var pref = 'system'
+        try {
+          var stored = localStorage.getItem(KEY)
+          if (stored === 'dark' || stored === 'light' || stored === 'system') pref = stored
+        } catch (e) {}
+        var resolved =
+          pref === 'system'
+            ? window.matchMedia('(prefers-color-scheme: light)').matches
+              ? 'light'
+              : 'dark'
+            : pref
+        var root = document.documentElement
+        root.setAttribute('data-theme', resolved)
+        root.setAttribute('data-theme-pref', pref)
+        root.style.colorScheme = resolved
+      })()
+    </script>
     <title>风格 Prompt 图鉴</title>
     <meta
       name="description"
