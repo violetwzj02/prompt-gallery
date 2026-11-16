@@ -1,0 +1,92 @@
+{
+  "batch": "20",
+  "count": 8,
+  "note": "Continue 艺术 posters, yishu-4 through yishu-11. ASPECT: Imagine is already on 2:3 Poster after batch 19. KEEP 2:3 for every item in this batch. Do NOT switch to 1:1 Square for yishu-6: the source is a vertical poster, and “上下严格1:1” only means the two halves are equal, not that the canvas is square. Image mode, Quality 2.0, Image Count ×2, one at a time. All of these except yishu-9 are photo-to-poster recipes; invent a complete unreferenced scene for each, and do not type any “use the reference image” language. Keep subjects and styles visually distinct: 4 a rustic cafe table (bread, coffee, tiny ceramic figurine) with a crayon/pastel food illustration on ivory paper below, optional two short serif English lines or blank if type is messy; 5 a corner cafe with a bicycle, isometric paper-model miniature below; 6 a woman in a rust-orange coat beside a modernist house, large-block geometric deconstruction below (few big shapes, not shards); 7 a woman at a sunny window with a coffee cup, Japanese healing BLACK-AND-WHITE fineliner illustration below; 8 a woman cycling with a paper bag, color marker doodle below with lots of white; 9 INCOMPLETE SOURCE — a single full-bleed oil-pastel still life of citrus, a jug and a cloth, NOT a diptych; 10 flowers in a glass bottle on a windowsill, washi-tape collage of 10–18 tape pieces below, no ink lines; 11 a lone walker on a vast beach, tiny riso/silkscreen figure in a huge empty field below, 2–3 colors. Prefer cleaner typography; if lettering is garbled, choose the cleaner variant or less type. If a variant is letterboxed, glitched, or looks like another item in this batch, save the clean distinct one. Do not generate ids beyond this batch of 8. Leave Imagine open and signed in.",
+  "items": [
+    {
+      "id": "yishu-4",
+      "title": "美食转插画（照片 → 插画）",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4；Imagine 用 2:3 Poster。整批保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 art poster strictly split 50/50 top and bottom. Invent one complete food scene — do not ask for a reference photo. TOP HALF: a photoreal editorial photograph of a rustic cafe table: a loaf of bread, a ceramic coffee cup, a small plate, and a tiny ceramic animal figurine on a worn wooden table, warm natural light, real photographic texture. BOTTOM HALF: the SAME table scene redrawn as a centered horizontal illustration on warm ivory handmade paper; the drawing occupies about 60 percent of the lower width, with generous margins of leftover paper. Simple, slightly clumsy geometric color shapes and thin hand-drawn lines; outlines may be a little crooked or broken; no accurate perspective. Flattened fills, no complex gradients or heavy shadows. Four to six muted colors drawn from the photo: cream, grey-blue, brick red, caramel brown, olive, pale yellow. Crayon, pastel, silkscreen and old-book print texture — paper show-through, fine grain, uneven color, slight wear and registration shift. Optional: two short easy English lines in a small vintage serif, left-aligned under the illustration; if the lettering is messy, leave the space blank instead of generating gibberish. No logos, watermarks, UI chrome, phone screens, or black borders. Not photoreal painting, not fine watercolor, not anime, not vector, not oil paint, not 3D. This is a food-table diptych, not a city poster and not calligraphy.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-4.jpg",
+      "final": "public/covers/entries/yishu-4.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-5",
+      "title": "等距微缩景观海报（照片 → 3:4 竖版）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 editorial poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal street-level photograph of a small corner cafe with a large window, one outdoor table, and a bicycle leaning beside it; natural light, slight editorial color grade, art-magazine photography, no HDR. BOTTOM HALF: the SAME cafe translated into a refined minimal isometric miniature, like a paper architectural model sitting on a small paper base, surrounded by a large field of white. Generalized volumes, clean edges, simple levels, a tiny shadow for scale, only a few supporting details, no second focal point. Colors extracted and purified from the photo into a limited quiet palette. Fine ink lines, flat planes, subtle paper grain. Optional: a short thin modern English title such as CORNER CAFE along the base or a margin; prefer the cleaner typography variant, or no type if it is messy. Quiet, poetic, collectible. Not cartoon, not high-saturation, not plastic 3D, not a waterfront city-skyline poster, not a food illustration, not ukiyo-e.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-5.jpg",
+      "final": "public/covers/entries/yishu-5.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-6",
+      "title": "方块化几何解构海报（照片 → 竖版）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目标题与正文都是竖版海报；正文里的「上下严格1:1」指上下各半，不是画布 1:1。manifest 误标为 1:1，本批仍用 2:3 Poster，不要切到 Square。",
+      "imaginePrompt": "A vertical 2:3 design poster strictly split 50/50 top and bottom — portrait, not a square canvas. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a fully clothed adult East Asian woman in a rust-orange coat standing beside a pale modernist house with large windows, clear pose and identity, natural light, slight editorial grade. BOTTOM HALF: the SAME woman and house rebuilt as a modular geometric deconstruction: few, large, complete blocks — rectangles, squares, rounded squares, ellipses or triangles — stacked and collaged, not shattered into many tiny shards. Flat paper-like color planes with a mild print grain, modernist geometry. Delete extra detail; keep only the visual memory points so the bottom is immediately recognizable as the top. Extract 2–4 refined colors such as cream, apricot, rust-orange and fog blue. Small restrained typography may sit in a margin or corner; prefer the cleaner variant or no type if messy. Not a realistic copy, not a cute childish collage, not isometric miniatures, not black-and-white line art, not washi tape. No watermark, no UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-6.jpg",
+      "final": "public/covers/entries/yishu-6.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-7",
+      "title": "日系治愈系黑白生活插画海报（照片 → 3:4 竖版）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 poster strictly split 50/50 top and bottom. Invent one complete lifestyle scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a fully clothed adult East Asian woman sitting by a sunny apartment window with a coffee cup, relaxed everyday mood, lifestyle-magazine grade, natural light. BOTTOM HALF: the SAME person and window rewritten as a Japanese healing black-and-white lifestyle illustration, fineliner or sign-pen line work, monochrome only, flat reserved whites, no heavy painting and no complex color. Lines slightly wobbly and handmade; slightly thicker outlines, thinner inner lines; a little hatching in hair, folds or furniture; a few black shapes for rhythm. Simplified background: just the window, a chair or floor, lots of leftover white. Quiet, gentle, diary-like. Optional small caption, date or short phrase in a corner; prefer the cleaner typography variant or no type if messy. Not color marker doodles, not geometric block collage, not ukiyo-e, not oil pastel, not 3D or cel-shaded anime. No watermark, no UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-7.jpg",
+      "final": "public/covers/entries/yishu-7.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-8",
+      "title": "手绘涂鸦 Lifestyle 插画海报（照片 → 3:4 竖版）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a fully clothed adult woman in casual clothes riding a bicycle along a quiet tree-lined street, a paper bag in the basket, natural light, editorial grade. BOTTOM HALF: the SAME cyclist rewritten as a hand-drawn doodle / naïve marker illustration. Delete almost all background; restage the figure small in a large field of white, off-center if it feels better. Simplified, slightly symbolic, loose and personal: slightly shaky broken lines, marker or crayon coloring, mild overruns and unpainted gaps, handmade error — no accurate perspective. Typography, if any, is a few meaningful handwritten words integrated with the figure, not a title stacked above it; prefer the cleaner handwriting, or less type if it is messy. This must stay a color doodle with lots of white, not a black-and-white fineliner illustration, not a food still-life, not geometric blocks, not washi tape. No watermark, no UI chrome, no logos.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-8.jpg",
+      "final": "public/covers/entries/yishu-8.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-9",
+      "title": "油画棒蜡笔风格（待补充）",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4；Imagine 用 2:3 Poster。源库正文截断，本封面按油画棒/蜡笔风格推断，不是上下双联。",
+      "imaginePrompt": "A single full-bleed vertical 2:3 artwork in oil-pastel and wax-crayon style — not a photo-and-illustration diptych, because the source entry is incomplete and does not specify a split layout. A still life of citrus fruit, a ceramic jug, and a folded cloth on a table, drawn with thick visible oil-pastel strokes, unblended color patches, wax bloom, and paper tooth showing through. Rich but slightly dusty pigment, vigorous handmade marks, a bit naive and tactile, like a finished crayon drawing on paper. No typography, no watermark, no UI chrome, no photoreal photography, no digital smoothness, no 3D. This is a crayon/oil-pastel painting, not a ukiyo-e print, not a washi-tape collage, and not a black-and-white line illustration.",
+      "flags": [
+        {
+          "type": "incomplete",
+          "note": "源库标明原文截断、内容缺失；此封面提示词仅根据「油画棒 / 蜡笔」风格推断，待正文补全后再修订。"
+        }
+      ],
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-9.jpg",
+      "final": "public/covers/entries/yishu-9.jpg"
+    },
+    {
+      "id": "yishu-10",
+      "title": "和纸胶带拼贴海报（照片 → 3:4 竖版）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 poster with a photoreal top half and a washi-tape collage bottom half, each about 50 percent of the height. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a single stem of flowers in a clear glass bottle on a sunlit windowsill, quiet and sharp. BOTTOM HALF: the SAME flowers and bottle rebuilt as a flat, frontal, structured collage of about 10 to 18 medium pieces of paper masking tape on clean warm-white notebook paper. Use darker and lighter tape, overlapping order, negative shapes and a few narrow strips to suggest volume and edges — no pencil, ink, or painted strokes. Real paper fiber, slightly worn edges, translucent stacked color, tiny overlap shadows, a few natural torn edges and slight creases; handmade but not a 3D paper sculpture. About 65–80 percent leftover white; the subject is mid-sized, centered or slightly low. Four to six low-saturation colors from the photo; mostly solid tape, maybe a little stripe or grid, at most a hint of warm accent. Optional: a 1–3 word English title in a slightly faded typewriter face near the subject, not covering it; prefer the cleaner typography variant or no type if messy. No tickets, stamps, stickers, seals, logos, or watermarks. Not a marker doodle, not geometric block collage, not oil pastel.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-10.jpg",
+      "final": "public/covers/entries/yishu-10.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-11",
+      "title": "超现实极简版画海报（照片 → 3:4 竖版）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 editorial poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a lone fully clothed adult figure walking away along a wide empty beach under a huge sky, small in the frame, natural light, slight editorial grade. BOTTOM HALF: the SAME walker translated into a surreal minimal print: a very small, restrained silhouette or pose set in a vast field of leftover paper, only the essential contour kept. One single motion field around the figure — for example a flow along the walking direction, or irregular ripples — made of fine lines, broken trails, coarse halftone and grain that is denser near the figure and fades into the white. Strict 2–3 color system: one strong extracted main color (for example deep teal or sea-slate) plus warm ivory and a little black. Risograph / silkscreen texture, paper fiber, uneven ink, slight misregistration; no CG, no 3D, no real lighting effects, no smooth digital illustration. Optional experimental typography: a very short English title such as DRIFT plus a few tiny notes or coordinates along a horizon or margin; typography should participate in the space, stay small, and stay readable — prefer the cleaner variant, or less type if it is messy. Tiny subject, huge emptiness, quiet, lone, slightly surreal. Not a ukiyo-e woodcut, not an isometric cafe model, not washi tape, not a color doodle. No watermark, no UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-11.jpg",
+      "final": "public/covers/entries/yishu-11.jpg",
+      "flags": []
+    }
+  ]
+}
