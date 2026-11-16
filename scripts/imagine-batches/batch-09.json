@@ -1,0 +1,87 @@
+{
+  "batch": "09",
+  "count": 8,
+  "note": "Resume after batch 08 was interrupted mid-run (06-10 already saved). Remaining short-drama composition series, SAME fully clothed adult woman in a charcoal coat. 11 S-curve path; 12 implicit triangle; 13 negative space (small in frame, still readable); 14 foreground occlusion; 15 reflection in water or glass, tasteful not voyeuristic; 16 modest bust crop at the chest with face, gesture, and collar; 17 knee-up three-quarter; 18 frame-within-a-frame. Aspect: all 16:9 Widescreen.",
+  "items": [
+    {
+      "id": "goutu-1-11",
+      "title": "S形视线构图",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. S-curve leading lines: a winding path, river, or curved walkway forms a clear S-shaped visual path that leads the eye through the frame to the woman. She is the destination of the curve, not cropped out.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-11.jpg",
+      "final": "public/covers/entries/goutu-1-11.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-12",
+      "title": "三角稳定构图",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Stable triangular composition: her head and both arms (or head and the two sides of her coat/pose) form a clear implicit triangle, giving the frame a solemn, grounded balance. Half-body or three-quarter, fully clothed.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-12.jpg",
+      "final": "public/covers/entries/goutu-1-12.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-13",
+      "title": "负空间构图",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Negative-space composition: the woman occupies only a small part of the frame; a large empty sky, wall, or plaza is left open to emphasize solitude and breathing room. She remains clearly readable as the subject.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-13.jpg",
+      "final": "public/covers/entries/goutu-1-13.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-14",
+      "title": "前景遮挡构图（一）",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Foreground occlusion: leaves, a railing, or similar foreground elements partially obscure the frame, creating a photographed-in-the-moment feeling and a clear sense of spatial depth. The woman remains the readable subject behind the occluding layer.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-14.jpg",
+      "final": "public/covers/entries/goutu-1-14.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-15",
+      "title": "倒影映射构图",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Reflection mapping: her figure is reflected in still water or a glass surface, forming a clear real-versus-reflected pairing in the same frame. Tasteful cinematic still, fully clothed, not voyeuristic.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-15.jpg",
+      "final": "public/covers/entries/goutu-1-15.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-16",
+      "title": "胸像构图",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Bust-length portrait cropped at the upper chest: the frame includes her face, a hand gesture, and the coat-and-sweater collar details. Modest neckline, standard bust crop, not a cleavage-focused shot, fully clothed.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-16.jpg",
+      "final": "public/covers/entries/goutu-1-16.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-17",
+      "title": "膝上构图",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Knee-up / three-quarter framing: the crop ends just above the knees, balancing her body language with a readable slice of the environment. Fully clothed, coat and sweater visible, modest, cinematic.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-17.jpg",
+      "final": "public/covers/entries/goutu-1-17.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-18",
+      "title": "框中框构图",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Frame-within-a-frame: a railing, window, doorway, or similar border forms an inner frame that leads the eye and focuses on her as the subject.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-18.jpg",
+      "final": "public/covers/entries/goutu-1-18.jpg",
+      "flags": []
+    }
+  ]
+}
