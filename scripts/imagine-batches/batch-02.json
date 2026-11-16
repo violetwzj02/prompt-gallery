@@ -1,0 +1,106 @@
+{
+  "batch": "02",
+  "count": 8,
+  "items": [
+    {
+      "id": "renwu-3-01",
+      "title": "人物真实感提示词",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 保留人物原有五官特征与面部比例，仅做肤色均匀优化，保留真实皮肤肌理，超写实质感，可见毛孔细纹，轻微淡化痘印瑕疵，呈现自然真实肤质，杜绝假脸感。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-3-01.jpg",
+      "final": "public/covers/entries/renwu-3-01.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-3-02",
+      "title": "主体无痕去除提示词",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 移除图中主体的元素及其阴影、反光和所有相关投影。主体原位置需根据周边环境自然填补（如延伸背景图案、延续材质纹理或还原原始表面），不留任何删除痕迹。画面中所有其他元素在位置、形状、色彩、细节等方面需 100% 保持不变。背景不变。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-3-02.jpg",
+      "final": "public/covers/entries/renwu-3-02.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-3-03",
+      "title": "角色设定卡提示词",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Vertical Korean-idol style character profile card, minimal magazine layout, pure white background, thin dividers, an original young man in a cream knit vest, front side and back full-body views, six expression headshots, neatly labeled info modules, no real celebrity, no watermark.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-3-03.jpg",
+      "final": "public/covers/entries/renwu-3-03.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-3-04",
+      "title": "3D 国漫转真人提示词",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 将动漫人物转化为真实存在的人类形象，必须精准保留原动漫图片中的人物身份特征、脸部轮廓、五官比例、样貌气质、发型的写实摄影质感。 ### 人物要求\n- 转化为真实人类形象，脸部必须具有真实人类骨骼结构、自然面部轮廓、真实但好看的五官比例、真实皮肤质感、自然肤色、细腻皮肤纹理、真实眼睛反光、真实睫毛和眉毛细节\n- 保留原图人物的脸型特征、五官气质和整体样貌印象\n- **不要**保留任何二次元夸张比例、不要动漫大眼、不要塑料感、不要 AI 假脸 ### 皮肤要求\n- 真实摄影级别质感，但整体偏细腻、嫩、干净、自然、有轻微通透感\n- 不要粗糙、不要颗粒过重、不要毛孔夸张、不要老化感、不要蜡像感、也不要过度磨皮\n- 皮肤纹理清晰但克制，属高质量年轻肌肤真实质感：细腻、平滑、柔和、富有弹性，保留轻微真实纹理与自然明暗起伏\n- 除非原角色本身设定明显年龄较大，否则不要生成成熟粗糙、松弛、厚重或沧桑的皮肤状态 ### 发型要求\n- 完全参考原动漫图的长度、刘海、发丝走向、层次、卷度、蓬松感和颜色，转化为现实中真实头发质感\n- 有真实发丝细节、自然光泽、柔软蓬松感和真实物理垂坠感\n- 不要像假发、不要僵硬、不要动漫块状头发 ### 服装要求\n- 严格参考原动漫图的款式、剪裁、颜色、图案、材质、装饰细节和穿着方式风格 ### 画面风格\n- 极致写实摄影风格，真实世界照片质感，电影级真实光影，高动态范围，真实镜头景深，真实空气感，真实环境反射，细节清晰，高分辨率，8K 超清，专业摄影构图\n- 整体效果必须像现实世界中真实拍摄的人像照片，而不是动漫、插画、游戏 CG 或 3D 角色渲染图 ### 构图要求\n- 保持原图的画面构图、人物大小、镜头角度、景别、透视关系和主体位置\n- 高清真实摄影效果 ### 禁止内容\n禁止动漫风、插画风、二次元风、3D 卡通风、游戏 CG 风、塑料皮肤、假人感、过度磨皮、皮肤粗糙过度、毛孔夸张、老化感过强、眼睛颜色错误、虹膜颜色偏差、五官变形、眼睛过大、脸部模糊、手指畸形、肢体扭曲、服装细节丢失、场景随意更换、背景虚假、光线不统一、明显 AI 感、低清晰度、过度美颜、过度锐化。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-3-04.jpg",
+      "final": "public/covers/entries/renwu-3-04.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-4",
+      "title": "二次元动画海报 黑川茜",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Official anime key-visual movie poster style, cinematic lighting, a poised elegant young woman with long dark hair and a cool expression, dramatic rim light, high-production Japanese animation poster quality, detailed background bokeh, original character, no copyrighted character names, no logos, no text, no watermark.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-4.jpg",
+      "final": "public/covers/entries/renwu-4.jpg",
+      "flags": [
+        {
+          "type": "copyright-ip",
+          "note": "源条目涉及「黑川茜」；封面改为同气质的原创角色，不出现官方名或商标。"
+        }
+      ]
+    },
+    {
+      "id": "renwu-6",
+      "title": "夜黛系 · 艺术私房（暧昧氛围）真实女性",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Tasteful artistic boudoir fashion photograph of an adult woman, Rembrandt single-light, dark low-key atmosphere, champagne silk fabric, sensual but elegant and commercial, real photography, fully tasteful, no nudity, no explicit sexual content, cinematic shadows, photorealistic, no watermark, no text.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-6.jpg",
+      "final": "public/covers/entries/renwu-6.jpg",
+      "flags": [
+        {
+          "type": "sensitive",
+          "note": "源条目为暧昧艺术私房；封面保持克制、无裸露、无露骨性内容。"
+        }
+      ]
+    },
+    {
+      "id": "renwu-7",
+      "title": "超幼态瓷娃娃系 · 随手拍（幼态脸成人）",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Candid phone snapshot of an adult East Asian woman in her mid-20s, porcelain-doll makeup aesthetic, large soft eyes, clearly adult facial structure and body, casual everyday clothes, fully clothed, non-sexual, indoor natural light, casual lifestyle photo, photorealistic, no watermark, no text.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-7.jpg",
+      "final": "public/covers/entries/renwu-7.jpg",
+      "flags": [
+        {
+          "type": "sensitive",
+          "note": "源条目写「超幼态」「幼态脸成人」；封面必须明确为二十多岁成年女性、着衣、非性化。"
+        }
+      ]
+    },
+    {
+      "id": "renwu-10",
+      "title": "超宽幅真人 COS 写实摄影（3:1）",
+      "imagineAspect": "16:9",
+      "aspectNote": "超宽幅 3:1 映射为 16:9",
+      "imaginePrompt": "Ultra-wide cinematic studio photograph of an adult woman lying sideways across a seamless white cyc, long auburn-brown hair with straight bangs loosely braided, calm slightly commanding expression, white long-sleeve dress shirt, slim black tie, black tailored shorts, sheer black tights, black patent heels, high-end live-action fashion editorial, photorealistic, no copyrighted character, no logos, no text, no watermark.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-10.jpg",
+      "final": "public/covers/entries/renwu-10.jpg",
+      "flags": [
+        {
+          "type": "copyright-ip",
+          "note": "源条目为《电锯人》玛奇玛 COS；封面改为相近造型的原创角色，不出现作品名或角色名。3:1 画幅映射为 16:9。"
+        }
+      ]
+    }
+  ]
+}
