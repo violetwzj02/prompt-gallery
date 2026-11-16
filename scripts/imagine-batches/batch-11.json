@@ -1,0 +1,92 @@
+{
+  "batch": "11",
+  "count": 8,
+  "note": "Finish the short-drama composition series (27-30) with the SAME fully clothed adult woman in a charcoal coat, then move to other 构图 cards. 27 must be a more extreme scale than the previous long shot: she is tiny in a vast environment. 28 is a true over-the-shoulder shot. 29 is a low-angle upward shot. 30 is a known duplicate and must be a distinct second low-angle still. goutu-2 is a geometric graphic-design poster (not photoreal), required typography includes 「ヰ世界情緒」. goutu-3-01/02/03 are information-design covers (exploded earbuds, photosynthesis chalkboard, cloud architecture). Prefer the variant with cleaner typography if text appears. Aspect: all 16:9 Widescreen.",
+  "items": [
+    {
+      "id": "goutu-1-27",
+      "title": "大远景",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Extreme long / very wide shot: she is a tiny figure in a vast landscape, much smaller than in a regular long shot, so the monumental scale of the environment and the sense of space dominate. A huge coastline, mountain valley, or city plaza is fine. She should remain just barely identifiable as a person in the charcoal coat.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-27.jpg",
+      "final": "public/covers/entries/goutu-1-27.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-28",
+      "title": "过肩镜头",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Over-the-shoulder shot: place the camera just behind a person's shoulder in the foreground (her own shoulder, or another fully clothed adult's shoulder, slightly soft), looking past it toward the scene or the other figure, creating immersion and a clear gaze direction. Photoreal cinematic, fully clothed.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-28.jpg",
+      "final": "public/covers/entries/goutu-1-28.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-29",
+      "title": "低角度仰拍（一）",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Low-angle shot looking upward at her from below, enhancing presence, stature, and visual impact. Architecture or sky rises behind her. Fully clothed, cinematic, not a comic worm's-eye gag.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-29.jpg",
+      "final": "public/covers/entries/goutu-1-29.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-30",
+      "title": "低角度仰拍（二）",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. A DISTINCT second low-angle upward shot (this card is a known duplicate of the previous low-angle). Use a different setting and lighting — for example a nighttime city stair or an overcast plaza — still looking up at her, fully clothed, cinematic. Do not reuse or recrop the other low-angle frame.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-30.jpg",
+      "final": "public/covers/entries/goutu-1-30.jpg",
+      "flags": [
+        {
+          "type": "duplicate",
+          "note": "与本截图第 4 条内容完全相同。"
+        }
+      ]
+    },
+    {
+      "id": "goutu-2",
+      "title": "Renaissance 平面构成",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "A modern geometric graphic-design poster on the theme Renaissance. Strong planar composition, geometric shapes, knockout typography, and a reversed or inverted color mask covering part of an adult East Asian woman who stands with fingers interlaced and hands clasped at her chest, eyes downcast. Cool palette dominated by sky blue and silver-gray, with other cool accents. Include English and Japanese typography as design accents, and the image MUST contain the text 「ヰ世界情緒」. Graphic design poster, modern editorial, duotone feel, not a photoreal photograph, no watermark, no UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-2.jpg",
+      "final": "public/covers/entries/goutu-2.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-3-01",
+      "title": "产品爆炸视图拆解图",
+      "imagineAspect": "16:9",
+      "aspectNote": null,
+      "imaginePrompt": "Apple-keynote style exploded-view product diagram of a pair of wireless earbuds, 16:9 widescreen. The earbuds float in the center with components separated in orderly layers: outer shell, speaker driver, battery, charging case, mesh grille. Thin leader lines to short clear Chinese labels, three to five short Chinese selling points listed on the right. Clean pale gray or white background, realistic metal, plastic, and mesh textures, soft studio shadows. Looks like an Apple product structure diagram. No garbled or misspelled text, no cyberpunk glow, no watermark, no chaotic floating parts.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-3-01.jpg",
+      "final": "public/covers/entries/goutu-3-01.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-3-02",
+      "title": "黑板粉笔风格教学图",
+      "imagineAspect": "16:9",
+      "aspectNote": null,
+      "imaginePrompt": "16:9 chalkboard teaching diagram in Chinese about photosynthesis. Dark green or black blackboard, white, pale-yellow, and light-blue chalk lines. A clear title plus three tidy steps with arrows and simple chalk drawings, like a teacher explaining on the board. Hand-drawn but neatly laid out, short readable Chinese, not cramped. No photograph, no watermark, no English gibberish.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-3-02.jpg",
+      "final": "public/covers/entries/goutu-3-02.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-3-03",
+      "title": "现代技术架构图",
+      "imagineAspect": "16:9",
+      "aspectNote": null,
+      "imaginePrompt": "16:9 modern technical architecture diagram of a fictional cloud app in a blue-gray professional whitepaper style. Boxes for 用户入口, API 网关, 业务服务, 数据库, 消息队列, 模型服务, and 监控告警, connected by clear arrows that follow a realistic call path. Clear Chinese labels, concise layout, simple background, no glow, no decoration overload, no watermark, no unreadable micro type.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-3-03.jpg",
+      "final": "public/covers/entries/goutu-3-03.jpg",
+      "flags": []
+    }
+  ]
+}
