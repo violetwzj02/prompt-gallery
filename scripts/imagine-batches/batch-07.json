@@ -1,0 +1,97 @@
+{
+  "batch": "07",
+  "count": 8,
+  "note": "changjing-7-04 and 7-05 are known duplicates of earlier future-landscape prompts; still generate a distinct still for each id. goutu-1-01 to 1-05 are short-drama shot-size demonstrations of the SAME fully clothed adult woman in a coat; the framing must match the title (head-and-shoulders, face close-up, extreme eye close-up, half-body, MCU from collarbone up). goutu-1-05 is a standard MCU crop, not a revealing shot. Aspect: all 16:9 Widescreen.",
+  "items": [
+    {
+      "id": "changjing-7-04",
+      "title": "未来巨构景观 3",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "a sci fi digital illustration depicting a massive scale environment. from a rocky ledge in the foreground, a small figure looks out at a distant city of skyscrapers rising above a blanket of clouds. overhead, giant, curving, beige colored structures frame the view. the atmospheric perspective shows a hazy distance under a light colored sky with soft pink hues from the low sun, creating a serene and expansive mood. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-7-04.jpg",
+      "final": "public/covers/entries/changjing-7-04.jpg",
+      "flags": [
+        {
+          "type": "duplicate",
+          "note": "与「未来景观 3」内容相同"
+        }
+      ]
+    },
+    {
+      "id": "changjing-7-05",
+      "title": "未来巨构景观 4",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "a distant, high angle shot of a futuristic city rising above a sea of clouds. a small human silhouette stands on a snowy rocky ledge in the foreground. overhead, massive, angular, beige structural beams curve across the sky, framing the view of the city in the distance. the lighting is soft and warm, casting a gentle glow on the clouds and the geometric surfaces of the structures. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-7-05.jpg",
+      "final": "public/covers/entries/changjing-7-05.jpg",
+      "flags": [
+        {
+          "type": "duplicate",
+          "note": "与「未来景观 4」内容相同"
+        }
+      ]
+    },
+    {
+      "id": "changjing-8",
+      "title": "超现实科幻概念艺术（荒凉星球巨物）",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 超现实科幻概念艺术，一个孤独的人类身影坐在荒凉岩石星球上，远处悬浮着一个巨大无比、表面破裂并具有空洞结构的球形天体，占据天空大部分区域。地面是一条干涸蜿蜒的河床，将视线引向巨大球体。天空接近完全黑暗，一处遥远黑洞吞噬破碎行星。人物极小，环境极大，低机位广角，强烈尺度反差，灰蓝、岩土色低饱和调色，压抑、孤独、宇宙恐惧、电影级概念设计 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-8.jpg",
+      "final": "public/covers/entries/changjing-8.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-01",
+      "title": "头肩近景",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face, cinematic lighting, softly blurred background. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Framing is a tight head-and-shoulders close-up (head to shoulders only), with hair-strand and eye detail clearly visible, mild background blur, emphasizing presence and mood.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-01.jpg",
+      "final": "public/covers/entries/goutu-1-01.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-02",
+      "title": "特写脸部",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face, cinematic lighting, softly blurred background. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Framing is a tight facial close-up, the camera close to the face so features and expression fill the frame, background fully blurred.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-02.jpg",
+      "final": "public/covers/entries/goutu-1-02.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-03",
+      "title": "大特写眼睛",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face, cinematic lighting, softly blurred background. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Framing is an extreme close-up of one eye and the surrounding skin and lashes, emphasizing texture and emotion. Do not show the full face.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-03.jpg",
+      "final": "public/covers/entries/goutu-1-03.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-04",
+      "title": "半身构图",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face, cinematic lighting, softly blurred background. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Framing is a balanced medium / half-body shot from about the waist up, showing both expression and hand or arm body language, well composed in the frame.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-04.jpg",
+      "final": "public/covers/entries/goutu-1-04.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-1-05",
+      "title": "胸部以上取景",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic photoreal short-drama still of the same adult East Asian woman in her mid-20s, long dark hair, fully clothed in a charcoal wool coat over a simple knit sweater with a modest neckline, natural makeup, calm expressive face, cinematic lighting, softly blurred background. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. Framing is a medium close-up from the collarbone and upper chest upward (MCU), focusing on expression and mood, simple background. Keep the neckline modest and fully clothed; this is a standard portrait crop, not a cleavage shot.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-1-05.jpg",
+      "final": "public/covers/entries/goutu-1-05.jpg",
+      "flags": []
+    }
+  ]
+}
