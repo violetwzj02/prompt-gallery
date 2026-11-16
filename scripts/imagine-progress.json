@@ -82,10 +82,7 @@
     "goutu-2",
     "goutu-3-01",
     "goutu-3-02",
-    "goutu-3-03"
-  ],
-  "failed": [],
-  "pending": [
+    "goutu-3-03",
     "goutu-3-04",
     "goutu-3-05",
     "goutu-4",
@@ -93,7 +90,10 @@
     "texiao-1-01",
     "texiao-1-02",
     "texiao-1-03",
-    "texiao-1-04",
+    "texiao-1-04"
+  ],
+  "failed": [],
+  "pending": [
     "texiao-1-05",
     "texiao-1-06",
     "texiao-1-07",

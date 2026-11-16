@@ -1,0 +1,87 @@
+{
+  "batch": "13",
+  "count": 8,
+  "note": "Continue the 仙侠特效 series with the SAME fully clothed adult xianxia woman in layered high-collar robes and a simple hairpin. Aspect: all eight are source 3:4 → 2:3 Poster. Imagine should already be on 2:3 from the previous batch; confirm before the first generate and keep it there. Each still must clearly show its named spiritual effect, and neighboring effects must stay visually distinct: 05 silver-gray time-space ripples plus faint clock-face marks and warped light; 06 emerald vines and green motes; 07 invisible thread-like sword qi and tiny air cuts, not a physical sword as the main effect; 08 silent cyan-white wing-wind tight to the body, not a gentle breeze; 09 contained ice-blue crystals and frost, cold not invading the surroundings; 10 warm gold sun-sand and a sun-wheel behind her; 11 gentle cyan-green breeze around arms and waist like willow leaves, not the tighter wing-wind of 08; 12 platinum needle-like metal sparks, not sunlight or a sun-wheel. If an effect is weak or missing, prefer the stronger variant or report a miss.",
+  "items": [
+    {
+      "id": "texiao-1-05",
+      "title": "银灰时空灵力",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 银灰时空灵力：空间波纹如水晕从她身周向外扩散，表盘刻纹在胸前与后腰隐隐浮现，身周光线轻微扭曲折射。气场玄奥深邃、因果交织，神秘不紊乱。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-05.jpg",
+      "final": "public/covers/entries/texiao-1-05.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-06",
+      "title": "翠绿草木灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 翠绿草木灵气：藤蔓虚影与莹绿光点交织如春意缠绕周身，生机之力如细流温润游走，灵韵盎然蓬勃，清新生动。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-06.jpg",
+      "final": "public/covers/entries/texiao-1-06.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-07",
+      "title": "无形剑意灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 无形剑意灵气：透明剑气如细丝贴身游走，剑痕纹路在指尖与眉梢隐现锋芒，空气被无声切割出细微裂痕。气场锐不可当，锋锐不刺眼。不要画出具形的实体长剑作为主效果。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-07.jpg",
+      "final": "public/covers/entries/texiao-1-07.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-08",
+      "title": "青白翼风灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 青白翼风灵气：无形风刃贴合体表流转不息，流线型风纹在衣袂间若隐若现，身周气流微旋却无声无息。气场轻盈迅疾、来去无影，灵动不浮散。这是贴身翼风，不是柔和柳叶清风。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-08.jpg",
+      "final": "public/covers/entries/texiao-1-08.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-09",
+      "title": "冰蓝寒魄灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 冰蓝寒魄灵气：细碎冰晶如星尘悬浮环绕身躯，霜花纹理随呼吸明灭闪烁，寒气内敛不侵外物。气场寂然冻结、万物凝滞，清冽不刺骨。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-09.jpg",
+      "final": "public/covers/entries/texiao-1-09.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-10",
+      "title": "仙金曜日灵光",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 仙金曜日灵光：温热光粒如流沙垂落包裹全身，日轮纹路在背后缓缓转动，辉光柔和如照亮暗处。气场煌煌如日、普照八方，辉煌不刺目。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-10.jpg",
+      "final": "public/covers/entries/texiao-1-10.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-11",
+      "title": "青碧色清风灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 青碧色清风灵气：风旋柔和缠绕臂膀与腰际，细碎风刃若隐若现如柳叶飘舞，灵韵空灵飘逸，清爽不凌厉。这是柔和清风，不要画成贴身翼风或凌厉风刃风暴。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-11.jpg",
+      "final": "public/covers/entries/texiao-1-11.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-12",
+      "title": "白金锐金灵气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the SAME adult East Asian woman as the previous texiao covers, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her, distinct from other elemental auras: 白金锐金灵气：细碎金芒如针尖般环绕周身，金辉明灭间隐现锋锐剑意，灵场凌厉果决，璀璨不刺眼。以白金金属芒刺为主，不要画成金色阳光或日轮。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-12.jpg",
+      "final": "public/covers/entries/texiao-1-12.jpg",
+      "flags": []
+    }
+  ]
+}
