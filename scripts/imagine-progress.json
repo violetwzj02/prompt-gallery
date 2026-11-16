@@ -7,18 +7,18 @@
     "renwu-2",
     "renwu-5",
     "renwu-8",
-    "renwu-9"
-  ],
-  "failed": [],
-  "pending": [
+    "renwu-9",
     "renwu-3-01",
+    "renwu-10",
     "renwu-3-02",
     "renwu-3-03",
     "renwu-3-04",
     "renwu-4",
     "renwu-6",
-    "renwu-7",
-    "renwu-10",
+    "renwu-7"
+  ],
+  "failed": [],
+  "pending": [
     "renwu-11",
     "renwu-12",
     "renwu-13",

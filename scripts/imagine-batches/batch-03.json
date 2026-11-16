@@ -1,0 +1,91 @@
+{
+  "batch": "03",
+  "count": 8,
+  "items": [
+    {
+      "id": "renwu-11",
+      "title": "二次元角色转真人超写实摄影",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 真人摄影照，将参考图中的二次元角色转换为真人，保留原图姿势、构图、服装设计、发型、发色、肤色和瞳色，真实人类皮肤，皮肤光滑无毛孔，自然妆容，真实发丝，布料纹理，85mm镜头，f/1.8，浅景深，RAW照片，超写实，8K，高细节。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-11.jpg",
+      "final": "public/covers/entries/renwu-11.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-12",
+      "title": "现代客厅电影感室内写真",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 主体： 一名20岁东亚少女，身材纤细匀称，皮肤白皙细腻，黑色中长发自然扎成低位发髻，额前垂落自然黑色刘海与少量碎发。穿着黑色短袖衬衫、黑白或深浅灰相间的斜纹领带，灰色高腰缎面紧身短裙，脚穿黑色高跟鞋，红色鞋底清晰可见。整体造型简洁、现代、成熟。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-12.jpg",
+      "final": "public/covers/entries/renwu-12.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-13",
+      "title": "东方古典夜景写真（横屏 16:9 · 古风倚卧）",
+      "imagineAspect": "16:9",
+      "aspectNote": null,
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 人物侧身倚卧在古建筑室外石阶上，上半身微微抬起并向镜头方向倾斜，左侧手肘支撑身体，躯干形成自然 S 形曲线；腰胯轻微侧转，一条腿位于上方并自然交叠，双腿向右侧充分伸展，腿部线条修长舒展。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-13.jpg",
+      "final": "public/covers/entries/renwu-13.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-14",
+      "title": "古风金饰数字绘画（英文提示词 · 9:16）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "she wears an elaborate gold headpiece featuring filigree work, pearls, and hanging tassel beads, along with matching dangling gold earrings and layered necklaces. a sheer, beige embroidered lace veil drapes over her head, partially covering the left side of her face and shoulder. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-14.jpg",
+      "final": "public/covers/entries/renwu-14.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-15",
+      "title": "Q 版蜡笔涂鸦角色插画（角色名驱动）",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 根据角色性格选择合适的表情和一个简单、生动的小动作。例如慵懒角色可以半眯眼、垂肩；活泼角色可以咧嘴笑、挥手；自信角色可以挑眉、叉腰；神秘角色可以歪头、露出含蓄的笑。不同角色应有不同的神态与姿势，同时保留最容易辨认的发型、配色和服装特征。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-15.jpg",
+      "final": "public/covers/entries/renwu-15.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-16",
+      "title": "水汽镜面窄窗艺术人像（9:10）",
+      "imagineAspect": "3:4",
+      "aspectNote": "9:10 映射为 3:4",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 主体偏离画面中轴，以不对称构图呈现。女性身处安静的现代浴室或梳妆空间，穿着简洁优雅的白色浴袍或素色居家服，姿态自然放松，神情平静。窄窗仅清晰呈现面部、眼神或肩部以上的局部，其余部分被雾面自然遮蔽。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-16.jpg",
+      "final": "public/covers/entries/renwu-16.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-17",
+      "title": "《明日方舟》Q 版涂鸦插画（铅笔水彩）",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cute chibi character doodle in pencil and loose watercolor, sketchy lines, light washes, white paper background, an original sci-fi fantasy operator-inspired design with silver hair and a dark coat, charming handmade look, not a copyrighted character, no logos, no watermark.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-17.jpg",
+      "final": "public/covers/entries/renwu-17.jpg",
+      "flags": [
+        {
+          "type": "copyright-ip",
+          "note": "源条目为《明日方舟》Q 版；封面改为原创角色，不出现作品名、干员名或商标。"
+        }
+      ]
+    },
+    {
+      "id": "renwu-18",
+      "title": "超真实AIGC-A 室内窗边捧杯·午后树影（Midjourney）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, short wavy black hair with wispy flyaways, wearing a soft gray-blue oversized knit cardigan over white shirt, medium cinematic shot from slightly elevated angle, sitting by cafe window holding a ceramic mug with both hands close to chest, looking down at the mug with serene peaceful expression, gentle afternoon sunlight streaming through window, dense dappled leaf shadows casting intricate patterns across face shoulders clothing and table surface, soft daylight global illumination, luminous highlights on hair strands ceramic surface and knit texture, creamy Cooke lens rendering, large aperture f/2.2, soft bokeh background with blurred indoor furniture and overexposed window, subtle golden lens flare from window light, dreamy quiet cafe atmosphere, cool-toned color grading with heavily desaturated palette, subtle cyan-green shadows, soft contrast, 9:16. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-18.jpg",
+      "final": "public/covers/entries/renwu-18.jpg",
+      "flags": []
+    }
+  ]
+}
