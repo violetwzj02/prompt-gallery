@@ -24,3 +24,23 @@ export function paletteFromId(id: string): {
     seed: h,
   }
 }
+
+/**
+ * Collection-related palettes: siblings share a base hue/grade,
+ * while each sub-prompt gets a distinct motif from its own id.
+ */
+export function collectionPalette(collectionKey: string | null | undefined, itemId: string) {
+  const base = paletteFromId(collectionKey || itemId)
+  const item = paletteFromId(itemId)
+  const hue = collectionKey ? (base.hue + ((item.seed % 18) - 9) + 360) % 360 : item.hue
+  return {
+    hue,
+    altHue: item.hue,
+    sat: 32 + (base.sat % 22),
+    light: 34 + (item.seed % 18),
+    angle: (base.angle + (item.seed % 48) - 24 + 360) % 360,
+    motif: item.seed % 4,
+    seed: item.seed,
+    baseHue: base.hue,
+  }
+}

@@ -10,6 +10,10 @@ interface Props {
 
 export function PromptCard({ item, onOpen }: Props) {
   const accent = CATEGORY_ACCENT[item.category]
+  const captionTags = item.tags
+    .filter((t) => t !== item.category && t !== item.collection && t !== item.medium)
+    .slice(0, 2)
+
   return (
     <article
       className="prompt-card"
@@ -23,17 +27,28 @@ export function PromptCard({ item, onOpen }: Props) {
       }}
       role="button"
       tabIndex={0}
+      aria-label={item.title}
     >
       <CoverArt item={item} className="prompt-card__cover" />
-      <div className="prompt-card__body">
-        <div className="prompt-card__meta">
-          <span className="tag" style={{ color: accent, borderColor: `${accent}55` }}>
-            {item.category}
-          </span>
-          {item.local && <span className="tag tag--local">本地</span>}
+      <div className="prompt-card__caption">
+        <div className="prompt-card__caption-top">
+          {item.collection && item.collectionIndex && item.collectionTotal ? (
+            <span className="prompt-card__series">
+              {item.collection} · {item.collectionIndex}/{item.collectionTotal}
+            </span>
+          ) : (
+            <span className="prompt-card__series">{item.category}</span>
+          )}
+          {item.local && <span className="prompt-card__local">本地</span>}
         </div>
         <h3 className="prompt-card__title">{item.title}</h3>
-        <p className="prompt-card__usage">{item.usage}</p>
+        {captionTags.length > 0 && (
+          <p className="prompt-card__tags">
+            {captionTags.map((t) => (
+              <span key={t}>{t}</span>
+            ))}
+          </p>
+        )}
       </div>
     </article>
   )

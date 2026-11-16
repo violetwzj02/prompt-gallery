@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
-import type { Category, PromptItem } from '../types'
-import { CATEGORIES } from '../types'
+import type { Category, Medium, PromptItem } from '../types'
+import { CATEGORIES, MEDIUMS } from '../types'
 
 interface Props {
   open: boolean
@@ -15,6 +15,10 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
   const [usage, setUsage] = useState('')
   const [body, setBody] = useState('')
   const [source, setSource] = useState('')
+  const [collection, setCollection] = useState('')
+  const [tags, setTags] = useState('')
+  const [medium, setMedium] = useState<Medium>('图像')
+  const [aspect, setAspect] = useState('')
   const [coverDataUrl, setCoverDataUrl] = useState<string | undefined>()
   const [msg, setMsg] = useState<string | null>(null)
 
@@ -40,6 +44,11 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
       setMsg('标题与 Prompt 正文为必填')
       return
     }
+    const tagList = tags
+      .split(/[,，]/)
+      .map((t) => t.trim())
+      .filter(Boolean)
+    const col = collection.trim() || null
     onAdd({
       title: title.trim(),
       category,
@@ -48,12 +57,25 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
       source: source.trim(),
       cover: null,
       coverDataUrl,
+      parentId: null,
+      collection: col,
+      collectionIndex: null,
+      collectionTotal: null,
+      tags: Array.from(new Set([category, medium, ...(aspect.trim() ? [aspect.trim()] : []), ...(col ? [col] : []), ...tagList])),
+      medium,
+      aspect: aspect.trim() || null,
+      promptText: body.trim(),
+      duplicateNote: null,
+      duplicateOf: null,
     })
     setMsg('已加入本地图鉴（可导出 JSON）')
     setTitle('')
     setUsage('')
     setBody('')
     setSource('')
+    setCollection('')
+    setTags('')
+    setAspect('')
     setCoverDataUrl(undefined)
   }
 
@@ -68,22 +90,60 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
         </div>
         <p className="add-hint">
           本面板将条目写入浏览器 localStorage，便于快速预览。正式入库仍建议按原仓库流程修改{' '}
-          <code>cat_*.md</code> 后重新解析。可随时「导出 prompts.json」下载合并结果。
+          <code>cat_*.md</code> 后运行 <code>npm run parse</code>。可随时导出 JSON。
         </p>
         <form className="add-form" onSubmit={submit}>
           <label>
             标题 *
             <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="风格名称" />
           </label>
+          <div className="add-row">
+            <label>
+              大类 *
+              <select value={category} onChange={(e) => setCategory(e.target.value as Category)}>
+                {CATEGORIES.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              媒介
+              <select value={medium} onChange={(e) => setMedium(e.target.value as Medium)}>
+                {MEDIUMS.map((m) => (
+                  <option key={m} value={m}>
+                    {m}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div className="add-row">
+            <label>
+              合集（可选）
+              <input
+                value={collection}
+                onChange={(e) => setCollection(e.target.value)}
+                placeholder="如：仙侠人物特效"
+              />
+            </label>
+            <label>
+              画幅（可选）
+              <input
+                value={aspect}
+                onChange={(e) => setAspect(e.target.value)}
+                placeholder="16:9 / 9:16 / 3:4"
+              />
+            </label>
+          </div>
           <label>
-            大类 *
-            <select value={category} onChange={(e) => setCategory(e.target.value as Category)}>
-              {CATEGORIES.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
+            标签（可选，逗号分隔）
+            <input
+              value={tags}
+              onChange={(e) => setTags(e.target.value)}
+              placeholder="人像, Midjourney, 海报"
+            />
           </label>
           <label>
             用途摘要
@@ -114,9 +174,7 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
               onChange={(e) => onFile(e.target.files?.[0] ?? null)}
             />
           </label>
-          {coverDataUrl && (
-            <img src={coverDataUrl} alt="封面预览" className="add-preview" />
-          )}
+          {coverDataUrl && <img src={coverDataUrl} alt="封面预览" className="add-preview" />}
           <div className="add-actions">
             <button type="submit" className="btn btn-primary">
               加入图鉴
