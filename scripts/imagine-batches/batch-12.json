@@ -1,0 +1,87 @@
+{
+  "batch": "12",
+  "count": 8,
+  "note": "Finish remaining 构图 cards, then start the 仙侠特效 series. ASPECT CHANGES: goutu-3-04 is 9:16 → 9:16 Story; then switch back to 16:9 Widescreen for goutu-3-05, goutu-4, goutu-5; then switch to 2:3 Poster for texiao-1-01 through 1-04 (source 3:4 is not in Imagine’s aspect menu; use 2:3 Poster). goutu-3-04 is a realistic fictional Chinese reading-app UI (静页); prefer the variant with cleaner Chinese UI text; no real-platform logos. goutu-3-05 is a typography-free science-magazine cover about time and memory, subject left of center with title space. goutu-4 is a SINGLE cinematic sword-slash still with a pure black arc, not a storyboard grid. goutu-5 is a craft-demonstration portrait: golden hour, low angle, shallow DOF, teal-and-orange grade. texiao-1-01 to 1-04 use the SAME fully clothed adult xianxia woman in layered robes; each still must clearly show its named spiritual effect (silver-purple star force, pale-cyan musical force, chaotic primordial force, black-white yin-yang).",
+  "items": [
+    {
+      "id": "goutu-3-04",
+      "title": "虚构 App 中文 UI 界面截图",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "9:16 fictional Chinese mobile app UI screenshot for a quiet reading app called 静页. Realistic product prototype, not a concept illustration. Top navigation bar with the title 静页 and a search icon; a content list of fictional book titles and short excerpts using made-up names only; a bottom tab bar or a primary action button such as 继续阅读. Generous whitespace, modern Chinese internet product design, clear typographic hierarchy, readable Chinese UI text. No real-platform logos (not WeChat, Douban, Xiaohongshu, Kindle, or other real apps), no celebrities, no real news, no real accounts, no watermark.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-3-04.jpg",
+      "final": "public/covers/entries/goutu-3-04.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-3-05",
+      "title": "科普文章公众号封面图",
+      "imagineAspect": "16:9",
+      "aspectNote": null,
+      "imaginePrompt": "16:9 science-magazine cover illustration with a strong visual metaphor about time and memory: an hourglass whose falling sand is turning into paper boats or tiny remembered rooms. Bright, clever, slightly absurdist, but not scary. Place the main subject left of center, leaving clear empty space on the right or top for a title to be added later. Clean lighting, a clear subject, only a few supporting elements. High-quality popular-science magazine cover. No typography, no logo, no watermark, no busy background.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-3-05.jpg",
+      "final": "public/covers/entries/goutu-3-05.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-4",
+      "title": "拔剑视频分镜",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "A single cinematic cover still, not a storyboard grid or comic-panel layout, of an adult East Asian swordswoman in modest traditional wuxia robes, fully clothed, drawing a long sword and slashing from the upper right to the lower left, leaving a pure black arc as if splitting the sky. The blade and the black arc form a strong visual focus at the center of the frame. Dramatic lighting, a sense of force, slight motion. Photoreal-fantasy, no watermark, no typography, no UI chrome, no letterboxing, no reference-image placeholders or @ notations.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-4.jpg",
+      "final": "public/covers/entries/goutu-4.jpg",
+      "flags": []
+    },
+    {
+      "id": "goutu-5",
+      "title": "AI提示词逆向工程师（图生提示词）",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "Cinematic cover still that itself demonstrates photographic craft: a low-angle portrait of an adult East Asian woman, fully clothed, at golden hour, shallow depth of field f/1.8, backlight with long shadows, soft teal-and-orange color grade, photoreal. No typography, no watermark, no UI chrome, no letterboxing.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/goutu-5.jpg",
+      "final": "public/covers/entries/goutu-5.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-01",
+      "title": "银紫星辰灵力",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the same adult East Asian woman, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her: 人物周身萦绕银紫星辰灵力，细碎星砂如银河绕体流淌，星轨纹路沿经脉走向闪烁明灭，周身似有夜幕垂垂、星斗罗列，气场浩瀚深邃、包罗万象，自带周天星斗的玄妙道韵，神秘不幽暗。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-01.jpg",
+      "final": "public/covers/entries/texiao-1-01.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-02",
+      "title": "淡青音律灵力",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the same adult East Asian woman, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her: 人物周身萦绕淡青音律灵力，细密音符如实体悬浮环绕，音纹在喉间与指尖随呼吸明灭，空气随灵波微颤发出极低共鸣，气场韵律十足、慑人心魂，自带九韶仙乐的悠扬道韵，悦耳不嘈杂。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-02.jpg",
+      "final": "public/covers/entries/texiao-1-02.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-03",
+      "title": "蒙蒙混沌元力",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the same adult East Asian woman, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her: 人物周身萦绕蒙蒙混沌元力，灰蒙气团如星云裹挟身躯，混沌纹路无序却自蕴规律，气团翻涌似开天辟地初分，气场原始莽荒、生灭不息，自带鸿蒙未判的太古道韵，厚重不浑浊。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-03.jpg",
+      "final": "public/covers/entries/texiao-1-03.jpg",
+      "flags": []
+    },
+    {
+      "id": "texiao-1-04",
+      "title": "黑白阴阳二气",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "Cinematic xianxia character still of the same adult East Asian woman, mid-20s, fully clothed in layered traditional xianxia robes with a high collar and long sleeves, modest and elegant, hair neatly styled with a simple hairpin, calm composed expression, photoreal-fantasy. No nudity, no sexualization, no watermark, no UI chrome, no typography, no letterboxing bars. The image must clearly show this specific spiritual effect around her: 人物周身萦绕黑白阴阳二气，太极图纹在足下缓缓旋转，黑白灵流如双鱼缠绕躯干交汇融合，气场平衡调和、万法归宗，自带两仪相生的天道道韵，浑然不割裂。",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/texiao-1-04.jpg",
+      "final": "public/covers/entries/texiao-1-04.jpg",
+      "flags": []
+    }
+  ]
+}
