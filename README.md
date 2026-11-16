@@ -2,6 +2,8 @@
 
 把 [Nihilist-ZIO/prompt-library](https://github.com/Nihilist-ZIO/prompt-library) 做成可浏览、可搜索、可扩展的静态网页图鉴。
 
+在线预览：https://violetwzj02.github.io/prompt-gallery/
+
 内容源自原仓库 · **CC BY 4.0**。
 
 ## 本地运行
