@@ -90,10 +90,7 @@
     "texiao-1-01",
     "texiao-1-02",
     "texiao-1-03",
-    "texiao-1-04"
-  ],
-  "failed": [],
-  "pending": [
+    "texiao-1-04",
     "texiao-1-05",
     "texiao-1-06",
     "texiao-1-07",
@@ -101,7 +98,10 @@
     "texiao-1-09",
     "texiao-1-10",
     "texiao-1-11",
-    "texiao-1-12",
+    "texiao-1-12"
+  ],
+  "failed": [],
+  "pending": [
     "texiao-1-13",
     "texiao-1-14",
     "texiao-1-15",
