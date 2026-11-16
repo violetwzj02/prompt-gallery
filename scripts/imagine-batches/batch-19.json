@@ -1,0 +1,87 @@
+{
+  "batch": "19",
+  "count": 8,
+  "note": "Finish the last five 周边 ecommerce covers (zhoubian-18 through 22) on 4:3, then start 艺术. ASPECT: Imagine is already on 4:3 Presentation — KEEP 4:3 for zhoubian-18, 19, 20, 21 and 22. After zhoubian-22, SWITCH to 2:3 Poster for yishu-1, yishu-2 and yishu-3 (yishu-1 and yishu-2 are source 3:4, which Imagine maps to 2:3 Poster; yishu-3 is already 2:3). Report that the switch happened. Image mode, Quality 2.0, Image Count ×2, one at a time. Product stills stay unbranded and distinct: 18 a ceramic vase, incense/diffuser and modest brass object on a wooden table with leftover space and dappled light — not the sofa interior and not skincare; 19 a cream/sage pet bed with a toy and bowl in a sunlit home corner, plus a relaxed healthy adult cat sized to the products — not a nursery; 20 cream nursery with a baby bottle, a wooden or soft toy and a compact rounded stroller, NO baby or child in the frame; 21 trail-running vest/backpack and a metal bottle on a sunlit mountain trail — not a white-background sneaker catalog; 22 a dash cam mounted realistically in a clean car cabin, with a leather seat cushion or floor mat — not a living room and not a trail. Then art posters, invent a complete scene (no reference-image language): yishu-1 a 50/50 vertical diptych, top photoreal woman on a lakeside pier at dusk under a moon, bottom the same scene as a modern ukiyo-e woodcut in at most four colors (washi ivory, indigo, vermillion, charcoal), quiet and not souvenir kitsch; yishu-2 typography-only, the five characters 纵有疾风起 horizontally on pure black, Dutch angle, brush, 飞白 and ink splash — prefer the variant where all five characters are correct and readable; yishu-3 a 2:3 city-waterfront diptych, top photoreal dusk skyline with a crescent moon, bottom a soft-gouache minimal editorial translation with ivory negative space — not a ukiyo-e woodcut and not calligraphy. No copyrighted brand logos. If a variant is letterboxed, glitched, logo-heavy, typography-garbled, or looks like another item, save the cleaner distinct one. Do not generate ids beyond this batch of 8. Leave Imagine open and signed in.",
+  "items": [
+    {
+      "id": "zhoubian-18",
+      "title": "电商商品图 16｜家居饰品",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。前五条保持 4:3 Presentation。",
+      "imaginePrompt": "Quiet home-accessory ecommerce photograph, 4:3 landscape, photoreal, calm and refined. On a pale wooden tabletop: a matte ceramic vase with a few simple branches, a small incense holder or oil diffuser, and a modest vintage brass object. Soft dappled light, generous leftover negative space in the background, unified gentle colors. Ceramic looks warm, glass if present is clear, metal is quietly antique. No clutter, no cheap props, no people, no brand logos, no watermark, no UI chrome, no extra typography. This is a tabletop accessory still-life, not a sofa-in-a-living-room furniture shot and not a skincare bottle on stone.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-18.jpg",
+      "final": "public/covers/entries/zhoubian-18.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-19",
+      "title": "电商商品图 17｜宠物用品",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。前五条保持 4:3 Presentation。",
+      "imaginePrompt": "Warm pet-product ecommerce photograph, 4:3 landscape, photoreal, loving and clean. In a sunlit home corner, an unbranded cream or sage pet bed sits with a soft toy and a simple food bowl. A healthy adult cat rests comfortably on or beside the bed: soft fur, bright eyes, a natural relaxed expression, size matching the products. Natural window light, shallow depth of field, no loose fur mess, no stains, no brand logos, no watermark, no UI chrome, no extra typography. The products remain clearly visible and the interaction feels safe and companionable. This is a pet-product lifestyle still, not a home-accessory still-life and not a nursery shot.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-19.jpg",
+      "final": "public/covers/entries/zhoubian-19.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-20",
+      "title": "电商商品图 18｜母婴用品",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。前五条保持 4:3 Presentation。",
+      "imaginePrompt": "Soft nursery baby-product ecommerce photograph, 4:3 landscape, photoreal, warm and reassuring. In a cream-toned infant room with gentle light: an unbranded baby bottle, a smooth wooden teething toy or soft toy, and a compact stroller with rounded, safe details. Colors are creamy and not harsh; materials look safe; no sharp edges and no loose small parts. Do not include a baby or child in the frame — products only. No famous baby-brand logos, no watermark, no UI chrome; if any label appears, keep it generic and prefer the cleaner typography variant. This is a nursery product still, not a pet-product shot and not a general home-accessory still-life.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-20.jpg",
+      "final": "public/covers/entries/zhoubian-20.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-21",
+      "title": "电商商品图 19｜运动户外",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。前五条保持 4:3 Presentation。",
+      "imaginePrompt": "Energetic outdoor-sports ecommerce photograph, 4:3 landscape, photoreal, sunny and athletic. An unbranded trail-running hydration vest or lightweight backpack and a metal water bottle sit on a sunlit mountain trail; running shoes may appear in the scene as supporting gear only. Dynamic natural light, a hint of water droplets, durable vivid materials, a slightly defocused mountain or track background, clear sense of speed and health. The products stay the hero. No Nike, Adidas, The North Face, or other brand logos, no watermark, no UI chrome, no extra typography. This is an outdoor-gear-in-the-wild still, not a white-background sneaker catalog shot and not a car-interior accessory shot.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-21.jpg",
+      "final": "public/covers/entries/zhoubian-21.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-22",
+      "title": "电商商品图 20｜汽车用品",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。前五条保持 4:3 Presentation。拍完后切换画幅。",
+      "imaginePrompt": "Professional car-accessory ecommerce photograph, 4:3 landscape, photoreal, clean and technical. Inside a tidy generic car cabin or a clean garage: an unbranded dash cam mounted in a realistic position on the windshield, with a leather seat cushion or a neatly placed floor mat also visible. Metal and leather textures, firm directional light, natural shadows that are not overly reflective, no clutter. Installation looks plausible and the products match the cabin. No car-brand or accessory-brand logos, no watermark, no UI chrome, no extra typography. This is an automotive-interior product still, not a mountain-trail sports shot and not a living-room scene.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-22.jpg",
+      "final": "public/covers/entries/zhoubian-22.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-1",
+      "title": "浮世绘双联海报",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 无 3:4，改用 2:3 Poster。从本条起切换到 2:3。",
+      "imaginePrompt": "A vertical printable art poster strictly split into two equal halves, top and bottom each exactly 50 percent of the height, 2:3 portrait. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal editorial photograph of a fully clothed adult East Asian woman in a simple dark modern coat, standing alone on a wooden lakeside pier at dusk, looking toward a large pale moon over still water, with a few reeds in the foreground; quiet, cinematic, not a tourist postcard. BOTTOM HALF: the SAME scene translated into a modern ukiyo-e woodblock print — extract the silhouette, spatial layers, decorative rhythm and key pose; clear outlines, flat color planes, woodcut carving texture, fine lines and decorative pattern. Palette limited to at most four colors based on washi ivory, light indigo, vermillion and charcoal, with only a touch of warm yellow if needed. Allow slight registration misalignment, ink-absorbing paper edges, carving marks and flattened compositional lines. Optional: a very small restrained English word such as DUSK, clearly set; if the lettering is messy, prefer the cleaner variant or no type. Overall: quiet, contemporary, restrained, like an independent-publication cover or exhibition poster. Avoid souvenir Japanese kitsch, cheap wa templates, cartoon, a photoreal copy in the bottom half, busy backgrounds, too many colors, heavy oil paint, watercolor bleeds, 3D, watermarks, or a subject that fills the whole frame. No UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-1.jpg",
+      "final": "public/covers/entries/yishu-1.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-2",
+      "title": "艺术字「纵有疾风起」",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4，Imagine 改用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A bold calligraphy typography poster on a pure black background, 2:3 portrait. The only characters in the image must be the five Chinese characters 「纵有疾风起」, arranged horizontally, complete, correctly written, and clearly readable. Expressive brush-calligraphy lettering with ink-splash energy, flying-white (飞白) at the starts and ends of strokes, sudden pauses and thick-thin variation, unrestrained and rushing. Use a Dutch angle / tilted composition so the lettering surges diagonally with a sense of sprinting; the visual center of gravity lifts as if coiled to leap. Dense passages feel like a surge, open passages feel like breath. The color of the ink may be vivid white, vermillion, or white-and-cinnabar, fully expressive against the black field. No other words, no English, no watermark, no UI chrome, no decorative border. Prefer the variant where all five characters are accurate and legible. If one variant garbles, drops, or adds characters, save the correctly written one.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-2.jpg",
+      "final": "public/covers/entries/yishu-2.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-3",
+      "title": "城市转极简海报",
+      "imagineAspect": "2:3",
+      "aspectNote": "源条目即为 2:3，切换后保持 2:3 Poster。",
+      "imaginePrompt": "A vertical 2:3 editorial art poster split into two halves, top and bottom, inventing one complete city scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a quiet city waterfront at dusk — a recognizable skyline of mid-rise buildings along water, soft clouds, a crescent moon, and a few warm window lights. Slight cinematic color grade only: lower saturation, natural light, soft restrained tones of blue-grey, warm yellow and ivory. No HDR, no oversharpening, no obvious AI-redraw look. BOTTOM HALF: the SAME view translated into a minimal editorial soft-gouache illustration — buildings as geometric color planes, distant forms compressed into small silhouettes, clouds as soft horizontal brush marks, the moon simplified to a crescent, lights as a few warm ochre dots. Soft gouache, dry-brush, watercolor-like opacity, subtle paper grain, slightly imperfect edges, matte printed texture. Palette: warm ivory, muted navy, blue grey, smoky grey, warm ochre, mustard yellow, soft beige, low saturation. Generous ivory negative space, sparse, balanced, quiet, poetic, modern. No heavy outlines, no cartoon, no cyberpunk, no 3D, no vector-icon look, no commercial advertising clutter. Optional typography should stay very small and restrained, or be omitted; prefer the cleaner variant if type appears. This must feel like a museum-shop or art-book cover, a pairing of real photography and minimal hand-painted illustration. It is not a ukiyo-e woodcut (that is a different poster) and not a typography-only calligraphy poster. No watermark, no UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-3.jpg",
+      "final": "public/covers/entries/yishu-3.jpg",
+      "flags": []
+    }
+  ]
+}

@@ -130,10 +130,7 @@
     "zhoubian-6",
     "zhoubian-7",
     "zhoubian-8",
-    "zhoubian-9"
-  ],
-  "failed": [],
-  "pending": [
+    "zhoubian-9",
     "zhoubian-10",
     "zhoubian-11",
     "zhoubian-12",
@@ -141,7 +138,10 @@
     "zhoubian-14",
     "zhoubian-15",
     "zhoubian-16",
-    "zhoubian-17",
+    "zhoubian-17"
+  ],
+  "failed": [],
+  "pending": [
     "zhoubian-18",
     "zhoubian-19",
     "zhoubian-20",
