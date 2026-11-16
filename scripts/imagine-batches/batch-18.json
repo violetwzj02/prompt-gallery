@@ -1,0 +1,87 @@
+{
+  "batch": "18",
+  "count": 8,
+  "note": "Continue 周边 ecommerce covers, zhoubian-10 through zhoubian-17. ASPECT: Imagine is already on 4:3 Presentation; confirm and KEEP 4:3 for every item (do not switch to 2:3). Image mode, Quality 2.0, Image Count ×2, one at a time. Invent a complete unbranded hero product for each still so they stay visually distinct: 10 a classic red lipstick on a vanity with silk, petals and droplets, sharp bullet, metal case, side-back light — not skincare; 11 a clear glass serum bottle on wet stone or shallow water, matte pump, plants and mist — not lipstick; 12 a citrus sparkling-drink bottle among ice, splash and fruit, backlight through the liquid — not beauty; 13 a solitaire diamond ring macro on black velvet, strong fire, sharp prongs — not a watch; 14 an automatic dress watch on slate or leather, clear dial and hands at about 10:10, brushed metal, side light — not a ring macro and not the earlier camera; 15 a slim phone and compact earbuds on a dark tech desk with blue-violet edge light; screen shows only an abstract wallpaper, no OS/app UI — not a standalone keyboard, not headphones, not a camera; 16 a matte-black air fryer on a bright modern kitchen counter, natural shadow, true scale — not the white-bg kettle, not a speaker, not furniture; 17 a beige linen two-seat sofa in a Nordic living room with window light, grounded, accurate perspective — not an appliance and not a small tabletop accessory. No copyrighted brand logos (no Coca-Cola, Tiffany, Rolex, Omega, Apple, Samsung, Sony, etc.). If a label or panel must appear, prefer the variant with cleaner generic typography; otherwise no extra lettering. If a variant is letterboxed, glitched, logo-heavy, or looks like another item, save the cleaner distinct one. Do not generate ids beyond this batch of 8. Leave Imagine open and signed in.",
+  "items": [
+    {
+      "id": "zhoubian-10",
+      "title": "电商商品图 08｜美妆口红",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Luxury beauty ecommerce photograph, 4:3 landscape, photoreal, refined and lightly luxurious. An unbranded classic red lipstick stands on a polished makeup vanity: the bullet has a sharp, clean cut, the cream looks moist and richly colored, and the case is shiny metal with no fingerprints. Side-back lighting, delicate highlights, soft shadows. The background is gently defocused with a few petals, tiny water droplets, and a fold of silk — accents only, never crowding the lipstick. No melting, no cracks, no brand logos, no shade-code typography unless it is very clean and generic; prefer no extra lettering. No watermark, no UI chrome. This is a lipstick beauty still, not a skincare bottle and not a jewelry macro.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-10.jpg",
+      "final": "public/covers/entries/zhoubian-10.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-11",
+      "title": "电商商品图 09｜护肤品",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Clean skincare ecommerce photograph, 4:3 landscape, photoreal, quiet and pure. An unbranded clear glass serum bottle with a pale champagne or soft-green liquid and a matte plastic pump stands on a wet stone slab or in shallow rippling water, with a sharp reflection. Cool or natural light, airy and translucent, not oily or falsely glossy. Soft plants, light mist, and gentle bokeh highlights in the background; a few natural water droplets on the stone. If a label appears, keep it simple and unbranded (a generic word such as SERUM is fine) and prefer the variant with cleaner typography; no famous beauty-brand names. No watermark, no UI chrome. This is a hydrating skincare still, not a lipstick vanity shot and not a jewelry close-up.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-11.jpg",
+      "final": "public/covers/entries/zhoubian-11.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-12",
+      "title": "电商商品图 10｜食品饮料",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Appetizing summer beverage ecommerce hero, 4:3 landscape, photoreal, icy and thirst-quenching. An unbranded clear glass bottle of bright citrus sparkling drink stands among transparent ice cubes, a frozen splash of water, and fresh orange or lemon slices. Condensation beads on the glass, tiny bubbles rise in the liquid, and backlight shines through the true-colored drink with sparkling highlights. Colorful, dynamic, slightly defocused background. Liquid does not overflow; fruit looks fresh, not expired. If a label appears, keep it generic and unbranded and prefer the variant with cleaner readable typography; no Coca-Cola, Sprite, or other famous marks. No watermark, no UI chrome. This is a food-and-drink still, not a beauty product and not a tech gadget.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-12.jpg",
+      "final": "public/covers/entries/zhoubian-12.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-13",
+      "title": "电商商品图 11｜珠宝首饰",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Luxury jewelry ecommerce macro, 4:3 landscape, photoreal, pure and precious. A single unbranded solitaire diamond ring in white gold or platinum rests on black velvet or a dark mirror. Strong diamond fire and brilliance, clearly visible prongs, extremely shallow depth of field with the gem in sharp focus. Multi-angle lighting, delicate reflections, no blown highlights, dark moody background with soft light spots. No inclusions, no scratches, no oxidation, no brand logos (no Tiffany or similar marks), no extra typography, no watermark, no UI chrome. This is a jewelry macro, not a wristwatch product shot and not a beauty still.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-13.jpg",
+      "final": "public/covers/entries/zhoubian-13.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-14",
+      "title": "电商商品图 12｜手表",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Precision watch ecommerce photograph, 4:3 landscape, photoreal, taut and refined. An unbranded automatic dress watch with a silver brushed-metal case, a clean light dial, clear indices, and a dark leather strap sits on a slate or dark leather surface. Hands are sharp and set to a natural time such as 10:10; the crystal has natural reflections; the strap grain and buckle are visible. Side lighting carves a steady silhouette and calm shadows. The background stays secondary. No fingerprints, no Rolex, Omega, Apple, or other brand marks, no extra typography, no watermark, no UI chrome. This is a full wristwatch still, not a diamond-ring macro and not the camera from the previous batch.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-14.jpg",
+      "final": "public/covers/entries/zhoubian-14.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-15",
+      "title": "电商商品图 13｜3C 数码",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Futuristic consumer-electronics ecommerce hero, 4:3 landscape, photoreal, cool and professional. An unbranded slim smartphone and a compact pair of wireless earbuds rest on a dark tech desk. Blue-violet lighting, softly glowing product edges, suspended particles, and thin flowing light lines. The phone screen shows a clean abstract wallpaper only — no operating-system logos, no app icons, no copyrighted UI. Metal frame highlights, matte plastic, ports and buttons complete and sharp. Light effects must not hide the products. No Apple, Samsung, Sony, or other brand marks, no watermark, no UI chrome, no extra typography. This is a phone-and-earbuds tech-desk still, not a standalone mechanical keyboard (already used), not backlit headphones, and not a camera render.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-15.jpg",
+      "final": "public/covers/entries/zhoubian-15.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-16",
+      "title": "电商商品图 14｜家电",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Modern home-appliance ecommerce photograph, 4:3 landscape, photoreal, bright, tidy, and practical. An unbranded matte-black countertop air fryer with a clear glass window and a simple control panel sits on a clean modern kitchen counter. Accurate materials: metal highlights, clear glass, fine plastic; a natural contact shadow; true-to-life scale in a warm contemporary kitchen or dining nook. Bright even light, coordinated colors, no clutter. The panel is readable as simple generic icons or clean numerals if any lettering appears; prefer the cleaner typography variant; no famous appliance-brand names. No watermark, no UI chrome. This is a kitchen-appliance-in-a-room still, not a white-background kettle, not a living-room Bluetooth speaker, and not a piece of furniture.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-16.jpg",
+      "final": "public/covers/entries/zhoubian-16.jpg",
+      "flags": []
+    },
+    {
+      "id": "zhoubian-17",
+      "title": "电商商品图 15｜家具",
+      "imagineAspect": "4:3",
+      "aspectNote": "条目未标注画幅，按大类默认采用 4:3。Imagine 已确认有 4:3 Presentation，整批保持 4:3。",
+      "imaginePrompt": "Interior furniture ecommerce photograph, 4:3 landscape, photoreal, comfortable and lived-in. A beige linen two-seat sofa with plump cushions and slender wood or metal legs sits in a calm Nordic living room. Clear wood grain or soft fabric texture, natural window light, gentle shadows, stable composition and accurate perspective. The sofa is grounded, not floating, and the room is not crowded. High-quality home atmosphere that suggests arranging a real space. No people, no brand logos, no watermark, no UI chrome, no extra typography. This is a furniture-in-interior still, not a small kitchen appliance and not a tabletop home-accessory arrangement.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/zhoubian-17.jpg",
+      "final": "public/covers/entries/zhoubian-17.jpg",
+      "flags": []
+    }
+  ]
+}
