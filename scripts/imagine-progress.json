@@ -22,10 +22,7 @@
     "renwu-14",
     "renwu-16",
     "renwu-17",
-    "renwu-18"
-  ],
-  "failed": [],
-  "pending": [
+    "renwu-18",
     "renwu-15",
     "renwu-19",
     "renwu-20",
@@ -33,7 +30,10 @@
     "renwu-22",
     "renwu-23",
     "renwu-24",
-    "renwu-25",
+    "renwu-25"
+  ],
+  "failed": [],
+  "pending": [
     "renwu-26",
     "renwu-27",
     "renwu-28",

@@ -1,0 +1,87 @@
+{
+  "batch": "05",
+  "count": 8,
+  "note": "Aspect mapping: 9:16→9:16 Story; 16:9→16:9 Widescreen; 1:1→1:1 Square (or the Square option in the menu). changjing-1 is a vertical phone snapshot, so use 9:16 Story even though the manifest defaulted to 16:9. Keep the bedroom figure fully clothed in casual loungewear.",
+  "items": [
+    {
+      "id": "renwu-26",
+      "title": "超真实AIGC-P 竹林小径·撑伞侧行（Midjourney）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long black hair in a low ponytail with a pale jade ribbon and loose strands framing her face, wearing a pale celadon green modern hanfu-inspired dress with sheer layered sleeves and subtle embroidery, medium cinematic shot from side angle at eye level, walking slowly along a narrow mossy stone path through a dense bamboo grove holding a translucent paper umbrella over her shoulder, turning her head to look at camera with a calm gentle expression, soft diffused light after rain filtering through tall bamboo stalks, dappled light spots and fine mist drifting between the bamboo, soft daylight global illumination, luminous highlights on hair strands umbrella paper wet bamboo leaves and dress embroidery, creamy Cooke lens rendering, large aperture f/2.5, sparkling circular bokeh background with blurred bamboo trunks and glowing mist, soft green lens flare, dreamy misty bamboo forest atmosphere, cool jade-green color grading with warm light spots, desaturated cool palette, 9:16. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-26.jpg",
+      "final": "public/covers/entries/renwu-26.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-27",
+      "title": "2.5D厚涂角色三视图设定·橙红卫衣熊耳（Midjourney）",
+      "imagineAspect": "1:1",
+      "aspectNote": null,
+      "imaginePrompt": "[Character lock — identical across all three panels] petite young woman, oversized head with a chubby doll-like face, very long slender legs, short silver-white bob hair with soft wispy strands, large teal-green eyes with bright catchlights, pale skin with soft coral blush across both cheeks and the nose bridge, calm neutral expression with a small pout. Wearing an oversized coral-orange hoodie with a bunched bear-ear hood, one white circular paw patch on each side of the hood, white drawstrings, black line-art tiger-head graphic print on the chest, wide drooping sleeves, white shorts barely visible under the hem, white scrunched slouch socks, chunky white platform sneakers. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-27.jpg",
+      "final": "public/covers/entries/renwu-27.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-28",
+      "title": "日系Cosplay影棚写真｜哥特修女·暗黑圣女（9:16半身胸像·真人实拍）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 日系 Cosplay 影棚写真，哥特修女 / 暗黑圣女主题，9:16 竖版半身胸像，高清 4K，真人实拍，非动漫、非插画、非 3D 渲染、非游戏 CG。\n【主体】明确成年的东亚女性，二十岁出头，身形纤细，肩颈线条修长。面部是精致但仍是真人的骨相：脸型小巧偏鹅蛋，下颌线柔和收束，鼻梁细直、鼻头圆润，唇形小巧饱满；妆容为日系 Cosplay 精致妆，底妆白皙通透但保留真实皮肤纹理，苹果肌大面积淡粉腮红向眼下自然晕开，浅粉色眼影、细长眼线、根根分明的睫毛与淡淡卧蚕，浅棕偏琥珀色美瞳带湿润反光，眉色浅粉棕、眉形平缓，唇色淡玫瑰粉、唇纹清晰；眉心正中一枚极小的深色花钿装饰。表情平静、略带疏离，眼神直视镜头，嘴唇自然闭合，没有夸张笑容。\n【发型】淡粉金色（pastel pink-blonde）超长直发，发根略深、发尾渐浅泛粉，发丝顺滑柔软、带细腻光泽；厚重齐刘海平切至眉上，两侧各有一缕较长的鬓发垂至胸前，其余长发从头纱下披散到腰部以下，垂落在身体正面形成一条柔和的浅色纵向线条。\n【头纱与头饰】一顶白色缎面修女式头纱罩住头顶与后脑，前额露出齐刘海，两侧垂片顺着脸颊与肩部垂落至胸口；头纱边缘为连续的扇贝形 / 花瓣形波浪裁边，层叠圆润；垂片下段有一道横向镂空刺绣装饰带，由连续的 X 形与十字形小纹样组成，露出细致织物孔洞；缎面呈柔和珍珠白光泽，有自然褶皱与厚度。画面左上方立着一枚细长的黑色哥特十字架道具，作为暗色视觉锚点，与白色头纱形成黑白对比。\n【服装】象牙白高领立领长袖连衣裙，前襟自领口向下有一排黑色小圆纽扣，领口与门襟有细密压褶；袖子为白色缎面灯笼袖 / 宽袖，蓬松有自然褶皱，袖口收紧；肩部、手臂外侧与身体两侧垂挂大量黑色缎面双层荷叶边，褶皱细密、立体、带明显光泽，从前肩一路层叠到画面下缘，与白色衣身形成强烈的黑白纵向对比。下身隐于裁切之外。整体服装结构完整、层叠分明，布料厚实有真实织纹。\n【动作】双手戴白色缎面短手套，贴合手型、指节清晰；靠近画面左侧的手轻握成拳、指背抵在下巴与唇下，手肘自然下沉；另一只手在胸前轻握成拳，搭在衣襟与长发之间。肩颈放松，头部微微低垂、视线略向上直视镜头，姿态收敛、安静、仪式感强，不做摆拍式的夸张动作。\n【构图与宽高比】9:16 竖版，半身胸像取景，从十字架与头纱顶端到腰部以下裁切；人物居中，头纱占据画面上部约三分之一，黑色荷叶边沿画面左右两侧形成对称的深色边框感；中高机位平视，人物清晰锐利，背景轻微虚化，浅景深。\n【地点与背景】室内影棚，纯中性灰无缝背景布 / 背景纸，色调均匀无杂物；画面左侧堆着一小片淡黄绿色缎面褶皱布料作为柔和的浅色衬托，左上方黑色十字架立在背景前；背景整体干净、低饱和、不抢主体。\n【相机与布光】等效 50mm 标准人像焦段，f/2.0 大光圈浅景深，焦点锁在眼睛与面部，头纱边缘与荷叶边向后逐级柔化；一盏大尺寸柔光箱从正面偏左上方打光，光线柔和无硬边阴影，面部曝光略偏高、皮肤通透但不过曝，另一侧面颊与颈侧落入柔和浅影；白色缎面与黑色缎面各自呈现不同的反光质感，头纱边缘有细腻高光轮廓，黑色荷叶边保留褶皱内的暗部层次不过死；整体为干净的影棚柔光，低对比、轻微暗角。\n【色彩与质感】主色仅四色：象牙白、纯黑、淡粉金发色、中性灰背景，淡黄绿缎布为极少量辅助色；低饱和、干净、克制。真实织物纹理：缎面的柔光与褶皱、镂空刺绣的孔洞、荷叶边的层叠厚度、纽扣的哑光质感；发丝分明、有真实光泽，皮肤保留细微纹理与极轻后期磨皮，不做塑料感、不做蜡像感。\n【文本】画面中不出现任何文字、字母、水印、logo 或字幕；十字架与刺绣纹样仅为图形符号。\n【参考图作用】上传的参考图仅用于锁定人物造型、黑白配色、头纱剪裁、荷叶边结构与半身构图；不得照搬参考图中的具体人物身份，不指向任何特定动漫或游戏角色名称，按上述视觉特征复现即可。\nnegative prompt: 动漫脸, 二次元, 游戏 CG 感, 3D 渲染, 塑料皮肤, 蜡像, 过度磨皮, 五官变形, 眼睛过大, 头纱变形或缺失, 扇贝裁边糊成一团, 镂空刺绣消失, 黑色荷叶边缺失或糊成一片, 纽扣错位或数量错乱, 灯笼袖变普通窄袖, 手套缺失, 畸形手指, 多手, 发色变纯白或纯黑, 刘海变空气刘海, 十字架缺失, 背景杂乱, 强硬阴影, 棚拍冷光过曝, HDR, 高对比, 多人, 低分辨率, 拼接, 文字, 水印。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-28.jpg",
+      "final": "public/covers/entries/renwu-28.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-1",
+      "title": "卧室随手拍",
+      "imagineAspect": "9:16",
+      "aspectNote": "源条目未标画幅，但正文是竖幅手机随手拍，本批按 9:16 Story 生成",
+      "imaginePrompt": "A single strong cover still of a casual vertical phone snapshot from slightly behind and to the right of an adult person lounging on a bed, camera almost at mattress height, looking along the body from the waist and legs toward the upper body and the far end of the room. The person is clearly an adult, casually dressed in everyday loungewear (an oversized T-shirt and loose shorts or sweatpants), fully clothed, non-sexual, unposed, as if captured in a real everyday moment. The body forms a natural diagonal from the upper-left toward the lower-right; the person sits a little low in the frame, with a large area of soft off-white bedding in the foreground and tall white sheer curtains filling the background. No studio front-on portrait, no ID-photo centering, no posed glamour, no nudity, no watermark, no UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-1.jpg",
+      "final": "public/covers/entries/changjing-1.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-2",
+      "title": "汴京全景",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: 彩楼欢门的朱红绸缎呈现真实的织物色泽而非荧光红，酒旗的明黄色温润如熟杏，青瓦屋顶在光线下泛着沉稳的赭石与深灰交织的自然色调，早市蔬菜摊的绿叶是真实的新鲜草绿色，天青釉碗保持宋瓷特有的含蓄雅致，木材的包浆反光柔和自然。 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-2.jpg",
+      "final": "public/covers/entries/changjing-2.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-3",
+      "title": "汴京一镜到底",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "A single strong cover still that faithfully depicts the following scene: - **风格定位**：实景拍摄质感（Cinematic Live Action），电影级调色，高动态范围（HDR），浅景深，8K超高清分辨率\n- **光线设定**：日出后柔和的暖金色侧逆光，丁达尔光效穿透晨雾与炊烟，明暗过渡自然，屋何与街道立体感强\n- **镜头设定**：FPV第一人称视角，一镜到底\n- **运镜载体**：镜头由一个微弱的，带有流动感的白金色魔法粒子光点作为视觉引导载体，贴地或贴物飞行，速度感适中，模拟昆虫或小精灵视角的灵动穿梭\n- **氛围基调**：活色生香的北宋烟火气与仙气并存，市井讨价还价的争吵，早餐摊的热气，达官贵人的宴饮，书院的朗朗书声，纤夫的号子等环境音效需在画面中具象化 High quality, cinematic lighting, follow the medium implied by the description, no watermark, no UI chrome, no extra typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-3.jpg",
+      "final": "public/covers/entries/changjing-3.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-4-01",
+      "title": "未来景观 1",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "a digital painting of a futuristic landscape from a high angle. in the foreground, a single human figure stands on a rocky, snow dusted ledge overlooking a vast sea of clouds. huge, angular, beige megastructures frame the scene, curving overhead and plunging down towards the clouds. in the distance, a sprawling city with numerous skyscrapers rises above the cloud layer under a pale, hazy blue sky. the scene is illuminated by soft, warm light from the side, casting long shadows and highlighting the textures of the stone and metal surfaces. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-4-01.jpg",
+      "final": "public/covers/entries/changjing-4-01.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-4-02",
+      "title": "未来景观 2",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "a high angle view of a science fiction world. a person stands on a rocky, snow covered precipice in the lower left. looking out over a thick layer of clouds. enormous, geometric, light colored architectural arches span the upper portion of the frame. in the distance, a dense city of tall towers emerges from the clouds. the lighting is soft and golden, suggesting early morning or late afternoon, with a gentle pink and blue gradient in the sky. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-4-02.jpg",
+      "final": "public/covers/entries/changjing-4-02.jpg",
+      "flags": []
+    }
+  ]
+}
