@@ -3,6 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var KEY = 'prompt-gallery-theme'
+        var pref = 'system'
+        try {
+          var stored = localStorage.getItem(KEY)
+          if (stored === 'dark' || stored === 'light' || stored === 'system') pref = stored
+        } catch (e) {}
+        var resolved =
+          pref === 'system'
+            ? window.matchMedia('(prefers-color-scheme: light)').matches
+              ? 'light'
+              : 'dark'
+            : pref
+        var root = document.documentElement
+        root.setAttribute('data-theme', resolved)
+        root.setAttribute('data-theme-pref', pref)
+        root.style.colorScheme = resolved
+      })()
+    </script>
     <title>风格 Prompt 图鉴</title>
     <meta
       name="description"
@@ -14,8 +34,8 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="./assets/index-CNLOpV-l.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C3cUwUn8.css">
+    <script type="module" crossorigin src="./assets/index-C7QrCK-i.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CfRqUx-Z.css">
   </head>
   <body>
     <div id="root"></div>
