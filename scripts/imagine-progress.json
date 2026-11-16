@@ -170,10 +170,7 @@
     "yishu-24",
     "yishu-25",
     "yishu-26",
-    "yishu-27"
-  ],
-  "failed": [],
-  "pending": [
+    "yishu-27",
     "yishu-28-01",
     "yishu-28-02",
     "yishu-28-03",
@@ -181,7 +178,10 @@
     "yishu-28-05",
     "yishu-28-06",
     "yishu-28-07",
-    "yishu-29",
+    "yishu-29"
+  ],
+  "failed": [],
+  "pending": [
     "yishu-30",
     "yishu-31",
     "yishu-32",
