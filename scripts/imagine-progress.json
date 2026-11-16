@@ -58,10 +58,7 @@
     "goutu-1-07",
     "goutu-1-08",
     "goutu-1-09",
-    "goutu-1-10"
-  ],
-  "failed": [],
-  "pending": [
+    "goutu-1-10",
     "goutu-1-11",
     "goutu-1-12",
     "goutu-1-13",
@@ -69,7 +66,10 @@
     "goutu-1-15",
     "goutu-1-16",
     "goutu-1-17",
-    "goutu-1-18",
+    "goutu-1-18"
+  ],
+  "failed": [],
+  "pending": [
     "goutu-1-19",
     "goutu-1-20",
     "goutu-1-21",
