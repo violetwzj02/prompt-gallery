@@ -1,0 +1,87 @@
+{
+  "batch": "21",
+  "count": 8,
+  "note": "Continue 艺术 covers, yishu-12 through yishu-19. ASPECT: Imagine is already on 2:3 Poster. KEEP 2:3 for every item. Do not switch aspect mid-batch. Image mode, Quality 2.0, Image Count ×2, one at a time. Invent a complete unreferenced scene for each; do not type any “use the reference image” language. Keep subjects and methods visually distinct: 12 a dawn crane in a wetland, bottom is a perforated collector stamp of the same crane with NO readable text/letters/numbers/denomination/country/postmark at all; 13 GENERIC NO-TEXT TEMPLATE — a lighthouse on a rocky headland, bottom a clean two-color linocut-like restyle, absolutely no typography, and it must not look like a stamp, mandala, torn paper, or ugly-cute cartoon; 14 a porcelain vase with plum blossoms, bottom a gongbi-line slightly isometric ritual array on a huge warm-white field; 15 a man with a yellow umbrella on wet cobblestones, bottom a centered vertical torn-paper crack with geometric color-block collage inside; 16 a sunlit shiba inu, bottom an ugly-cute clumsy picture-book cartoon of the same dog in leftover white; 17 NOT a diptych — a full-bleed coastal-village travel photo with a translucent fine-line map in the sky (15–25%), a small red dot, a few English labels, no precise GPS, no large title; 18 a wisteria photograph whose blossoms continue onto warm cream paper, 1–2 small black ink figures and a short handwritten English line, junction may follow the vines; 19 a leather suitcase, bottom the same suitcase as a 3D photographic object with thickness and shadow on rice-white paper, 1–2 ink figures interacting, a short humorous caption — not a torn-paper template. Prefer cleaner typography; if lettering is garbled, choose the cleaner variant or less type. If a variant is letterboxed, glitched, or looks like another item in this batch, save the clean distinct one. Do not generate ids beyond this batch of 8. Leave Imagine open and signed in.",
+  "items": [
+    {
+      "id": "yishu-12",
+      "title": "收藏邮票版式再创作（照片 → 3:4 竖版）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。整批保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 editorial poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a red-crowned crane standing in a misty wetland at dawn, sharp, quiet, exhibition-grade. BOTTOM HALF: the SAME crane restaged as one finely designed collector’s postage stamp on pale paper. The stamp has a clear perforated edge, a fine-line frame, a few geometric partitions, tiny decorative marks, and leftover space. The crane occupies about 25 to 42 percent of the lower half. Engraving, intaglio, or delicate silkscreen overprint texture; four to six colors extracted from the photo; refined, balanced, collectible — not a tourist souvenir card. CRITICAL: no readable text, letters, numbers, denomination, country name, postcode, postmark, or pseudo-text of any kind. No logos, watermarks, or UI chrome. This is a stamp-layout poster, not a mandala, not torn paper, not a cartoon.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-12.jpg",
+      "final": "public/covers/entries/yishu-12.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-13",
+      "title": "通用转图模板（3:4 上下双联 · 禁文字）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。这是可复用的禁文字通用模板，封面需完整发明场景并选定一种不同于本批相邻条目的再创作风格。",
+      "imaginePrompt": "A vertical 2:3 poster strictly split 50/50 top and bottom, demonstrating a generic photo-to-restyle template. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a white stone lighthouse on a rocky headland in late-afternoon light, complete and uncropped in spirit, natural color. BOTTOM HALF: the SAME lighthouse restyled as a clean two-color flat graphic / linocut-like illustration (slate blue and warm sand) on a pale field, with generous leftover white. Keep the subject clearly recognizable. CRITICAL: absolutely no typography, letters, numbers, serial marks, logos, QR codes, or watermarks anywhere in the image. This must not look like a collector stamp, a gongbi mandala, a torn-paper collage, or an ugly-cute cartoon — those are neighboring cards. Quiet, reusable template structure: photo above, restyle below, no text.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-13.jpg",
+      "final": "public/covers/entries/yishu-13.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-14",
+      "title": "工笔线描 · 微立体法阵 / 手绘空间阵盘",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。正文里的「上下严格1:1」指上下各半，不是画布 1:1。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 design poster strictly split 50/50 top and bottom — portrait, not a square canvas. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal museum-lit photograph of a white porcelain vase holding a flowering plum branch on a wooden stand, clear form, natural color, exhibition grade. BOTTOM HALF: the SAME vase and plum become the core of a gongbi-line slightly isometric ritual array / hand-drawn spatial mandala. Multi-layer concentric rings, radiating axes, arcs, broken rings, nodes, fine repeating patterns and a little floating structure, ordered rather than random magic glyphs. Complexity is densest around the vase and thins outward. Slight illustrative 3D: shallow layers, a low base, a little levitation, but still hand-drawn — fine gongbi lines with slight pressure changes and human irregularity, not CAD, game UI, or CG modeling. A small, precise subject in a huge field of clean warm white or ivory. Extract the brightest, freshest colors from the photo (clear sky-blue, tender green, warm yellow, a touch of coral) on a near-white ground; avoid muddy Morandi, brown filters, or neon candy. Optional tiny editorial words at the edge of the leftover field; prefer the cleaner typography variant or no type if messy. Not a postage stamp, not torn paper, not a cartoon. No watermark, no UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-14.jpg",
+      "final": "public/covers/entries/yishu-14.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-15",
+      "title": "撕纸镂空式数字拼贴",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 editorial poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a fully clothed adult man in a navy coat walking on wet cobblestones under a bright yellow umbrella, editorial grade, natural light. BOTTOM HALF: a centered torn-paper cutout collage on a large field of pale fiber paper. A single vertical, irregular tear with real paper fuzz, thickness and a soft shadow is the core of the composition. Inside the tear, the SAME man and yellow umbrella are rebuilt as restrained geometric color planes and simplified contours — still immediately recognizable, not a realistic copy of the street. A key part, such as the umbrella, may break slightly out of the tear, but stay controlled. Huge intentional leftover paper; two to four fresh, light colors taken from the photo. Paper grain, fibers, deckled edges, stacked thickness; a refined digital collage, not a photo of a handmade craft, not smooth vector, not cheap 3D, not a washi-tape reconstruction, and not a postage stamp. No typography, no logos, no watermarks.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-15.jpg",
+      "final": "public/covers/entries/yishu-15.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-16",
+      "title": "丑萌卡通再创作",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of an adult shiba inu sitting beside a potted plant on a wooden floor in a sunlit apartment, clear, warm, editorial. BOTTOM HALF: the SAME dog rewritten as an ugly-cute original cartoon character: slightly clumsy proportions, a little blank or grudging expression, still lovable. Keep the key colors, silhouette and sitting pose, but do not copy the photo. Uneven hand-drawn lines, crayon or gouache color patches, slight misregistration, restrained exaggeration. The cartoon sits in the center or slightly low and occupies about 25 to 40 percent of the lower half, with a large pale leftover field. It should feel like a distinctive picture-book character, funny and a bit awkward, not a slick commercial cartoon and not smooth 3D. Not a black-and-white fineliner illustration, not a lifestyle marker doodle of a cyclist, not a postage stamp. No logos, no watermarks, no typography unless a tiny handmade mark is very clean; prefer no type if messy.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-16.jpg",
+      "final": "public/covers/entries/yishu-16.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-17",
+      "title": "旅行摄影转地理视觉作品（地图图层叠加）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4 竖版，但正文不是上下双联，而是完整旅行照片叠加透明地图图层。Imagine 用 2:3 Poster。不要做成 50/50 双联，也不要裁成正方形。",
+      "imaginePrompt": "A single full-bleed vertical 2:3 travel-zine photograph with a transparent map overlay — NOT a 50/50 photo-and-illustration diptych, and not a square crop. Invent one complete travel photograph — do not ask for a reference photo. A photoreal editorial photograph of a whitewashed hillside coastal village above a blue sea, large open sky, natural color and light, the photography itself left intact: do not redraw the buildings, hillside, or sky, and do not change the original color and lighting. Over the sky or other negative space, overlay a translucent fine-line map as if it were a transparent layer — a coastline, a few streets or trails, low-saturation ink, not a traditional rectangular map card. The map occupies about 15 to 25 percent of the frame and must not cover the village. A few small English place labels and delicate geographic marks are allowed; mark the general area with one small red dot. Do not invent precise GPS coordinates. Slight paper-print texture. No large title block, no heavy decoration, no logos, no watermarks. Prefer the cleaner typography variant, or fewer labels if the lettering is messy. Quiet independent-magazine geography, not a souvenir postcard and not a stamp layout.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-17.jpg",
+      "final": "public/covers/entries/yishu-17.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-18",
+      "title": "摄影与手绘结合（上照片下纸面小故事）",
+      "imagineAspect": "2:3",
+      "aspectNote": "源条目即为 2:3，与 Imagine 当前的 2:3 Poster 一致，无需切换。",
+      "imaginePrompt": "A vertical 2:3 artwork combining photography and a paper-story drawing. Invent one complete scene — do not ask for a reference photo. The TOP 45 to 55 percent is a photoreal photograph of trailing wisteria hanging from a sunlit pergola or old wall, real light, real photographic texture, not redrawn as an illustration. The BOTTOM is a warm cream paper with a very slight paper tooth. The junction may follow the hanging blossoms instead of a hard straight line. At least one clear visual connection: the wisteria continues downward across the junction in its original direction, so the photograph becomes a prop for the story below. On the cream paper, draw 1 or 2 small loose black ink stick-figure people — slightly irregular handmade lines, about 6 to 9 percent of the full image height, clearly readable — sitting on or looking up at the hanging blooms, maybe one reaching toward a cluster. A short scene-fitting handwritten English line in the leftover paper, natural and clear, not covering the figures or the flowers. Keep leftover space; the eye should travel from the blossoms down to the little figures. Clean edges, no extra frame, no collage grid, no UI. Not a 3D photographic object sitting on paper (that is a different card), not a torn-paper crack, not a cartoon mascot. Prefer the cleaner handwriting, or less type if messy.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-18.jpg",
+      "final": "public/covers/entries/yishu-18.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-19",
+      "title": "摄影二创「第二世界」海报（立体摄影物体）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，Imagine 用 2:3 Poster。上下各半。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 “second world” photo-remix poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a well-worn brown leather suitcase standing in a sunlit hallway, the suitcase clearly the main subject, natural light, unaltered photographic texture — do not redraw it as an illustration. BOTTOM HALF: a warm rice-white paper field with lots of leftover space. The SAME suitcase is extracted as a tactile 3D photographic object sitting on that paper: it still has the real photo texture and a complete, recognizable silhouette, but it has edge thickness, a slight curl or lift, a natural shadow, and a sense of touching the page — like a piece of photograph material that has been lifted out. Do not replace the suitcase with sky, floor, or hallway; do not crop it to bits; do not make this a simple torn-paper-plus-doodle template. Add 1 or 2 tiny minimal black line figures who actually interact with the suitcase, for example sitting on it, opening it, or tugging the handle — sparse, not decoration. One short casual humorous handwritten English aside, not a motivational quote and not a cliché such as “Same…, different…”. Clean, restrained, bright, independent-magazine. Prefer the cleaner handwriting, or less type if messy. No logos, watermarks, or UI chrome.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-19.jpg",
+      "final": "public/covers/entries/yishu-19.jpg",
+      "flags": []
+    }
+  ]
+}
