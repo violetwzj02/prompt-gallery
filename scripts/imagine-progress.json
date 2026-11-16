@@ -45,10 +45,7 @@
     "changjing-7-01",
     "changjing-7-02",
     "changjing-7-03",
-    "renwu-27"
-  ],
-  "failed": [],
-  "pending": [
+    "renwu-27",
     "changjing-7-04",
     "changjing-7-05",
     "changjing-8",
@@ -56,7 +53,10 @@
     "goutu-1-02",
     "goutu-1-03",
     "goutu-1-04",
-    "goutu-1-05",
+    "goutu-1-05"
+  ],
+  "failed": [],
+  "pending": [
     "goutu-1-06",
     "goutu-1-07",
     "goutu-1-08",
