@@ -1,0 +1,92 @@
+{
+  "batch": "22",
+  "count": 8,
+  "note": "Continue 艺术 covers, yishu-20 through yishu-27. ASPECT PLAN: Imagine is currently on 2:3 Poster. Keep 2:3 for yishu-20, 21, 22, 23, 24. BEFORE yishu-25, switch Aspect Ratio to 9:16 Story and generate yishu-25 at 9:16. AFTER yishu-25, immediately switch back to 2:3 Poster for yishu-26 and yishu-27, and leave Imagine on 2:3. Image mode, Quality 2.0, Image Count ×2, one at a time. Invent a complete unreferenced scene for each; do not type any “use the reference image” language. Keep subjects and methods visually distinct: 20 a four-band 25%-each translation of a woman in a flower-shop doorway (photo / memory stickers / watercolor ticket / enamel magnet), not a two-panel diptych; 21 a wooden fishing boat, bottom shell-texture pixel tiles on a large white field; 22 a strawberry cream cake, bottom a small creamy impasto painting, NO typography at all; 23 a FULL-BLEED Kyoto riverside picture-book scrapbook travel poster (not a diptych), handwritten title plus 12 Apr · Kyoto; 24 a woman watering balcony herbs, bottom a sparse 2–3-color editorial doodle with huge leftover white (stricter and less colorful than the earlier cyclist doodle); 25 9:16 brutalist editorial portrait of an ORIGINAL adult woman — COPYRIGHT: do not type or generate voxCAT, a V+cat logo, or that signature; 26 a FULL-BLEED mono/duo-tone halftone print poster of a man looking back (not a diptych); 27 a white-walled courtyard house, bottom an isometric architectural sand table (not the earlier corner cafe). Prefer cleaner typography; if lettering is garbled, choose the cleaner variant or less type. If a variant is letterboxed, glitched, or looks like another item, save the clean distinct one. Do not generate ids beyond this batch of 8. Leave Imagine open and signed in on 2:3 Poster.",
+  "items": [
+    {
+      "id": "yishu-20",
+      "title": "四层横幅风格转译海报（照片·贴纸·票根·珐琅四层）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4 竖版，四层各占 25% 的极扁横幅。Imagine 用 2:3 Poster。先保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 design poster divided into FOUR equal horizontal bands, each exactly 25 percent of the height, seamless between layers with no divider lines, gaps, layer numbers, frames, watermarks or logos. Invent one complete scene used in all four bands — do not ask for a reference photo. The same subject, pose, viewpoint and spatial relationship must stay aligned down the poster: a photoreal adult woman in a light linen dress standing in the doorway of a small flower shop, holding a paper-wrapped bouquet, morning light, cobbled street. BAND 1 (top, 25%): a photoreal ultra-wide 3:1 photograph of that exact moment, natural and sharp, only the sides extended to fit the wide band; do not stretch the figure. BAND 2: the same moment restaged as a selective-memory sticker page — matte gouache / paper-cut / risograph flat color, 3 to 6 large simplified shapes as the main visual, plus six smaller memory stickers (bouquet, doorway, a flower, a cup, a bicycle, a leaf or similar details) with thick pale cut edges, uneven sizes, loose placement, leftover quiet ground in soft fog-blue, ivory and grey-green. Tiny restrained type only if clean; otherwise none. BAND 3: the same moment as a watercolor travel-ticket postcard centered on ivory paper, serrated edge, a faint shadow. Left about 74 percent is a light watercolor of the woman and shop; right about 26 percent is a tidy ticket stub divided by a vertical perforation, with a few fields such as DATE / PLACE / SUBJECT, a short date, a number and one circular stamp, all on one quiet grid. Prefer the cleaner typography variant. BAND 4 (bottom): the same moment compressed into one collectible cloisonné / enamel travel magnet sitting on a pale field, glossy enamel, a thin metallic rim, a short soft drop shadow, a very short English word such as BLOOM integrated into the badge. Prefer cleaner lettering or no type if messy. No other logos. This is a four-band translation, not a two-panel diptych.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-20.jpg",
+      "final": "public/covers/entries/yishu-20.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-21",
+      "title": "贝壳质感像素材料拼贴海报",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，上下各半。Imagine 用 2:3 Poster。保持 2:3。",
+      "imaginePrompt": "A vertical 2:3 editorial poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a traditional wooden fishing boat on calm turquoise water under a clear sky, exhibition grade, natural light. BOTTOM HALF: the SAME boat restaged as a minimal material-pixel landscape, like a small shell-texture seal set on a large warm-white paper field. Build it from regular square fragments that look like cut pieces of rough seashell or mineral shell: geometric grid order, slightly chipped edges, natural lamination, powdery grain, soft relief, matte and gentle. Dense at the core, thinning, breaking and floating toward leftover white. No more than about 200 tiles, similar in size; not a standard mosaic, not game pixels, not smooth vector. The subject occupies about 30 to 45 percent of the lower half; the rest is intentional leftover paper. Fresh colors taken from the photo (clear sea-blue, warm wood, a touch of coral or sun-yellow) on near-white. Optional tiny editorial words at the edge; prefer the cleaner typography variant or no type if messy. Not washi tape, not torn-paper collage, not geometric block deconstruction, not a postage stamp. No logos or watermarks.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-21.jpg",
+      "final": "public/covers/entries/yishu-21.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-22",
+      "title": "厚涂奶油风再创作（下半区）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，上下各半。Imagine 用 2:3 Poster。保持 2:3。此条禁止任何文字。",
+      "imaginePrompt": "A vertical 2:3 poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a slice of layered cream cake with strawberries and a silver fork on a linen-covered table, soft window light, editorial still-life. BOTTOM HALF: the SAME cake restaged as a small thick creamy impasto painting on a large warm-white or cream field: soft palette-knife marks, puffy stacked strokes, delicate highlights, linen-canvas grain. It should feel like a little oil painting, not a realistic copy of the photo. The painted cake sits in the center or slightly low and occupies about 28 to 45 percent of the lower half, with generous leftover space. Four to six soft, clean colors taken from the photo; edges slightly melted and handmade; warm, tender, like a dessert vitrine or a collectible art-book plate. CRITICAL: no typography, letters, numbers, brand names, logos, QR codes, watermarks or pseudo-text anywhere. Not a full-bleed oil-pastel still life, not a watercolor ticket, not a doodle. This is a photo-above, creamy impasto-below diptych.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-22.jpg",
+      "final": "public/covers/entries/yishu-22.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-23",
+      "title": "日系治愈绘本拼贴海报（旅行纪念）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，但是单张绘本拼贴旅行纪念海报，不是上下双联。Imagine 用 2:3 Poster。不要做成 50/50 照片+插画。",
+      "imaginePrompt": "A single full-bleed vertical 2:3 Japanese healing picture-book and scrapbook travel-memory poster — NOT a 50/50 photo-and-illustration diptych. Invent one complete scene — do not ask for a reference photo. A fully clothed adult East Asian woman in a light cardigan, tote bag on her shoulder, walking a quiet riverside path under trees in Kyoto, a small dog at her side, soft daylight. Render the whole poster as a consistent hand-drawn illustration: Q-version but not over-exaggerated, round face, large simplified eyes, small nose and mouth, soft fluffy hair. Low-saturation Morandi pastels: cream, sage, bean-paste pink, pale lilac, off-white, warm grey-brown. An irregular paper-cut border, with a few stars, flowers, vines or leaves as decorations. Handwritten English title plus a place and date such as “A Slow Walk” and “12 Apr · Kyoto”. Flat color with slight paper texture and soft shadows, like a fine children’s picture book, a literary postcard, or a Japanese magazine cover. Warm, dreamy, cute, fresh, story-like. Prefer the cleaner handwriting; if lettering is messy, choose the cleaner variant. No 3D, no neon saturation, no realistic oil paint, no garbled type, no logos or watermarks.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-23.jpg",
+      "final": "public/covers/entries/yishu-23.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-24",
+      "title": "Doodle 手绘生活方式海报（少色克制版）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，上下各半。Imagine 用 2:3 Poster。保持 2:3。比 yishu-8 更克制：仅 2–3 主色 + 超大量留白。",
+      "imaginePrompt": "A vertical 2:3 poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal photograph of a fully clothed adult woman watering a small herb garden on a balcony at late-afternoon light, editorial lifestyle grade. BOTTOM HALF: the SAME woman restaged as a restrained hand-drawn doodle / naïve marker illustration. Delete most of the background. The drawn figure is small, off-center or cropped, in a huge field of warm-white leftover paper — never fill the lower half. Strictly 2 or 3 main colors plus black or dark-grey lines on a warm white ground; throw away extra colors from the photo and keep only the key color memory (for example sage, terracotta, and line black). Slightly shaky broken lines, marker or crayon coloring, mild overruns and gaps. A short meaningful handwritten phrase may sit along the figure or in the negative space, not as a stacked title; prefer the cleaner handwriting or less type if messy. This must stay a sparse, grown-up editorial doodle, not a colorful filled lifestyle sketch (that is a different card), not a children’s scrapbook, not an ugly-cute cartoon mascot. No logos or watermarks.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-24.jpg",
+      "final": "public/covers/entries/yishu-24.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-25",
+      "title": "Brutalist 粗野主义角色海报（含 voxCAT 品牌）",
+      "imagineAspect": "9:16",
+      "aspectNote": "源条目 9:16，Imagine 用 9:16 Story。在本条开始前把 Aspect Ratio 从 2:3 Poster 切换到 9:16 Story；本条完成后立刻切回 2:3 Poster，供 yishu-26 和 yishu-27 使用。版权：源条目含 voxCAT 品牌，封面提示词已去掉真实商标与品牌名，不要输入 voxCAT、V+猫 logo 或签名。",
+      "imaginePrompt": "A 9:16 vertical brutalist editorial character poster. Invent one original fully clothed adult character — do not ask for a reference photo, and do not use any real brand, franchise, or trademarked mascot. An original adult East Asian woman in a dark structured coat, mid-close or tightly cropped so her face is the first focus, a restrained pose such as a slight head tilt or a hand near the jaw, identity clear, editorial-portrait skin and features kept refined and photoreal against a raw graphic background. Background is a brutalist flat system of black, warm off-white, and one high-saturation accent color chosen from the character (for example a sharp red or chrome yellow). Oversized typography used as abstract cropped letter or number shapes, thick black geometric blocks, rectangular crop frames, hairline vertical and horizontal rules, an asymmetric grid, leftover space, a little brush scuff and ink spatter, graphic layers in front of and behind the figure. Type may be extremely cropped, shifted and enlarged as structure only — no long readable text, and do not cover the eyes or main features. Slight paper grain, old-print texture and coarse halftone on the graphic field; keep the face sharp. CRITICAL COPYRIGHT: do not include the name voxCAT, a stylized V-plus-cat logo, any signature of that name, or any other brand mark, watermark or logo. No UI, no captions, no random long text.",
+      "flags": [
+        {
+          "type": "copyright-ip",
+          "note": "源条目含 voxCAT 品牌；封面去掉真实商标与品牌名，不要生成 voxCAT 或 V+猫 logo。"
+        }
+      ],
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-25.jpg",
+      "final": "public/covers/entries/yishu-25.jpg"
+    },
+    {
+      "id": "yishu-26",
+      "title": "单色 editorial 印刷海报（halftone 制版）",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，是单张单色制版海报，不是上下双联。本条开始前确认已切回 2:3 Poster。",
+      "imaginePrompt": "A single full-bleed vertical 2:3 mono-color editorial print poster — NOT a 50/50 diptych. Invent one complete figure — do not ask for a reference photo. An adult man in a long coat glancing back over his shoulder while walking, a strong mid-close crop that may run off the edge of the sheet, clean white or pale-grey paper. One ink, or a restrained two-ink system: the main ink does the line, shadows and the title (about 75–85 percent of the ink area); a second ink, if used, only accents a meaningful detail. Clear comic-like contour and expression translated into solid main-ink, halftone dots, and paper-white highlights; let paper white enter skin, hair and folds. If a simplified street or interior supports the pose, render it in the same inks; otherwise leave it out. Typography is a major compositional element: a short natural English title of 2 to 5 words such as LOOK BACK, stacked, angled, or stepping into the figure without covering the eyes or the key gesture. A little monospaced micro-type in a corner. At most one small graphic mark such as a circle or a short rule. Visible but not crude halftone, slight ink density variation, a little dry-brush edge, and about 1 mm of misregistration only where two inks meet — not a colored outline around the whole figure. No digital gradients, no cinematic lighting, no overall yellowing, no invented brand, date, coordinates or institution. Prefer the cleaner typography variant. This is a print poster, not a brutalist 9:16 character sheet and not a photo-and-illustration diptych. No logos or watermarks.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-26.jpg",
+      "final": "public/covers/entries/yishu-26.jpg",
+      "flags": []
+    },
+    {
+      "id": "yishu-27",
+      "title": "极简等距建筑沙盘海报",
+      "imagineAspect": "3:4",
+      "aspectNote": "源条目 3:4，上下各半。Imagine 用 2:3 Poster。与 yishu-5 同族，但本条强调建筑沙盘，主体不要再用街角咖啡馆。",
+      "imaginePrompt": "A vertical 2:3 editorial poster strictly split 50/50 top and bottom. Invent one complete scene — do not ask for a reference photo. TOP HALF: a photoreal street-level photograph of a traditional white-walled courtyard house with a dark tiled roof and a wooden gate, natural light, exhibition-grade, not the previously used corner cafe. BOTTOM HALF: the SAME house restaged as a refined minimal isometric architectural sand-table / paper model sitting on a small base in a large field of leftover white. Generalized volumes, clean edges, simple levels, a tiny shadow for scale, only a few supporting details, no second focal point. Colors taken only from the photo, purified into a quiet limited palette; fine ink lines, flat planes, slight paper grain. A short thin modern English title such as COURTYARD along the base or a margin, plus a tiny note if it stays clean; prefer the cleaner typography variant or no type if messy. Quiet, poetic, collectible. Not cartoon, not plastic 3D, not the earlier corner-cafe miniature, not a fishing-boat shell-pixel collage. No logos or watermarks.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/yishu-27.jpg",
+      "final": "public/covers/entries/yishu-27.jpg",
+      "flags": []
+    }
+  ]
+}
