@@ -1,0 +1,87 @@
+{
+  "batch": "04",
+  "count": 8,
+  "note": "renwu-15 is a style redo (crayon chibi, not the previous polished anime still)",
+  "items": [
+    {
+      "id": "renwu-15",
+      "title": "Q 版蜡笔涂鸦角色插画（角色名驱动）",
+      "imagineAspect": "3:4",
+      "aspectNote": "条目未标注画幅，按大类默认采用 3:4",
+      "imaginePrompt": "A chibi / Q-version half-body crayon and oil-pastel doodle illustration of an original languid young man with messy black hair and a simple dark coat, slightly drooping shoulders and half-lidded eyes. Pure white background, oversized head and small body, head tilted, the bottom of the body cropped off the frame, generous whitespace. Rough spare thick crayon and oil-pastel strokes, heavy irregular black outlines with occasional dark-blue lines, shaky broken repeated strokes, dry-brush grain. Large flat color shapes with unpainted white gaps; no nose; eyes and mouth in a few marks; blush as two or three short pink strokes. Flat, cute, casual hand-drawn. No fine hair strands, no complex iris, no cel-shading, no 3D, no background scene, no text, no watermark.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-15.jpg",
+      "final": "public/covers/entries/renwu-15.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-19",
+      "title": "超真实AIGC-B 蓝紫绣球花丛·俯视捧花（Midjourney）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing dark hair with numerous wispy strands blowing across face, wearing a deep blue spaghetti-strap floral dress with translucent sheer sleeve details and silver jewelry, high-angle cinematic shot from 30 degrees above looking down, crouching low in dense blooming hydrangea garden holding a large cluster of blue-purple gradient hydrangeas close to chest, tilting head up looking directly into camera with gentle smile, bright summer sunlight from behind and above, dappled leaf shadows casting patterns on shoulders arms dress and flowers, soft daylight global illumination, luminous highlights on hair edges flower petals butterfly wings and silver accessories, 3-4 blue morpho butterflies landing on hair shoulder and flower cluster, creamy Cooke lens rendering, large aperture f/2.8, sparkling circular bokeh background with blurred hydrangeas and overexposed pale blue sky, soft colorful lens flare, dreamy garden atmosphere, cool blue-purple color grading with warm skin contrast, desaturated palette, 9:16. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-19.jpg",
+      "final": "public/covers/entries/renwu-19.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-20",
+      "title": "超真实AIGC-C 秋日白桦林·转身回眸（Midjourney）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long light brown hair styled in loose side braids with pink ribbon ties and red flower accessory, green eyes, wearing a soft pink buttoned midi dress with brown cropped leather jacket, medium cinematic shot from eye level, standing in autumn birch forest turning body back to look over shoulder at camera, dress hem and hair braids flowing in wind, afternoon low-angle sunlight filtering through golden leaves, dappled leaf-shadow patterns casting across dress arms face and forest floor, soft daylight global illumination, luminous highlights on hair edges ribbons dress fabric and leather jacket, creamy Cooke lens rendering, large aperture f/2.5, sparkling circular bokeh background with blurred golden leaves white birch trunks and falling leaves, soft golden lens flare, dreamy autumn forest atmosphere, warm amber-gold color grading with cool blue sky contrast, desaturated warm tones, 9:16. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-20.jpg",
+      "final": "public/covers/entries/renwu-20.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-21",
+      "title": "超真实AIGC-D 花圃天使·白羽翼光环（Midjourney）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long light brown hair in loose braid with pink ribbon and red flower accents, green eyes, wearing wine-red backless dress or white lace sheer dress with thin straps and pearl necklace, large white feathered wings spreading from back with detailed layered feathers, delicate golden halo floating above head with soft glow, medium cinematic shot from slightly low angle, standing in dense blooming flower garden holding orange-yellow roses or resting hand on lace neckline, turning to look back at camera or eyes gently closed, 2-3 pink butterflies landing on straw hat hair and shoulders, bright sunlight from behind illuminating wing feathers making them translucent and glowing, soft daylight global illumination, luminous highlights on wing edges hair strands flower petals and lace details, creamy Cooke lens rendering, large aperture f/2.2, sparkling circular bokeh background with blurred orange roses white daisies blue hydrangeas, soft golden-white lens flare, dreamy ethereal garden atmosphere, warm golden-white color grading with soft pink-blue accents, desaturated warm palette, 9:16. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-21.jpg",
+      "final": "public/covers/entries/renwu-21.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-22",
+      "title": "超真实AIGC-F 樱花树下·仰望花瓣（Midjourney）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing black hair with pink ribbon tied at side and numerous flyaway strands, wearing a soft white lace blouse with pale pink cardigan, medium-low cinematic shot looking up from below, standing under blooming cherry blossom tree reaching one hand up toward falling petals, tilting head back looking up at petals with serene smile, bright spring sunlight filtering through pink blossoms, dappled petal shadows and light spots casting patterns on face clothing and ground, soft daylight global illumination, luminous highlights on hair edges falling petals and white fabric, dozens of pink petals floating in air around her, creamy Cooke lens rendering, large aperture f/2.5, sparkling circular bokeh background with blurred pink blossoms and pale blue sky, soft pink lens flare, dreamy spring atmosphere, soft pink-white color grading with cool shadows, desaturated warm palette, 9:16. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-22.jpg",
+      "final": "public/covers/entries/renwu-22.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-23",
+      "title": "超真实AIGC-H 海边栏杆·逆风回眸（Midjourney）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing light brown hair in loose ponytail with white ribbon, hair and ribbon blowing dramatically in sea breeze, wearing a soft mint green sundress with thin straps and white cardigan draped over shoulders, medium cinematic shot from side-front angle, standing at seaside wooden railing holding the rail with one hand, turning back to look at camera with playful gentle smile, bright afternoon sunlight from behind and side, soft rim lighting on hair edges and dress fabric, soft daylight global illumination, luminous highlights on flowing hair white ribbon dress fabric and wooden railing, sea spray mist in air, creamy Cooke lens rendering, large aperture f/2.2, sparkling circular bokeh background with blurred ocean horizon and clouds, soft colorful lens flare with blue-white tones, dreamy seaside atmosphere, cool cyan-white color grading with warm skin contrast, desaturated cool palette, 9:16. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-23.jpg",
+      "final": "public/covers/entries/renwu-23.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-24",
+      "title": "超真实AIGC-M 夏日向日葵花田·仰头遮阳（Midjourney）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long black hair tied in a loose high bun with numerous wispy strands and sunlit flyaways, wearing a white cotton slip dress with thin straps and holding a woven straw hat in one hand, medium cinematic shot from slightly low angle, standing deep in a blooming sunflower field with one hand raised to shade her eyes, tilting head up toward the sun with a bright carefree smile, blazing midsummer sunlight from above and behind, dense sunflower leaf shadows casting dappled patterns across her face shoulders dress and the flowers, soft daylight global illumination, luminous highlights on hair strands straw hat edges dress fabric and sunflower petals, creamy Cooke lens rendering, large aperture f/2.2, sparkling circular bokeh background with blurred sunflowers and vivid blue sky, warm golden lens flare with soft sun rays, dreamy summer field atmosphere, warm golden-yellow color grading with vivid blue sky contrast, desaturated warm palette, soft glowing highlights, 9:16. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-24.jpg",
+      "final": "public/covers/entries/renwu-24.jpg",
+      "flags": []
+    },
+    {
+      "id": "renwu-25",
+      "title": "超真实AIGC-O 黄昏海滩·赤脚回眸（Midjourney）",
+      "imagineAspect": "9:16",
+      "aspectNote": null,
+      "imaginePrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing light brown hair and white linen dress hem both blowing dramatically in the sea breeze, wearing a flowing white linen maxi dress with thin straps and barefoot, wide cinematic shot from side-front angle at eye level, walking through shallow water along the shoreline and turning back to look at camera with a soft wistful smile, golden hour sunlight low on the horizon behind her creating strong rim light, sea foam and shallow waves rippling around her ankles, soft daylight global illumination, luminous highlights on hair edges dress fabric wet skin and water surface, creamy Cooke lens rendering, large aperture f/2.2, sparkling circular bokeh background with blurred ocean horizon glowing golden and pastel clouds, soft colorful lens flare with warm orange and cool violet tones, dreamy twilight seaside atmosphere, warm golden-orange color grading with cool magenta-blue shadows, desaturated cinematic palette, 9:16. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-25.jpg",
+      "final": "public/covers/entries/renwu-25.jpg",
+      "flags": []
+    }
+  ]
+}
