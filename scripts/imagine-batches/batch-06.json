@@ -1,0 +1,97 @@
+{
+  "batch": "06",
+  "count": 8,
+  "note": "renwu-27 is a style redo: a 2.5D impasto character reference sheet with three equal panels (left front 3/4 full-body, middle full-body back view, right half-body close-up) on flat studio backgrounds, not lifestyle poses in a room. changjing-5 is a single late-night living-room still of four aloof cats and a slipped golden retriever, not a shot list. changjing-6 is a tasteful, fully clothed adult onsen still (yukata, steam), not a storyboard table and not nude.",
+  "items": [
+    {
+      "id": "renwu-27",
+      "title": "2.5D厚涂角色三视图设定·橙红卫衣熊耳（Midjourney）",
+      "imagineAspect": "1:1",
+      "aspectNote": null,
+      "imaginePrompt": "2.5D anime digital painting, painterly impasto, visible thick brush marks, blocky color planes, minimal smooth gradients, semi-realistic stylized illustration, not photorealistic, not 3D render, not flat cel-shading, character reference sheet with three equal vertical panels side by side, clean studio layout.\n\n[Character lock — identical across all three panels] petite young woman, oversized head with a chubby doll-like face, very long slender legs, short silver-white bob hair with soft wispy strands, large teal-green eyes with bright catchlights, pale skin with soft coral blush across both cheeks and the nose bridge, calm neutral expression with a small pout. Wearing an oversized coral-orange hoodie with a bunched bear-ear hood, one white circular paw patch on each side of the hood, white drawstrings, black line-art tiger-head graphic print on the chest, wide drooping sleeves, white shorts barely visible under the hem, white scrunched slouch socks, chunky white platform sneakers.\n\n[Panel 1 | left, full-body front three-quarter] standing straight with both hands tucked into the hoodie pockets, body turned about 30 degrees, head slightly tilted, eyes looking off-camera to the side, oversized hoodie swallowing the torso and hips, bare slender legs, relaxed idle posture.\n\n[Panel 2 | middle, full-body back view] the same girl seen from behind, hands still in the pockets, hood bunched at the back of the neck with both white circular patches visible, boxy oversized silhouette, loose hem, same thin legs, socks and sneakers.\n\n[Panel 3 | right, close-up half-body portrait] hood pulled up over the head forming two pointed bear-like ears with white circular patches, silver-white hair framing the face, large teal eyes looking directly into the camera, calm neutral expression, warm light on one side of the face and cool violet shadow on the other.\n\n[Lighting and color] strong warm side light from the upper left, intense coral-orange highlights on the hoodie, cool blue-violet shadows and bounce light in the folds and on the skin, complementary orange-versus-blue-violet palette, high color contrast with clean color separation, soft ambient bounce filling the face, painterly rim light along the hair edges.\n\n[Background] flat solid warm gray-beige for the left and middle panels, flat cool blue-gray for the right panel, completely empty, no environment, no props.\n\n[Brushwork] thick confident impasto strokes, visible paint texture and canvas grain, simplified blocky shapes, deliberate color blocking instead of airbrushed gradients, slightly unfinished edges with subtle color bleeding. No watermark, no signature, no typography, no furniture, no window, no plants.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/renwu-27.jpg",
+      "final": "public/covers/entries/renwu-27.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-4-03",
+      "title": "未来景观 3",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "a sci fi digital illustration depicting a massive scale environment. from a rocky ledge in the foreground, a small figure looks out at a distant city of skyscrapers rising above a blanket of clouds. overhead, giant, curving, beige colored structures frame the view. the atmospheric perspective shows a hazy distance under a light colored sky with soft pink hues from the low sun, creating a serene and expansive mood. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-4-03.jpg",
+      "final": "public/covers/entries/changjing-4-03.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-4-04",
+      "title": "未来景观 4",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "a distant, high angle shot of a futuristic city rising above a sea of clouds. a small human silhouette stands on a snowy rocky ledge in the foreground. overhead, massive, angular, beige structural beams curve across the sky, framing the view of the city in the distance. the lighting is soft and warm, casting a gentle glow on the clouds and the geometric surfaces of the structures. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-4-04.jpg",
+      "final": "public/covers/entries/changjing-4-04.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-5",
+      "title": "猫狗客厅",
+      "imagineAspect": "16:9",
+      "aspectNote": null,
+      "imaginePrompt": "A single cinematic 16:9 cover still of a late-night living room, photoreal cinematic CG with subtle film grain, cool moonlight and low-saturation dark tones, strong chiaroscuro, slightly flickering indoor lamps. Four adult aloof cats stand in a tense power-standoff across the dim room, postures proud and restrained, sharp eyes, no cute chibi look. In the open mid-floor, a large golden retriever has just slipped on a wet patch and sprawled awkwardly, looking startled and embarrassed, while all four cats stare at it with unimpressed, deadpan disdain. A door in the background stands slightly ajar, cold moonlight leaking in. Wide establishing composition, shallow depth in the foreground, no text, no subtitles, no watermark, no UI chrome, no storyboard grid, no comic panel layout.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-5.jpg",
+      "final": "public/covers/entries/changjing-5.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-6",
+      "title": "温泉视频分镜（红发少女）",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "A single tasteful cinematic 16:9 cover still in high-end modern 3D anime / stylized CG, not photoreal, not a storyboard grid. An adult woman in her mid-20s with long red hair sits at the edge of a traditional indoor hot-spring pool, wearing a light pale yukata / onsen robe that fully covers her chest and torso, steam modestly veiling the rest of her figure. She is seen from a slightly rear three-quarter angle, turning her face just enough to show a calm, gentle expression, dark eyes, no nudity, no bare breasts, no sexualized posing. Warm vintage wall lamps on classical wooden architecture, rocks and small purple flowers at the pool edge, thick volumetric steam, soft healing atmosphere, layered foreground rocks and flowers. Fully clothed, non-sexual, artistic. No watermark, no UI chrome, no typography, no reference-sheet labels, no storyboard table.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-6.jpg",
+      "final": "public/covers/entries/changjing-6.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-7-01",
+      "title": "神龙绕天宫",
+      "imagineAspect": "16:9",
+      "aspectNote": null,
+      "imaginePrompt": "Chinese dragon, giant white dragon coiling around celestial palace, massive scale, symmetrical composition with slight asymmetry, dragon head upper right looking down-left, front claw resting on palace roof 1:3 ratio, dragon tail disappearing into clouds upper left, translucent white dragon body with pale blue-green glowing scales, vermilion and gold-roofed celestial palace center, white jade base, layered flying eaves, three tiny human figures lower left 0.3% frame height wearing pale cyan robes, one looking up one pointing one kneeling, cloud sea extending to horizon, pale blue sky, white cumulus clouds, morning light from right creating golden rim light on dragon scales, warm light on palace roof, cold blue-grey shadows elsewhere, cool white main tone with vermilion and gold warm accents, cinematic photography, volumetric clouds, atmospheric perspective, HDR, 8K ultra-detailed, ethereal and solemn, extreme sense of smallness embraced by divine realm 16:9 raw 750 6. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-7-01.jpg",
+      "final": "public/covers/entries/changjing-7-01.jpg",
+      "flags": []
+    },
+    {
+      "id": "changjing-7-02",
+      "title": "未来巨构景观 1",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "a digital painting of a futuristic landscape from a high angle. in the foreground, a single human figure stands on a rocky, snow dusted ledge overlooking a vast sea of clouds. huge, angular, beige megastructures frame the scene, curving overhead and plunging down towards the clouds. in the distance, a sprawling city with numerous skyscrapers rises above the cloud layer under a pale, hazy blue sky. the scene is illuminated by soft, warm light from the side, casting long shadows and highlighting the textures of the stone and metal surfaces. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-7-02.jpg",
+      "final": "public/covers/entries/changjing-7-02.jpg",
+      "flags": [
+        {
+          "type": "duplicate",
+          "note": "与「未来景观 1」内容相同"
+        }
+      ]
+    },
+    {
+      "id": "changjing-7-03",
+      "title": "未来巨构景观 2",
+      "imagineAspect": "16:9",
+      "aspectNote": "条目未标注画幅，按大类默认采用 16:9",
+      "imaginePrompt": "a high angle view of a science fiction world. a person stands on a rocky, snow covered precipice in the lower left, looking out over a thick layer of clouds. enormous, geometric, light colored architectural arches span the upper portion of the frame. in the distance, a dense city of tall towers emerges from the clouds. the lighting is soft and golden, suggesting early morning or late afternoon, with a gentle pink and blue gradient in the sky. No watermark, no typography unless the scene itself is lettering.",
+      "outfile": "/workspace/prompt-gallery/covers-inbox/changjing-7-03.jpg",
+      "final": "public/covers/entries/changjing-7-03.jpg",
+      "flags": [
+        {
+          "type": "duplicate",
+          "note": "与「未来景观 2」内容基本相同"
+        }
+      ]
+    }
+  ]
+}

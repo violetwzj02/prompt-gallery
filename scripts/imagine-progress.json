@@ -30,18 +30,18 @@
     "renwu-22",
     "renwu-23",
     "renwu-24",
-    "renwu-25"
-  ],
-  "failed": [],
-  "pending": [
-    "renwu-26",
-    "renwu-27",
-    "renwu-28",
+    "renwu-25",
     "changjing-1",
     "changjing-2",
     "changjing-3",
     "changjing-4-01",
     "changjing-4-02",
+    "renwu-26",
+    "renwu-28"
+  ],
+  "failed": [],
+  "pending": [
+    "renwu-27",
     "changjing-4-03",
     "changjing-4-04",
     "changjing-5",
