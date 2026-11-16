@@ -1,6 +1,11 @@
 import type { Category, Density, PromptItem } from '../types'
 import { CATEGORIES } from '../types'
 
+export interface FilterContext {
+  /** item id → folder id */
+  favoriteOf?: Record<string, string>
+}
+
 export interface GalleryFilters {
   category: Category | '全部'
   collectionId: string | null
@@ -10,6 +15,8 @@ export interface GalleryFilters {
   q: string
   density: Density
   selectedId: string | null
+  /** null = no favorites filter; 'all' = every favorited item; otherwise a folder id */
+  favoriteScope: string | null
 }
 
 export const EMPTY_FILTERS: GalleryFilters = {
@@ -21,6 +28,7 @@ export const EMPTY_FILTERS: GalleryFilters = {
   q: '',
   density: 'comfortable',
   selectedId: null,
+  favoriteScope: null,
 }
 
 export function normalizeItem(item: PromptItem): PromptItem {
@@ -39,8 +47,18 @@ export function normalizeItem(item: PromptItem): PromptItem {
   }
 }
 
-export function itemMatches(item: PromptItem, f: GalleryFilters, skip?: (keyof GalleryFilters)[]): boolean {
+export function itemMatches(
+  item: PromptItem,
+  f: GalleryFilters,
+  skip?: (keyof GalleryFilters)[],
+  ctx?: FilterContext,
+): boolean {
   const ignore = new Set(skip ?? [])
+  if (!ignore.has('favoriteScope') && f.favoriteScope) {
+    const folder = ctx?.favoriteOf?.[item.id]
+    if (!folder) return false
+    if (f.favoriteScope !== 'all' && folder !== f.favoriteScope) return false
+  }
   if (!ignore.has('category') && f.category !== '全部' && item.category !== f.category) return false
   if (!ignore.has('collectionId') && f.collectionId && item.parentId !== f.collectionId) return false
   if (!ignore.has('mediums') && f.mediums.length > 0 && !f.mediums.includes(item.medium)) return false
@@ -82,7 +100,8 @@ export function hasActiveFilters(f: GalleryFilters): boolean {
     f.mediums.length > 0 ||
     f.aspects.length > 0 ||
     f.styles.length > 0 ||
-    f.q.trim() !== ''
+    f.q.trim() !== '' ||
+    f.favoriteScope !== null
   )
 }
 
@@ -95,6 +114,7 @@ export function parseHash(hash: string): GalleryFilters {
   const cat = params.get('cat')
   const category: Category | '全部' =
     cat && (CATEGORIES as string[]).includes(cat) ? (cat as Category) : '全部'
+  const fav = params.get('fav')
   return {
     category,
     collectionId: params.get('col') || null,
@@ -104,6 +124,7 @@ export function parseHash(hash: string): GalleryFilters {
     q: params.get('q') || '',
     density: params.get('d') === 'dense' ? 'dense' : 'comfortable',
     selectedId,
+    favoriteScope: fav && fav.trim() ? fav : null,
   }
 }
 
@@ -111,6 +132,7 @@ export function toHash(f: GalleryFilters): string {
   const params = new URLSearchParams()
   if (f.category !== '全部') params.set('cat', f.category)
   if (f.collectionId) params.set('col', f.collectionId)
+  if (f.favoriteScope) params.set('fav', f.favoriteScope)
   for (const m of f.mediums) params.append('medium', m)
   for (const a of f.aspects) params.append('aspect', a)
   for (const s of f.styles) params.append('tag', s)

@@ -1,7 +1,9 @@
-import { useEffect, useState, type CSSProperties } from 'react'
+import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import ReactMarkdown from 'react-markdown'
 import type { PromptItem } from '../types'
 import { CATEGORY_ACCENT } from '../types'
+import type { FavoriteFolder } from '../hooks/useFavorites'
+import { DEFAULT_FOLDER_ID } from '../hooks/useFavorites'
 import { extractPurePrompt } from '../utils/promptExtract'
 import { CoverArt } from './CoverArt'
 
@@ -14,6 +16,12 @@ interface Props {
   onTag: (tag: string) => void
   onOpenCollection?: (parentId: string) => void
   onRemoveLocal?: (id: string) => void
+  favorited?: boolean
+  favoriteFolderId?: string | null
+  folders?: FavoriteFolder[]
+  onAddFavorite?: (itemId: string, folderId: string) => void
+  onRemoveFavorite?: (itemId: string) => void
+  onCreateFolder?: (name: string) => FavoriteFolder | null
 }
 
 async function copyText(text: string) {
@@ -44,14 +52,27 @@ export function PromptDetail({
   onTag,
   onOpenCollection,
   onRemoveLocal,
+  favorited = false,
+  favoriteFolderId = null,
+  folders = [],
+  onAddFavorite,
+  onRemoveFavorite,
+  onCreateFolder,
 }: Props) {
   const [toast, setToast] = useState<string | null>(null)
+  const [favOpen, setFavOpen] = useState(false)
+  const [newFolder, setNewFolder] = useState('')
+  const favWrapRef = useRef<HTMLDivElement>(null)
   const accent = CATEGORY_ACCENT[item.category]
   const indexInList = items.findIndex((i) => i.id === item.id)
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        if (favOpen) {
+          setFavOpen(false)
+          return
+        }
         onClose()
         return
       }
@@ -70,7 +91,23 @@ export function PromptDetail({
       window.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
-  }, [onClose, onSelect, items, indexInList])
+  }, [onClose, onSelect, items, indexInList, favOpen])
+
+  useEffect(() => {
+    setFavOpen(false)
+    setNewFolder('')
+  }, [item.id])
+
+  useEffect(() => {
+    if (!favOpen) return
+    const onDoc = (e: MouseEvent) => {
+      if (favWrapRef.current && !favWrapRef.current.contains(e.target as Node)) {
+        setFavOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', onDoc)
+    return () => document.removeEventListener('mousedown', onDoc)
+  }, [favOpen])
 
   useEffect(() => {
     if (!toast) return
@@ -90,6 +127,24 @@ export function PromptDetail({
 
   const visibleTags = item.tags.filter((t) => t && t !== item.category)
 
+  const pickFolder = (folderId: string) => {
+    onAddFavorite?.(item.id, folderId)
+    setFavOpen(false)
+    setToast('已加入收藏')
+  }
+
+  const submitNewFolder = () => {
+    const created = onCreateFolder?.(newFolder)
+    if (!created) {
+      setToast('请输入收藏夹名称')
+      return
+    }
+    onAddFavorite?.(item.id, created.id)
+    setNewFolder('')
+    setFavOpen(false)
+    setToast(`已收藏到「${created.name}」`)
+  }
+
   return (
     <div className="detail-overlay" onClick={onClose} role="presentation">
       <div
@@ -105,7 +160,7 @@ export function PromptDetail({
         </button>
 
         <div className="detail-hero">
-          <CoverArt item={item} large className="detail-cover" />
+          <CoverArt item={item} large fit="contain" className="detail-cover" />
         </div>
 
         <div className="detail-content">
@@ -204,6 +259,68 @@ export function PromptDetail({
             <button type="button" className="btn btn-ghost" onClick={copyLink}>
               复制链接
             </button>
+            {onAddFavorite && (
+              <div className="fav-control" ref={favWrapRef}>
+                <button
+                  type="button"
+                  className={`btn btn-ghost ${favorited ? 'is-fav' : ''}`}
+                  aria-expanded={favOpen}
+                  aria-haspopup="menu"
+                  onClick={() => setFavOpen((v) => !v)}
+                >
+                  {favorited ? '已收藏' : '收藏'}
+                </button>
+                {favOpen && (
+                  <div className="fav-menu" role="menu">
+                    <p className="fav-menu__label">收藏到</p>
+                    {(folders.length ? folders : [{ id: DEFAULT_FOLDER_ID, name: '默认收藏夹' }]).map((f) => (
+                      <button
+                        type="button"
+                        role="menuitem"
+                        key={f.id}
+                        className={favorited && favoriteFolderId === f.id ? 'is-active' : ''}
+                        onClick={() => pickFolder(f.id)}
+                      >
+                        {f.name}
+                      </button>
+                    ))}
+                    {onCreateFolder && (
+                      <form
+                        className="fav-menu__new"
+                        onSubmit={(e) => {
+                          e.preventDefault()
+                          submitNewFolder()
+                        }}
+                      >
+                        <input
+                          value={newFolder}
+                          onChange={(e) => setNewFolder(e.target.value)}
+                          placeholder="新建收藏夹"
+                          aria-label="新建收藏夹名称"
+                        />
+                        <button type="submit" className="btn btn-ghost">
+                          创建
+                        </button>
+                      </form>
+                    )}
+                    {favorited && onRemoveFavorite && (
+                      <button
+                        type="button"
+                        role="menuitem"
+                        className="fav-menu__remove"
+                        onClick={() => {
+                          onRemoveFavorite(item.id)
+                          setFavOpen(false)
+                          setToast('已取消收藏')
+                        }}
+                      >
+                        取消收藏
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
             {item.local && onRemoveLocal && (
               <button
                 type="button"

@@ -11,7 +11,7 @@ interface Props {
 
 export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
   const [title, setTitle] = useState('')
-  const [category, setCategory] = useState<Category>('艺术')
+  const [category, setCategory] = useState<Category>('自定义')
   const [usage, setUsage] = useState('')
   const [body, setBody] = useState('')
   const [source, setSource] = useState('')

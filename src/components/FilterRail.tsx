@@ -1,5 +1,9 @@
+import { useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import type { Category, CollectionInfo } from '../types'
 import { CATEGORIES, CATEGORY_ACCENT } from '../types'
+import type { FavoriteFolder } from '../hooks/useFavorites'
+import { DEFAULT_FOLDER_ID, DEFAULT_FOLDER_NAME } from '../hooks/useFavorites'
+import { useRailSections, type RailSectionId } from '../hooks/useRailSections'
 import type { GalleryFilters } from '../utils/filters'
 import { toggleIn } from '../utils/filters'
 
@@ -9,6 +13,8 @@ interface Counts {
   medium: Record<string, number>
   aspect: Record<string, number>
   style: Record<string, number>
+  favoriteAll: number
+  favoriteByFolder: Record<string, number>
 }
 
 interface Props {
@@ -22,6 +28,17 @@ interface Props {
   styles: string[]
   active: boolean
   onCloseMobile?: () => void
+  folders: FavoriteFolder[]
+  onCreateFolder: (name: string) => FavoriteFolder | null
+  onRenameFolder: (id: string, name: string) => boolean
+  onDeleteFolder: (id: string) => boolean
+}
+
+function compactHint(names: string[]): string | null {
+  const clean = names.filter(Boolean)
+  if (clean.length === 0) return null
+  if (clean.length === 1) return clean[0]
+  return `${clean[0]} · +${clean.length - 1}`
 }
 
 function Row({
@@ -30,23 +47,63 @@ function Row({
   active,
   onClick,
   swatch,
+  trailing,
 }: {
   label: string
-  count: number
+  count?: number
   active: boolean
   onClick: () => void
   swatch?: string
+  trailing?: ReactNode
 }) {
   return (
-    <button type="button" className={`rail-row ${active ? 'is-active' : ''}`} onClick={onClick}>
-      <span className="rail-row__label">
-        {swatch && (
-          <i className="rail-dot" style={{ background: swatch }} aria-hidden />
-        )}
-        {label}
-      </span>
-      <span className="rail-row__count">{count}</span>
-    </button>
+    <div className={`rail-row-wrap ${active ? 'is-active' : ''}`}>
+      <button type="button" className={`rail-row ${active ? 'is-active' : ''}`} onClick={onClick}>
+        <span className="rail-row__label">
+          {swatch && <i className="rail-dot" style={{ background: swatch }} aria-hidden />}
+          {label}
+        </span>
+        {typeof count === 'number' && <span className="rail-row__count">{count}</span>}
+      </button>
+      {trailing}
+    </div>
+  )
+}
+
+function RailDrawer({
+  id,
+  title,
+  open,
+  onToggle,
+  hint,
+  children,
+}: {
+  id: RailSectionId
+  title: string
+  open: boolean
+  onToggle: (id: RailSectionId) => void
+  hint?: string | null
+  children: ReactNode
+}) {
+  return (
+    <section className="rail-section">
+      <button
+        type="button"
+        className="rail-section-toggle"
+        aria-expanded={open}
+        aria-controls={`rail-panel-${id}`}
+        onClick={() => onToggle(id)}
+      >
+        <h2 className="rail-heading">{title}</h2>
+        {!open && hint ? <span className="rail-heading-hint">{hint}</span> : null}
+        <span className={`rail-chevron ${open ? 'is-open' : ''}`} aria-hidden />
+      </button>
+      {open && (
+        <div className="rail-section-body" id={`rail-panel-${id}`}>
+          {children}
+        </div>
+      )}
+    </section>
   )
 }
 
@@ -61,8 +118,82 @@ export function FilterRail({
   styles,
   active,
   onCloseMobile,
+  folders,
+  onCreateFolder,
+  onRenameFolder,
+  onDeleteFolder,
 }: Props) {
-  const visibleCollections = collections.filter((c) => (counts.collection[c.id] ?? 0) > 0 || filters.collectionId === c.id)
+  const visibleCollections = collections.filter(
+    (c) => (counts.collection[c.id] ?? 0) > 0 || filters.collectionId === c.id,
+  )
+
+  const activeSections = useMemo(
+    () => ({
+      category: filters.category !== '全部',
+      collection: Boolean(filters.collectionId),
+      medium: filters.mediums.length > 0,
+      aspect: filters.aspects.length > 0,
+      style: filters.styles.length > 0,
+      favorites: Boolean(filters.favoriteScope),
+    }),
+    [
+      filters.category,
+      filters.collectionId,
+      filters.mediums,
+      filters.aspects,
+      filters.styles,
+      filters.favoriteScope,
+    ],
+  )
+
+  const { isOpen, toggle } = useRailSections(activeSections)
+
+  const [creating, setCreating] = useState(false)
+  const [newName, setNewName] = useState('')
+  const [renamingId, setRenamingId] = useState<string | null>(null)
+  const [renameValue, setRenameValue] = useState('')
+
+  const collectionHint = compactHint(
+    visibleCollections.filter((c) => c.id === filters.collectionId).map((c) => c.name),
+  )
+  const favoriteHint =
+    filters.favoriteScope === 'all'
+      ? '全部收藏'
+      : compactHint(folders.filter((f) => f.id === filters.favoriteScope).map((f) => f.name))
+
+  const submitCreate = (e: FormEvent) => {
+    e.preventDefault()
+    const created = onCreateFolder(newName)
+    if (created) {
+      setNewName('')
+      setCreating(false)
+    }
+  }
+
+  const submitRename = (e: FormEvent) => {
+    e.preventDefault()
+    if (renamingId && onRenameFolder(renamingId, renameValue)) {
+      setRenamingId(null)
+      setRenameValue('')
+    }
+  }
+
+  const confirmDelete = (folder: FavoriteFolder) => {
+    if (folder.id === DEFAULT_FOLDER_ID) return
+    const defaultName = folders.find((f) => f.id === DEFAULT_FOLDER_ID)?.name ?? DEFAULT_FOLDER_NAME
+    const ok = window.confirm(`删除收藏夹「${folder.name}」？其中的条目会移到「${defaultName}」。`)
+    if (!ok) return
+    if (onDeleteFolder(folder.id) && filters.favoriteScope === folder.id) {
+      onChange({ ...filters, favoriteScope: 'all' })
+    }
+  }
+
+  const selectFavoriteScope = (scope: string) => {
+    onChange({
+      ...filters,
+      favoriteScope: filters.favoriteScope === scope ? null : scope,
+    })
+  }
 
   return (
     <aside className={`rail ${active ? 'is-open' : ''}`} aria-label="筛选">
@@ -75,8 +206,13 @@ export function FilterRail({
         )}
       </div>
 
-      <section className="rail-section">
-        <h2 className="rail-heading">大类</h2>
+      <RailDrawer
+        id="category"
+        title="大类"
+        open={isOpen('category')}
+        onToggle={toggle}
+        hint={filters.category !== '全部' ? filters.category : null}
+      >
         <Row
           label="全部"
           count={counts.category['全部'] ?? 0}
@@ -103,11 +239,16 @@ export function FilterRail({
             }
           />
         ))}
-      </section>
+      </RailDrawer>
 
       {visibleCollections.length > 0 && (
-        <section className="rail-section">
-          <h2 className="rail-heading">合集</h2>
+        <RailDrawer
+          id="collection"
+          title="合集"
+          open={isOpen('collection')}
+          onToggle={toggle}
+          hint={collectionHint}
+        >
           <Row
             label="全部合集"
             count={visibleCollections.reduce((s, c) => s + (counts.collection[c.id] ?? 0), 0)}
@@ -129,12 +270,17 @@ export function FilterRail({
               }
             />
           ))}
-        </section>
+        </RailDrawer>
       )}
 
       {mediums.length > 0 && (
-        <section className="rail-section">
-          <h2 className="rail-heading">媒介</h2>
+        <RailDrawer
+          id="medium"
+          title="媒介"
+          open={isOpen('medium')}
+          onToggle={toggle}
+          hint={compactHint(filters.mediums)}
+        >
           {mediums.map((m) => (
             <Row
               key={m}
@@ -144,12 +290,17 @@ export function FilterRail({
               onClick={() => onChange({ ...filters, mediums: toggleIn(filters.mediums, m) })}
             />
           ))}
-        </section>
+        </RailDrawer>
       )}
 
       {aspects.length > 0 && (
-        <section className="rail-section">
-          <h2 className="rail-heading">画幅</h2>
+        <RailDrawer
+          id="aspect"
+          title="画幅"
+          open={isOpen('aspect')}
+          onToggle={toggle}
+          hint={compactHint(filters.aspects)}
+        >
           {aspects.map((a) => (
             <Row
               key={a}
@@ -159,12 +310,17 @@ export function FilterRail({
               onClick={() => onChange({ ...filters, aspects: toggleIn(filters.aspects, a) })}
             />
           ))}
-        </section>
+        </RailDrawer>
       )}
 
       {styles.length > 0 && (
-        <section className="rail-section">
-          <h2 className="rail-heading">风格 / 用途</h2>
+        <RailDrawer
+          id="style"
+          title="风格 / 用途"
+          open={isOpen('style')}
+          onToggle={toggle}
+          hint={compactHint(filters.styles)}
+        >
           {styles.map((s) => (
             <Row
               key={s}
@@ -174,11 +330,120 @@ export function FilterRail({
               onClick={() => onChange({ ...filters, styles: toggleIn(filters.styles, s) })}
             />
           ))}
-        </section>
+        </RailDrawer>
       )}
 
+      <RailDrawer
+        id="favorites"
+        title="收藏"
+        open={isOpen('favorites')}
+        onToggle={toggle}
+        hint={favoriteHint}
+      >
+        <Row
+          label="全部收藏"
+          count={counts.favoriteAll}
+          active={filters.favoriteScope === 'all'}
+          onClick={() => selectFavoriteScope('all')}
+        />
+        {folders.map((folder) =>
+          renamingId === folder.id ? (
+            <form key={folder.id} className="rail-inline-form rail-inline-form--block" onSubmit={submitRename}>
+              <input
+                value={renameValue}
+                onChange={(e) => setRenameValue(e.target.value)}
+                aria-label="收藏夹名称"
+                autoFocus
+              />
+              <button type="submit" className="rail-icon-btn">
+                保存
+              </button>
+              <button
+                type="button"
+                className="rail-icon-btn"
+                onClick={() => {
+                  setRenamingId(null)
+                  setRenameValue('')
+                }}
+              >
+                取消
+              </button>
+            </form>
+          ) : (
+            <Row
+              key={folder.id}
+              label={folder.name}
+              count={counts.favoriteByFolder[folder.id] ?? 0}
+              active={filters.favoriteScope === folder.id}
+              onClick={() => selectFavoriteScope(folder.id)}
+              trailing={
+                <span className="rail-folder-actions">
+                  <button
+                    type="button"
+                    className="rail-icon-btn"
+                    aria-label={`重命名 ${folder.name}`}
+                    onClick={() => {
+                      setRenamingId(folder.id)
+                      setRenameValue(folder.name)
+                      setCreating(false)
+                    }}
+                  >
+                    重命名
+                  </button>
+                  {folder.id !== DEFAULT_FOLDER_ID && (
+                    <button
+                      type="button"
+                      className="rail-icon-btn rail-icon-btn--danger"
+                      aria-label={`删除 ${folder.name}`}
+                      onClick={() => confirmDelete(folder)}
+                    >
+                      删除
+                    </button>
+                  )}
+                </span>
+              }
+            />
+          ),
+        )}
+        {creating ? (
+          <form className="rail-inline-form rail-inline-form--block" onSubmit={submitCreate}>
+            <input
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              placeholder="收藏夹名称"
+              aria-label="新收藏夹名称"
+              autoFocus
+            />
+            <button type="submit" className="rail-icon-btn">
+              创建
+            </button>
+            <button
+              type="button"
+              className="rail-icon-btn"
+              onClick={() => {
+                setCreating(false)
+                setNewName('')
+              }}
+            >
+              取消
+            </button>
+          </form>
+        ) : (
+          <button
+            type="button"
+            className="rail-row rail-row--action"
+            onClick={() => {
+              setCreating(true)
+              setRenamingId(null)
+            }}
+          >
+            <span className="rail-row__label">新建收藏夹</span>
+          </button>
+        )}
+      </RailDrawer>
+
       <p className="rail-note">
-        大类、合集为单选。媒介与画幅在组内为「或」，风格标签之间为「且」。
+        大类、合集为单选。媒介与画幅在组内为「或」，风格标签之间为「且」。收藏夹仅保存在本机浏览器。
       </p>
 
       <button type="button" className="rail-clear" onClick={onClear}>

@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import type { PromptItem } from '../types'
 import { CATEGORY_ACCENT } from '../types'
 import { collectionPalette } from '../utils/hash'
@@ -7,20 +7,58 @@ interface Props {
   item: PromptItem
   className?: string
   large?: boolean
+  /** Detail hero uses contain so tall/wide covers are not cropped. */
+  fit?: 'cover' | 'contain'
 }
 
-export function CoverArt({ item, className = '', large = false }: Props) {
+function SafeImage({
+  src,
+  className,
+  fallbackSrc,
+}: {
+  src: string
+  className: string
+  fallbackSrc?: string
+}) {
+  const [current, setCurrent] = useState(src)
+  const [failed, setFailed] = useState(false)
+  useEffect(() => {
+    setCurrent(src)
+    setFailed(false)
+  }, [src, fallbackSrc])
+  if (failed || !current) return null
+  return (
+    <img
+      src={current}
+      alt=""
+      className={className}
+      onError={() => {
+        if (fallbackSrc && current !== fallbackSrc) {
+          setCurrent(fallbackSrc)
+          return
+        }
+        setFailed(true)
+      }}
+    />
+  )
+}
+
+export function CoverArt({ item, className = '', large = false, fit = 'cover' }: Props) {
+  const hasPhoto = Boolean(item.coverDataUrl || item.cover)
+  const contain = fit === 'contain' && hasPhoto
+  const wrapClass = `cover-art ${contain ? 'cover-art--contain' : ''} ${className}`.trim()
+
   if (item.coverDataUrl) {
     return (
-      <div className={`cover-art ${className}`}>
-        <img src={item.coverDataUrl} alt="" className="cover-art__img" />
+      <div className={wrapClass}>
+        <SafeImage src={item.coverDataUrl} className="cover-art__img" />
       </div>
     )
   }
   if (item.cover) {
     return (
-      <div className={`cover-art ${className}`}>
-        <img src={`./${item.cover}`} alt="" className="cover-art__img" />
+      <div className={wrapClass}>
+        <SafeImage src={`./${item.cover}`} className="cover-art__img" />
       </div>
     )
   }
@@ -51,7 +89,7 @@ export function CoverArt({ item, className = '', large = false }: Props) {
 
   return (
     <div
-      className={`cover-art cover-art--generated ${className}`}
+      className={`cover-art cover-art--generated ${className}`.trim()}
       style={
         {
           '--accent': accent,
@@ -64,9 +102,9 @@ export function CoverArt({ item, className = '', large = false }: Props) {
         } as CSSProperties
       }
     >
-      <img
+      <SafeImage
         src={`./covers/categories/${item.categorySlug}.jpg`}
-        alt=""
+        fallbackSrc={`./covers/categories/${item.categorySlug}.svg`}
         className="cover-art__base"
       />
       <svg

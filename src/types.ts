@@ -5,6 +5,8 @@ export type Category =
   | '特效'
   | '周边'
   | '艺术'
+  | '自定义'
+  | '18+'
 
 export type Medium = '图像' | '视频' | '模板' | '图生提示词'
 export type Density = 'comfortable' | 'dense'
@@ -68,6 +70,8 @@ export const CATEGORIES: Category[] = [
   '特效',
   '周边',
   '艺术',
+  '自定义',
+  '18+',
 ]
 
 export const MEDIUMS: Medium[] = ['图像', '视频', '模板', '图生提示词']
@@ -79,6 +83,8 @@ export const CATEGORY_SLUG: Record<Category, string> = {
   特效: 'texiao',
   周边: 'zhoubian',
   艺术: 'yishu',
+  自定义: 'zidingyi',
+  '18+': 'eighteen',
 }
 
 /** Muted, cinematic accents — used sparingly (dots, hairlines), not as glows. */
@@ -89,6 +95,8 @@ export const CATEGORY_ACCENT: Record<Category, string> = {
   特效: '#c17a5a',
   周边: '#6a9aa4',
   艺术: '#b08aaa',
+  自定义: '#a39480',
+  '18+': '#8d6d73',
 }
 
 export const STYLE_FACET_EXCLUDE = new Set<string>([

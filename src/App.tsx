@@ -3,6 +3,7 @@ import type { PromptItem } from './types'
 import { CATEGORIES, MEDIUMS } from './types'
 import { usePrompts } from './hooks/usePrompts'
 import { useTheme } from './hooks/useTheme'
+import { useFavorites } from './hooks/useFavorites'
 import { PromptCard } from './components/PromptCard'
 import { PromptDetail } from './components/PromptDetail'
 import { AddStylePanel } from './components/AddStylePanel'
@@ -22,6 +23,7 @@ import './App.css'
 export default function App() {
   const { items, loading, error, meta, addItem, removeLocal, exportJson, localCount } =
     usePrompts()
+  const favorites = useFavorites()
   const [filters, setFilters] = useState<GalleryFilters>(() =>
     typeof window !== 'undefined' ? parseHash(window.location.hash) : EMPTY_FILTERS,
   )
@@ -49,7 +51,18 @@ export default function App() {
 
   const update = (next: GalleryFilters) => setFilters(next)
 
-  const filtered = useMemo(() => items.filter((it) => itemMatches(it, filters)), [items, filters])
+  const filterCtx = useMemo(() => ({ favoriteOf: favorites.items }), [favorites.items])
+
+  const filtered = useMemo(
+    () => items.filter((it) => itemMatches(it, filters, undefined, filterCtx)),
+    [items, filters, filterCtx],
+  )
+
+  const rawCategoryCounts = useMemo(() => {
+    const map: Record<string, number> = {}
+    for (const it of items) map[it.category] = (map[it.category] ?? 0) + 1
+    return map
+  }, [items])
 
   const counts = useMemo(() => {
     const category: Record<string, number> = { 全部: 0 }
@@ -59,30 +72,41 @@ export default function App() {
     const aspect: Record<string, number> = {}
     const style: Record<string, number> = {}
 
-    const allForCat = items.filter((it) => itemMatches(it, filters, ['category']))
+    const allForCat = items.filter((it) => itemMatches(it, filters, ['category'], filterCtx))
     category['全部'] = allForCat.length
     for (const it of allForCat) category[it.category] = (category[it.category] ?? 0) + 1
 
-    const allForCol = items.filter((it) => itemMatches(it, filters, ['collectionId']))
+    const allForCol = items.filter((it) => itemMatches(it, filters, ['collectionId'], filterCtx))
     for (const it of allForCol) {
       if (it.parentId) collection[it.parentId] = (collection[it.parentId] ?? 0) + 1
     }
 
-    const allForMed = items.filter((it) => itemMatches(it, filters, ['mediums']))
+    const allForMed = items.filter((it) => itemMatches(it, filters, ['mediums'], filterCtx))
     for (const it of allForMed) medium[it.medium] = (medium[it.medium] ?? 0) + 1
 
-    const allForAsp = items.filter((it) => itemMatches(it, filters, ['aspects']))
+    const allForAsp = items.filter((it) => itemMatches(it, filters, ['aspects'], filterCtx))
     for (const it of allForAsp) {
       if (it.aspect) aspect[it.aspect] = (aspect[it.aspect] ?? 0) + 1
     }
 
-    const allForStyle = items.filter((it) => itemMatches(it, filters, ['styles']))
+    const allForStyle = items.filter((it) => itemMatches(it, filters, ['styles'], filterCtx))
     for (const it of allForStyle) {
       for (const t of it.tags) style[t] = (style[t] ?? 0) + 1
     }
 
-    return { category, collection, medium, aspect, style }
-  }, [items, filters])
+    const allForFav = items.filter((it) => itemMatches(it, filters, ['favoriteScope'], filterCtx))
+    let favoriteAll = 0
+    const favoriteByFolder: Record<string, number> = {}
+    for (const folder of favorites.folders) favoriteByFolder[folder.id] = 0
+    for (const it of allForFav) {
+      const folderId = favorites.items[it.id]
+      if (!folderId) continue
+      favoriteAll += 1
+      favoriteByFolder[folderId] = (favoriteByFolder[folderId] ?? 0) + 1
+    }
+
+    return { category, collection, medium, aspect, style, favoriteAll, favoriteByFolder }
+  }, [items, filters, filterCtx, favorites.folders, favorites.items])
 
   const collections = meta?.collections ?? []
   const mediums = (meta?.tagFacets.medium.map((f) => f.name) ?? MEDIUMS).filter(
@@ -131,6 +155,28 @@ export default function App() {
     }
     update({ ...filters, styles: toggleIn(filters.styles, tag) })
   }
+
+  const emptyCopy = (() => {
+    const liveFavoriteIds = items.filter((it) => favorites.items[it.id]).map((it) => it.id)
+    if (filters.favoriteScope === 'all' && liveFavoriteIds.length === 0) {
+      return '还没有收藏。点击卡片右上角的心形即可加入收藏夹。'
+    }
+    if (filters.favoriteScope && filters.favoriteScope !== 'all') {
+      const inFolder = liveFavoriteIds.filter((id) => favorites.items[id] === filters.favoriteScope)
+      if (inFolder.length === 0) {
+        const name =
+          favorites.folders.find((f) => f.id === filters.favoriteScope)?.name ?? '该收藏夹'
+        return `「${name}」还是空的。可将条目收藏到此夹，或先在卡片上点亮心形。`
+      }
+    }
+    if (filters.category === '自定义' && (rawCategoryCounts['自定义'] ?? 0) === 0) {
+      return '还没有自定义风格。可点击「添加风格」创建第一条，默认会归入此类。'
+    }
+    if (filters.category === '18+' && (rawCategoryCounts['18+'] ?? 0) === 0) {
+      return '「18+」分类暂无风格，后续可在添加风格时选择此大类。'
+    }
+    return '没有符合条件的提示词。'
+  })()
 
   return (
     <div className="app">
@@ -213,6 +259,10 @@ export default function App() {
           styles={styles}
           active={railOpen}
           onCloseMobile={() => setRailOpen(false)}
+          folders={favorites.folders}
+          onCreateFolder={favorites.createFolder}
+          onRenameFolder={favorites.renameFolder}
+          onDeleteFolder={favorites.deleteFolder}
         />
 
         <main className="main">
@@ -222,7 +272,7 @@ export default function App() {
           )}
           {!loading && !error && filtered.length === 0 && (
             <div className="state state-empty">
-              <p>没有符合条件的提示词。</p>
+              <p>{emptyCopy}</p>
               {hasActiveFilters(filters) && (
                 <button type="button" className="btn btn-ghost" onClick={clearFilters}>
                   清除筛选
@@ -233,7 +283,13 @@ export default function App() {
           {!loading && !error && filtered.length > 0 && (
             <div className={`grid grid--${filters.density}`}>
               {filtered.map((it) => (
-                <PromptCard key={it.id} item={it} onOpen={openItem} />
+                <PromptCard
+                  key={it.id}
+                  item={it}
+                  onOpen={openItem}
+                  favorited={favorites.isFavorited(it.id)}
+                  onToggleFavorite={(item) => favorites.toggle(item.id)}
+                />
               ))}
             </div>
           )}
@@ -273,6 +329,12 @@ export default function App() {
             })
           }}
           onRemoveLocal={removeLocal}
+          favorited={favorites.isFavorited(selected.id)}
+          favoriteFolderId={favorites.folderOf(selected.id)}
+          folders={favorites.folders}
+          onAddFavorite={favorites.addToFolder}
+          onRemoveFavorite={favorites.unfavorite}
+          onCreateFolder={favorites.createFolder}
         />
       )}
       <AddStylePanel
