@@ -1,0 +1,320 @@
+/* Personal center — reuses gallery tokens, no new color system. */
+
+.account-main {
+  flex: 1;
+  width: min(72rem, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+  min-width: 0;
+}
+
+.account-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.4rem;
+}
+
+.account-subnav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  text-decoration: none;
+  color: var(--text-dim);
+  border: 1px solid transparent;
+}
+
+.account-subnav a.is-active {
+  color: var(--text);
+  background: var(--fill-active);
+  border-color: var(--line);
+}
+
+.account-gate {
+  width: min(24rem, 100%);
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.account-gate h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.account-gate p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+
+.auth-panel--page {
+  position: static;
+  width: 100%;
+  right: auto;
+  top: auto;
+}
+
+.account-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.account-profile__text {
+  min-width: 0;
+}
+
+.account-profile__text h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.account-profile__email,
+.account-muted,
+.account-hint,
+.account-profile__bio {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+
+.account-profile__bio {
+  color: var(--text);
+  max-width: 40rem;
+}
+
+.account-hint {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+.account-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.15rem;
+}
+
+.account-tab {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--text-dim);
+  padding: 0.55rem 0.7rem 0.65rem;
+  margin-bottom: -1px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  letter-spacing: 0;
+}
+
+.account-tab.is-active {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+
+.account-folders {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin: 0 0 1.15rem;
+}
+
+.account-folder-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.account-folder {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+}
+
+.account-folder span {
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.account-folder.is-active,
+.account-folder-wrap.is-active .account-folder {
+  color: var(--text);
+  background: var(--fill-active);
+}
+
+.account-folder--action {
+  border-style: dashed;
+}
+
+.account-folder-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.account-folder-form input {
+  height: 2rem;
+  padding: 0 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--input-bg);
+  outline: none;
+  letter-spacing: 0;
+  min-width: 8rem;
+}
+
+.account-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 36rem;
+}
+
+.account-card {
+  padding: 1.2rem 1.25rem 1.3rem;
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.account-card h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.account-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0;
+  position: relative;
+}
+
+.account-form input,
+.account-form textarea {
+  border: 1px solid var(--line);
+  background: var(--input-bg);
+  border-radius: 6px;
+  padding: 0.55rem 0.7rem;
+  outline: none;
+  letter-spacing: 0;
+  font: inherit;
+  color: var(--text);
+}
+
+.account-form textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.account-form input:focus,
+.account-form textarea:focus {
+  border-color: color-mix(in srgb, var(--focus) 55%, transparent);
+}
+
+.account-form input:disabled {
+  color: var(--text-dim);
+  opacity: 0.9;
+}
+
+.account-count {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  letter-spacing: 0;
+}
+
+.account-form__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.account-avatar-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.account-avatar-actions {
+  min-width: 0;
+  flex: 1;
+}
+
+.account-avatar-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.account-file {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.account-admin-nav {
+  margin-bottom: 1.1rem;
+  flex: none;
+}
+
+.account-admin .admin-users__head,
+.account-admin .admin-review__head {
+  margin-top: 0;
+}
+
+@media (max-width: 980px) {
+  .account-main {
+    width: calc(100% - 2rem);
+    padding-top: 1.15rem;
+  }
+
+  .account-subnav a,
+  .account-tab,
+  .account-card h2,
+  .account-profile__text h2,
+  .account-gate h2 {
+    letter-spacing: 0;
+  }
+}

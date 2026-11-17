@@ -38,6 +38,8 @@ interface Props {
   onCreateFolder: (name: string) => FavoriteFolder | null | Promise<FavoriteFolder | null>
   onRenameFolder: (id: string, name: string) => boolean | Promise<boolean>
   onDeleteFolder: (id: string) => boolean | Promise<boolean>
+  /** When false, hide the 喜欢 / 收藏 drawers (logged-in users use the personal homepage). */
+  showLibraryDrawers?: boolean
 }
 
 function compactHint(names: string[]): string | null {
@@ -131,6 +133,7 @@ export function FilterRail({
   onCreateFolder,
   onRenameFolder,
   onDeleteFolder,
+  showLibraryDrawers = true,
 }: Props) {
   const visibleCollections = collections.filter(
     (c) => (counts.collection[c.id] ?? 0) > 0 || filters.collectionId === c.id,
@@ -348,6 +351,8 @@ export function FilterRail({
         </RailDrawer>
       )}
 
+      {showLibraryDrawers && (
+        <>
       <RailDrawer
         id="likes"
         title="喜欢"
@@ -472,11 +477,14 @@ export function FilterRail({
         )}
       </RailDrawer>
 
+        </>
+      )}
+
       <p className="rail-note">
         大类、合集为单选。媒介与画幅在组内为「或」，风格标签之间为「且」。
         {accountSynced
-          ? '已登录时，喜欢与收藏夹会同步到账号，可在其他浏览器查看。'
-          : '未登录时，喜欢与收藏夹仅保存在本机浏览器。登录后可同步到账号。'}
+          ? '已登录时，喜欢与收藏夹会同步到账号，可在个人主页查看。'
+          : '未登录时，喜欢与收藏夹仅保存在本机浏览器。登录后可同步到账号，并在个人主页查看。'}
       </p>
 
       <button type="button" className="rail-clear" onClick={onClear}>

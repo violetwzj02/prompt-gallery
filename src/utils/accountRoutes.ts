@@ -1,0 +1,96 @@
+/** Hash-router helpers for the in-gallery personal center. */
+
+import { isAdminHash, normalizeHashPath } from './adminRoutes'
+
+export type AccountView = 'home' | 'account' | 'admin' | 'admin-review'
+export type AccountHomeTab = 'works' | 'likes' | 'favorites'
+
+export interface AccountRoute {
+  view: AccountView
+  tab: AccountHomeTab
+  itemId: string | null
+  folderId: string | null
+}
+
+const ACCOUNT_TABS: readonly AccountHomeTab[] = ['works', 'likes', 'favorites']
+
+export function isAccountHash(hash: string): boolean {
+  const path = normalizeHashPath(hash)
+  return path === 'me' || path.startsWith('me/')
+}
+
+/** Personal-center and legacy admin hashes must not be treated as prompt ids. */
+export function isReservedHash(hash: string): boolean {
+  return isAccountHash(hash) || isAdminHash(hash)
+}
+
+export function parseAccountRoute(hash: string): AccountRoute | null {
+  const raw = hash.startsWith('#') ? hash.slice(1) : hash
+  const queryPart = raw.split('?')[1] || ''
+  const path = normalizeHashPath(hash)
+  if (path !== 'me' && !path.startsWith('me/')) return null
+
+  const params = new URLSearchParams(queryPart)
+  const tabRaw = (params.get('tab') || '').trim()
+  const tab: AccountHomeTab = ACCOUNT_TABS.includes(tabRaw as AccountHomeTab)
+    ? (tabRaw as AccountHomeTab)
+    : 'works'
+  const item = (params.get('item') || '').trim()
+  const folder = (params.get('folder') || '').trim()
+
+  if (path === 'me/account' || path.startsWith('me/account/')) {
+    return { view: 'account', tab: 'works', itemId: item || null, folderId: null }
+  }
+  if (path === 'me/admin/review' || path.startsWith('me/admin/review/')) {
+    return { view: 'admin-review', tab: 'works', itemId: null, folderId: null }
+  }
+  if (path === 'me/admin' || path.startsWith('me/admin/')) {
+    return { view: 'admin', tab: 'works', itemId: null, folderId: null }
+  }
+
+  return {
+    view: 'home',
+    tab,
+    itemId: item || null,
+    folderId: folder || null,
+  }
+}
+
+export function toAccountHash(route: Pick<AccountRoute, 'view'> & Partial<AccountRoute>): string {
+  if (route.view === 'account') return '#/me/account'
+  if (route.view === 'admin') return '#/me/admin'
+  if (route.view === 'admin-review') return '#/me/admin/review'
+  const params = new URLSearchParams()
+  const tab = route.tab && route.tab !== 'works' ? route.tab : null
+  if (tab) params.set('tab', tab)
+  if (tab === 'favorites' && route.folderId) params.set('folder', route.folderId)
+  if (route.itemId) params.set('item', route.itemId)
+  const qs = params.toString()
+  return qs ? `#/me?${qs}` : '#/me'
+}
+
+export function replaceHash(next: string): void {
+  if (typeof window === 'undefined') return
+  if (window.location.hash === next) return
+  history.replaceState(null, '', next)
+  window.dispatchEvent(new HashChangeEvent('hashchange'))
+}
+
+/**
+ * Map leftover `#/admin...` links into the personal center.
+ * `#/admin/login` waits until auth is ready: admins go to the admin page,
+ * everyone else returns to the gallery (they sign in from the top bar).
+ */
+export function redirectLegacyAdminHash(
+  hash: string,
+  options: { authReady: boolean; isAdmin: boolean },
+): string | null {
+  if (!isAdminHash(hash)) return null
+  const path = normalizeHashPath(hash)
+  if (path === 'admin/login' || path.startsWith('admin/login/')) {
+    if (!options.authReady) return null
+    return options.isAdmin ? '#/me/admin' : '#/'
+  }
+  if (path === 'admin/review' || path.startsWith('admin/review/')) return '#/me/admin/review'
+  return '#/me/admin'
+}

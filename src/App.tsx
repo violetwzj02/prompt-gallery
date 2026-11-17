@@ -10,11 +10,20 @@ import { PromptCard } from './components/PromptCard'
 import { PromptDetail } from './components/PromptDetail'
 import { AddStylePanel } from './components/AddStylePanel'
 import { AuthControl } from './components/AuthControl'
+import { AccountCenter } from './components/account/AccountCenter'
 import { ThemeToggle } from './components/ThemeToggle'
 import { FilterRail } from './components/FilterRail'
+import { useProfile } from './hooks/useProfile'
+import { isAdmin } from './lib/admin'
 import { isAuthCallbackHash } from './lib/supabase'
-import { AdminApp } from './components/admin/AdminApp'
-import { isAdminHash } from './utils/adminRoutes'
+import {
+  isReservedHash,
+  parseAccountRoute,
+  redirectLegacyAdminHash,
+  replaceHash,
+  toAccountHash,
+} from './utils/accountRoutes'
+import { favoritedOf, likedOf, worksOf } from './components/account/AccountHome'
 import {
   EMPTY_FILTERS,
   type GalleryFilters,
@@ -32,27 +41,20 @@ import {
 import './App.css'
 
 export default function App() {
-  const [adminRoute, setAdminRoute] = useState(() =>
-    typeof window !== 'undefined' ? isAdminHash(window.location.hash) : false,
-  )
-
-  useEffect(() => {
-    const onHash = () => setAdminRoute(isAdminHash(window.location.hash))
-    window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
-  }, [])
-
-  if (adminRoute) return <AdminApp />
   return <GalleryApp />
 }
 
 function GalleryApp() {
   const auth = useAuth()
   const userId = auth.user?.id ?? null
+  const profileState = useProfile(userId, auth.loading)
   const { items, loading, error, syncError, meta, addItem, updateItem, removeLocal, exportJson, localCount, baseCount } =
     usePrompts(userId, auth.loading)
   const favorites = useFavorites(userId, auth.loading)
   const likes = useLikes(userId, auth.loading)
+  const [locationHash, setLocationHash] = useState(() =>
+    typeof window !== 'undefined' ? window.location.hash : '#/',
+  )
   const [filters, setFilters] = useState<GalleryFilters>(() =>
     typeof window !== 'undefined' ? parseHash(window.location.hash) : EMPTY_FILTERS,
   )
@@ -61,20 +63,35 @@ function GalleryApp() {
   const [editing, setEditing] = useState<PromptItem | null>(null)
   const [railOpen, setRailOpen] = useState(false)
 
+  const accountRoute = parseAccountRoute(locationHash)
+  const reservedRoute = isReservedHash(locationHash)
+
+  const selectedId = accountRoute ? accountRoute.itemId : filters.selectedId
   const selected = useMemo(
-    () => (filters.selectedId ? items.find((i) => i.id === filters.selectedId) ?? null : null),
-    [filters.selectedId, items],
+    () => (selectedId ? items.find((i) => i.id === selectedId) ?? null : null),
+    [selectedId, items],
   )
 
   useEffect(() => {
-    const onHash = () => setFilters(parseHash(window.location.hash))
+    const onHash = () => {
+      setLocationHash(window.location.hash)
+      setFilters(parseHash(window.location.hash))
+    }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
   useEffect(() => {
+    const next = redirectLegacyAdminHash(locationHash, {
+      authReady: !auth.loading,
+      isAdmin: isAdmin(auth.user),
+    })
+    if (next) replaceHash(next)
+  }, [locationHash, auth.loading, auth.user])
+
+  useEffect(() => {
     if (isAuthCallbackHash(window.location.hash)) return
-    if (isAdminHash(window.location.hash)) return
+    if (isReservedHash(window.location.hash)) return
     const next = toHash(filters)
     if (window.location.hash !== next && (window.location.hash || next !== '#/')) {
       history.replaceState(null, '', next)
@@ -185,8 +202,42 @@ function GalleryApp() {
       selectedId: filters.selectedId,
     })
 
-  const openItem = (item: PromptItem) => update({ ...filters, selectedId: item.id })
-  const closeItem = () => update({ ...filters, selectedId: null })
+  const openItem = (item: PromptItem) => {
+    if (accountRoute) {
+      replaceHash(toAccountHash({ ...accountRoute, itemId: item.id }))
+      return
+    }
+    update({ ...filters, selectedId: item.id })
+  }
+  const closeItem = () => {
+    if (accountRoute) {
+      replaceHash(toAccountHash({ ...accountRoute, itemId: null }))
+      return
+    }
+    update({ ...filters, selectedId: null })
+  }
+
+  const goToGallery = (next: GalleryFilters) => {
+    setFilters(next)
+    replaceHash(toHash(next))
+  }
+
+  const detailItems = useMemo(() => {
+    if (!accountRoute || accountRoute.view !== 'home' || !userId) return filtered
+    if (accountRoute.tab === 'likes') return likedOf(items, likes.idSet)
+    if (accountRoute.tab === 'favorites') {
+      return favoritedOf(items, favorites.items, accountRoute.folderId, favorites.defaultFolderId)
+    }
+    return worksOf(items, userId)
+  }, [
+    accountRoute,
+    userId,
+    filtered,
+    items,
+    likes.idSet,
+    favorites.items,
+    favorites.defaultFolderId,
+  ])
 
   const siblings = useMemo(() => {
     if (!selected?.parentId) return []
@@ -195,24 +246,35 @@ function GalleryApp() {
       .sort((a, b) => (a.collectionIndex ?? 0) - (b.collectionIndex ?? 0))
   }, [selected, items])
 
+  const applyGalleryFilters = (next: GalleryFilters) => {
+    if (reservedRoute) goToGallery(next)
+    else update(next)
+  }
+
   const onTagFromDetail = (tag: string) => {
     const isMedium = MEDIUMS.includes(tag as (typeof MEDIUMS)[number])
     const isAspect = /^\d+:\d+$/.test(tag)
     const isCollection = collections.some((c) => c.name === tag)
     if (isMedium) {
-      update({ ...filters, mediums: toggleIn(filters.mediums, tag) })
+      applyGalleryFilters({ ...filters, mediums: toggleIn(filters.mediums, tag) })
       return
     }
     if (isAspect) {
-      update({ ...filters, aspects: toggleIn(filters.aspects, tag) })
+      applyGalleryFilters({ ...filters, aspects: toggleIn(filters.aspects, tag) })
       return
     }
     if (isCollection) {
       const col = collections.find((c) => c.name === tag)
-      if (col) update({ ...filters, collectionId: col.id, category: col.category as GalleryFilters['category'] })
+      if (col) {
+        applyGalleryFilters({
+          ...filters,
+          collectionId: col.id,
+          category: col.category as GalleryFilters['category'],
+        })
+      }
       return
     }
-    update({ ...filters, styles: toggleIn(filters.styles, tag) })
+    applyGalleryFilters({ ...filters, styles: toggleIn(filters.styles, tag) })
   }
 
   const emptyCopy = (() => {
@@ -239,11 +301,13 @@ function GalleryApp() {
   })()
 
   return (
-    <div className="app">
+    <div className={reservedRoute ? "app app--account" : "app"}>
       <header className="topbar">
         <div className="topbar__brand">
-          <p className="eyebrow">Prompt Library</p>
-          <h1>风格 Prompt 图鉴</h1>
+          <a className="topbar__brand-link" href="#/" aria-label="返回图鉴首页">
+            <p className="eyebrow">Prompt Library</p>
+            <h1>风格 Prompt 图鉴</h1>
+          </a>
         </div>
 
         <div className="topbar__search">
@@ -281,7 +345,11 @@ function GalleryApp() {
           >
             筛选
           </button>
-          <AuthControl auth={auth} />
+          <AuthControl
+            auth={auth}
+            displayName={profileState.profile?.displayName}
+            avatarUrl={profileState.profile?.avatarUrl}
+          />
           <ThemeToggle pref={themePref} resolved={themeResolved} onChange={setThemePref} />
           <div className="density" role="group" aria-label="网格密度">
             <button
@@ -308,6 +376,18 @@ function GalleryApp() {
         </div>
       </header>
 
+      {reservedRoute ? (
+        <AccountCenter
+          auth={auth}
+          profileState={profileState}
+          route={accountRoute ?? { view: 'home', tab: 'works', itemId: null, folderId: null }}
+          pendingRedirect={!accountRoute}
+          items={items}
+          likes={likes}
+          favorites={favorites}
+          onOpenItem={openItem}
+        />
+      ) : (
       <div className="shell">
         {railOpen && (
           <button type="button" className="rail-backdrop" aria-label="关闭筛选面板" onClick={() => setRailOpen(false)} />
@@ -332,6 +412,7 @@ function GalleryApp() {
           onCreateFolder={favorites.createFolder}
           onRenameFolder={favorites.renameFolder}
           onDeleteFolder={favorites.deleteFolder}
+          showLibraryDrawers={!userId}
         />
 
         <main className="main">
@@ -367,6 +448,7 @@ function GalleryApp() {
           )}
         </main>
       </div>
+      )}
 
       <footer className="footer">
         <span>
@@ -386,14 +468,14 @@ function GalleryApp() {
       {selected && (
         <PromptDetail
           item={selected}
-          items={filtered}
+          items={detailItems}
           siblings={siblings}
           onClose={closeItem}
           onSelect={openItem}
           onTag={onTagFromDetail}
           onOpenCollection={(parentId) => {
             const col = collections.find((c) => c.id === parentId)
-            update({
+            applyGalleryFilters({
               ...filters,
               collectionId: parentId,
               category: (col?.category as GalleryFilters['category']) ?? filters.category,
@@ -425,12 +507,20 @@ function GalleryApp() {
         }}
         onAdd={async (item) => {
           const created = await addItem(item)
-          update({ ...filters, selectedId: created.id })
+          if (accountRoute) {
+            replaceHash(toAccountHash({ view: 'home', tab: 'works', itemId: created.id, folderId: null }))
+          } else {
+            update({ ...filters, selectedId: created.id })
+          }
           return created
         }}
         onUpdate={async (item) => {
           const saved = await updateItem(item)
-          update({ ...filters, selectedId: saved.id })
+          if (accountRoute) {
+            replaceHash(toAccountHash({ ...accountRoute, view: 'home', tab: 'works', itemId: saved.id }))
+          } else {
+            update({ ...filters, selectedId: saved.id })
+          }
           return saved
         }}
         onExport={exportJson}

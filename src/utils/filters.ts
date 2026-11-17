@@ -1,3 +1,4 @@
+import { isReservedHash } from './accountRoutes'
 import type { Category, Density, PromptItem } from '../types'
 
 export interface FilterContext {
@@ -124,8 +125,8 @@ export function parseHash(hash: string): GalleryFilters {
   }
   const [pathPart, queryPart] = raw.split('?')
   const path = (pathPart || '').replace(/^\/+/, '')
-  // Admin console routes are not prompt ids.
-  if (path === 'admin' || path.startsWith('admin/')) {
+  // Personal-center and leftover admin routes are not prompt ids.
+  if (isReservedHash(hash)) {
     return { ...EMPTY_FILTERS }
   }
   const selectedId = path && !path.startsWith('?') ? decodeURIComponent(path) : null

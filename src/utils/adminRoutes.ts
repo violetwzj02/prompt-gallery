@@ -3,7 +3,7 @@
 export function normalizeHashPath(hash: string): string {
   const raw = hash.startsWith('#') ? hash.slice(1) : hash
   const pathPart = raw.split('?')[0] || ''
-  return pathPart.replace(/^\/+/, '')
+  return pathPart.replace(/^\/+/, '').replace(/\/+$/, '')
 }
 
 /** True for `#/admin` and `#/admin/...` (including login). */
