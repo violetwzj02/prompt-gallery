@@ -5,6 +5,8 @@ export interface FilterContext {
   /** item id → folder id */
   favoriteOf?: Record<string, string>
   likedIds?: ReadonlySet<string>
+  /** Cloud UUID when logged in; otherwise 'default' */
+  defaultFolderId?: string
 }
 
 export interface GalleryFilters {
@@ -62,7 +64,11 @@ export function itemMatches(
   if (!ignore.has('favoriteScope') && f.favoriteScope) {
     const folder = ctx?.favoriteOf?.[item.id]
     if (!folder) return false
-    if (f.favoriteScope !== 'all' && folder !== f.favoriteScope) return false
+    if (f.favoriteScope !== 'all') {
+      const fallback = ctx?.defaultFolderId ?? 'default'
+      const wanted = f.favoriteScope === 'default' ? fallback : f.favoriteScope
+      if (folder !== wanted) return false
+    }
   }
   if (!ignore.has('category') && f.category !== '全部' && item.category !== f.category) return false
   if (!ignore.has('collectionId') && f.collectionId && item.parentId !== f.collectionId) return false
@@ -113,6 +119,10 @@ export function hasActiveFilters(f: GalleryFilters): boolean {
 
 export function parseHash(hash: string): GalleryFilters {
   const raw = hash.startsWith('#') ? hash.slice(1) : hash
+  // Do not treat implicit-auth tokens as a selected item id.
+  if (raw && !raw.startsWith('/') && /(?:^|&)(access_token|refresh_token|error)=/.test(raw)) {
+    return { ...EMPTY_FILTERS }
+  }
   const [pathPart, queryPart] = raw.split('?')
   const path = (pathPart || '').replace(/^\/+/, '')
   const selectedId = path && !path.startsWith('?') ? decodeURIComponent(path) : null

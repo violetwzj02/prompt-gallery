@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { PromptItem } from './types'
 import { CATEGORIES, MEDIUMS } from './types'
+import { useAuth } from './hooks/useAuth'
 import { usePrompts } from './hooks/usePrompts'
 import { useTheme } from './hooks/useTheme'
 import { useFavorites } from './hooks/useFavorites'
@@ -8,8 +9,10 @@ import { useLikes } from './hooks/useLikes'
 import { PromptCard } from './components/PromptCard'
 import { PromptDetail } from './components/PromptDetail'
 import { AddStylePanel } from './components/AddStylePanel'
+import { AuthControl } from './components/AuthControl'
 import { ThemeToggle } from './components/ThemeToggle'
 import { FilterRail } from './components/FilterRail'
+import { isAuthCallbackHash } from './lib/supabase'
 import {
   EMPTY_FILTERS,
   type GalleryFilters,
@@ -22,10 +25,12 @@ import {
 import './App.css'
 
 export default function App() {
-  const { items, loading, error, meta, addItem, removeLocal, exportJson, localCount } =
-    usePrompts()
-  const favorites = useFavorites()
-  const likes = useLikes()
+  const auth = useAuth()
+  const userId = auth.user?.id ?? null
+  const { items, loading, error, syncError, meta, addItem, removeLocal, exportJson, localCount, baseCount } =
+    usePrompts(userId, auth.loading)
+  const favorites = useFavorites(userId, auth.loading)
+  const likes = useLikes(userId, auth.loading)
   const [filters, setFilters] = useState<GalleryFilters>(() =>
     typeof window !== 'undefined' ? parseHash(window.location.hash) : EMPTY_FILTERS,
   )
@@ -45,6 +50,7 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    if (isAuthCallbackHash(window.location.hash)) return
     const next = toHash(filters)
     if (window.location.hash !== next && (window.location.hash || next !== '#/')) {
       history.replaceState(null, '', next)
@@ -53,7 +59,10 @@ export default function App() {
 
   const update = (next: GalleryFilters) => setFilters(next)
 
-  const filterCtx = useMemo(() => ({ favoriteOf: favorites.items, likedIds: likes.idSet }), [favorites.items, likes.idSet])
+  const filterCtx = useMemo(
+    () => ({ favoriteOf: favorites.items, likedIds: likes.idSet, defaultFolderId: favorites.defaultFolderId }),
+    [favorites.items, likes.idSet, favorites.defaultFolderId],
+  )
 
   const filtered = useMemo(
     () => items.filter((it) => itemMatches(it, filters, undefined, filterCtx)),
@@ -217,6 +226,11 @@ export default function App() {
             <span>条</span>
           </p>
           {localCount > 0 && <span className="topbar-note">本地 +{localCount}</span>}
+          {(syncError || favorites.error || likes.error) && (
+            <span className="topbar-note topbar-note--error">
+              {syncError || favorites.error || likes.error}
+            </span>
+          )}
         </div>
 
         <div className="topbar__actions">
@@ -228,6 +242,7 @@ export default function App() {
           >
             筛选
           </button>
+          <AuthControl auth={auth} />
           <ThemeToggle pref={themePref} resolved={themeResolved} onChange={setThemePref} />
           <div className="density" role="group" aria-label="网格密度">
             <button
@@ -272,6 +287,8 @@ export default function App() {
           active={railOpen}
           onCloseMobile={() => setRailOpen(false)}
           folders={favorites.folders}
+          defaultFolderId={favorites.defaultFolderId}
+          accountSynced={Boolean(userId)}
           onCreateFolder={favorites.createFolder}
           onRenameFolder={favorites.renameFolder}
           onDeleteFolder={favorites.deleteFolder}
@@ -303,6 +320,7 @@ export default function App() {
                   onToggleLike={(item) => likes.toggle(item.id)}
                   favorited={favorites.isFavorited(it.id)}
                   onToggleFavorite={(item) => favorites.toggle(item.id)}
+                  viewerId={userId}
                 />
               ))}
             </div>
@@ -320,7 +338,7 @@ export default function App() {
         </span>
         {meta && (
           <span className="muted">
-            源库 {meta.masterCount ?? meta.count} 条主条目 · 拆分为 {items.length - localCount} 张卡片
+            源库 {meta.masterCount ?? meta.count} 条主条目 · 拆分为 {baseCount} 张卡片
           </span>
         )}
       </footer>
@@ -351,17 +369,19 @@ export default function App() {
           onAddFavorite={favorites.addToFolder}
           onRemoveFavorite={favorites.unfavorite}
           onCreateFolder={favorites.createFolder}
+          viewerId={userId}
         />
       )}
       <AddStylePanel
         open={addOpen}
         onClose={() => setAddOpen(false)}
-        onAdd={(item) => {
-          const created = addItem(item)
+        onAdd={async (item) => {
+          const created = await addItem(item)
           update({ ...filters, selectedId: created.id })
           return created
         }}
         onExport={exportJson}
+        synced={Boolean(userId)}
       />
     </div>
   )

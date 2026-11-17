@@ -3,8 +3,9 @@ import ReactMarkdown from 'react-markdown'
 import type { PromptItem } from '../types'
 import { CATEGORY_ACCENT } from '../types'
 import type { FavoriteFolder } from '../hooks/useFavorites'
-import { DEFAULT_FOLDER_ID } from '../hooks/useFavorites'
+import { DEFAULT_FOLDER_ID, DEFAULT_FOLDER_NAME } from '../hooks/useFavorites'
 import { extractPurePrompt } from '../utils/promptExtract'
+import { canRemoveStyle, styleOriginLabel } from '../utils/styleOrigin'
 import { CoverArt } from './CoverArt'
 
 interface Props {
@@ -15,7 +16,7 @@ interface Props {
   onSelect: (item: PromptItem) => void
   onTag: (tag: string) => void
   onOpenCollection?: (parentId: string) => void
-  onRemoveLocal?: (id: string) => void
+  onRemoveLocal?: (id: string) => void | Promise<void>
   liked?: boolean
   onToggleLike?: (itemId: string) => void
   favorited?: boolean
@@ -23,7 +24,8 @@ interface Props {
   folders?: FavoriteFolder[]
   onAddFavorite?: (itemId: string, folderId: string) => void
   onRemoveFavorite?: (itemId: string) => void
-  onCreateFolder?: (name: string) => FavoriteFolder | null
+  onCreateFolder?: (name: string) => FavoriteFolder | null | Promise<FavoriteFolder | null>
+  viewerId?: string | null
 }
 
 function HeartIcon() {
@@ -78,6 +80,7 @@ export function PromptDetail({
   onAddFavorite,
   onRemoveFavorite,
   onCreateFolder,
+  viewerId = null,
 }: Props) {
   const [toast, setToast] = useState<string | null>(null)
   const [favOpen, setFavOpen] = useState(false)
@@ -85,6 +88,7 @@ export function PromptDetail({
   const favWrapRef = useRef<HTMLDivElement>(null)
   const accent = CATEGORY_ACCENT[item.category]
   const indexInList = items.findIndex((i) => i.id === item.id)
+  const originLabel = styleOriginLabel(item, viewerId)
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -153,8 +157,8 @@ export function PromptDetail({
     setToast('已加入收藏')
   }
 
-  const submitNewFolder = () => {
-    const created = onCreateFolder?.(newFolder)
+  const submitNewFolder = async () => {
+    const created = await onCreateFolder?.(newFolder)
     if (!created) {
       setToast('请输入收藏夹名称')
       return
@@ -218,7 +222,7 @@ export function PromptDetail({
               </span>
             )}
             <span className="detail-id">{item.id}</span>
-            {item.local && <span className="pill pill--local">本地新增</span>}
+            {originLabel && <span className="pill pill--local">{originLabel}</span>}
           </div>
 
           <h2 className="detail-title">{item.title}</h2>
@@ -308,7 +312,7 @@ export function PromptDetail({
                 {favOpen && (
                   <div className="fav-menu" role="menu">
                     <p className="fav-menu__label">收藏到</p>
-                    {(folders.length ? folders : [{ id: DEFAULT_FOLDER_ID, name: '默认收藏夹' }]).map((f) => (
+                    {(folders.length ? folders : [{ id: DEFAULT_FOLDER_ID, name: DEFAULT_FOLDER_NAME }]).map((f) => (
                       <button
                         type="button"
                         role="menuitem"
@@ -356,16 +360,20 @@ export function PromptDetail({
                 )}
               </div>
             )}
-            {item.local && onRemoveLocal && (
+            {canRemoveStyle(item, viewerId) && onRemoveLocal && (
               <button
                 type="button"
                 className="btn btn-danger"
                 onClick={() => {
-                  onRemoveLocal(item.id)
+                  if (item.ownerId) {
+                    const ok = window.confirm('删除后，这条风格将从公共库中移除。确定删除？')
+                    if (!ok) return
+                  }
+                  void onRemoveLocal(item.id)
                   onClose()
                 }}
               >
-                删除本地条目
+                {item.ownerId ? '删除此风格' : '删除本地条目'}
               </button>
             )}
           </div>

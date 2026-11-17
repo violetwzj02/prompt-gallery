@@ -5,11 +5,14 @@ import { CATEGORIES, MEDIUMS } from '../types'
 interface Props {
   open: boolean
   onClose: () => void
-  onAdd: (item: Omit<PromptItem, 'id' | 'categorySlug' | 'local'> & { id?: string }) => PromptItem
+  onAdd: (
+    item: Omit<PromptItem, 'id' | 'categorySlug' | 'local' | 'ownerId'> & { id?: string },
+  ) => PromptItem | Promise<PromptItem>
   onExport: () => void
+  synced?: boolean
 }
 
-export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
+export function AddStylePanel({ open, onClose, onAdd, onExport, synced = false }: Props) {
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState<Category>('自定义')
   const [usage, setUsage] = useState('')
@@ -30,7 +33,7 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
       return
     }
     if (file.size > 1.5 * 1024 * 1024) {
-      setMsg('封面图请小于 1.5MB（会存入 localStorage）')
+      setMsg(synced ? '封面图请小于 1.5MB' : '封面图请小于 1.5MB（会存入 localStorage）')
       return
     }
     const reader = new FileReader()
@@ -38,7 +41,7 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
     reader.readAsDataURL(file)
   }
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault()
     if (!title.trim() || !body.trim()) {
       setMsg('标题与 Prompt 正文为必填')
@@ -49,7 +52,7 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
       .map((t) => t.trim())
       .filter(Boolean)
     const col = collection.trim() || null
-    onAdd({
+    await onAdd({
       title: title.trim(),
       category,
       usage: usage.trim() || `${category} · 自定义风格`,
@@ -68,7 +71,7 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
       duplicateNote: null,
       duplicateOf: null,
     })
-    setMsg('已加入本地图鉴（可导出 JSON）')
+    setMsg(synced ? '已加入图鉴，并作为本库风格同步到账号' : '已加入本地图鉴（可导出 JSON）')
     setTitle('')
     setUsage('')
     setBody('')
@@ -89,7 +92,9 @@ export function AddStylePanel({ open, onClose, onAdd, onExport }: Props) {
           </button>
         </div>
         <p className="add-hint">
-          本面板将条目写入浏览器 localStorage，便于快速预览。正式入库仍建议按原仓库流程修改{' '}
+          {synced
+            ? '登录后，新风格会加入公共图鉴，其他访客也可以看到；同时会在本机保留一份副本。内置风格仍建议按原仓库流程修改 '
+            : '本面板将条目写入浏览器 localStorage，便于快速预览。正式入库仍建议按原仓库流程修改 '}
           <code>cat_*.md</code> 后运行 <code>npm run parse</code>。可随时导出 JSON。
         </p>
         <form className="add-form" onSubmit={submit}>

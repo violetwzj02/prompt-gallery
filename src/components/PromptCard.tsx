@@ -1,6 +1,7 @@
 import type { CSSProperties, KeyboardEvent, MouseEvent } from 'react'
 import type { PromptItem } from '../types'
 import { CATEGORY_ACCENT } from '../types'
+import { styleOriginLabel } from '../utils/styleOrigin'
 import { CoverArt } from './CoverArt'
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
   favorited?: boolean
   onToggleLike?: (item: PromptItem) => void
   onToggleFavorite?: (item: PromptItem) => void
+  viewerId?: string | null
 }
 
 function HeartIcon() {
@@ -35,8 +37,10 @@ export function PromptCard({
   favorited = false,
   onToggleLike,
   onToggleFavorite,
+  viewerId = null,
 }: Props) {
   const accent = CATEGORY_ACCENT[item.category]
+  const originLabel = styleOriginLabel(item, viewerId)
   const captionTags = item.tags
     .filter((t) => t !== item.category && t !== item.collection && t !== item.medium)
     .slice(0, 2)
@@ -117,7 +121,7 @@ export function PromptCard({
           ) : (
             <span className="prompt-card__series">{item.category}</span>
           )}
-          {item.local && <span className="prompt-card__local">本地</span>}
+          {originLabel && <span className="prompt-card__local">{originLabel}</span>}
         </div>
         <h3 className="prompt-card__title">{item.title}</h3>
         {captionTags.length > 0 && (

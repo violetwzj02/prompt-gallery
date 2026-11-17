@@ -30,9 +30,11 @@ export interface PromptItem {
   promptText: string
   duplicateNote: string | null
   duplicateOf: string | null
-  /** local-only additions */
+  /** local-only additions stored in this browser */
   local?: boolean
   coverDataUrl?: string
+  /** Present when this item comes from public.custom_styles */
+  ownerId?: string
 }
 
 export interface FacetCount {

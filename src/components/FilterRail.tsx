@@ -2,7 +2,8 @@ import { useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import type { Category, CollectionInfo } from '../types'
 import { CATEGORIES, CATEGORY_ACCENT } from '../types'
 import type { FavoriteFolder } from '../hooks/useFavorites'
-import { DEFAULT_FOLDER_ID, DEFAULT_FOLDER_NAME } from '../hooks/useFavorites'
+import { DEFAULT_FOLDER_NAME } from '../hooks/useFavorites'
+import { folderScopeMatches } from '../lib/localStore'
 import { useRailSections, type RailSectionId } from '../hooks/useRailSections'
 import type { GalleryFilters } from '../utils/filters'
 import { toggleIn } from '../utils/filters'
@@ -30,9 +31,11 @@ interface Props {
   active: boolean
   onCloseMobile?: () => void
   folders: FavoriteFolder[]
-  onCreateFolder: (name: string) => FavoriteFolder | null
-  onRenameFolder: (id: string, name: string) => boolean
-  onDeleteFolder: (id: string) => boolean
+  defaultFolderId: string
+  accountSynced?: boolean
+  onCreateFolder: (name: string) => FavoriteFolder | null | Promise<FavoriteFolder | null>
+  onRenameFolder: (id: string, name: string) => boolean | Promise<boolean>
+  onDeleteFolder: (id: string) => boolean | Promise<boolean>
 }
 
 function compactHint(names: string[]): string | null {
@@ -120,6 +123,8 @@ export function FilterRail({
   active,
   onCloseMobile,
   folders,
+  defaultFolderId,
+  accountSynced = false,
   onCreateFolder,
   onRenameFolder,
   onDeleteFolder,
@@ -162,31 +167,35 @@ export function FilterRail({
   const favoriteHint =
     filters.favoriteScope === 'all'
       ? '全部收藏'
-      : compactHint(folders.filter((f) => f.id === filters.favoriteScope).map((f) => f.name))
+      : compactHint(
+          folders
+            .filter((f) => folderScopeMatches(filters.favoriteScope, f.id, defaultFolderId))
+            .map((f) => f.name),
+        )
 
-  const submitCreate = (e: FormEvent) => {
+  const submitCreate = async (e: FormEvent) => {
     e.preventDefault()
-    const created = onCreateFolder(newName)
+    const created = await onCreateFolder(newName)
     if (created) {
       setNewName('')
       setCreating(false)
     }
   }
 
-  const submitRename = (e: FormEvent) => {
+  const submitRename = async (e: FormEvent) => {
     e.preventDefault()
-    if (renamingId && onRenameFolder(renamingId, renameValue)) {
+    if (renamingId && (await onRenameFolder(renamingId, renameValue))) {
       setRenamingId(null)
       setRenameValue('')
     }
   }
 
-  const confirmDelete = (folder: FavoriteFolder) => {
-    if (folder.id === DEFAULT_FOLDER_ID) return
-    const defaultName = folders.find((f) => f.id === DEFAULT_FOLDER_ID)?.name ?? DEFAULT_FOLDER_NAME
+  const confirmDelete = async (folder: FavoriteFolder) => {
+    if (folder.id === defaultFolderId) return
+    const defaultName = folders.find((f) => f.id === defaultFolderId)?.name ?? DEFAULT_FOLDER_NAME
     const ok = window.confirm(`删除收藏夹「${folder.name}」？其中的条目会移到「${defaultName}」。`)
     if (!ok) return
-    if (onDeleteFolder(folder.id) && filters.favoriteScope === folder.id) {
+    if ((await onDeleteFolder(folder.id)) && filters.favoriteScope === folder.id) {
       onChange({ ...filters, favoriteScope: 'all' })
     }
   }
@@ -392,7 +401,7 @@ export function FilterRail({
               key={folder.id}
               label={folder.name}
               count={counts.favoriteByFolder[folder.id] ?? 0}
-              active={filters.favoriteScope === folder.id}
+              active={folderScopeMatches(filters.favoriteScope, folder.id, defaultFolderId)}
               onClick={() => selectFavoriteScope(folder.id)}
               trailing={
                 <span className="rail-folder-actions">
@@ -408,7 +417,7 @@ export function FilterRail({
                   >
                     重命名
                   </button>
-                  {folder.id !== DEFAULT_FOLDER_ID && (
+                  {folder.id !== defaultFolderId && (
                     <button
                       type="button"
                       className="rail-icon-btn rail-icon-btn--danger"
@@ -461,7 +470,10 @@ export function FilterRail({
       </RailDrawer>
 
       <p className="rail-note">
-        大类、合集为单选。媒介与画幅在组内为「或」，风格标签之间为「且」。喜欢与收藏夹仅保存在本机浏览器。
+        大类、合集为单选。媒介与画幅在组内为「或」，风格标签之间为「且」。
+        {accountSynced
+          ? '已登录时，喜欢与收藏夹会同步到账号，可在其他浏览器查看。'
+          : '未登录时，喜欢与收藏夹仅保存在本机浏览器。登录后可同步到账号。'}
       </p>
 
       <button type="button" className="rail-clear" onClick={onClear}>
