@@ -6,25 +6,42 @@ import { CoverArt } from './CoverArt'
 interface Props {
   item: PromptItem
   onOpen: (item: PromptItem) => void
+  liked?: boolean
   favorited?: boolean
+  onToggleLike?: (item: PromptItem) => void
   onToggleFavorite?: (item: PromptItem) => void
 }
 
 function HeartIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden>
-      <path d="M12 20s-7.15-4.35-9.45-8.4C.6 8.7 2.2 5.8 5.7 5.8c1.95 0 3.25 1.1 3.95 2.25C10.4 6.9 11.7 5.8 13.65 5.8c3.5 0 5.1 2.9 3.15 5.8C19.15 15.65 12 20 12 20z" />
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
     </svg>
   )
 }
 
-export function PromptCard({ item, onOpen, favorited = false, onToggleFavorite }: Props) {
+function BookmarkIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5v16.2l-7-3.7-7 3.7V4.5A1.5 1.5 0 0 1 6.5 3z" />
+    </svg>
+  )
+}
+
+export function PromptCard({
+  item,
+  onOpen,
+  liked = false,
+  favorited = false,
+  onToggleLike,
+  onToggleFavorite,
+}: Props) {
   const accent = CATEGORY_ACCENT[item.category]
   const captionTags = item.tags
     .filter((t) => t !== item.category && t !== item.collection && t !== item.medium)
     .slice(0, 2)
 
-  const stopFav = (e: MouseEvent | KeyboardEvent) => {
+  const stopMark = (e: MouseEvent | KeyboardEvent) => {
     e.preventDefault()
     e.stopPropagation()
   }
@@ -45,26 +62,51 @@ export function PromptCard({ item, onOpen, favorited = false, onToggleFavorite }
       aria-label={item.title}
     >
       <CoverArt item={item} className="prompt-card__cover" />
-      {onToggleFavorite && (
-        <button
-          type="button"
-          className={`fav-heart ${favorited ? 'is-on' : ''}`}
-          aria-label={favorited ? '取消收藏' : '收藏'}
-          aria-pressed={favorited}
-          onClick={(e) => {
-            stopFav(e)
-            onToggleFavorite(item)
-          }}
-          onPointerDown={(e) => e.stopPropagation()}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              stopFav(e)
-              onToggleFavorite(item)
-            }
-          }}
-        >
-          <HeartIcon />
-        </button>
+      {(onToggleLike || onToggleFavorite) && (
+        <div className="card-marks">
+          {onToggleLike && (
+            <button
+              type="button"
+              className={`card-mark card-mark--like ${liked ? 'is-on' : ''}`}
+              aria-label={liked ? '取消喜欢' : '喜欢'}
+              aria-pressed={liked}
+              onClick={(e) => {
+                stopMark(e)
+                onToggleLike(item)
+              }}
+              onPointerDown={(e) => e.stopPropagation()}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  stopMark(e)
+                  onToggleLike(item)
+                }
+              }}
+            >
+              <HeartIcon />
+            </button>
+          )}
+          {onToggleFavorite && (
+            <button
+              type="button"
+              className={`card-mark card-mark--save ${favorited ? 'is-on' : ''}`}
+              aria-label={favorited ? '取消收藏' : '收藏'}
+              aria-pressed={favorited}
+              onClick={(e) => {
+                stopMark(e)
+                onToggleFavorite(item)
+              }}
+              onPointerDown={(e) => e.stopPropagation()}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  stopMark(e)
+                  onToggleFavorite(item)
+                }
+              }}
+            >
+              <BookmarkIcon />
+            </button>
+          )}
+        </div>
       )}
       <div className="prompt-card__caption">
         <div className="prompt-card__caption-top">

@@ -4,6 +4,7 @@ import { CATEGORIES } from '../types'
 export interface FilterContext {
   /** item id → folder id */
   favoriteOf?: Record<string, string>
+  likedIds?: ReadonlySet<string>
 }
 
 export interface GalleryFilters {
@@ -17,6 +18,8 @@ export interface GalleryFilters {
   selectedId: string | null
   /** null = no favorites filter; 'all' = every favorited item; otherwise a folder id */
   favoriteScope: string | null
+  /** true = only liked items */
+  likedOnly: boolean
 }
 
 export const EMPTY_FILTERS: GalleryFilters = {
@@ -29,6 +32,7 @@ export const EMPTY_FILTERS: GalleryFilters = {
   density: 'comfortable',
   selectedId: null,
   favoriteScope: null,
+  likedOnly: false,
 }
 
 export function normalizeItem(item: PromptItem): PromptItem {
@@ -54,6 +58,7 @@ export function itemMatches(
   ctx?: FilterContext,
 ): boolean {
   const ignore = new Set(skip ?? [])
+  if (!ignore.has('likedOnly') && f.likedOnly && !ctx?.likedIds?.has(item.id)) return false
   if (!ignore.has('favoriteScope') && f.favoriteScope) {
     const folder = ctx?.favoriteOf?.[item.id]
     if (!folder) return false
@@ -101,7 +106,8 @@ export function hasActiveFilters(f: GalleryFilters): boolean {
     f.aspects.length > 0 ||
     f.styles.length > 0 ||
     f.q.trim() !== '' ||
-    f.favoriteScope !== null
+    f.favoriteScope !== null ||
+    f.likedOnly
   )
 }
 
@@ -125,6 +131,7 @@ export function parseHash(hash: string): GalleryFilters {
     density: params.get('d') === 'dense' ? 'dense' : 'comfortable',
     selectedId,
     favoriteScope: fav && fav.trim() ? fav : null,
+    likedOnly: params.get('liked') === '1',
   }
 }
 
@@ -133,6 +140,7 @@ export function toHash(f: GalleryFilters): string {
   if (f.category !== '全部') params.set('cat', f.category)
   if (f.collectionId) params.set('col', f.collectionId)
   if (f.favoriteScope) params.set('fav', f.favoriteScope)
+  if (f.likedOnly) params.set('liked', '1')
   for (const m of f.mediums) params.append('medium', m)
   for (const a of f.aspects) params.append('aspect', a)
   for (const s of f.styles) params.append('tag', s)

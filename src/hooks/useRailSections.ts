@@ -8,6 +8,7 @@ export const RAIL_SECTION_IDS = [
   'medium',
   'aspect',
   'style',
+  'likes',
   'favorites',
 ] as const
 
@@ -21,6 +22,7 @@ export const DEFAULT_RAIL_OPEN: RailSectionOpen = {
   medium: false,
   aspect: false,
   style: false,
+  likes: false,
   favorites: false,
 }
 

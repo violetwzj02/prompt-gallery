@@ -15,6 +15,7 @@ interface Counts {
   style: Record<string, number>
   favoriteAll: number
   favoriteByFolder: Record<string, number>
+  likedAll: number
 }
 
 interface Props {
@@ -134,6 +135,7 @@ export function FilterRail({
       medium: filters.mediums.length > 0,
       aspect: filters.aspects.length > 0,
       style: filters.styles.length > 0,
+      likes: filters.likedOnly,
       favorites: Boolean(filters.favoriteScope),
     }),
     [
@@ -142,6 +144,7 @@ export function FilterRail({
       filters.mediums,
       filters.aspects,
       filters.styles,
+      filters.likedOnly,
       filters.favoriteScope,
     ],
   )
@@ -334,6 +337,21 @@ export function FilterRail({
       )}
 
       <RailDrawer
+        id="likes"
+        title="喜欢"
+        open={isOpen('likes')}
+        onToggle={toggle}
+        hint={filters.likedOnly ? '已喜欢' : null}
+      >
+        <Row
+          label="已喜欢"
+          count={counts.likedAll}
+          active={filters.likedOnly}
+          onClick={() => onChange({ ...filters, likedOnly: !filters.likedOnly })}
+        />
+      </RailDrawer>
+
+      <RailDrawer
         id="favorites"
         title="收藏"
         open={isOpen('favorites')}
@@ -443,7 +461,7 @@ export function FilterRail({
       </RailDrawer>
 
       <p className="rail-note">
-        大类、合集为单选。媒介与画幅在组内为「或」，风格标签之间为「且」。收藏夹仅保存在本机浏览器。
+        大类、合集为单选。媒介与画幅在组内为「或」，风格标签之间为「且」。喜欢与收藏夹仅保存在本机浏览器。
       </p>
 
       <button type="button" className="rail-clear" onClick={onClear}>

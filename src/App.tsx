@@ -4,6 +4,7 @@ import { CATEGORIES, MEDIUMS } from './types'
 import { usePrompts } from './hooks/usePrompts'
 import { useTheme } from './hooks/useTheme'
 import { useFavorites } from './hooks/useFavorites'
+import { useLikes } from './hooks/useLikes'
 import { PromptCard } from './components/PromptCard'
 import { PromptDetail } from './components/PromptDetail'
 import { AddStylePanel } from './components/AddStylePanel'
@@ -24,6 +25,7 @@ export default function App() {
   const { items, loading, error, meta, addItem, removeLocal, exportJson, localCount } =
     usePrompts()
   const favorites = useFavorites()
+  const likes = useLikes()
   const [filters, setFilters] = useState<GalleryFilters>(() =>
     typeof window !== 'undefined' ? parseHash(window.location.hash) : EMPTY_FILTERS,
   )
@@ -51,7 +53,7 @@ export default function App() {
 
   const update = (next: GalleryFilters) => setFilters(next)
 
-  const filterCtx = useMemo(() => ({ favoriteOf: favorites.items }), [favorites.items])
+  const filterCtx = useMemo(() => ({ favoriteOf: favorites.items, likedIds: likes.idSet }), [favorites.items, likes.idSet])
 
   const filtered = useMemo(
     () => items.filter((it) => itemMatches(it, filters, undefined, filterCtx)),
@@ -105,8 +107,14 @@ export default function App() {
       favoriteByFolder[folderId] = (favoriteByFolder[folderId] ?? 0) + 1
     }
 
-    return { category, collection, medium, aspect, style, favoriteAll, favoriteByFolder }
-  }, [items, filters, filterCtx, favorites.folders, favorites.items])
+    const allForLiked = items.filter((it) => itemMatches(it, filters, ['likedOnly'], filterCtx))
+    let likedAll = 0
+    for (const it of allForLiked) {
+      if (likes.idSet.has(it.id)) likedAll += 1
+    }
+
+    return { category, collection, medium, aspect, style, favoriteAll, favoriteByFolder, likedAll }
+  }, [items, filters, filterCtx, favorites.folders, favorites.items, likes.idSet])
 
   const collections = meta?.collections ?? []
   const mediums = (meta?.tagFacets.medium.map((f) => f.name) ?? MEDIUMS).filter(
@@ -158,15 +166,19 @@ export default function App() {
 
   const emptyCopy = (() => {
     const liveFavoriteIds = items.filter((it) => favorites.items[it.id]).map((it) => it.id)
+    const liveLikedIds = items.filter((it) => likes.idSet.has(it.id)).map((it) => it.id)
+    if (filters.likedOnly && liveLikedIds.length === 0) {
+      return '还没有喜欢的风格。点击卡片右上角的心形即可标记为喜欢。'
+    }
     if (filters.favoriteScope === 'all' && liveFavoriteIds.length === 0) {
-      return '还没有收藏。点击卡片右上角的心形即可加入收藏夹。'
+      return '还没有收藏。点击卡片右上角的书签即可加入收藏夹。'
     }
     if (filters.favoriteScope && filters.favoriteScope !== 'all') {
       const inFolder = liveFavoriteIds.filter((id) => favorites.items[id] === filters.favoriteScope)
       if (inFolder.length === 0) {
         const name =
           favorites.folders.find((f) => f.id === filters.favoriteScope)?.name ?? '该收藏夹'
-        return `「${name}」还是空的。可将条目收藏到此夹，或先在卡片上点亮心形。`
+        return `「${name}」还是空的。可将条目收藏到此夹，或先在卡片上点亮书签。`
       }
     }
     if (filters.category === '自定义' && (rawCategoryCounts['自定义'] ?? 0) === 0) {
@@ -287,6 +299,8 @@ export default function App() {
                   key={it.id}
                   item={it}
                   onOpen={openItem}
+                  liked={likes.isLiked(it.id)}
+                  onToggleLike={(item) => likes.toggle(item.id)}
                   favorited={favorites.isFavorited(it.id)}
                   onToggleFavorite={(item) => favorites.toggle(item.id)}
                 />
@@ -329,6 +343,8 @@ export default function App() {
             })
           }}
           onRemoveLocal={removeLocal}
+          liked={likes.isLiked(selected.id)}
+          onToggleLike={likes.toggle}
           favorited={favorites.isFavorited(selected.id)}
           favoriteFolderId={favorites.folderOf(selected.id)}
           folders={favorites.folders}

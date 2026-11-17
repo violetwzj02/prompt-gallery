@@ -16,12 +16,30 @@ interface Props {
   onTag: (tag: string) => void
   onOpenCollection?: (parentId: string) => void
   onRemoveLocal?: (id: string) => void
+  liked?: boolean
+  onToggleLike?: (itemId: string) => void
   favorited?: boolean
   favoriteFolderId?: string | null
   folders?: FavoriteFolder[]
   onAddFavorite?: (itemId: string, folderId: string) => void
   onRemoveFavorite?: (itemId: string) => void
   onCreateFolder?: (name: string) => FavoriteFolder | null
+}
+
+function HeartIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+  )
+}
+
+function BookmarkIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5v16.2l-7-3.7-7 3.7V4.5A1.5 1.5 0 0 1 6.5 3z" />
+    </svg>
+  )
 }
 
 async function copyText(text: string) {
@@ -52,6 +70,8 @@ export function PromptDetail({
   onTag,
   onOpenCollection,
   onRemoveLocal,
+  liked = false,
+  onToggleLike,
   favorited = false,
   favoriteFolderId = null,
   folders = [],
@@ -259,15 +279,30 @@ export function PromptDetail({
             <button type="button" className="btn btn-ghost" onClick={copyLink}>
               复制链接
             </button>
+            {onToggleLike && (
+              <button
+                type="button"
+                className={`btn btn-ghost btn-with-icon ${liked ? 'is-liked' : ''}`}
+                aria-pressed={liked}
+                onClick={() => {
+                  onToggleLike(item.id)
+                  setToast(liked ? '已取消喜欢' : '已喜欢')
+                }}
+              >
+                <HeartIcon />
+                {liked ? '已喜欢' : '喜欢'}
+              </button>
+            )}
             {onAddFavorite && (
               <div className="fav-control" ref={favWrapRef}>
                 <button
                   type="button"
-                  className={`btn btn-ghost ${favorited ? 'is-fav' : ''}`}
+                  className={`btn btn-ghost btn-with-icon ${favorited ? 'is-fav' : ''}`}
                   aria-expanded={favOpen}
                   aria-haspopup="menu"
                   onClick={() => setFavOpen((v) => !v)}
                 >
+                  <BookmarkIcon />
                   {favorited ? '已收藏' : '收藏'}
                 </button>
                 {favOpen && (
