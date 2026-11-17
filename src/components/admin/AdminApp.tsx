@@ -3,9 +3,10 @@ import { useAuth } from '../../hooks/useAuth'
 import { useTheme } from '../../hooks/useTheme'
 import { isAdmin } from '../../lib/admin'
 import { isSupabaseConfigured, supabase } from '../../lib/supabase'
-import { isAdminHash, parseAdminView, setAdminHash } from '../../utils/adminRoutes'
+import { isAdminConsoleView, isAdminHash, parseAdminView, setAdminHash } from '../../utils/adminRoutes'
 import { AdminLogin } from './AdminLogin'
 import { AdminShell } from './AdminShell'
+import { StyleReview } from './StyleReview'
 import { UserManager } from './UserManager'
 import './admin.css'
 
@@ -38,13 +39,13 @@ export function AdminApp() {
   useEffect(() => {
     if (auth.loading || gateBusy) return
 
-    if (view === 'home' && !auth.user) {
+    if (isAdminConsoleView(view) && !auth.user) {
       setAdminHash('login')
       return
     }
 
     if (auth.user && !isAdmin(auth.user)) {
-      if (view === 'home') {
+      if (isAdminConsoleView(view)) {
         setGateBusy(true)
         void (async () => {
           try {
@@ -94,12 +95,13 @@ export function AdminApp() {
   return (
     <AdminShell
       user={auth.user}
+      view={view === 'review' ? 'review' : 'home'}
       themePref={themePref}
       themeResolved={themeResolved}
       onThemeChange={setThemePref}
       onSignOut={() => void signOutToLogin()}
     >
-      <UserManager self={auth.user} />
+      {view === 'review' ? <StyleReview /> : <UserManager self={auth.user} />}
     </AdminShell>
   )
 }

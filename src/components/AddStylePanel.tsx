@@ -1,28 +1,34 @@
-import { useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import type { Medium, PromptItem } from '../types'
 import { MEDIUMS } from '../types'
 import { ADD_STYLE_CATEGORIES, validateCategoryName } from '../utils/category'
 
 const NEW_CATEGORY_VALUE = '__new__'
 
+interface StyleDraft extends Omit<PromptItem, 'id' | 'categorySlug' | 'local' | 'ownerId'> {
+  id?: string
+}
+
 interface Props {
   open: boolean
   onClose: () => void
-  onAdd: (
-    item: Omit<PromptItem, 'id' | 'categorySlug' | 'local' | 'ownerId'> & { id?: string },
-  ) => PromptItem | Promise<PromptItem>
+  onAdd: (item: StyleDraft) => PromptItem | Promise<PromptItem>
+  onUpdate?: (item: StyleDraft & { id: string }) => PromptItem | Promise<PromptItem>
   onExport: () => void
   synced?: boolean
   customCategories: string[]
+  editing?: PromptItem | null
 }
 
 export function AddStylePanel({
   open,
   onClose,
   onAdd,
+  onUpdate,
   onExport,
   synced = false,
   customCategories,
+  editing = null,
 }: Props) {
   const [title, setTitle] = useState('')
   const [categoryChoice, setCategoryChoice] = useState('')
@@ -37,10 +43,45 @@ export function AddStylePanel({
   const [coverDataUrl, setCoverDataUrl] = useState<string | undefined>()
   const [msg, setMsg] = useState<string | null>(null)
 
-  const existingCategories = useMemo(
-    () => [...ADD_STYLE_CATEGORIES, ...customCategories.filter((name) => !ADD_STYLE_CATEGORIES.includes(name))],
-    [customCategories],
-  )
+  const existingCategories = useMemo(() => {
+    const names = [...ADD_STYLE_CATEGORIES, ...customCategories.filter((name) => !ADD_STYLE_CATEGORIES.includes(name))]
+    if (editing?.category && !names.includes(editing.category)) names.push(editing.category)
+    return names
+  }, [customCategories, editing])
+
+  useEffect(() => {
+    if (!open) return
+    setMsg(null)
+    if (!editing) {
+      setTitle('')
+      setCategoryChoice('')
+      setNewCategoryName('')
+      setUsage('')
+      setBody('')
+      setSource('')
+      setCollection('')
+      setTags('')
+      setMedium('图像')
+      setAspect('')
+      setCoverDataUrl(undefined)
+      return
+    }
+    setTitle(editing.title)
+    setCategoryChoice(editing.category)
+    setNewCategoryName('')
+    setUsage(editing.usage)
+    setBody(editing.body)
+    setSource(editing.source)
+    setCollection(editing.collection ?? '')
+    setTags(
+      editing.tags
+        .filter((t) => t !== editing.category && t !== editing.medium && t !== editing.aspect && t !== editing.collection)
+        .join('，'),
+    )
+    setMedium(editing.medium)
+    setAspect(editing.aspect ?? '')
+    setCoverDataUrl(editing.coverDataUrl)
+  }, [open, editing])
 
   if (!open) return null
 
@@ -81,51 +122,68 @@ export function AddStylePanel({
       .map((t) => t.trim())
       .filter(Boolean)
     const col = collection.trim() || null
-    await onAdd({
+    const draft: StyleDraft = {
+      id: editing?.id,
       title: title.trim(),
       category,
       usage: usage.trim() || `${category} · 自定义风格`,
       body: body.trim(),
       source: source.trim(),
-      cover: null,
+      cover: editing?.cover ?? null,
       coverDataUrl,
-      parentId: null,
+      parentId: editing?.parentId ?? null,
       collection: col,
-      collectionIndex: null,
-      collectionTotal: null,
+      collectionIndex: editing?.collectionIndex ?? null,
+      collectionTotal: editing?.collectionTotal ?? null,
       tags: Array.from(new Set([category, medium, ...(aspect.trim() ? [aspect.trim()] : []), ...(col ? [col] : []), ...tagList])),
       medium,
       aspect: aspect.trim() || null,
       promptText: body.trim(),
-      duplicateNote: null,
-      duplicateOf: null,
-    })
-    setMsg(synced ? '已加入图鉴，并作为本库风格同步到账号' : '已加入本地图鉴（可导出 JSON）')
-    setTitle('')
-    setCategoryChoice('')
-    setNewCategoryName('')
-    setUsage('')
-    setBody('')
-    setSource('')
-    setCollection('')
-    setTags('')
-    setAspect('')
-    setCoverDataUrl(undefined)
+      duplicateNote: editing?.duplicateNote ?? null,
+      duplicateOf: editing?.duplicateOf ?? null,
+    }
+    if (editing) {
+      if (synced && editing.reviewStatus === 'approved') {
+        const ok = window.confirm('保存后将重新进入审核，期间不会出现在公共图鉴。确定继续？')
+        if (!ok) return
+      }
+      if (!onUpdate) {
+        setMsg('当前无法保存修改')
+        return
+      }
+      await onUpdate({ ...draft, id: editing.id })
+      setMsg(synced ? '已重新提交，正在等待管理员审核。通过后才会出现在公共图鉴里。' : '已更新本地图鉴（可导出 JSON）')
+    } else {
+      await onAdd(draft)
+      setMsg(synced ? '已提交，正在等待管理员审核。通过后才会出现在公共图鉴里。' : '已加入本地图鉴（可导出 JSON）')
+      setTitle('')
+      setCategoryChoice('')
+      setNewCategoryName('')
+      setUsage('')
+      setBody('')
+      setSource('')
+      setCollection('')
+      setTags('')
+      setAspect('')
+      setCoverDataUrl(undefined)
+    }
   }
 
   return (
     <div className="add-overlay" onClick={onClose} role="presentation">
       <div className="add-panel" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal>
         <div className="add-header">
-          <h2>添加风格</h2>
+          <h2>{editing ? '编辑风格' : '添加风格'}</h2>
           <button type="button" className="detail-close" onClick={onClose} aria-label="关闭">
             ×
           </button>
         </div>
         <p className="add-hint">
-          {synced
-            ? '登录后，新风格会加入公共图鉴，其他访客也可以看到；同时会在本机保留一份副本。内置风格仍建议按原仓库流程修改 '
-            : '本面板将条目写入浏览器 localStorage，便于快速预览。正式入库仍建议按原仓库流程修改 '}
+          {editing && synced
+            ? '修改后会重新提交审核。通过之前，其他访客看不到这条风格；你仍可在「我的风格」中查看。内置风格仍建议按原仓库流程修改 '
+            : synced
+              ? '登录后，新风格会提交审核。通过后才会出现在公共图鉴里；审核期间你仍可在「我的风格」中看到。同时会在本机保留一份副本。内置风格仍建议按原仓库流程修改 '
+              : '本面板将条目写入浏览器 localStorage，便于快速预览。正式入库仍建议按原仓库流程修改 '}
           <code>cat_*.md</code> 后运行 <code>npm run parse</code>。可随时导出 JSON。
         </p>
         <form className="add-form" onSubmit={submit}>
@@ -227,7 +285,7 @@ export function AddStylePanel({
           {coverDataUrl && <img src={coverDataUrl} alt="封面预览" className="add-preview" />}
           <div className="add-actions">
             <button type="submit" className="btn btn-primary">
-              加入图鉴
+              {editing ? (synced ? '保存并提交审核' : '保存') : '加入图鉴'}
             </button>
             <button type="button" className="btn btn-ghost" onClick={onExport}>
               导出 prompts.json

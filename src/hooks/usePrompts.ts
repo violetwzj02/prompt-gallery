@@ -6,10 +6,11 @@ import {
   allocateStyleId,
   fetchSharedStyles,
   mergeLocalIntoAccount,
-  toStylePayload,
+  upsertCustomStyle,
 } from '../lib/accountSync'
 import { loadLocalItems, saveLocalItems } from '../lib/localStore'
 import { supabase, syncErrorMessage } from '../lib/supabase'
+import { isVisibleCustomStyle } from '../utils/styleOrigin'
 
 export interface GalleryMeta {
   count: number
@@ -94,7 +95,7 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
       for (const item of shared) overlay.set(item.id, item)
       for (const item of local) overlay.set(item.id, item)
     }
-    const overlaid = [...overlay.values()]
+    const overlaid = [...overlay.values()].filter((item) => isVisibleCustomStyle(item, userId))
     const ids = new Set(overlaid.map((item) => item.id))
     return [...base.filter((item) => !ids.has(item.id)), ...overlaid]
   }, [base, local, shared, userId])
@@ -130,6 +131,8 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
         promptText: partial.promptText ?? '',
         duplicateNote: partial.duplicateNote ?? null,
         duplicateOf: partial.duplicateOf ?? null,
+        reviewStatus: userId && supabase ? 'pending' : undefined,
+        reviewNote: undefined,
       })
 
       setLocal((prev) => {
@@ -139,25 +142,99 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
       })
 
       if (userId && supabase) {
-        const { error: writeErr } = await supabase.from('custom_styles').upsert(
-          {
-            id,
-            owner_id: userId,
-            payload: toStylePayload(item, id),
-          },
-          { onConflict: 'id' },
-        )
+        const { id: writtenId, error: writeErr } = await upsertCustomStyle(userId, item, id)
         if (writeErr) {
           setSyncError(syncErrorMessage('添加风格'))
-          return { ...item, ownerId: undefined }
+          return { ...item, ownerId: undefined, reviewStatus: undefined }
         }
-        setShared((prev) => [...prev.filter((p) => p.id !== id), { ...item, local: false, ownerId: userId }])
+        const synced = { ...item, id: writtenId, local: false, ownerId: userId, reviewStatus: 'pending' as const, reviewNote: undefined }
+        if (writtenId !== id) {
+          setLocal((prev) => {
+            const next = [...prev.filter((p) => p.id !== id && p.id !== writtenId), { ...synced, local: true }]
+            saveLocalItems(next)
+            return next
+          })
+        }
+        setShared((prev) => [...prev.filter((p) => p.id !== id && p.id !== writtenId), synced])
         setSyncError(null)
+        return synced
       }
 
       return item
     },
     [userId],
+  )
+
+  const updateItem = useCallback(
+    async (
+      partial: Omit<PromptItem, 'categorySlug' | 'local' | 'ownerId'> & { id: string },
+    ): Promise<PromptItem> => {
+      const existing =
+        shared.find((item) => item.id === partial.id) ?? local.find((item) => item.id === partial.id)
+      if (!existing) throw new Error('找不到要编辑的风格')
+      if (existing.ownerId && userId && existing.ownerId !== userId) {
+        throw new Error('只能编辑自己的风格')
+      }
+
+      const slug = categorySlug(partial.category)
+      const syncing = Boolean(userId && supabase && (existing.ownerId === userId || !existing.ownerId))
+      const item = normalizeItem({
+        ...existing,
+        ...partial,
+        id: partial.id,
+        categorySlug: slug,
+        local: existing.local ?? !existing.ownerId,
+        ownerId: existing.ownerId ?? userId ?? undefined,
+        cover: partial.cover ?? null,
+        parentId: partial.parentId ?? null,
+        collection: partial.collection ?? null,
+        collectionIndex: partial.collectionIndex ?? null,
+        collectionTotal: partial.collectionTotal ?? null,
+        tags: partial.tags ?? [],
+        medium: partial.medium ?? '图像',
+        aspect: partial.aspect ?? null,
+        promptText: partial.promptText ?? '',
+        duplicateNote: partial.duplicateNote ?? null,
+        duplicateOf: partial.duplicateOf ?? null,
+        reviewStatus: syncing ? 'pending' : existing.reviewStatus,
+        reviewNote: undefined,
+      })
+
+      setLocal((prev) => {
+        const next = [...prev.filter((p) => p.id !== item.id), { ...item, local: true }]
+        saveLocalItems(next)
+        return next
+      })
+
+      if (syncing && userId && supabase) {
+        const { id: writtenId, error: writeErr } = await upsertCustomStyle(userId, item, item.id)
+        if (writeErr) {
+          setSyncError(syncErrorMessage('更新风格'))
+          return item
+        }
+        const synced = {
+          ...item,
+          id: writtenId,
+          local: false,
+          ownerId: userId,
+          reviewStatus: 'pending' as const,
+          reviewNote: undefined,
+        }
+        if (writtenId !== item.id) {
+          setLocal((prev) => {
+            const next = [...prev.filter((p) => p.id !== item.id && p.id !== writtenId), { ...synced, local: true }]
+            saveLocalItems(next)
+            return next
+          })
+        }
+        setShared((prev) => [...prev.filter((p) => p.id !== item.id && p.id !== writtenId), synced])
+        setSyncError(null)
+        return synced
+      }
+
+      return item
+    },
+    [local, shared, userId],
   )
 
   const removeLocal = useCallback(
@@ -192,7 +269,7 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
       }, {}),
       collections: meta?.collections,
       tagFacets: meta?.tagFacets,
-      items: items.map(({ coverDataUrl: _c, local: _l, ownerId: _o, ...rest }) => ({
+      items: items.map(({ coverDataUrl: _c, local: _l, ownerId: _o, reviewStatus: _r, reviewNote: _n, ...rest }) => ({
         ...rest,
         cover: rest.cover,
       })),
@@ -215,6 +292,7 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
     syncError,
     meta,
     addItem,
+    updateItem,
     removeLocal,
     exportJson,
     localCount: local.length,

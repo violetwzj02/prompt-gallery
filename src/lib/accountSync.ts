@@ -1,4 +1,4 @@
-import type { Category, Medium, PromptItem } from '../types'
+import type { Category, Medium, PromptItem, ReviewStatus } from '../types'
 import { categorySlug } from '../utils/category'
 import { normalizeItem } from '../utils/filters'
 import {
@@ -23,12 +23,48 @@ export interface CustomStyleRow {
   payload: unknown
   created_at?: string
   updated_at?: string
+  status?: ReviewStatus | null
+  reviewed_at?: string | null
+  reviewed_by?: string | null
+  review_note?: string | null
+}
+
+const STYLE_COLUMNS_WITH_REVIEW =
+  'id, owner_id, payload, created_at, updated_at, status, reviewed_at, reviewed_by, review_note'
+const STYLE_COLUMNS_LEGACY = 'id, owner_id, payload, created_at, updated_at'
+
+export function parseReviewStatus(value: unknown): ReviewStatus | undefined {
+  if (value === 'pending' || value === 'approved' || value === 'rejected') return value
+  return undefined
+}
+
+export function isUniqueViolation(error: { code?: string; message?: string } | null | undefined): boolean {
+  if (!error) return false
+  if (error.code === '23505') return true
+  const msg = (error.message ?? '').toLowerCase()
+  return msg.includes('duplicate key') || msg.includes('unique constraint')
+}
+
+function isMissingColumnError(error: { code?: string; message?: string } | null | undefined): boolean {
+  if (!error) return false
+  if (error.code === '42703') return true
+  const msg = (error.message ?? '').toLowerCase()
+  return (
+    msg.includes('column') &&
+    (msg.includes('does not exist') || msg.includes('schema cache') || msg.includes('could not find'))
+  )
 }
 
 const mergeLocks = new Map<string, Promise<void>>()
 
 export function toStylePayload(item: PromptItem, id = item.id): Record<string, unknown> {
-  const { ownerId: _ownerId, local: _local, ...rest } = item
+  const {
+    ownerId: _ownerId,
+    local: _local,
+    reviewStatus: _reviewStatus,
+    reviewNote: _reviewNote,
+    ...rest
+  } = item
   return { ...rest, id }
 }
 
@@ -59,17 +95,57 @@ export function itemFromCustomStyle(row: CustomStyleRow): PromptItem {
     coverDataUrl: payload.coverDataUrl,
     local: false,
     ownerId: row.owner_id,
+    reviewStatus: parseReviewStatus(row.status) ?? 'approved',
+    reviewNote: typeof row.review_note === 'string' && row.review_note ? row.review_note : undefined,
   })
 }
 
 export async function fetchSharedStyles(): Promise<PromptItem[]> {
   if (!supabase) return []
-  const { data, error } = await supabase
+  const primary = await supabase
     .from('custom_styles')
-    .select('id, owner_id, payload, created_at, updated_at')
+    .select(STYLE_COLUMNS_WITH_REVIEW)
     .order('created_at', { ascending: true })
-  if (error) throw error
-  return (data ?? []).map((row) => itemFromCustomStyle(row as CustomStyleRow))
+  const result =
+    primary.error && isMissingColumnError(primary.error)
+      ? await supabase
+          .from('custom_styles')
+          .select(STYLE_COLUMNS_LEGACY)
+          .order('created_at', { ascending: true })
+      : primary
+  if (result.error) throw result.error
+  return (result.data ?? []).map((row) => itemFromCustomStyle(row as CustomStyleRow))
+}
+
+export async function upsertCustomStyle(
+  userId: string,
+  item: PromptItem,
+  preferredId: string,
+): Promise<{ id: string; error: { message?: string; code?: string } | null }> {
+  const client = supabase
+  if (!client) return { id: preferredId, error: { message: '账号服务暂不可用' } }
+
+  const write = (styleId: string) =>
+    client.from('custom_styles').upsert(
+      {
+        id: styleId,
+        owner_id: userId,
+        payload: toStylePayload(item, styleId),
+      },
+      { onConflict: 'id' },
+    )
+
+  let id = preferredId
+  let { error } = await write(id)
+  if (error && isUniqueViolation(error)) {
+    id = await mintFreeStyleId(id)
+    ;({ error } = await write(id))
+  }
+  if (error && isUniqueViolation(error)) {
+    id = `${id.slice(0, 160)}-${Date.now().toString(36)}`
+    ;({ error } = await write(id))
+  }
+  return { id, error }
 }
 
 async function mintFreeStyleId(base: string): Promise<string> {
@@ -183,15 +259,11 @@ async function mergeNow(userId: string): Promise<void> {
 
     for (const item of localItems) {
       const owner = ownerById.get(item.id)
-      const id = owner && owner !== userId ? await mintFreeStyleId(item.id) : item.id
-      const { error } = await supabase.from('custom_styles').upsert(
-        {
-          id,
-          owner_id: userId,
-          payload: toStylePayload(item, id),
-        },
-        { onConflict: 'id' },
-      )
+      // Already-synced own styles must not be rewritten on login: a stale local
+      // copy would look like a payload edit and send an approved style back to pending.
+      if (owner === userId) continue
+      const preferred = owner ? await mintFreeStyleId(item.id) : item.id
+      const { error } = await upsertCustomStyle(userId, item, preferred)
       if (error) throw error
     }
   }

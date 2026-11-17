@@ -5,7 +5,7 @@ import { categoryAccent } from '../utils/category'
 import type { FavoriteFolder } from '../hooks/useFavorites'
 import { DEFAULT_FOLDER_ID, DEFAULT_FOLDER_NAME } from '../hooks/useFavorites'
 import { extractPurePrompt } from '../utils/promptExtract'
-import { canRemoveStyle, styleOriginLabel } from '../utils/styleOrigin'
+import { canEditStyle, canRemoveStyle, reviewBadgeLabel, styleOriginLabel } from '../utils/styleOrigin'
 import { CoverArt } from './CoverArt'
 
 interface Props {
@@ -17,6 +17,7 @@ interface Props {
   onTag: (tag: string) => void
   onOpenCollection?: (parentId: string) => void
   onRemoveLocal?: (id: string) => void | Promise<void>
+  onEdit?: (item: PromptItem) => void
   liked?: boolean
   onToggleLike?: (itemId: string) => void
   favorited?: boolean
@@ -72,6 +73,7 @@ export function PromptDetail({
   onTag,
   onOpenCollection,
   onRemoveLocal,
+  onEdit,
   liked = false,
   onToggleLike,
   favorited = false,
@@ -89,6 +91,7 @@ export function PromptDetail({
   const accent = categoryAccent(item.category)
   const indexInList = items.findIndex((i) => i.id === item.id)
   const originLabel = styleOriginLabel(item, viewerId)
+  const reviewLabel = reviewBadgeLabel(item, viewerId)
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -223,10 +226,19 @@ export function PromptDetail({
             )}
             <span className="detail-id">{item.id}</span>
             {originLabel && <span className="pill pill--local">{originLabel}</span>}
+            {reviewLabel && (
+              <span className={`pill pill--review pill--${item.reviewStatus}`}>{reviewLabel}</span>
+            )}
           </div>
 
           <h2 className="detail-title">{item.title}</h2>
           {item.usage && <p className="detail-usage">{item.usage}</p>}
+          {item.reviewStatus === 'rejected' && item.reviewNote && (
+            <p className="detail-review-note">未通过原因：{item.reviewNote}</p>
+          )}
+          {item.reviewStatus === 'pending' && item.ownerId && item.ownerId === viewerId && (
+            <p className="detail-review-note">这条风格正在等待管理员审核，通过后才会出现在公共图鉴中。</p>
+          )}
 
           {item.duplicateNote && (
             <p className="detail-dup">
@@ -360,13 +372,25 @@ export function PromptDetail({
                 )}
               </div>
             )}
+            {canEditStyle(item, viewerId) && onEdit && (
+              <button type="button" className="btn btn-ghost" onClick={() => onEdit(item)}>
+                {item.ownerId && (item.reviewStatus === 'pending' || item.reviewStatus === 'rejected' || item.reviewStatus === 'approved')
+                  ? '编辑并重新提交'
+                  : '编辑'}
+              </button>
+            )}
             {canRemoveStyle(item, viewerId) && onRemoveLocal && (
               <button
                 type="button"
                 className="btn btn-danger"
                 onClick={() => {
                   if (item.ownerId) {
-                    const ok = window.confirm('删除后，这条风格将从公共库中移除。确定删除？')
+                    const inLibrary = item.reviewStatus === 'approved' || !item.reviewStatus
+                    const ok = window.confirm(
+                      inLibrary
+                        ? '删除后，这条风格将从公共库中移除。确定删除？'
+                        : '删除后，这条风格将从你的图鉴中移除。确定删除？',
+                    )
                     if (!ok) return
                   }
                   void onRemoveLocal(item.id)

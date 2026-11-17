@@ -7,6 +7,7 @@ import { ThemeToggle } from '../ThemeToggle'
 interface Props {
   user: User
   children: ReactNode
+  view: 'home' | 'review'
   themePref: ThemePref
   themeResolved: ResolvedTheme
   onThemeChange: (pref: ThemePref) => void
@@ -16,6 +17,7 @@ interface Props {
 export function AdminShell({
   user,
   children,
+  view,
   themePref,
   themeResolved,
   onThemeChange,
@@ -31,12 +33,20 @@ export function AdminShell({
           <h1>图鉴管理后台</h1>
         </div>
         <nav className="admin-nav" aria-label="管理后台">
-          <a className="admin-nav__item is-active" href="#/admin" aria-current="page">
+          <a
+            className={`admin-nav__item ${view === 'home' ? 'is-active' : ''}`}
+            href="#/admin"
+            aria-current={view === 'home' ? 'page' : undefined}
+          >
             注册账号
           </a>
-          <span className="admin-nav__item is-disabled" title="即将推出" aria-disabled="true">
-            审核风格（即将推出）
-          </span>
+          <a
+            className={`admin-nav__item ${view === 'review' ? 'is-active' : ''}`}
+            href="#/admin/review"
+            aria-current={view === 'review' ? 'page' : undefined}
+          >
+            审核风格
+          </a>
         </nav>
         <div className="admin-topbar__actions">
           <ThemeToggle pref={themePref} resolved={themeResolved} onChange={onThemeChange} />

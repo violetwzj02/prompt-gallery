@@ -62,7 +62,12 @@ export interface PromptItem {
   coverDataUrl?: string
   /** Present when this item comes from public.custom_styles */
   ownerId?: string
+  /** Review state for uploaded custom styles. Built-in and unsynced local items omit this. */
+  reviewStatus?: 'pending' | 'approved' | 'rejected'
+  reviewNote?: string
 }
+
+export type ReviewStatus = NonNullable<PromptItem['reviewStatus']>
 
 export interface FacetCount {
   name: string

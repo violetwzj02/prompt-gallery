@@ -49,7 +49,7 @@ export default function App() {
 function GalleryApp() {
   const auth = useAuth()
   const userId = auth.user?.id ?? null
-  const { items, loading, error, syncError, meta, addItem, removeLocal, exportJson, localCount, baseCount } =
+  const { items, loading, error, syncError, meta, addItem, updateItem, removeLocal, exportJson, localCount, baseCount } =
     usePrompts(userId, auth.loading)
   const favorites = useFavorites(userId, auth.loading)
   const likes = useLikes(userId, auth.loading)
@@ -58,6 +58,7 @@ function GalleryApp() {
   )
   const { pref: themePref, resolved: themeResolved, setPref: setThemePref } = useTheme()
   const [addOpen, setAddOpen] = useState(false)
+  const [editing, setEditing] = useState<PromptItem | null>(null)
   const [railOpen, setRailOpen] = useState(false)
 
   const selected = useMemo(
@@ -298,7 +299,7 @@ function GalleryApp() {
               密
             </button>
           </div>
-          <button type="button" className="btn btn-primary" onClick={() => setAddOpen(true)}>
+          <button type="button" className="btn btn-primary" onClick={() => { setEditing(null); setAddOpen(true) }}>
             添加风格
           </button>
           <button type="button" className="btn btn-ghost" onClick={exportJson}>
@@ -400,6 +401,10 @@ function GalleryApp() {
             })
           }}
           onRemoveLocal={removeLocal}
+          onEdit={(item) => {
+            setEditing(item)
+            setAddOpen(true)
+          }}
           liked={likes.isLiked(selected.id)}
           onToggleLike={likes.toggle}
           favorited={favorites.isFavorited(selected.id)}
@@ -413,11 +418,20 @@ function GalleryApp() {
       )}
       <AddStylePanel
         open={addOpen}
-        onClose={() => setAddOpen(false)}
+        editing={editing}
+        onClose={() => {
+          setAddOpen(false)
+          setEditing(null)
+        }}
         onAdd={async (item) => {
           const created = await addItem(item)
           update({ ...filters, selectedId: created.id })
           return created
+        }}
+        onUpdate={async (item) => {
+          const saved = await updateItem(item)
+          update({ ...filters, selectedId: saved.id })
+          return saved
         }}
         onExport={exportJson}
         synced={Boolean(userId)}

@@ -1,7 +1,7 @@
 import type { CSSProperties, KeyboardEvent, MouseEvent } from 'react'
 import type { PromptItem } from '../types'
 import { categoryAccent } from '../utils/category'
-import { styleOriginLabel } from '../utils/styleOrigin'
+import { reviewBadgeLabel, styleOriginLabel } from '../utils/styleOrigin'
 import { CoverArt } from './CoverArt'
 
 interface Props {
@@ -41,6 +41,7 @@ export function PromptCard({
 }: Props) {
   const accent = categoryAccent(item.category)
   const originLabel = styleOriginLabel(item, viewerId)
+  const reviewLabel = reviewBadgeLabel(item, viewerId)
   const captionTags = item.tags
     .filter((t) => t !== item.category && t !== item.collection && t !== item.medium)
     .slice(0, 2)
@@ -121,7 +122,14 @@ export function PromptCard({
           ) : (
             <span className="prompt-card__series">{item.category}</span>
           )}
-          {originLabel && <span className="prompt-card__local">{originLabel}</span>}
+          {(originLabel || reviewLabel) && (
+            <span className="prompt-card__marks">
+              {originLabel && <span className="prompt-card__local">{originLabel}</span>}
+              {reviewLabel && (
+                <span className={`prompt-card__review prompt-card__review--${item.reviewStatus}`}>{reviewLabel}</span>
+              )}
+            </span>
+          )}
         </div>
         <h3 className="prompt-card__title">{item.title}</h3>
         {captionTags.length > 0 && (

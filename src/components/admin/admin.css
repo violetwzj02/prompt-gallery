@@ -375,6 +375,112 @@
   gap: 0.45rem;
 }
 
+.admin-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+.admin-tab {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.admin-tab.is-active {
+  color: var(--text);
+  background: var(--fill-active);
+  border-color: var(--line);
+}
+
+.admin-pill--pending {
+  color: var(--text);
+}
+
+.admin-pill--ok {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.admin-review__title {
+  font-weight: 500;
+  color: var(--text);
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-review__muted,
+.admin-review__note {
+  color: var(--text-faint);
+  letter-spacing: 0;
+}
+
+.admin-review__note {
+  margin: 0.3rem 0 0;
+  font-size: 0.72rem;
+  max-width: 12rem;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.admin-review-cover {
+  width: 3.2rem;
+  height: 3.2rem;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--fill);
+  display: block;
+}
+
+.admin-review-prompt {
+  max-width: 22rem;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.admin-dialog__note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: -0.4rem 0 1.1rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0;
+}
+
+.admin-dialog__note textarea {
+  border: 1px solid var(--line);
+  background: var(--input-bg);
+  border-radius: 6px;
+  padding: 0.55rem 0.7rem;
+  outline: none;
+  letter-spacing: 0;
+  resize: vertical;
+  min-height: 4.5rem;
+  color: var(--text);
+}
+
+.admin-dialog__note textarea:focus {
+  border-color: color-mix(in srgb, var(--focus) 55%, transparent);
+}
+
 @media (max-width: 980px) {
   .admin-topbar {
     flex-wrap: wrap;
@@ -387,6 +493,7 @@
   .admin-login__card h1,
   .admin-dialog h3,
   .admin-nav__item,
+  .admin-tab,
   .admin-users__hint,
   .admin-table,
   .admin-table th {
@@ -467,5 +574,15 @@
 
   .admin-table__empty::before {
     display: none;
+  }
+
+  .admin-review__title,
+  .admin-review-prompt,
+  .admin-review__note {
+    max-width: none;
+  }
+
+  .admin-review-cover {
+    margin-left: auto;
   }
 }
