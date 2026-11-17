@@ -9,6 +9,7 @@ import { StyleReview } from '../admin/StyleReview'
 import { UserManager } from '../admin/UserManager'
 import { AccountHome } from './AccountHome'
 import { AccountSettings } from './AccountSettings'
+import { CloudAlbum } from './CloudAlbum'
 import '../admin/admin.css'
 import './account.css'
 
@@ -49,6 +50,7 @@ export function AccountCenter({
   const { user, loading } = auth
   const admin = isAdmin(user)
   const adminView = route.view === 'admin' || route.view === 'admin-review'
+  const albumView = route.view === 'album'
 
   if (loading || pendingRedirect) {
     return (
@@ -86,6 +88,21 @@ export function AccountCenter({
     )
   }
 
+  if (albumView && !admin) {
+    return (
+      <main className="account-main">
+        <AccountSubNav route={route} admin={false} />
+        <div className="account-gate">
+          <h2>云端相册目前仅对管理员开放</h2>
+          <p>这个云端相册正在以管理员的谷歌云盘作为存储，目前不对普通账号开放。</p>
+          <a className="btn btn-primary" href="#/me">
+            返回个人主页
+          </a>
+        </div>
+      </main>
+    )
+  }
+
   return (
     <main className="account-main">
       <AccountSubNav route={route} admin={admin} />
@@ -101,6 +118,7 @@ export function AccountCenter({
         />
       )}
       {route.view === 'account' && <AccountSettings user={user} profileState={profileState} />}
+      {route.view === 'album' && <CloudAlbum route={route} />}
       {route.view === 'admin' && (
         <div className="account-admin">
           <AdminSubNav view="home" />
@@ -131,6 +149,15 @@ function AccountSubNav({ route, admin }: { route: AccountRoute; admin: boolean }
       >
         账号管理
       </a>
+      {admin && (
+        <a
+          className={view === 'album' ? 'is-active' : ''}
+          href="#/me/album"
+          aria-current={view === 'album' ? 'page' : undefined}
+        >
+          云端相册
+        </a>
+      )}
       {admin && (
         <a
           className={view === 'admin' || view === 'admin-review' ? 'is-active' : ''}

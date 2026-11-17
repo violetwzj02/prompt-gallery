@@ -66,7 +66,12 @@ function GalleryApp() {
   const accountRoute = parseAccountRoute(locationHash)
   const reservedRoute = isReservedHash(locationHash)
 
-  const selectedId = accountRoute ? accountRoute.itemId : filters.selectedId
+  const selectedId =
+    accountRoute && accountRoute.view !== 'album'
+      ? accountRoute.itemId
+      : accountRoute
+        ? null
+        : filters.selectedId
   const selected = useMemo(
     () => (selectedId ? items.find((i) => i.id === selectedId) ?? null : null),
     [selectedId, items],
@@ -380,7 +385,7 @@ function GalleryApp() {
         <AccountCenter
           auth={auth}
           profileState={profileState}
-          route={accountRoute ?? { view: 'home', tab: 'works', itemId: null, folderId: null }}
+          route={accountRoute ?? { view: 'home', tab: 'works', itemId: null, folderId: null, cat: null }}
           pendingRedirect={!accountRoute}
           items={items}
           likes={likes}
@@ -496,6 +501,7 @@ function GalleryApp() {
           onRemoveFavorite={favorites.unfavorite}
           onCreateFolder={favorites.createFolder}
           viewerId={userId}
+          admin={isAdmin(auth.user)}
         />
       )}
       <AddStylePanel

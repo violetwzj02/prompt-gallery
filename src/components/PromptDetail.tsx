@@ -7,6 +7,9 @@ import { DEFAULT_FOLDER_ID, DEFAULT_FOLDER_NAME } from '../hooks/useFavorites'
 import { extractPurePrompt } from '../utils/promptExtract'
 import { canEditStyle, canRemoveStyle, reviewBadgeLabel, styleOriginLabel } from '../utils/styleOrigin'
 import { CoverArt } from './CoverArt'
+import { AddToAlbumDialog } from './account/AddToAlbumDialog'
+import { ALBUM_CONNECT_FIRST, ALBUM_NOT_ENABLED, resolvePromptCoverUrl } from '../lib/album'
+import { googleClientId, peekAccessToken } from '../lib/googleDrive'
 
 interface Props {
   item: PromptItem
@@ -27,6 +30,7 @@ interface Props {
   onRemoveFavorite?: (itemId: string) => void
   onCreateFolder?: (name: string) => FavoriteFolder | null | Promise<FavoriteFolder | null>
   viewerId?: string | null
+  admin?: boolean
 }
 
 function HeartIcon() {
@@ -83,8 +87,10 @@ export function PromptDetail({
   onRemoveFavorite,
   onCreateFolder,
   viewerId = null,
+  admin = false,
 }: Props) {
   const [toast, setToast] = useState<string | null>(null)
+  const [albumOpen, setAlbumOpen] = useState(false)
   const [favOpen, setFavOpen] = useState(false)
   const [newFolder, setNewFolder] = useState('')
   const favWrapRef = useRef<HTMLDivElement>(null)
@@ -96,6 +102,10 @@ export function PromptDetail({
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        if (albumOpen) {
+          setAlbumOpen(false)
+          return
+        }
         if (favOpen) {
           setFavOpen(false)
           return
@@ -118,11 +128,12 @@ export function PromptDetail({
       window.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
-  }, [onClose, onSelect, items, indexInList, favOpen])
+  }, [onClose, onSelect, items, indexInList, favOpen, albumOpen])
 
   useEffect(() => {
     setFavOpen(false)
     setNewFolder('')
+    setAlbumOpen(false)
   }, [item.id])
 
   useEffect(() => {
@@ -295,6 +306,29 @@ export function PromptDetail({
             <button type="button" className="btn btn-ghost" onClick={copyLink}>
               复制链接
             </button>
+            {admin && (
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={() => {
+                  if (!googleClientId()) {
+                    setToast(ALBUM_NOT_ENABLED)
+                    return
+                  }
+                  if (!peekAccessToken()) {
+                    setToast(ALBUM_CONNECT_FIRST)
+                    return
+                  }
+                  if (!resolvePromptCoverUrl(item)) {
+                    setToast('这条风格没有可上传的封面图')
+                    return
+                  }
+                  setAlbumOpen(true)
+                }}
+              >
+                加入云端相册
+              </button>
+            )}
             {onToggleLike && (
               <button
                 type="button"
@@ -450,6 +484,20 @@ export function PromptDetail({
 
         {toast && <div className="toast">{toast}</div>}
       </div>
+      {admin && (
+        <AddToAlbumDialog
+          item={item}
+          open={albumOpen}
+          onClose={() => setAlbumOpen(false)}
+          onAdded={(entry) => {
+            setAlbumOpen(false)
+            setToast('已加入云端相册')
+            window.setTimeout(() => {
+              window.location.hash = `#/me/album?item=${entry.id}`
+            }, 400)
+          }}
+        />
+      )}
     </div>
   )
 }

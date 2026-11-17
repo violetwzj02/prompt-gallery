@@ -2,7 +2,7 @@
 
 import { isAdminHash, normalizeHashPath } from './adminRoutes'
 
-export type AccountView = 'home' | 'account' | 'admin' | 'admin-review'
+export type AccountView = 'home' | 'account' | 'album' | 'admin' | 'admin-review'
 export type AccountHomeTab = 'works' | 'likes' | 'favorites'
 
 export interface AccountRoute {
@@ -10,6 +10,7 @@ export interface AccountRoute {
   tab: AccountHomeTab
   itemId: string | null
   folderId: string | null
+  cat: string | null
 }
 
 const ACCOUNT_TABS: readonly AccountHomeTab[] = ['works', 'likes', 'favorites']
@@ -38,14 +39,18 @@ export function parseAccountRoute(hash: string): AccountRoute | null {
   const item = (params.get('item') || '').trim()
   const folder = (params.get('folder') || '').trim()
 
+  if (path === 'me/album' || path.startsWith('me/album/')) {
+    const catRaw = (params.get('cat') || '').trim()
+    return { view: 'album', tab: 'works', itemId: item || null, folderId: null, cat: catRaw || null }
+  }
   if (path === 'me/account' || path.startsWith('me/account/')) {
-    return { view: 'account', tab: 'works', itemId: item || null, folderId: null }
+    return { view: 'account', tab: 'works', itemId: item || null, folderId: null, cat: null }
   }
   if (path === 'me/admin/review' || path.startsWith('me/admin/review/')) {
-    return { view: 'admin-review', tab: 'works', itemId: null, folderId: null }
+    return { view: 'admin-review', tab: 'works', itemId: null, folderId: null, cat: null }
   }
   if (path === 'me/admin' || path.startsWith('me/admin/')) {
-    return { view: 'admin', tab: 'works', itemId: null, folderId: null }
+    return { view: 'admin', tab: 'works', itemId: null, folderId: null, cat: null }
   }
 
   return {
@@ -53,6 +58,7 @@ export function parseAccountRoute(hash: string): AccountRoute | null {
     tab,
     itemId: item || null,
     folderId: folder || null,
+    cat: null,
   }
 }
 
@@ -60,6 +66,13 @@ export function toAccountHash(route: Pick<AccountRoute, 'view'> & Partial<Accoun
   if (route.view === 'account') return '#/me/account'
   if (route.view === 'admin') return '#/me/admin'
   if (route.view === 'admin-review') return '#/me/admin/review'
+  if (route.view === 'album') {
+    const albumParams = new URLSearchParams()
+    if (route.cat) albumParams.set('cat', route.cat)
+    if (route.itemId) albumParams.set('item', route.itemId)
+    const albumQs = albumParams.toString()
+    return albumQs ? `#/me/album?${albumQs}` : '#/me/album'
+  }
   const params = new URLSearchParams()
   const tab = route.tab && route.tab !== 'works' ? route.tab : null
   if (tab) params.set('tab', tab)
