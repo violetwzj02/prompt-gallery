@@ -1,4 +1,4 @@
-export type Category =
+export type BuiltinCategory =
   | '人物'
   | '场景'
   | '构图'
@@ -7,6 +7,33 @@ export type Category =
   | '艺术'
   | '自定义'
   | '18+'
+
+/** Any 大类 name: built-ins, leftover 自定义, or a user-created name. */
+export type Category = string
+
+export const BUILTIN_CATEGORIES: BuiltinCategory[] = [
+  '人物',
+  '场景',
+  '构图',
+  '特效',
+  '周边',
+  '艺术',
+  '自定义',
+  '18+',
+]
+
+/** Always listed in the left rail, excluding leftover 自定义 and reserved 18+. */
+export const FIXED_RAIL_CATEGORIES: BuiltinCategory[] = [
+  '人物',
+  '场景',
+  '构图',
+  '特效',
+  '周边',
+  '艺术',
+]
+
+export const LEGACY_CUSTOM_CATEGORY = '自定义' as const
+export const ADULT_CATEGORY = '18+' as const
 
 export type Medium = '图像' | '视频' | '模板' | '图生提示词'
 export type Density = 'comfortable' | 'dense'
@@ -45,7 +72,7 @@ export interface FacetCount {
 export interface CollectionInfo {
   id: string
   name: string
-  category: Category | string
+  category: Category
   count: number
 }
 
@@ -65,20 +92,9 @@ export interface PromptsData {
   items: PromptItem[]
 }
 
-export const CATEGORIES: Category[] = [
-  '人物',
-  '场景',
-  '构图',
-  '特效',
-  '周边',
-  '艺术',
-  '自定义',
-  '18+',
-]
-
 export const MEDIUMS: Medium[] = ['图像', '视频', '模板', '图生提示词']
 
-export const CATEGORY_SLUG: Record<Category, string> = {
+export const CATEGORY_SLUG: Record<BuiltinCategory, string> = {
   人物: 'renwu',
   场景: 'changjing',
   构图: 'goutu',
@@ -90,7 +106,7 @@ export const CATEGORY_SLUG: Record<Category, string> = {
 }
 
 /** Muted, cinematic accents — used sparingly (dots, hairlines), not as glows. */
-export const CATEGORY_ACCENT: Record<Category, string> = {
+export const CATEGORY_ACCENT: Record<BuiltinCategory, string> = {
   人物: '#c4a574',
   场景: '#7aa2b8',
   构图: '#8f9a6b',
@@ -102,7 +118,7 @@ export const CATEGORY_ACCENT: Record<Category, string> = {
 }
 
 export const STYLE_FACET_EXCLUDE = new Set<string>([
-  ...CATEGORIES,
+  ...BUILTIN_CATEGORIES,
   '图像',
   '视频',
   '模板',

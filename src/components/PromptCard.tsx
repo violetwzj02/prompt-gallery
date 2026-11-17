@@ -1,6 +1,6 @@
 import type { CSSProperties, KeyboardEvent, MouseEvent } from 'react'
 import type { PromptItem } from '../types'
-import { CATEGORY_ACCENT } from '../types'
+import { categoryAccent } from '../utils/category'
 import { styleOriginLabel } from '../utils/styleOrigin'
 import { CoverArt } from './CoverArt'
 
@@ -39,7 +39,7 @@ export function PromptCard({
   onToggleFavorite,
   viewerId = null,
 }: Props) {
-  const accent = CATEGORY_ACCENT[item.category]
+  const accent = categoryAccent(item.category)
   const originLabel = styleOriginLabel(item, viewerId)
   const captionTags = item.tags
     .filter((t) => t !== item.category && t !== item.collection && t !== item.medium)

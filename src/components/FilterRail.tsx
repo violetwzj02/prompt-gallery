@@ -1,6 +1,6 @@
 import { useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import type { Category, CollectionInfo } from '../types'
-import { CATEGORIES, CATEGORY_ACCENT } from '../types'
+import { categoryAccent } from '../utils/category'
 import type { FavoriteFolder } from '../hooks/useFavorites'
 import { DEFAULT_FOLDER_NAME } from '../hooks/useFavorites'
 import { folderScopeMatches } from '../lib/localStore'
@@ -28,6 +28,8 @@ interface Props {
   mediums: string[]
   aspects: string[]
   styles: string[]
+  /** Rail 大类 after「全部」, already in display order. */
+  categories: string[]
   active: boolean
   onCloseMobile?: () => void
   folders: FavoriteFolder[]
@@ -120,6 +122,7 @@ export function FilterRail({
   mediums,
   aspects,
   styles,
+  categories,
   active,
   onCloseMobile,
   folders,
@@ -231,13 +234,13 @@ export function FilterRail({
           active={filters.category === '全部'}
           onClick={() => onChange({ ...filters, category: '全部' })}
         />
-        {CATEGORIES.map((c) => (
+        {categories.map((c) => (
           <Row
             key={c}
             label={c}
             count={counts.category[c] ?? 0}
             active={filters.category === c}
-            swatch={CATEGORY_ACCENT[c]}
+            swatch={categoryAccent(c)}
             onClick={() =>
               onChange({
                 ...filters,

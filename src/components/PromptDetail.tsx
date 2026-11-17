@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import ReactMarkdown from 'react-markdown'
 import type { PromptItem } from '../types'
-import { CATEGORY_ACCENT } from '../types'
+import { categoryAccent } from '../utils/category'
 import type { FavoriteFolder } from '../hooks/useFavorites'
 import { DEFAULT_FOLDER_ID, DEFAULT_FOLDER_NAME } from '../hooks/useFavorites'
 import { extractPurePrompt } from '../utils/promptExtract'
@@ -86,7 +86,7 @@ export function PromptDetail({
   const [favOpen, setFavOpen] = useState(false)
   const [newFolder, setNewFolder] = useState('')
   const favWrapRef = useRef<HTMLDivElement>(null)
-  const accent = CATEGORY_ACCENT[item.category]
+  const accent = categoryAccent(item.category)
   const indexInList = items.findIndex((i) => i.id === item.id)
   const originLabel = styleOriginLabel(item, viewerId)
 

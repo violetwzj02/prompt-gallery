@@ -1,5 +1,4 @@
 import type { Category, Density, PromptItem } from '../types'
-import { CATEGORIES } from '../types'
 
 export interface FilterContext {
   /** item id → folder id */
@@ -131,9 +130,8 @@ export function parseHash(hash: string): GalleryFilters {
   }
   const selectedId = path && !path.startsWith('?') ? decodeURIComponent(path) : null
   const params = new URLSearchParams(queryPart || '')
-  const cat = params.get('cat')
-  const category: Category | '全部' =
-    cat && (CATEGORIES as string[]).includes(cat) ? (cat as Category) : '全部'
+  const cat = (params.get('cat') || '').trim()
+  const category: Category | '全部' = cat && cat !== '全部' ? cat : '全部'
   const fav = params.get('fav')
   return {
     category,

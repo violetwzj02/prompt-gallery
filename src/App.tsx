@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { PromptItem } from './types'
-import { CATEGORIES, MEDIUMS } from './types'
+import { ADULT_CATEGORY, MEDIUMS } from './types'
 import { useAuth } from './hooks/useAuth'
 import { usePrompts } from './hooks/usePrompts'
 import { useTheme } from './hooks/useTheme'
@@ -24,6 +24,11 @@ import {
   toHash,
   toggleIn,
 } from './utils/filters'
+import {
+  discoverCustomCategoryNames,
+  railCategoryNames,
+  styleFacetExclude,
+} from './utils/category'
 import './App.css'
 
 export default function App() {
@@ -93,9 +98,13 @@ function GalleryApp() {
     return map
   }, [items])
 
+  const customCategoryNames = useMemo(() => discoverCustomCategoryNames(items), [items])
+  const railCategories = useMemo(() => railCategoryNames(items), [items])
+  const styleExclude = useMemo(() => styleFacetExclude(customCategoryNames), [customCategoryNames])
+
   const counts = useMemo(() => {
     const category: Record<string, number> = { 全部: 0 }
-    for (const c of CATEGORIES) category[c] = 0
+    for (const c of railCategories) category[c] = 0
     const collection: Record<string, number> = {}
     const medium: Record<string, number> = {}
     const aspect: Record<string, number> = {}
@@ -141,7 +150,7 @@ function GalleryApp() {
     }
 
     return { category, collection, medium, aspect, style, favoriteAll, favoriteByFolder, likedAll }
-  }, [items, filters, filterCtx, favorites.folders, favorites.items, likes.idSet])
+  }, [items, filters, filterCtx, favorites.folders, favorites.items, likes.idSet, railCategories])
 
   const collections = meta?.collections ?? []
   const mediums = (meta?.tagFacets.medium.map((f) => f.name) ?? MEDIUMS).filter(
@@ -150,9 +159,23 @@ function GalleryApp() {
   const aspects = (meta?.tagFacets.aspect.map((f) => f.name) ?? []).filter(
     (a) => (counts.aspect[a] ?? 0) > 0 || filters.aspects.includes(a),
   )
-  const styles = (meta?.tagFacets.style.map((f) => f.name) ?? []).filter(
-    (s) => (counts.style[s] ?? 0) > 0 || filters.styles.includes(s),
-  )
+  const styles = (() => {
+    const seen = new Set<string>()
+    const list: string[] = []
+    const candidates = [
+      ...(meta?.tagFacets.style.map((f) => f.name) ?? []),
+      ...Object.keys(counts.style),
+      ...filters.styles,
+    ]
+    for (const s of candidates) {
+      if (!s || seen.has(s) || styleExclude.has(s)) continue
+      if ((counts.style[s] ?? 0) > 0 || filters.styles.includes(s)) {
+        seen.add(s)
+        list.push(s)
+      }
+    }
+    return list
+  })()
 
   const clearFilters = () =>
     update({
@@ -208,10 +231,7 @@ function GalleryApp() {
         return `「${name}」还是空的。可将条目收藏到此夹，或先在卡片上点亮书签。`
       }
     }
-    if (filters.category === '自定义' && (rawCategoryCounts['自定义'] ?? 0) === 0) {
-      return '还没有自定义风格。可点击「添加风格」创建第一条，默认会归入此类。'
-    }
-    if (filters.category === '18+' && (rawCategoryCounts['18+'] ?? 0) === 0) {
+    if (filters.category === ADULT_CATEGORY && (rawCategoryCounts[ADULT_CATEGORY] ?? 0) === 0) {
       return '「18+」分类暂无风格，后续可在添加风格时选择此大类。'
     }
     return '没有符合条件的提示词。'
@@ -302,6 +322,7 @@ function GalleryApp() {
           mediums={mediums}
           aspects={aspects}
           styles={styles}
+          categories={railCategories}
           active={railOpen}
           onCloseMobile={() => setRailOpen(false)}
           folders={favorites.folders}
@@ -400,6 +421,7 @@ function GalleryApp() {
         }}
         onExport={exportJson}
         synced={Boolean(userId)}
+        customCategories={customCategoryNames}
       />
     </div>
   )

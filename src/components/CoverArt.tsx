@@ -1,6 +1,7 @@
 import { useEffect, useState, type CSSProperties } from 'react'
 import type { PromptItem } from '../types'
-import { CATEGORY_ACCENT } from '../types'
+import { CATEGORY_SLUG } from '../types'
+import { categoryAccent } from '../utils/category'
 import { collectionPalette } from '../utils/hash'
 
 interface Props {
@@ -14,18 +15,21 @@ interface Props {
 function SafeImage({
   src,
   className,
-  fallbackSrc,
+  fallbackSrcs,
 }: {
   src: string
   className: string
-  fallbackSrc?: string
+  fallbackSrcs?: string[]
 }) {
-  const [current, setCurrent] = useState(src)
+  const chain = [src, ...(fallbackSrcs ?? [])]
+  const chainKey = chain.join('\n')
+  const [index, setIndex] = useState(0)
   const [failed, setFailed] = useState(false)
   useEffect(() => {
-    setCurrent(src)
+    setIndex(0)
     setFailed(false)
-  }, [src, fallbackSrc])
+  }, [chainKey])
+  const current = chain[index]
   if (failed || !current) return null
   return (
     <img
@@ -33,14 +37,28 @@ function SafeImage({
       alt=""
       className={className}
       onError={() => {
-        if (fallbackSrc && current !== fallbackSrc) {
-          setCurrent(fallbackSrc)
+        if (index + 1 < chain.length) {
+          setIndex(index + 1)
           return
         }
         setFailed(true)
       }}
     />
   )
+}
+
+
+const BUILTIN_COVER_SLUGS = new Set(Object.values(CATEGORY_SLUG))
+const ZIDINGYI_JPG = './covers/categories/zidingyi.jpg'
+const ZIDINGYI_SVG = './covers/categories/zidingyi.svg'
+
+function coverFallbacks(slug: string): string[] {
+  const svg = `./covers/categories/${slug}.svg`
+  if (BUILTIN_COVER_SLUGS.has(slug) && slug !== 'zidingyi') {
+    return [svg]
+  }
+  if (slug === 'zidingyi') return [ZIDINGYI_SVG]
+  return [svg, ZIDINGYI_JPG, ZIDINGYI_SVG]
 }
 
 export function CoverArt({ item, className = '', large = false, fit = 'cover' }: Props) {
@@ -63,7 +81,7 @@ export function CoverArt({ item, className = '', large = false, fit = 'cover' }:
     )
   }
 
-  const accent = CATEGORY_ACCENT[item.category]
+  const accent = categoryAccent(item.category)
   const key = item.parentId || item.collection || item.categorySlug
   const p = collectionPalette(key, item.id)
   const motif = item.collectionIndex ? (item.collectionIndex - 1 + p.motif) % 4 : p.motif
@@ -104,7 +122,7 @@ export function CoverArt({ item, className = '', large = false, fit = 'cover' }:
     >
       <SafeImage
         src={`./covers/categories/${item.categorySlug}.jpg`}
-        fallbackSrc={`./covers/categories/${item.categorySlug}.svg`}
+        fallbackSrcs={coverFallbacks(item.categorySlug)}
         className="cover-art__base"
       />
       <svg

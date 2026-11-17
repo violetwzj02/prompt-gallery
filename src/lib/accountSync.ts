@@ -1,5 +1,5 @@
 import type { Category, Medium, PromptItem } from '../types'
-import { CATEGORY_SLUG } from '../types'
+import { categorySlug } from '../utils/category'
 import { normalizeItem } from '../utils/filters'
 import {
   DEFAULT_FOLDER_ID,
@@ -40,7 +40,7 @@ export function itemFromCustomStyle(row: CustomStyleRow): PromptItem {
   return normalizeItem({
     id: row.id,
     category,
-    categorySlug: payload.categorySlug ?? CATEGORY_SLUG[category] ?? 'zidingyi',
+    categorySlug: payload.categorySlug ?? categorySlug(category),
     title: typeof payload.title === 'string' && payload.title ? payload.title : row.id,
     usage: payload.usage ?? '',
     body: payload.body ?? '',

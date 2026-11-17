@@ -1,6 +1,9 @@
-import { useState, type FormEvent } from 'react'
-import type { Category, Medium, PromptItem } from '../types'
-import { CATEGORIES, MEDIUMS } from '../types'
+import { useMemo, useState, type FormEvent } from 'react'
+import type { Medium, PromptItem } from '../types'
+import { MEDIUMS } from '../types'
+import { ADD_STYLE_CATEGORIES, validateCategoryName } from '../utils/category'
+
+const NEW_CATEGORY_VALUE = '__new__'
 
 interface Props {
   open: boolean
@@ -10,11 +13,20 @@ interface Props {
   ) => PromptItem | Promise<PromptItem>
   onExport: () => void
   synced?: boolean
+  customCategories: string[]
 }
 
-export function AddStylePanel({ open, onClose, onAdd, onExport, synced = false }: Props) {
+export function AddStylePanel({
+  open,
+  onClose,
+  onAdd,
+  onExport,
+  synced = false,
+  customCategories,
+}: Props) {
   const [title, setTitle] = useState('')
-  const [category, setCategory] = useState<Category>('自定义')
+  const [categoryChoice, setCategoryChoice] = useState('')
+  const [newCategoryName, setNewCategoryName] = useState('')
   const [usage, setUsage] = useState('')
   const [body, setBody] = useState('')
   const [source, setSource] = useState('')
@@ -24,6 +36,11 @@ export function AddStylePanel({ open, onClose, onAdd, onExport, synced = false }
   const [aspect, setAspect] = useState('')
   const [coverDataUrl, setCoverDataUrl] = useState<string | undefined>()
   const [msg, setMsg] = useState<string | null>(null)
+
+  const existingCategories = useMemo(
+    () => [...ADD_STYLE_CATEGORIES, ...customCategories.filter((name) => !ADD_STYLE_CATEGORIES.includes(name))],
+    [customCategories],
+  )
 
   if (!open) return null
 
@@ -41,12 +58,24 @@ export function AddStylePanel({ open, onClose, onAdd, onExport, synced = false }
     reader.readAsDataURL(file)
   }
 
+  const resolveCategory = (): { ok: true; name: string } | { ok: false; error: string } => {
+    if (!categoryChoice) return { ok: false, error: '请选择或新建大类' }
+    if (categoryChoice !== NEW_CATEGORY_VALUE) return { ok: true, name: categoryChoice }
+    return validateCategoryName(newCategoryName, existingCategories)
+  }
+
   const submit = async (e: FormEvent) => {
     e.preventDefault()
     if (!title.trim() || !body.trim()) {
       setMsg('标题与 Prompt 正文为必填')
       return
     }
+    const resolved = resolveCategory()
+    if (!resolved.ok) {
+      setMsg(resolved.error)
+      return
+    }
+    const category = resolved.name
     const tagList = tags
       .split(/[,，]/)
       .map((t) => t.trim())
@@ -73,6 +102,8 @@ export function AddStylePanel({ open, onClose, onAdd, onExport, synced = false }
     })
     setMsg(synced ? '已加入图鉴，并作为本库风格同步到账号' : '已加入本地图鉴（可导出 JSON）')
     setTitle('')
+    setCategoryChoice('')
+    setNewCategoryName('')
     setUsage('')
     setBody('')
     setSource('')
@@ -105,12 +136,14 @@ export function AddStylePanel({ open, onClose, onAdd, onExport, synced = false }
           <div className="add-row">
             <label>
               大类 *
-              <select value={category} onChange={(e) => setCategory(e.target.value as Category)}>
-                {CATEGORIES.map((c) => (
+              <select value={categoryChoice} onChange={(e) => setCategoryChoice(e.target.value)}>
+                <option value="">请选择或新建大类</option>
+                {existingCategories.map((c) => (
                   <option key={c} value={c}>
                     {c}
                   </option>
                 ))}
+                <option value={NEW_CATEGORY_VALUE}>新建大类…</option>
               </select>
             </label>
             <label>
@@ -124,6 +157,18 @@ export function AddStylePanel({ open, onClose, onAdd, onExport, synced = false }
               </select>
             </label>
           </div>
+          {categoryChoice === NEW_CATEGORY_VALUE && (
+            <label>
+              新大类名称 *
+              <input
+                value={newCategoryName}
+                onChange={(e) => setNewCategoryName(e.target.value)}
+                placeholder="例如：赛博朋克"
+                maxLength={20}
+                required
+              />
+            </label>
+          )}
           <div className="add-row">
             <label>
               合集（可选）

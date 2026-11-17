@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { CollectionInfo, PromptItem, PromptsData, TagFacets } from '../types'
-import { CATEGORY_SLUG } from '../types'
+import { categorySlug } from '../utils/category'
 import { normalizeItem } from '../utils/filters'
 import {
   allocateStyleId,
@@ -103,7 +103,7 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
     async (
       partial: Omit<PromptItem, 'id' | 'categorySlug' | 'local' | 'ownerId'> & { id?: string },
     ): Promise<PromptItem> => {
-      const slug = CATEGORY_SLUG[partial.category]
+      const slug = categorySlug(partial.category)
       const preferred = partial.id ?? `local-${slug}-${Date.now().toString(36)}`
       let id = preferred
       if (userId && supabase) {
