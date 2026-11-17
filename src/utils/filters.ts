@@ -125,6 +125,10 @@ export function parseHash(hash: string): GalleryFilters {
   }
   const [pathPart, queryPart] = raw.split('?')
   const path = (pathPart || '').replace(/^\/+/, '')
+  // Admin console routes are not prompt ids.
+  if (path === 'admin' || path.startsWith('admin/')) {
+    return { ...EMPTY_FILTERS }
+  }
   const selectedId = path && !path.startsWith('?') ? decodeURIComponent(path) : null
   const params = new URLSearchParams(queryPart || '')
   const cat = params.get('cat')

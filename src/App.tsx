@@ -13,6 +13,8 @@ import { AuthControl } from './components/AuthControl'
 import { ThemeToggle } from './components/ThemeToggle'
 import { FilterRail } from './components/FilterRail'
 import { isAuthCallbackHash } from './lib/supabase'
+import { AdminApp } from './components/admin/AdminApp'
+import { isAdminHash } from './utils/adminRoutes'
 import {
   EMPTY_FILTERS,
   type GalleryFilters,
@@ -25,6 +27,21 @@ import {
 import './App.css'
 
 export default function App() {
+  const [adminRoute, setAdminRoute] = useState(() =>
+    typeof window !== 'undefined' ? isAdminHash(window.location.hash) : false,
+  )
+
+  useEffect(() => {
+    const onHash = () => setAdminRoute(isAdminHash(window.location.hash))
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
+  if (adminRoute) return <AdminApp />
+  return <GalleryApp />
+}
+
+function GalleryApp() {
   const auth = useAuth()
   const userId = auth.user?.id ?? null
   const { items, loading, error, syncError, meta, addItem, removeLocal, exportJson, localCount, baseCount } =
@@ -51,6 +68,7 @@ export default function App() {
 
   useEffect(() => {
     if (isAuthCallbackHash(window.location.hash)) return
+    if (isAdminHash(window.location.hash)) return
     const next = toHash(filters)
     if (window.location.hash !== next && (window.location.hash || next !== '#/')) {
       history.replaceState(null, '', next)
