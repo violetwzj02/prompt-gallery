@@ -9,3 +9,6 @@ covers-inbox
 
 # Local dashboard evidence, not for the repo
 supabase/apply-evidence/
+
+__pycache__/
+scripts/__pycache__/

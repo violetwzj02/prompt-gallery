@@ -47,6 +47,8 @@ COLLECTION_NAMES = {
     "yishu-28": "黑底彩色手写艺术字",
     "changjing-7": "巨构提示词",
     "changjing-4": "未来景观",
+    "changjing-9": "邵氏赛博",
+    "changjing-10": "仙侠繁华试",
 }
 
 # Controlled style / purpose vocabulary. Order is the UI facet order.
@@ -842,6 +844,11 @@ def main():
         "tagFacets": meta["tagFacets"],
         "items": items,
     }
+    # Keep the Obsidian 2026-11-20 supplement after a master re-parse.
+    from merge_obsidian_styles import apply_to_payload
+    payload, meta = apply_to_payload(payload, meta)
+    items = payload["items"]
+
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)

@@ -282,7 +282,7 @@ def build_item(it: dict) -> dict:
 def main():
     data = json.loads(open(PROMPTS, encoding="utf-8").read())
     items = [build_item(it) for it in data["items"]]
-    assert len(items) == data["count"] == 192
+    assert len(items) == data["count"]
 
     flag_counts = Counter()
     mapped = 0
