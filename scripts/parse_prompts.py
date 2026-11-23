@@ -28,9 +28,16 @@ CAT_MAP = {
     "yishu": "艺术",
 }
 CAT_SLUG = {v: k for k, v in CAT_MAP.items()}
-CAT_SLUG["MJ风格"] = "mj"
-MJ_CATEGORY = "MJ风格"
+CAT_SLUG["MJ"] = "mj"
+MJ_CATEGORY = "MJ"
 MJ_SLUG = "mj"
+# Cards that belong in the MJ 大类. Shao 赛博 cards are assigned in
+# merge_obsidian_styles; they are listed here so a later apply_mj_category
+# pass is idempotent. renwu-28 is intentionally excluded (body: 非 Midjourney).
+MJ_ITEM_IDS = {
+    *{f"renwu-{n}" for n in range(18, 28)},
+    *{f"changjing-9-{n:02d}" for n in range(1, 8)},
+}
 FALLBACK_USAGE = {
     "人物": "角色设定 / 人像精修 / 人物渲染",
     "场景": "环境 / 地点 / 场景类视觉",
@@ -38,7 +45,7 @@ FALLBACK_USAGE = {
     "特效": "光效 / 能量 / 法术特技",
     "周边": "商品化 / 纪念品 / 周边",
     "艺术": "插画风 / 艺术字 / 艺术海报",
-    "MJ风格": "Midjourney 风格图鉴 / 原库卡片",
+    "MJ": "仅适用于 Midjourney 的提示词",
 }
 
 # Clean collection display names (no ×N suffix).
@@ -778,7 +785,7 @@ def resolve_cross_duplicates(items: list[dict]) -> None:
 
 
 def build_meta(items: list[dict], generated_from: str, master_count: int) -> dict:
-    cat_counts = {k: 0 for k in ["人物", "场景", "构图", "特效", "周边", "艺术", "MJ风格"]}
+    cat_counts = {k: 0 for k in ["人物", "场景", "构图", "特效", "周边", "艺术", "MJ"]}
     for it in items:
         cat_counts[it["category"]] = cat_counts.get(it["category"], 0) + 1
 
@@ -800,7 +807,7 @@ def build_meta(items: list[dict], generated_from: str, master_count: int) -> dic
     aspect_counts = Counter(it["aspect"] for it in items if it.get("aspect"))
 
     style_counts: Counter = Counter()
-    structural = set(["人物", "场景", "构图", "特效", "周边", "艺术", "MJ风格"]) | set(COLLECTION_NAMES.values()) | set(MEDIUMS)
+    structural = set(["人物", "场景", "构图", "特效", "周边", "艺术", "MJ", "MJ风格"]) | set(COLLECTION_NAMES.values()) | set(MEDIUMS)
     for it in items:
         for t in it.get("tags") or []:
             if t in STYLE_VOCAB and t not in structural and t != it.get("aspect"):
@@ -829,22 +836,35 @@ def build_meta(items: list[dict], generated_from: str, master_count: int) -> dic
 
 
 
-def recategorize_master_as_mj(items: list[dict]) -> None:
-    """Move parsed master-library cards into the MJ风格 大类.
+def apply_mj_category(items: list[dict]) -> int:
+    """Put only the Midjourney-specific cards into the MJ 大类.
 
-    Keeps original domain tags (人物 / 场景 / 脸模 / …) and ids / parentId /
-    collection names. The Obsidian supplement is applied afterwards and is
-    not passed through this function.
+    Membership is MJ_ITEM_IDS (renwu-18..27 and the seven 邵氏赛博 cards).
+    All other cards keep their original 大类. The retired 「MJ风格」 tag is
+    stripped everywhere; members may keep a 「MJ」 tag.
     """
+    moved = 0
     for it in items:
-        if it.get("category") == MJ_CATEGORY:
-            continue
-        it["category"] = MJ_CATEGORY
-        it["categorySlug"] = MJ_SLUG
-        tags = list(it.get("tags") or [])
-        if MJ_CATEGORY not in tags:
-            tags.insert(0, MJ_CATEGORY)
+        tags = [t for t in (it.get("tags") or []) if t != "MJ风格"]
+        if it.get("id") in MJ_ITEM_IDS:
+            if it.get("category") != MJ_CATEGORY or it.get("categorySlug") != MJ_SLUG:
+                moved += 1
+            it["category"] = MJ_CATEGORY
+            it["categorySlug"] = MJ_SLUG
+            if "MJ" not in tags:
+                tags.insert(0, "MJ")
+        else:
+            if it.get("category") in (MJ_CATEGORY, "MJ风格"):
+                # Should have been restored already; do not invent a 大类 here.
+                pass
+            tags = [t for t in tags if t != "MJ"]
         it["tags"] = tags
+    return moved
+
+
+def recategorize_master_as_mj(items: list[dict]) -> int:
+    """Backward-compatible name; no longer moves the whole master library."""
+    return apply_mj_category(items)
 
 
 COVER_DIR = os.path.join(ROOT, "public", "covers", "entries")
@@ -1021,9 +1041,8 @@ def main():
     print(f"Master anchors: {len(entries)}")
     items, report = explode(entries)
     resolve_cross_duplicates(items)
-    # Master cards stay Midjourney-library items; category is overridden after
-    # prefix inference so ids / files do not need to be renamed.
-    recategorize_master_as_mj(items)
+    # Master cards stay in their original 大类. MJ membership is applied after
+    # the Obsidian supplement (and any extra cards such as yishu-50) is merged.
 
     meta = build_meta(items, os.path.basename(master), len(entries))
     payload = {
@@ -1042,25 +1061,26 @@ def main():
     payload.pop("_mergeReplaced", None)
     items = payload["items"]
     extras = preserve_extra_items(items)
+    apply_mj_category(items)
     attached = reattach_covers(items)
     preserved = preserve_existing_text(items)
-    # Covers / preserved text do not affect meta counts; extra cards do.
-    if extras:
-        meta = build_meta(
-            items,
-            payload.get("generatedFrom") or os.path.basename(master),
-            payload.get("masterCount") or len(entries),
-        )
-        payload.update(
-            {
-                "generatedFrom": meta["generatedFrom"],
-                "masterCount": meta["masterCount"],
-                "count": meta["count"],
-                "categories": meta["categories"],
-                "collections": meta["collections"],
-                "tagFacets": meta["tagFacets"],
-            }
-        )
+    # Covers / preserved text do not affect meta counts; extra cards and
+    # MJ membership do.
+    meta = build_meta(
+        items,
+        payload.get("generatedFrom") or os.path.basename(master),
+        payload.get("masterCount") or len(entries),
+    )
+    payload.update(
+        {
+            "generatedFrom": meta["generatedFrom"],
+            "masterCount": meta["masterCount"],
+            "count": meta["count"],
+            "categories": meta["categories"],
+            "collections": meta["collections"],
+            "tagFacets": meta["tagFacets"],
+        }
+    )
     payload["items"] = items
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

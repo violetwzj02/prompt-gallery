@@ -205,8 +205,8 @@ def build_items() -> list[dict]:
         items.append(
             item(
                 id=f"changjing-9-{num}",
-                category="场景",
-                category_slug="changjing",
+                category="MJ",
+                category_slug="mj",
                 title=title,
                 usage="环境 / 地点 / 场景类视觉",
                 body=body,

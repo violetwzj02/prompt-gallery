@@ -3,67 +3,67 @@
   "masterCount": 106,
   "count": 216,
   "categories": {
-    "人物": 3,
-    "场景": 12,
-    "构图": 0,
-    "特效": 1,
-    "周边": 0,
-    "艺术": 8,
-    "MJ风格": 192
+    "人物": 27,
+    "场景": 20,
+    "构图": 38,
+    "特效": 36,
+    "周边": 22,
+    "艺术": 56,
+    "MJ": 17
   },
   "collections": [
     {
       "id": "renwu-1",
       "name": "脸模",
-      "category": "MJ风格",
+      "category": "人物",
       "count": 4
     },
     {
       "id": "renwu-3",
       "name": "精修五大词",
-      "category": "MJ风格",
+      "category": "人物",
       "count": 4
     },
     {
       "id": "changjing-4",
       "name": "未来景观",
-      "category": "MJ风格",
+      "category": "场景",
       "count": 4
     },
     {
       "id": "changjing-7",
       "name": "巨构提示词",
-      "category": "MJ风格",
+      "category": "场景",
       "count": 5
     },
     {
       "id": "goutu-1",
       "name": "短剧景别构图",
-      "category": "MJ风格",
+      "category": "构图",
       "count": 30
     },
     {
       "id": "goutu-3",
       "name": "设计可视化",
-      "category": "MJ风格",
+      "category": "构图",
       "count": 5
     },
     {
       "id": "texiao-1",
       "name": "仙侠人物特效",
-      "category": "MJ风格",
+      "category": "特效",
       "count": 35
     },
     {
       "id": "yishu-28",
       "name": "黑底彩色手写艺术字",
-      "category": "MJ风格",
+      "category": "艺术",
       "count": 7
     },
     {
       "id": "changjing-9",
       "name": "邵氏赛博",
-      "category": "场景",
+      "category": "MJ",
       "count": 7
     },
     {
@@ -213,11 +213,11 @@
       },
       {
         "name": "摄影",
-        "count": 58
+        "count": 59
       },
       {
         "name": "电影感",
-        "count": 36
+        "count": 37
       },
       {
         "name": "二次元",
@@ -229,7 +229,7 @@
       },
       {
         "name": "Midjourney",
-        "count": 14
+        "count": 13
       },
       {
         "name": "图生图",

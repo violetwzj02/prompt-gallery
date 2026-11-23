@@ -1,5 +1,6 @@
 import { isReservedHash } from './accountRoutes'
 import type { Category, Density, PromptItem } from '../types'
+import { canonicalCategoryName } from './category'
 
 export interface FilterContext {
   /** item id → folder id */
@@ -38,8 +39,11 @@ export const EMPTY_FILTERS: GalleryFilters = {
 }
 
 export function normalizeItem(item: PromptItem): PromptItem {
+  const category = canonicalCategoryName(item.category)
   return {
     ...item,
+    category,
+    categorySlug: category === 'MJ' ? 'mj' : item.categorySlug,
     parentId: item.parentId ?? null,
     collection: item.collection ?? null,
     collectionIndex: item.collectionIndex ?? null,
@@ -77,7 +81,13 @@ export function itemMatches(
       if (folder !== wanted) return false
     }
   }
-  if (!ignore.has('category') && f.category !== '全部' && item.category !== f.category) return false
+  if (
+    !ignore.has('category') &&
+    f.category !== '全部' &&
+    canonicalCategoryName(item.category) !== canonicalCategoryName(f.category)
+  ) {
+    return false
+  }
   if (!ignore.has('collectionId') && f.collectionId && item.parentId !== f.collectionId) return false
   if (!ignore.has('mediums') && f.mediums.length > 0 && !f.mediums.includes(item.medium)) return false
   if (
@@ -141,7 +151,7 @@ export function parseHash(hash: string): GalleryFilters {
   const selectedId = path && !path.startsWith('?') ? decodeURIComponent(path) : null
   const params = new URLSearchParams(queryPart || '')
   const cat = (params.get('cat') || '').trim()
-  const category: Category | '全部' = cat && cat !== '全部' ? cat : '全部'
+  const category: Category | '全部' = cat && cat !== '全部' ? canonicalCategoryName(cat) : '全部'
   const fav = params.get('fav')
   return {
     category,

@@ -5,6 +5,7 @@ import {
   CATEGORY_SLUG,
   FIXED_RAIL_CATEGORIES,
   LEGACY_CUSTOM_CATEGORY,
+  LEGACY_MJ_CATEGORY,
   STYLE_FACET_EXCLUDE,
   type BuiltinCategory,
 } from '../types'
@@ -12,7 +13,12 @@ import { hashId } from './hash'
 
 const BUILTIN_SET = new Set<string>(BUILTIN_CATEGORIES)
 const BUILTIN_SLUGS = new Set(Object.values(CATEGORY_SLUG))
-const RESERVED_NEW_NAMES = new Set(['全部', LEGACY_CUSTOM_CATEGORY, 'admin'])
+const RESERVED_NEW_NAMES = new Set(['全部', LEGACY_CUSTOM_CATEGORY, LEGACY_MJ_CATEGORY, 'admin'])
+
+/** Map the retired 「MJ风格」 label to the current 「MJ」 大类. */
+export function canonicalCategoryName(name: string): string {
+  return name === LEGACY_MJ_CATEGORY ? 'MJ' : name
+}
 
 export function isBuiltinCategory(name: string): name is BuiltinCategory {
   return BUILTIN_SET.has(name)
@@ -20,7 +26,8 @@ export function isBuiltinCategory(name: string): name is BuiltinCategory {
 
 /** Built-in maps for fixed names; custom names get a stable url-safe slug. */
 export function categorySlug(name: string): string {
-  if (isBuiltinCategory(name)) return CATEGORY_SLUG[name]
+  const canonical = canonicalCategoryName(name)
+  if (isBuiltinCategory(canonical)) return CATEGORY_SLUG[canonical]
   const ascii = name
     .trim()
     .toLowerCase()
@@ -34,17 +41,18 @@ export function categorySlug(name: string): string {
 }
 
 export function categoryAccent(name: string): string {
-  if (isBuiltinCategory(name)) return CATEGORY_ACCENT[name]
+  const canonical = canonicalCategoryName(name)
+  if (isBuiltinCategory(canonical)) return CATEGORY_ACCENT[canonical]
   return CATEGORY_ACCENT[LEGACY_CUSTOM_CATEGORY]
 }
 
 /** User-created 大类 names in first-seen order, excluding built-ins and leftover 自定义. */
 export function discoverCustomCategoryNames(items: { category: string }[]): string[] {
-  const reserved = new Set<string>([...FIXED_RAIL_CATEGORIES, LEGACY_CUSTOM_CATEGORY, ADULT_CATEGORY])
+  const reserved = new Set<string>([...FIXED_RAIL_CATEGORIES, LEGACY_CUSTOM_CATEGORY, LEGACY_MJ_CATEGORY, ADULT_CATEGORY])
   const seen = new Set<string>()
   const names: string[] = []
   for (const it of items) {
-    const name = it.category
+    const name = canonicalCategoryName(it.category)
     if (!name || reserved.has(name) || seen.has(name)) continue
     seen.add(name)
     names.push(name)
