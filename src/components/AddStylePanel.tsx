@@ -139,6 +139,9 @@ export function AddStylePanel({
       medium,
       aspect: aspect.trim() || null,
       promptText: body.trim(),
+      chinesePrompt: editing?.chinesePrompt,
+      grokPrompt: editing?.grokPrompt,
+      covers: editing?.covers,
       duplicateNote: editing?.duplicateNote ?? null,
       duplicateOf: editing?.duplicateOf ?? null,
     }

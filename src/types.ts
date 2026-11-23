@@ -50,6 +50,8 @@ export interface PromptItem {
   body: string
   source: string
   cover: string | null
+  /** Full still set for the detail viewer; cover remains the grid/list thumbnail. */
+  covers?: string[]
   parentId: string | null
   collection: string | null
   collectionIndex: number | null
@@ -58,6 +60,10 @@ export interface PromptItem {
   medium: Medium
   aspect: string | null
   promptText: string
+  /** Chinese prompt shown on the detail page (may match promptText). */
+  chinesePrompt?: string
+  /** Grok / generic English prompt shown on the detail page. */
+  grokPrompt?: string
   duplicateNote: string | null
   duplicateOf: string | null
   /** local-only additions stored in this browser */

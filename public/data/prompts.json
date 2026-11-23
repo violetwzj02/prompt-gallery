@@ -1,14 +1,14 @@
 {
   "generatedFrom": "PROMPT_MASTER.md + obsidian-20261120.md",
   "masterCount": 106,
-  "count": 215,
+  "count": 216,
   "categories": {
     "人物": 3,
     "场景": 12,
     "构图": 0,
     "特效": 1,
     "周边": 0,
-    "艺术": 7,
+    "艺术": 8,
     "MJ风格": 192
   },
   "collections": [
@@ -5502,7 +5502,12 @@
       "aspect": null,
       "promptText": "邵氏电影风格，赛博江湖市井寻仇场景，侠客正面立于热闹市井中，目光锐利锁定前方（镜头外的仇人），腰间机械剑鞘泛霓虹光，衣袍下摆沾泥渍，身旁是挂全息招牌的小吃摊与穿梭的行人，远处有机械巡检飞虫掠过，复古胶片颗粒，俯拍中景镜头，暖调烟火光影与冷调人物情绪对比，30%赛博元素（机械剑鞘、全息招牌、巡检飞虫），还原江湖人隐于市井寻仇的紧张感",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "chinesePrompt": "邵氏电影风格，赛博江湖市井寻仇场景，侠客正面立于热闹市井中，目光锐利锁定前方（镜头外的仇人），腰间机械剑鞘泛霓虹光，衣袍下摆沾泥渍，身旁是挂全息招牌的小吃摊与穿梭的行人，远处有机械巡检飞虫掠过，复古胶片颗粒，俯拍中景镜头，暖调烟火光影与冷调人物情绪对比，30%赛博元素（机械剑鞘、全息招牌、巡检飞虫），还原江湖人隐于市井寻仇的紧张感",
+      "grokPrompt": "Widescreen cinematic film still in the style of a Shaw Brothers wuxia movie, not a clean modern poster. High-angle medium shot of a tense cyber-jianghu street. A swordsman stands facing the camera in a crowded marketplace, sharp eyes locked on an enemy just out of frame. A mechanical sword scabbard at his waist glows with a faint neon light. The hem of his robe is stained with mud. Beside him, a food stall hangs a holographic sign, pedestrians cut through the bustle. In the distance, a mechanical inspection drone-insect skims past. Warm firelight and street-food smoke contrast with his cold, restrained mood. Only about 30 percent cyber elements: the mech scabbard, the holographic sign, and the inspection insects. Everything else stays old Hong Kong jianghu street. Vintage film grain, slightly crushed blacks, anamorphic 35mm. Do not make a clean studio portrait, a full sci-fi city, a smiling hero, or a sharp video-game screenshot.",
+      "covers": [
+        "covers/entries/changjing-9-01.jpg"
+      ]
     },
     {
       "id": "changjing-9-02",
@@ -5531,7 +5536,15 @@
       "aspect": null,
       "promptText": "邵氏电影风格，赛博江湖市井千人巡游场景，高空俯视跟拍构图（镜头从高空跟随巡游队伍移动），长街之上上千名侠客组成巡游队伍，身着统一嵌霓虹暗纹的劲装，手持荧光剑与机械旗，街道两侧挂满红灯笼、全息招牌与赛博霓虹广告，人流涌动，远处有古桥与悬浮赛博巡逻车，复古胶片颗粒，暖调烟火光影，电影级跟拍运镜，30%赛博元素融入服饰、旗帜与巡逻车，场面恢弘，市井气息与科幻感兼具，适配MJ",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "chinesePrompt": "邵氏电影风格，赛博江湖市井千人巡游场景，高空俯视跟拍构图（镜头从高空跟随巡游队伍移动），长街之上上千名侠客组成巡游队伍，身着统一嵌霓虹暗纹的劲装，手持荧光剑与机械旗，街道两侧挂满红灯笼、全息招牌与赛博霓虹广告，人流涌动，远处有古桥与悬浮赛博巡逻车，复古胶片颗粒，暖调烟火光影，电影级跟拍运镜，30%赛博元素融入服饰、旗帜与巡逻车，场面恢弘，市井气息与科幻感兼具",
+      "grokPrompt": "cinematic widescreen film still, wide shot looking straight down a packed Chinese street at night, an immense dense crowd filling the entire avenue, large red paper lanterns hanging in the left foreground, black ceremonial flags raised above the people, many figures holding cyan glow sticks, a hovering sci-fi craft with cyan thrusters flying under a distant bridge, neon signs mixed with traditional wooden facades, smoke and heat haze, crimson lanterns with cyan accents, volumetric fog, practical lights, photoreal, epic scale, anamorphic",
+      "covers": [
+        "covers/entries/changjing-9-02-02.jpg",
+        "covers/entries/changjing-9-02.jpg",
+        "covers/entries/changjing-9-02-03.jpg",
+        "covers/entries/changjing-9-02-04.jpg"
+      ]
     },
     {
       "id": "changjing-9-03",
@@ -5559,7 +5572,15 @@
       "aspect": null,
       "promptText": "邵氏武侠电影风格，赛博朋克武侠，冷色调青蓝黑金，破败古战场与巨型赛博城门，阴雨浓雾，史诗级宏大画面，电影级光影，低角度远景，身披黑色斗篷的赛博机甲武士，全身金属机甲与暗金纹路，面部半遮面，手持巨型横刀，骑乘机械战马，机甲与生物混合结构，马蹄踏碎电光，披风狂舞，刀身泛冷光，画面震撼，细节拉满，8K，超写实",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "chinesePrompt": "邵氏武侠电影风格，赛博朋克武侠，冷色调青蓝黑金，破败古战场与巨型赛博城门，阴雨浓雾，史诗级宏大画面，电影级光影，低角度远景，身披黑色斗篷的赛博机甲武士，全身金属机甲与暗金纹路，面部半遮面，手持巨型横刀，骑乘机械战马，机甲与生物混合结构，马蹄踏碎电光，披风狂舞，刀身泛冷光，画面震撼，细节拉满，8K，超写实",
+      "grokPrompt": "dark cinematic concept art, side-profile heroic shot, a mechanical knight in intricate black and steel armor with a faintly glowing red visor, tattered black cape billowing in the wind, riding a biomechanical beast with exposed machinery and dorsal spines, holding a long straight silver sword level in both hands, heavy rain, flying debris and electric sparks at the hooves, ruined megacity faintly visible in the background, monochrome steel blue color script, wet metal textures, painterly yet sharp detail, volumetric rain, dramatic backlight, epic, ArtStation concept art",
+      "covers": [
+        "covers/entries/changjing-9-03-02.jpg",
+        "covers/entries/changjing-9-03-03.jpg",
+        "covers/entries/changjing-9-03.jpg",
+        "covers/entries/changjing-9-03-04.jpg"
+      ]
     },
     {
       "id": "changjing-9-04",
@@ -5588,7 +5609,14 @@
       "aspect": null,
       "promptText": "邵氏电影风格，赛博江湖宏大武林大会场景，高空俯视全景构图，青石板广场上聚集上千名侠客，身着嵌霓虹暗纹的古风劲装，中央高台立着带机械纹路的比武台，台边悬挂巨型霓虹幡旗与全息武林榜，四周古建屋顶缠绕霓虹光带，远处悬浮赛博飞艇与机械飞虫巡逻，复古胶片颗粒，电影级光影，高对比度，30%赛博元素融入服饰、道具与环境，场面恢弘，尽显江湖磅礴气势，适配MJ",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "chinesePrompt": "邵氏电影风格，赛博江湖宏大武林大会场景，高空俯视全景构图，青石板广场上聚集上千名侠客，身着嵌霓虹暗纹的古风劲装，中央高台立着带机械纹路的比武台，台边悬挂巨型霓虹幡旗与全息武林榜，四周古建屋顶缠绕霓虹光带，远处悬浮赛博飞艇与机械飞虫巡逻，复古胶片颗粒，电影级光影，高对比度，30%赛博元素融入服饰、道具与环境，场面恢弘，尽显江湖磅礴气势，适配MJ",
+      "grokPrompt": "cinematic widescreen film still, wide symmetrical establishing shot of a grand Chinese palace courtyard, traditional halls with upturned eaves surrounding a monumental raised stage, enormous red and cyan ceremonial banners hanging from the stage, a dense crowd gathered around a circular ritual platform in the center, flying airships and small craft in the hazy sky, a giant pale sun behind the clouds, warm gold lighting with a cyan accent on the right, lanterns along the rooflines, Sino-futurist world, volumetric fog, practical lights, photoreal, epic scale, anamorphic",
+      "covers": [
+        "covers/entries/changjing-9-04-02.jpg",
+        "covers/entries/changjing-9-04-03.jpg",
+        "covers/entries/changjing-9-04.jpg"
+      ]
     },
     {
       "id": "changjing-9-05",
@@ -5617,7 +5645,15 @@
       "aspect": null,
       "promptText": "赛博古风巨型江湖主城，千年古城墙与浮空机甲塔楼交错，飞檐挂霓虹灯带，空中悬浮飞剑与飞艇，云雾缭绕，远山如墨，超广角史诗大场景，8K 写实，细节爆炸",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "chinesePrompt": "赛博古风巨型江湖主城，千年古城墙与浮空机甲塔楼交错，飞檐挂霓虹灯带，空中悬浮飞剑与飞艇，云雾缭绕，远山如墨，超广角史诗大场景，8K 写实，细节爆炸",
+      "grokPrompt": "cinematic widescreen film still, high-angle epic establishing shot, vast ancient Chinese harbor megacity at dusk, monumental palace-temple complex stacked up a hill with warm gold window lights, dense traditional tiled rooftops and wooden houses, junks and dark-sailed ships on murky green-teal water, a bright silver reflection on the river, red lanterns glowing in the lower streets, cliffs and mountains fading into thick mist, volumetric fog, teal and gold color script, practical lantern light, photoreal, ultra-detailed architecture, anamorphic, atmospheric perspective",
+      "covers": [
+        "covers/entries/changjing-9-05-02.jpg",
+        "covers/entries/changjing-9-05.jpg",
+        "covers/entries/changjing-9-05-03.jpg",
+        "covers/entries/changjing-9-05-04.jpg"
+      ]
     },
     {
       "id": "changjing-9-06",
@@ -5645,7 +5681,15 @@
       "aspect": null,
       "promptText": "雨夜赛博古风古街，青石板路反光，油纸伞与全息投影广告并存，红灯笼与霓虹招牌交错，水雾弥漫，暗调电影感，热闹又孤寂的江湖氛围",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "chinesePrompt": "雨夜赛博古风古街，青石板路反光，油纸伞与全息投影广告并存，红灯笼与霓虹招牌交错，水雾弥漫，暗调电影感，热闹又孤寂的江湖氛围",
+      "grokPrompt": "Look of a Midjourney v6 cinematic film still, not a clean commercial portrait. Moody 35mm anamorphic photography, heavy shallow depth of field, large creamy bokeh, wet tactile surfaces, volumetric haze, slightly crushed blacks, visible film grain, imperfect framing, parts of the subject cropped by the frame or by foreground elements. Cinematic color grade, ultra-detailed materials, photoreal.\ncinematic widescreen film still, wide shot looking straight down a packed Chinese street at night, an immense dense crowd filling the entire avenue, large red paper lanterns hanging in the left foreground, black ceremonial flags raised above the people, many figures holding cyan glow sticks, a hovering sci-fi craft with cyan thrusters flying under a distant bridge, neon signs mixed with traditional wooden facades, smoke and heat haze, crimson lanterns with cyan accents, volumetric fog, practical lights, photoreal, epic scale, anamorphic",
+      "covers": [
+        "covers/entries/changjing-9-06.jpg",
+        "covers/entries/changjing-9-06-02.jpg",
+        "covers/entries/changjing-9-06-03.jpg",
+        "covers/entries/changjing-9-06-04.jpg"
+      ]
     },
     {
       "id": "changjing-9-07",
@@ -6106,6 +6150,41 @@
       "promptText": "自然主义真人实拍电影质感，安静、温和、克制的日常生活氛围，整体采用低饱和暖中性色调，以米白、奶油白、浅灰、浅卡其、暖木色、低饱和蓝灰和淡鼠尾草绿为主色；全局彩度偏低，黑位略抬，中间调柔和丰厚，高光明亮但不过曝，保留窗边亮部层次和室内暗部细节。使用单一方向的大面积柔和日光作为主光，光线从侧后方或侧方进入，形成自然侧光或侧逆光，正面补光极弱，仅依赖环境反射回填，阴影边缘柔和，整体光比克制，不使用舞台式聚光或明显轮廓光。构图强调环境叙事与真实空间层次，采用平视或略低平视机位，中景到中近景，35—50mm全画幅等效的自然镜头空间感，中浅到中等景深，主体平面清晰，前景和远端轻柔虚化，允许前景遮挡与器物层叠。材质表现真实自然，皮肤、织物、木材、瓷面和玻璃均为哑光或半哑光反射，锐度中等偏柔，微反差降低，允许极轻微光学柔化和细小胶片感颗粒，整体后期偏低反差、轻胶片气质、弱数码锐利感，呈现安静、亲密、生活化且富有电影叙事感的影像风格。",
       "duplicateNote": null,
       "duplicateOf": null
+    },
+    {
+      "id": "yishu-50",
+      "category": "艺术",
+      "categorySlug": "yishu",
+      "title": "凤冠特写",
+      "usage": "特写 / 人像 · 凤冠",
+      "body": "来源：user-20261123。\n\n**提示词**：\ncinematic widescreen film still, tight close-up portrait, young East Asian woman looking into the lens with a calm, piercing gaze, ornate silver and gold phoenix headdress with sculpted metal scales, hanging pearl and crystal chains, dark red tassels, high-collar ceremonial robe densely embroidered in silver, glossy red lips, wet glass and raindrop bokeh in the foreground, shallow depth of field, specular highlights on polished metal, cool teal-blue atmosphere with warm skin tones, volumetric haze, anamorphic lens, photoreal, ultra-detailed textures, 35mm\n\n**Grok / 通用提示词**：\nLook of a Midjourney v6 cinematic film still, not a clean commercial portrait. Extreme tight close-up, only the eyes, nose and lips fill the frame, the ornate silver-gold phoenix headdress crashes in from above and cuts off the forehead, hanging pearl chains and dark red tassels slice across the face, large out-of-focus raindrop bokeh blobs in the immediate foreground, wet skin with tiny water beads, glossy red lips, cool teal-cyan atmosphere with warm skin, specular highlights on wet metal, shallow depth of field, anamorphic 35mm, film grain, crushed blacks. Avoid: complete headdress, full head-and-shoulders portrait, centered formal pose, sharp palace background, even studio lighting, dry clean makeup, catalog costume display.",
+      "source": "user-20261123",
+      "cover": "covers/entries/yishu-50.jpg",
+      "parentId": null,
+      "collection": null,
+      "collectionIndex": null,
+      "collectionTotal": null,
+      "tags": [
+        "艺术",
+        "图像",
+        "特写",
+        "人像",
+        "电影感",
+        "摄影"
+      ],
+      "medium": "图像",
+      "aspect": null,
+      "promptText": "cinematic widescreen film still, tight close-up portrait, young East Asian woman looking into the lens with a calm, piercing gaze, ornate silver and gold phoenix headdress with sculpted metal scales, hanging pearl and crystal chains, dark red tassels, high-collar ceremonial robe densely embroidered in silver, glossy red lips, wet glass and raindrop bokeh in the foreground, shallow depth of field, specular highlights on polished metal, cool teal-blue atmosphere with warm skin tones, volumetric haze, anamorphic lens, photoreal, ultra-detailed textures, 35mm",
+      "chinesePrompt": "cinematic widescreen film still, tight close-up portrait, young East Asian woman looking into the lens with a calm, piercing gaze, ornate silver and gold phoenix headdress with sculpted metal scales, hanging pearl and crystal chains, dark red tassels, high-collar ceremonial robe densely embroidered in silver, glossy red lips, wet glass and raindrop bokeh in the foreground, shallow depth of field, specular highlights on polished metal, cool teal-blue atmosphere with warm skin tones, volumetric haze, anamorphic lens, photoreal, ultra-detailed textures, 35mm",
+      "grokPrompt": "Look of a Midjourney v6 cinematic film still, not a clean commercial portrait. Extreme tight close-up, only the eyes, nose and lips fill the frame, the ornate silver-gold phoenix headdress crashes in from above and cuts off the forehead, hanging pearl chains and dark red tassels slice across the face, large out-of-focus raindrop bokeh blobs in the immediate foreground, wet skin with tiny water beads, glossy red lips, cool teal-cyan atmosphere with warm skin, specular highlights on wet metal, shallow depth of field, anamorphic 35mm, film grain, crushed blacks. Avoid: complete headdress, full head-and-shoulders portrait, centered formal pose, sharp palace background, even studio lighting, dry clean makeup, catalog costume display.",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/yishu-50.jpg",
+        "covers/entries/yishu-50-02.jpg",
+        "covers/entries/yishu-50-03.jpg",
+        "covers/entries/yishu-50-04.jpg"
+      ]
     }
   ]
 }

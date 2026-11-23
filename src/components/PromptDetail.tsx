@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import ReactMarkdown from 'react-markdown'
 import type { PromptItem } from '../types'
 import { categoryAccent } from '../utils/category'
@@ -7,6 +7,8 @@ import { DEFAULT_FOLDER_ID, DEFAULT_FOLDER_NAME } from '../hooks/useFavorites'
 import { extractPurePrompt } from '../utils/promptExtract'
 import { canEditStyle, canRemoveStyle, reviewBadgeLabel, styleOriginLabel } from '../utils/styleOrigin'
 import { CoverArt } from './CoverArt'
+import { CoverGallery } from './CoverGallery'
+import { itemGallery } from '../utils/covers'
 import { AddToAlbumDialog } from './account/AddToAlbumDialog'
 import { ALBUM_CONNECT_FIRST, ALBUM_NOT_ENABLED, resolvePromptCoverUrl } from '../lib/album'
 import { googleClientId, peekAccessToken } from '../lib/googleDrive'
@@ -96,6 +98,8 @@ export function PromptDetail({
   const favWrapRef = useRef<HTMLDivElement>(null)
   const accent = categoryAccent(item.category)
   const indexInList = items.findIndex((i) => i.id === item.id)
+  const gallery = useMemo(() => itemGallery(item), [item])
+  const multiCover = gallery.length >= 2
   const originLabel = styleOriginLabel(item, viewerId)
   const reviewLabel = reviewBadgeLabel(item, viewerId)
 
@@ -113,6 +117,9 @@ export function PromptDetail({
         onClose()
         return
       }
+      if (multiCover && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+        return
+      }
       if (e.key === 'ArrowLeft' && indexInList > 0) {
         e.preventDefault()
         onSelect(items[indexInList - 1])
@@ -128,7 +135,7 @@ export function PromptDetail({
       window.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
-  }, [onClose, onSelect, items, indexInList, favOpen, albumOpen])
+  }, [onClose, onSelect, items, indexInList, favOpen, albumOpen, multiCover])
 
   useEffect(() => {
     setFavOpen(false)
@@ -198,7 +205,11 @@ export function PromptDetail({
         </button>
 
         <div className="detail-hero">
-          <CoverArt item={item} large fit="contain" className="detail-cover" />
+          {multiCover ? (
+            <CoverGallery item={item} images={gallery} />
+          ) : (
+            <CoverArt item={item} large fit="contain" className="detail-cover" />
+          )}
         </div>
 
         <div className="detail-content">
@@ -436,6 +447,41 @@ export function PromptDetail({
             )}
           </div>
 
+          {(item.chinesePrompt?.trim() || item.grokPrompt?.trim()) && (
+            <div className="detail-prompts">
+              {item.chinesePrompt?.trim() && (
+                <section className="detail-prompt">
+                  <div className="detail-prompt__head">
+                    <h3>中文提示词</h3>
+                    <button
+                      type="button"
+                      className="btn btn-ghost"
+                      onClick={() => flash('已复制中文提示词', item.chinesePrompt!.trim())}
+                    >
+                      复制
+                    </button>
+                  </div>
+                  <pre>{item.chinesePrompt.trim()}</pre>
+                </section>
+              )}
+              {item.grokPrompt?.trim() && (
+                <section className="detail-prompt">
+                  <div className="detail-prompt__head">
+                    <h3>Grok / 通用提示词</h3>
+                    <button
+                      type="button"
+                      className="btn btn-ghost"
+                      onClick={() => flash('已复制 Grok 提示词', item.grokPrompt!.trim())}
+                    >
+                      复制
+                    </button>
+                  </div>
+                  <pre>{item.grokPrompt.trim()}</pre>
+                </section>
+              )}
+            </div>
+          )}
+
           {item.source && <p className="detail-source">原 {item.source}</p>}
 
           <div className="detail-md">
@@ -467,13 +513,19 @@ export function PromptDetail({
 
           <p className="detail-keys">
             <kbd>Esc</kbd> 关闭
-            {indexInList > 0 && (
+            {multiCover && (
+              <>
+                {' '}
+                · <kbd>←</kbd> <kbd>→</kbd> 切换图片
+              </>
+            )}
+            {!multiCover && indexInList > 0 && (
               <>
                 {' '}
                 · <kbd>←</kbd> 上一条
               </>
             )}
-            {indexInList >= 0 && indexInList < items.length - 1 && (
+            {!multiCover && indexInList >= 0 && indexInList < items.length - 1 && (
               <>
                 {' '}
                 · <kbd>→</kbd> 下一条

@@ -850,41 +850,77 @@ def recategorize_master_as_mj(items: list[dict]) -> None:
 COVER_DIR = os.path.join(ROOT, "public", "covers", "entries")
 
 
+def _public_file(rel: str) -> bool:
+    if not rel or not isinstance(rel, str):
+        return False
+    return os.path.isfile(os.path.join(ROOT, "public", rel))
+
+
+def _existing_covers(paths) -> list[str]:
+    out: list[str] = []
+    seen: set[str] = set()
+    if not isinstance(paths, list):
+        return out
+    for src in paths:
+        if not isinstance(src, str):
+            continue
+        rel = src.strip()
+        if not rel or rel in seen or not _public_file(rel):
+            continue
+        seen.add(rel)
+        out.append(rel)
+    return out
+
+
 def reattach_covers(items: list[dict], previous_path: str = OUT) -> int:
-    """Restore cover paths after a re-parse. Never overwrites or deletes files."""
+    """Restore cover / covers paths after a re-parse. Never overwrites or deletes files."""
     prev: dict[str, str] = {}
+    prev_covers: dict[str, list] = {}
     if os.path.isfile(previous_path):
         try:
             with open(previous_path, encoding="utf-8") as f:
                 old = json.load(f)
             for it in old.get("items") or []:
                 cid = it.get("id")
+                if not cid:
+                    continue
                 cover = it.get("cover")
-                if cid and cover:
+                if cover:
                     prev[cid] = cover
+                covers = it.get("covers")
+                if isinstance(covers, list) and covers:
+                    prev_covers[cid] = covers
         except (OSError, json.JSONDecodeError):
             prev = {}
+            prev_covers = {}
 
     attached = 0
     for it in items:
-        if it.get("cover"):
-            path = os.path.join(ROOT, "public", it["cover"])
-            if os.path.isfile(path):
-                attached += 1
-                continue
-        cover = prev.get(it["id"])
-        if not cover:
-            for ext in (".jpg", ".jpeg", ".png", ".webp"):
-                candidate = os.path.join(COVER_DIR, f"{it['id']}{ext}")
-                if os.path.isfile(candidate):
-                    cover = f"covers/entries/{it['id']}{ext}"
-                    break
-        if not cover:
-            continue
-        path = os.path.join(ROOT, "public", cover)
-        if os.path.isfile(path):
-            it["cover"] = cover
+        if it.get("cover") and _public_file(it["cover"]):
             attached += 1
+        else:
+            cover = prev.get(it["id"])
+            if not cover:
+                for ext in (".jpg", ".jpeg", ".png", ".webp"):
+                    candidate = os.path.join(COVER_DIR, f"{it['id']}{ext}")
+                    if os.path.isfile(candidate):
+                        cover = f"covers/entries/{it['id']}{ext}"
+                        break
+            if cover and _public_file(cover):
+                it["cover"] = cover
+                attached += 1
+            elif it.get("cover") and not _public_file(it["cover"]):
+                # Never keep a cover path that is not on disk.
+                it["cover"] = None
+
+        covers = it.get("covers")
+        if not isinstance(covers, list) or not covers:
+            covers = prev_covers.get(it["id"])
+        existing = _existing_covers(covers)
+        if existing:
+            it["covers"] = existing
+        else:
+            it.pop("covers", None)
     return attached
 
 
@@ -904,14 +940,16 @@ PRESERVE_TEXT_FIELDS = (
     "collection",
     "collectionIndex",
     "collectionTotal",
+    "chinesePrompt",
+    "grokPrompt",
 )
 
 
 def preserve_existing_text(items: list[dict], previous_path: str = OUT) -> int:
     """Restore text and identity fields from the previous prompts.json.
 
-    Category, categorySlug, tags, and cover are left to the recategorize /
-    supplement / reattach steps.
+    Category, categorySlug, tags, and cover / covers are left to the
+    recategorize / supplement / reattach steps.
     """
     if not os.path.isfile(previous_path):
         return 0
@@ -934,6 +972,44 @@ def preserve_existing_text(items: list[dict], previous_path: str = OUT) -> int:
         if changed:
             kept += 1
     return kept
+
+
+def preserve_extra_items(items: list[dict], previous_path: str = OUT) -> int:
+    """Keep cards that exist only in the previous prompts.json (e.g. yishu-50).
+
+    A master re-parse plus the Obsidian supplement would otherwise drop
+    user-added entries. Re-insert them next to their previous neighbors
+    when possible.
+    """
+    if not os.path.isfile(previous_path):
+        return 0
+    try:
+        with open(previous_path, encoding="utf-8") as f:
+            old = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return 0
+    old_items = [it for it in (old.get("items") or []) if it.get("id")]
+    if not old_items:
+        return 0
+    new_ids = {it["id"] for it in items if it.get("id")}
+    extras = [it for it in old_items if it["id"] not in new_ids]
+    if not extras:
+        return 0
+    old_ids = [it["id"] for it in old_items]
+    id_to_index = {it["id"]: i for i, it in enumerate(items)}
+    for extra in extras:
+        idx = old_ids.index(extra["id"])
+        inserted = False
+        for prev_id in reversed(old_ids[:idx]):
+            if prev_id in id_to_index:
+                pos = id_to_index[prev_id] + 1
+                items.insert(pos, extra)
+                inserted = True
+                break
+        if not inserted:
+            items.append(extra)
+        id_to_index = {it["id"]: i for i, it in enumerate(items)}
+    return len(extras)
 
 
 def main():
@@ -965,9 +1041,26 @@ def main():
     payload.pop("_mergeAdded", None)
     payload.pop("_mergeReplaced", None)
     items = payload["items"]
+    extras = preserve_extra_items(items)
     attached = reattach_covers(items)
     preserved = preserve_existing_text(items)
-    # Covers / preserved text do not affect meta counts.
+    # Covers / preserved text do not affect meta counts; extra cards do.
+    if extras:
+        meta = build_meta(
+            items,
+            payload.get("generatedFrom") or os.path.basename(master),
+            payload.get("masterCount") or len(entries),
+        )
+        payload.update(
+            {
+                "generatedFrom": meta["generatedFrom"],
+                "masterCount": meta["masterCount"],
+                "count": meta["count"],
+                "categories": meta["categories"],
+                "collections": meta["collections"],
+                "tagFacets": meta["tagFacets"],
+            }
+        )
     payload["items"] = items
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
@@ -980,7 +1073,8 @@ def main():
     print(f"Wrote {META_OUT}")
     print(f"Total items: {len(items)}  (from {len(entries)} master entries)")
     print(f"Covers reattached: {attached}")
-    print(f"Existing text preserved: {preserved}\n")
+    print(f"Existing text preserved: {preserved}")
+    print(f"Extra cards preserved: {extras}\n")
     print("Split report (parent → N children):")
     print(f"{'id':<16} {'children':>8}  title")
     print("-" * 60)

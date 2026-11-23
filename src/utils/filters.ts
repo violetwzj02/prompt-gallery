@@ -50,6 +50,13 @@ export function normalizeItem(item: PromptItem): PromptItem {
     promptText: item.promptText ?? '',
     duplicateNote: item.duplicateNote ?? null,
     duplicateOf: item.duplicateOf ?? null,
+    covers: (() => {
+      if (!Array.isArray(item.covers)) return undefined
+      const list = item.covers.filter((src): src is string => typeof src === 'string' && Boolean(src.trim()))
+      return list.length > 0 ? list : undefined
+    })(),
+    chinesePrompt: item.chinesePrompt?.trim() ? item.chinesePrompt : undefined,
+    grokPrompt: item.grokPrompt?.trim() ? item.grokPrompt : undefined,
   }
 }
 
@@ -94,6 +101,8 @@ export function itemMatches(
         item.source,
         item.collection ?? '',
         item.promptText,
+        item.chinesePrompt ?? '',
+        item.grokPrompt ?? '',
         ...(item.tags ?? []),
       ]
         .join('\n')

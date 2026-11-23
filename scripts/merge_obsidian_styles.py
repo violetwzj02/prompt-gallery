@@ -584,10 +584,16 @@ def merge_items(existing: list[dict]) -> tuple[list[dict], list[dict]]:
     replaced = []
     for it in incoming:
         if it["id"] in by_id:
-            # Refresh text but keep an already-ingested cover path.
+            # Refresh text but keep already-curated media and bilingual prompts.
             old = existing[by_id[it["id"]]]
             if old.get("cover"):
                 it["cover"] = old["cover"]
+            if isinstance(old.get("covers"), list) and old["covers"]:
+                it["covers"] = old["covers"]
+            if old.get("chinesePrompt"):
+                it["chinesePrompt"] = old["chinesePrompt"]
+            if old.get("grokPrompt"):
+                it["grokPrompt"] = old["grokPrompt"]
             existing[by_id[it["id"]]] = it
             replaced.append(it)
         else:

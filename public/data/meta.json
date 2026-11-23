@@ -1,14 +1,14 @@
 {
   "generatedFrom": "PROMPT_MASTER.md + obsidian-20261120.md",
   "masterCount": 106,
-  "count": 215,
+  "count": 216,
   "categories": {
     "人物": 3,
     "场景": 12,
     "构图": 0,
     "特效": 1,
     "周边": 0,
-    "艺术": 7,
+    "艺术": 8,
     "MJ风格": 192
   },
   "collections": [
@@ -77,7 +77,7 @@
     "medium": [
       {
         "name": "图像",
-        "count": 200
+        "count": 201
       },
       {
         "name": "视频",
@@ -125,7 +125,7 @@
     "style": [
       {
         "name": "人像",
-        "count": 34
+        "count": 35
       },
       {
         "name": "角色设定",
@@ -149,7 +149,7 @@
       },
       {
         "name": "特写",
-        "count": 3
+        "count": 4
       },
       {
         "name": "远景",
