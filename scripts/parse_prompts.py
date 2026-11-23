@@ -28,6 +28,9 @@ CAT_MAP = {
     "yishu": "艺术",
 }
 CAT_SLUG = {v: k for k, v in CAT_MAP.items()}
+CAT_SLUG["MJ风格"] = "mj"
+MJ_CATEGORY = "MJ风格"
+MJ_SLUG = "mj"
 FALLBACK_USAGE = {
     "人物": "角色设定 / 人像精修 / 人物渲染",
     "场景": "环境 / 地点 / 场景类视觉",
@@ -35,6 +38,7 @@ FALLBACK_USAGE = {
     "特效": "光效 / 能量 / 法术特技",
     "周边": "商品化 / 纪念品 / 周边",
     "艺术": "插画风 / 艺术字 / 艺术海报",
+    "MJ风格": "Midjourney 风格图鉴 / 原库卡片",
 }
 
 # Clean collection display names (no ×N suffix).
@@ -774,7 +778,7 @@ def resolve_cross_duplicates(items: list[dict]) -> None:
 
 
 def build_meta(items: list[dict], generated_from: str, master_count: int) -> dict:
-    cat_counts = {k: 0 for k in ["人物", "场景", "构图", "特效", "周边", "艺术"]}
+    cat_counts = {k: 0 for k in ["人物", "场景", "构图", "特效", "周边", "艺术", "MJ风格"]}
     for it in items:
         cat_counts[it["category"]] = cat_counts.get(it["category"], 0) + 1
 
@@ -796,7 +800,7 @@ def build_meta(items: list[dict], generated_from: str, master_count: int) -> dic
     aspect_counts = Counter(it["aspect"] for it in items if it.get("aspect"))
 
     style_counts: Counter = Counter()
-    structural = set(["人物", "场景", "构图", "特效", "周边", "艺术"]) | set(COLLECTION_NAMES.values()) | set(MEDIUMS)
+    structural = set(["人物", "场景", "构图", "特效", "周边", "艺术", "MJ风格"]) | set(COLLECTION_NAMES.values()) | set(MEDIUMS)
     for it in items:
         for t in it.get("tags") or []:
             if t in STYLE_VOCAB and t not in structural and t != it.get("aspect"):
@@ -824,6 +828,114 @@ def build_meta(items: list[dict], generated_from: str, master_count: int) -> dic
     }
 
 
+
+def recategorize_master_as_mj(items: list[dict]) -> None:
+    """Move parsed master-library cards into the MJ风格 大类.
+
+    Keeps original domain tags (人物 / 场景 / 脸模 / …) and ids / parentId /
+    collection names. The Obsidian supplement is applied afterwards and is
+    not passed through this function.
+    """
+    for it in items:
+        if it.get("category") == MJ_CATEGORY:
+            continue
+        it["category"] = MJ_CATEGORY
+        it["categorySlug"] = MJ_SLUG
+        tags = list(it.get("tags") or [])
+        if MJ_CATEGORY not in tags:
+            tags.insert(0, MJ_CATEGORY)
+        it["tags"] = tags
+
+
+COVER_DIR = os.path.join(ROOT, "public", "covers", "entries")
+
+
+def reattach_covers(items: list[dict], previous_path: str = OUT) -> int:
+    """Restore cover paths after a re-parse. Never overwrites or deletes files."""
+    prev: dict[str, str] = {}
+    if os.path.isfile(previous_path):
+        try:
+            with open(previous_path, encoding="utf-8") as f:
+                old = json.load(f)
+            for it in old.get("items") or []:
+                cid = it.get("id")
+                cover = it.get("cover")
+                if cid and cover:
+                    prev[cid] = cover
+        except (OSError, json.JSONDecodeError):
+            prev = {}
+
+    attached = 0
+    for it in items:
+        if it.get("cover"):
+            path = os.path.join(ROOT, "public", it["cover"])
+            if os.path.isfile(path):
+                attached += 1
+                continue
+        cover = prev.get(it["id"])
+        if not cover:
+            for ext in (".jpg", ".jpeg", ".png", ".webp"):
+                candidate = os.path.join(COVER_DIR, f"{it['id']}{ext}")
+                if os.path.isfile(candidate):
+                    cover = f"covers/entries/{it['id']}{ext}"
+                    break
+        if not cover:
+            continue
+        path = os.path.join(ROOT, "public", cover)
+        if os.path.isfile(path):
+            it["cover"] = cover
+            attached += 1
+    return attached
+
+
+
+# Do not let a re-parse clobber already-curated copy on existing cards.
+PRESERVE_TEXT_FIELDS = (
+    "promptText",
+    "body",
+    "title",
+    "usage",
+    "source",
+    "medium",
+    "aspect",
+    "duplicateNote",
+    "duplicateOf",
+    "parentId",
+    "collection",
+    "collectionIndex",
+    "collectionTotal",
+)
+
+
+def preserve_existing_text(items: list[dict], previous_path: str = OUT) -> int:
+    """Restore text and identity fields from the previous prompts.json.
+
+    Category, categorySlug, tags, and cover are left to the recategorize /
+    supplement / reattach steps.
+    """
+    if not os.path.isfile(previous_path):
+        return 0
+    try:
+        with open(previous_path, encoding="utf-8") as f:
+            old = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return 0
+    prev = {it["id"]: it for it in old.get("items") or [] if it.get("id")}
+    kept = 0
+    for it in items:
+        src = prev.get(it["id"])
+        if not src:
+            continue
+        changed = False
+        for field in PRESERVE_TEXT_FIELDS:
+            if field in src and it.get(field) != src.get(field):
+                it[field] = src.get(field)
+                changed = True
+        if changed:
+            kept += 1
+    return kept
+
+
 def main():
     master = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_MASTER
     if not os.path.isfile(master):
@@ -833,6 +945,9 @@ def main():
     print(f"Master anchors: {len(entries)}")
     items, report = explode(entries)
     resolve_cross_duplicates(items)
+    # Master cards stay Midjourney-library items; category is overridden after
+    # prefix inference so ids / files do not need to be renamed.
+    recategorize_master_as_mj(items)
 
     meta = build_meta(items, os.path.basename(master), len(entries))
     payload = {
@@ -847,7 +962,13 @@ def main():
     # Keep the Obsidian 2026-11-20 supplement after a master re-parse.
     from merge_obsidian_styles import apply_to_payload
     payload, meta = apply_to_payload(payload, meta)
+    payload.pop("_mergeAdded", None)
+    payload.pop("_mergeReplaced", None)
     items = payload["items"]
+    attached = reattach_covers(items)
+    preserved = preserve_existing_text(items)
+    # Covers / preserved text do not affect meta counts.
+    payload["items"] = items
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
@@ -857,7 +978,9 @@ def main():
 
     print(f"\nWrote {OUT}")
     print(f"Wrote {META_OUT}")
-    print(f"Total items: {len(items)}  (from {len(entries)} master entries)\n")
+    print(f"Total items: {len(items)}  (from {len(entries)} master entries)")
+    print(f"Covers reattached: {attached}")
+    print(f"Existing text preserved: {preserved}\n")
     print("Split report (parent → N children):")
     print(f"{'id':<16} {'children':>8}  title")
     print("-" * 60)

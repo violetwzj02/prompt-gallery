@@ -24,7 +24,7 @@ function hasAsciiWord(haystack: string, word: string): boolean {
  *
  * Preset mapping from a linked prompt's category (only these):
  *   人物 → 真人, 场景 → 场景, 18+ / eighteen → 18+, 特效 → CG
- * 艺术 / 构图 / 周边 / 自定义 are not mapped — 艺术 is not guessed as 2D or CG.
+ * 艺术 / 构图 / 周边 / 自定义 / MJ风格 are not mapped — 艺术 is not guessed as 2D or CG.
  *
  * Additional presets come from explicit filename, title, or tag keywords:
  *   真人, 实拍, 场景, 电影, movie, film, 3d, 3-d, 三维, 2d, 2-d, 二维,

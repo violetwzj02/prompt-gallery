@@ -6,7 +6,7 @@
 
 内容源自原仓库 · **CC BY 4.0**。
 
-源库 106 条主条目会按合集拆成可独立复制的子 Prompt（例如「仙侠人物特效」35 条、「短剧景别构图」30 条），当前解析结果为 **192** 张卡片。
+源库 106 条主条目会按合集拆成可独立复制的子 Prompt（例如「仙侠人物特效」35 条、「短剧景别构图」30 条），并归入大类「MJ风格」。另有 23 张来自 Obsidian 笔记的补充卡片仍留在人物 / 场景 / 特效 / 艺术等原大类。当前解析结果为 **215** 张卡片。
 
 ## 本地运行
 
@@ -50,7 +50,7 @@ npm run parse
 
 ## 封面图
 
-- 六大类氛围封面：`public/covers/categories/{renwu,changjing,goutu,texiao,zhoubian,yishu}.jpg`
+- 内置大类氛围封面：`public/covers/categories/{renwu,changjing,goutu,texiao,zhoubian,yishu,mj}.jpg`（另有 `zidingyi`、`eighteen`）
 - 卡片默认 = 类别封面 + 基于合集与条目 `id` 的稳定配色/几何纹理（同一合集色调相近，子条目纹理不同）
 - 真实封面：把图片放到 `public/covers/entries/<id>.jpg`（或 png），并在 `prompts.json` 对应条目把 `cover` 设为 `covers/entries/<id>.jpg`
 - 前端「添加风格」面板支持本地上传封面（base64 存 localStorage），并可填写大类、合集与标签
