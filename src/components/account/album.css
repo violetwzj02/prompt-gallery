@@ -401,3 +401,13 @@
     grid-template-columns: 1fr;
   }
 }
+
+.album-lightbox__media {
+  position: relative;
+}
+
+.album-lightbox__download {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+}

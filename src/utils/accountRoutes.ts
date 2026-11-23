@@ -2,7 +2,7 @@
 
 import { isAdminHash, normalizeHashPath } from './adminRoutes'
 
-export type AccountView = 'home' | 'account' | 'album' | 'admin' | 'admin-review'
+export type AccountView = 'home' | 'account' | 'downloads' | 'album' | 'admin' | 'admin-review'
 export type AccountHomeTab = 'works' | 'likes' | 'favorites'
 
 export interface AccountRoute {
@@ -46,6 +46,9 @@ export function parseAccountRoute(hash: string): AccountRoute | null {
   if (path === 'me/account' || path.startsWith('me/account/')) {
     return { view: 'account', tab: 'works', itemId: item || null, folderId: null, cat: null }
   }
+  if (path === 'me/downloads' || path.startsWith('me/downloads/')) {
+    return { view: 'downloads', tab: 'works', itemId: item || null, folderId: null, cat: null }
+  }
   if (path === 'me/admin/review' || path.startsWith('me/admin/review/')) {
     return { view: 'admin-review', tab: 'works', itemId: null, folderId: null, cat: null }
   }
@@ -64,6 +67,7 @@ export function parseAccountRoute(hash: string): AccountRoute | null {
 
 export function toAccountHash(route: Pick<AccountRoute, 'view'> & Partial<AccountRoute>): string {
   if (route.view === 'account') return '#/me/account'
+  if (route.view === 'downloads') return '#/me/downloads'
   if (route.view === 'admin') return '#/me/admin'
   if (route.view === 'admin-review') return '#/me/admin/review'
   if (route.view === 'album') {

@@ -75,6 +75,9 @@ export function AuthControl({ auth, displayName, avatarUrl }: Props) {
             <a className="account-menu__item" role="menuitem" href="#/me/account" onClick={() => setOpen(false)}>
               账号管理
             </a>
+            <a className="account-menu__item" role="menuitem" href="#/me/downloads" onClick={() => setOpen(false)}>
+              下载中心
+            </a>
             {admin && (
               <a className="account-menu__item" role="menuitem" href="#/me/album" onClick={() => setOpen(false)}>
                 云端相册

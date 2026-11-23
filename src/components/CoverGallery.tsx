@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react'
 import type { PromptItem } from '../types'
 import { CoverArt } from './CoverArt'
+import { DownloadOriginalButton } from './DownloadOriginalButton'
 
 interface Props {
   item: PromptItem
@@ -212,19 +213,30 @@ export function CoverGallery({ item, images }: Props) {
           ›
         </button>
       )}
-      <div className="cover-gallery__dots" role="tablist" aria-label="选择封面">
-        {images.map((src, i) => (
-          <button
-            key={`${src}-dot-${i}`}
-            type="button"
-            role="tab"
-            aria-label={`第 ${i + 1} 张`}
-            aria-selected={i === index}
-            className={i === index ? 'is-active' : ''}
-            onClick={() => go(i)}
-          />
-        ))}
-      </div>
+      {images[index] && (
+        <DownloadOriginalButton
+          className="cover-gallery__download"
+          url={images[index]}
+          dataUrl={index === 0 ? item.coverDataUrl : undefined}
+          filename={images[index].split('/').pop() || undefined}
+          source={item.title}
+        />
+      )}
+      {images.length > 1 && (
+        <div className="cover-gallery__dots" role="tablist" aria-label="选择封面">
+          {images.map((src, i) => (
+            <button
+              key={`${src}-dot-${i}`}
+              type="button"
+              role="tab"
+              aria-label={`第 ${i + 1} 张`}
+              aria-selected={i === index}
+              className={i === index ? 'is-active' : ''}
+              onClick={() => go(i)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

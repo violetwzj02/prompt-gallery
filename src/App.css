@@ -1010,6 +1010,51 @@
   bottom: calc(100% - var(--nav-bottom) + 0.7rem);
 }
 
+.download-original {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.28rem 0.6rem 0.28rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--close-bg);
+  color: var(--close-fg);
+  font-size: 0.72rem;
+  letter-spacing: 0;
+  line-height: 1.2;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.download-original svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: none;
+  display: block;
+}
+
+.download-original:hover,
+.download-original:focus-visible {
+  background: var(--close-bg-hover);
+}
+
+.download-original:disabled {
+  cursor: progress;
+  opacity: 0.8;
+}
+
+.cover-gallery__download {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 2.6rem;
+}
+
+.cover-gallery--measured .cover-gallery__download {
+  left: calc(var(--nav-left) + 0.7rem);
+  bottom: calc(100% - var(--nav-bottom) + 0.7rem);
+}
+
 .cover-gallery__dots button {
   pointer-events: auto;
   width: 0.5rem;

@@ -205,7 +205,7 @@ export function PromptDetail({
         </button>
 
         <div className="detail-hero">
-          {multiCover ? (
+          {gallery.length > 0 ? (
             <CoverGallery item={item} images={gallery} />
           ) : (
             <CoverArt item={item} large fit="contain" className="detail-cover" />

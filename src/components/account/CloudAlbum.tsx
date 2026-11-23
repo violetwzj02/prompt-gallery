@@ -32,6 +32,8 @@ import {
   validateAlbumCategoryName,
 } from '../../utils/albumClassify'
 import { replaceHash, toAccountHash, type AccountRoute } from '../../utils/accountRoutes'
+import { DownloadOriginalButton } from '../DownloadOriginalButton'
+import { extFromMime, sanitizeFilename } from '../../utils/downloadOriginal'
 import './album.css'
 
 interface Props {
@@ -721,19 +723,34 @@ function DraftEditor({
   )
 }
 
-function DriveImage({ token, fileId, title, contain = false }: { token: string; fileId: string; title?: string | null; contain?: boolean }) {
+function DriveImage({
+  token,
+  fileId,
+  title,
+  contain = false,
+  download = false,
+}: {
+  token: string
+  fileId: string
+  title?: string | null
+  contain?: boolean
+  download?: boolean
+}) {
   const [url, setUrl] = useState<string | null>(null)
+  const [blob, setBlob] = useState<Blob | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let revoked = false
     let objectUrl: string | null = null
     setUrl(null)
+    setBlob(null)
     setError(null)
     void fetchDriveImageBlob(token, fileId)
       .then((blob) => {
         if (revoked) return
         objectUrl = URL.createObjectURL(blob)
+        setBlob(blob)
         setUrl(objectUrl)
       })
       .catch((err) => {
@@ -747,7 +764,21 @@ function DriveImage({ token, fileId, title, contain = false }: { token: string; 
 
   if (error) return <div className="album-ph">{error}</div>
   if (!url) return <div className="album-ph">载入中…</div>
-  return <img src={url} alt={title || ''} style={contain ? { objectFit: 'contain' } : undefined} />
+  const filename = sanitizeFilename(`${title || 'album'}.${extFromMime(blob?.type || 'image/jpeg')}`)
+  return (
+    <>
+      <img src={url} alt={title || ''} style={contain ? { objectFit: 'contain' } : undefined} />
+      {download && (
+        <DownloadOriginalButton
+          className="album-lightbox__download"
+          url={url}
+          blob={blob ?? undefined}
+          filename={filename}
+          source={title || '云端相册'}
+        />
+      )}
+    </>
+  )
 }
 
 function AlbumLightbox({
@@ -810,7 +841,7 @@ function AlbumLightbox({
         onClick={(event) => event.stopPropagation()}
       >
         <div className="album-lightbox__media">
-          <DriveImage token={token} fileId={item.driveFileId} title={item.title} contain />
+          <DriveImage token={token} fileId={item.driveFileId} title={item.title} contain download />
         </div>
         <div className="album-lightbox__body">
           <div className="album-lightbox__top">

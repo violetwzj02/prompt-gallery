@@ -10,6 +10,7 @@ import { UserManager } from '../admin/UserManager'
 import { AccountHome } from './AccountHome'
 import { AccountSettings } from './AccountSettings'
 import { CloudAlbum } from './CloudAlbum'
+import { DownloadCenter } from './DownloadCenter'
 import '../admin/admin.css'
 import './account.css'
 
@@ -118,6 +119,7 @@ export function AccountCenter({
         />
       )}
       {route.view === 'account' && <AccountSettings user={user} profileState={profileState} />}
+      {route.view === 'downloads' && <DownloadCenter />}
       {route.view === 'album' && <CloudAlbum route={route} />}
       {route.view === 'admin' && (
         <div className="account-admin">
@@ -148,6 +150,13 @@ function AccountSubNav({ route, admin }: { route: AccountRoute; admin: boolean }
         aria-current={view === 'account' ? 'page' : undefined}
       >
         账号管理
+      </a>
+      <a
+        className={view === 'downloads' ? 'is-active' : ''}
+        href="#/me/downloads"
+        aria-current={view === 'downloads' ? 'page' : undefined}
+      >
+        下载中心
       </a>
       {admin && (
         <a
