@@ -916,7 +916,8 @@
         "covers/entries/renwu-18-03.jpg",
         "covers/entries/renwu-18-04.jpg",
         "covers/entries/renwu-18-05.jpg"
-      ]
+      ],
+      "grokPrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, short wavy black hair with wispy flyaways, wearing a soft gray-blue oversized knit cardigan over white shirt, medium cinematic shot from a slightly elevated angle, sitting by a cafe window holding a ceramic mug with both hands close to her chest, looking down at the mug with a serene peaceful expression, gentle afternoon sunlight streaming through the window, dense dappled leaf shadows casting intricate patterns across her face, shoulders, clothing and the table, soft daylight global illumination, luminous highlights on hair strands, ceramic surface and knit texture, creamy Cooke lens rendering, large aperture f/2.2, soft bokeh background with blurred indoor furniture and an overexposed window, subtle golden lens flare from the window light, dreamy quiet cafe atmosphere, cool-toned color grading with a heavily desaturated palette, subtle cyan-green shadows, soft contrast --ar 9:16 --style raw"
     },
     {
       "id": "renwu-19",
@@ -1028,7 +1029,15 @@
       "aspect": "9:16",
       "promptText": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing black hair with pink ribbon tied at side and numerous flyaway strands, wearing a soft white lace blouse with pale pink cardigan, medium-low cinematic shot looking up from below, standing under blooming cherry blossom tree reaching one hand up toward falling petals, tilting head back looking up at petals with serene smile, bright spring sunlight filtering through pink blossoms, dappled petal shadows and light spots casting patterns on face clothing and ground, soft daylight global illumination, luminous highlights on hair edges falling petals and white fabric, dozens of pink petals floating in air around her, creamy Cooke lens rendering, large aperture f/2.5, sparkling circular bokeh background with blurred pink blossoms and pale blue sky, soft pink lens flare, dreamy spring atmosphere, soft pink-white color grading with cool shadows, desaturated warm palette, --ar 9:16 --hd --raw --p",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/renwu-22.jpg",
+        "covers/entries/renwu-22-02.jpg",
+        "covers/entries/renwu-22-03.jpg",
+        "covers/entries/renwu-22-04.jpg",
+        "covers/entries/renwu-22-05.jpg"
+      ],
+      "grokPrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing black hair with a pink ribbon tied at the side and numerous flyaway strands, wearing a soft white lace blouse with a pale pink cardigan, medium-low cinematic shot looking up from below, standing under a blooming cherry blossom tree, reaching one hand up toward falling petals, tilting her head back looking up at the petals with a serene smile, bright spring sunlight filtering through pink blossoms, dappled petal shadows and light spots on her face, clothing and the ground, soft daylight, luminous highlights on hair, falling petals and white fabric, dozens of pink petals floating in the air, creamy lens, soft circular bokeh of pink blossoms and pale blue sky, soft pink lens flare, dreamy spring atmosphere, soft pink-white color grade with cool shadows, low saturation, no warm yellow cast, no even studio lighting, no short hair, no bangs, no indoor scene, no sharp busy background"
     },
     {
       "id": "renwu-23",
