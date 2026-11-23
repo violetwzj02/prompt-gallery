@@ -3,60 +3,61 @@
   "masterCount": 106,
   "count": 215,
   "categories": {
-    "人物": 37,
-    "场景": 27,
-    "构图": 38,
-    "特效": 36,
-    "周边": 22,
-    "艺术": 55
+    "人物": 3,
+    "场景": 12,
+    "构图": 0,
+    "特效": 1,
+    "周边": 0,
+    "艺术": 7,
+    "MJ风格": 192
   },
   "collections": [
     {
       "id": "renwu-1",
       "name": "脸模",
-      "category": "人物",
+      "category": "MJ风格",
       "count": 4
     },
     {
       "id": "renwu-3",
       "name": "精修五大词",
-      "category": "人物",
+      "category": "MJ风格",
       "count": 4
     },
     {
       "id": "changjing-4",
       "name": "未来景观",
-      "category": "场景",
+      "category": "MJ风格",
       "count": 4
     },
     {
       "id": "changjing-7",
       "name": "巨构提示词",
-      "category": "场景",
+      "category": "MJ风格",
       "count": 5
     },
     {
       "id": "goutu-1",
       "name": "短剧景别构图",
-      "category": "构图",
+      "category": "MJ风格",
       "count": 30
     },
     {
       "id": "goutu-3",
       "name": "设计可视化",
-      "category": "构图",
+      "category": "MJ风格",
       "count": 5
     },
     {
       "id": "texiao-1",
       "name": "仙侠人物特效",
-      "category": "特效",
+      "category": "MJ风格",
       "count": 35
     },
     {
       "id": "yishu-28",
       "name": "黑底彩色手写艺术字",
-      "category": "艺术",
+      "category": "MJ风格",
       "count": 7
     },
     {
