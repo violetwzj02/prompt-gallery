@@ -1124,7 +1124,15 @@
       "aspect": "9:16",
       "promptText": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long black hair tied in a loose high bun with numerous wispy strands and sunlit flyaways, wearing a white cotton slip dress with thin straps and holding a woven straw hat in one hand, medium cinematic shot from slightly low angle, standing deep in a blooming sunflower field with one hand raised to shade her eyes, tilting head up toward the sun with a bright carefree smile, blazing midsummer sunlight from above and behind, dense sunflower leaf shadows casting dappled patterns across her face shoulders dress and the flowers, soft daylight global illumination, luminous highlights on hair strands straw hat edges dress fabric and sunflower petals, creamy Cooke lens rendering, large aperture f/2.2, sparkling circular bokeh background with blurred sunflowers and vivid blue sky, warm golden lens flare with soft sun rays, dreamy summer field atmosphere, warm golden-yellow color grading with vivid blue sky contrast, desaturated warm palette, soft glowing highlights, --ar 9:16 --hd --raw --p",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/renwu-24.jpg",
+        "covers/entries/renwu-24-02.jpg",
+        "covers/entries/renwu-24-03.jpg",
+        "covers/entries/renwu-24-04.jpg",
+        "covers/entries/renwu-24-05.jpg"
+      ],
+      "grokPrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long black hair in a loose high bun with wispy sunlit flyaways, wearing a white cotton slip dress with thin straps, holding a woven straw hat in one hand, medium cinematic shot from a slightly low angle, standing deep in a blooming sunflower field with one hand raised to shade her eyes, tilting her head up toward the sun with a bright carefree smile, midsummer backlight from above, dappled leaf shadows on her face, shoulders, dress and the flowers, creamy lens, sparkling circular bokeh of sunflowers and vivid blue sky, warm golden lens flare, dreamy summer field atmosphere, warm golden-yellow color grade with blue sky contrast, desaturated warm palette"
     },
     {
       "id": "renwu-25",
