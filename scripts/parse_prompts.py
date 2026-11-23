@@ -31,12 +31,13 @@ CAT_SLUG = {v: k for k, v in CAT_MAP.items()}
 CAT_SLUG["MJ"] = "mj"
 MJ_CATEGORY = "MJ"
 MJ_SLUG = "mj"
-# Cards that belong in the MJ 大类. Shao 赛博 cards are assigned in
+# Cards that belong in the MJ 大类. Shao 赛博 cards and 米山舞风格 are assigned in
 # merge_obsidian_styles; they are listed here so a later apply_mj_category
 # pass is idempotent. renwu-28 is intentionally excluded (body: 非 Midjourney).
 MJ_ITEM_IDS = {
     *{f"renwu-{n}" for n in range(18, 28)},
     *{f"changjing-9-{n:02d}" for n in range(1, 8)},
+    "yishu-47",  # 米山舞风格
 }
 FALLBACK_USAGE = {
     "人物": "角色设定 / 人像精修 / 人物渲染",
@@ -839,7 +840,7 @@ def build_meta(items: list[dict], generated_from: str, master_count: int) -> dic
 def apply_mj_category(items: list[dict]) -> int:
     """Put only the Midjourney-specific cards into the MJ 大类.
 
-    Membership is MJ_ITEM_IDS (renwu-18..27 and the seven 邵氏赛博 cards).
+    Membership is MJ_ITEM_IDS (renwu-18..27, the seven 邵氏赛博 cards, and yishu-47 米山舞风格).
     All other cards keep their original 大类. The retired 「MJ风格」 tag is
     stripped everywhere; members may keep a 「MJ」 tag.
     """

@@ -370,13 +370,13 @@ def build_items() -> list[dict]:
     items.append(
         item(
             id="yishu-47",
-            category="艺术",
-            category_slug="yishu",
+            category="MJ",
+            category_slug="mj",
             title="米山舞风格",
             usage="插画风 / 艺术字 / 艺术海报",
             body=f"{SOURCE_NOTE}\n\n{YONEYAMA}",
             prompt_text=YONEYAMA,
-            tags=["插画", "二次元"],
+            tags=["艺术", "插画", "二次元"],
             medium="图像",
         )
     )
