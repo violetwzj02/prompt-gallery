@@ -5542,7 +5542,15 @@
       "aspect": null,
       "promptText": "云海虹桥，白玉长桥连接浮空仙岛，桥下是翻滚云浪与流光星河，桥身嵌发光阵纹，仙气与科技完美融合，天堂级史诗画面",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/changjing-9-07.jpg",
+        "covers/entries/changjing-9-07-02.jpg",
+        "covers/entries/changjing-9-07-03.jpg",
+        "covers/entries/changjing-9-07-04.jpg"
+      ],
+      "chinesePrompt": "云海虹桥，白玉长桥连接浮空仙岛，桥下是翻滚云浪与流光星河，桥身嵌发光阵纹，仙气与科技完美融合，天堂级史诗画面",
+      "grokPrompt": "Widescreen cinematic film still, heaven-scale epic landscape, not a clean digital poster. A long white-jade bridge spans a sea of rolling clouds, connecting floating immortal islands. Beneath the bridge, cloud-waves churn into a river of flowing starlight. The bridge body is inlaid with faintly glowing formation runes. Celestial mist and subtle technology are fused together, not split into two looks. Soft god-rays, volumetric cloud, luminous jade, quiet sci-fi runes, anamorphic 35mm, film grain, crushed blacks, vast scale. Do not make a cartoon illustration, a flat game screenshot, a crowded character scene, or harsh neon cyberpunk."
     },
     {
       "id": "changjing-10-01",
