@@ -909,7 +909,14 @@
       "aspect": "9:16",
       "promptText": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, short wavy black hair with wispy flyaways, wearing a soft gray-blue oversized knit cardigan over white shirt, medium cinematic shot from slightly elevated angle, sitting by cafe window holding a ceramic mug with both hands close to chest, looking down at the mug with serene peaceful expression, gentle afternoon sunlight streaming through window, dense dappled leaf shadows casting intricate patterns across face shoulders clothing and table surface, soft daylight global illumination, luminous highlights on hair strands ceramic surface and knit texture, creamy Cooke lens rendering, large aperture f/2.2, soft bokeh background with blurred indoor furniture and overexposed window, subtle golden lens flare from window light, dreamy quiet cafe atmosphere, cool-toned color grading with heavily desaturated palette, subtle cyan-green shadows, soft contrast, --ar 9:16 --hd --raw --p",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/renwu-18.jpg",
+        "covers/entries/renwu-18-02.jpg",
+        "covers/entries/renwu-18-03.jpg",
+        "covers/entries/renwu-18-04.jpg",
+        "covers/entries/renwu-18-05.jpg"
+      ]
     },
     {
       "id": "renwu-19",
