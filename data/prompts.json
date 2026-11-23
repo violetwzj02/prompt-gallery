@@ -945,7 +945,14 @@
       "aspect": "9:16",
       "promptText": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing dark hair with numerous wispy strands blowing across face, wearing a deep blue spaghetti-strap floral dress with translucent sheer sleeve details and silver jewelry, high-angle cinematic shot from 30 degrees above looking down, crouching low in dense blooming hydrangea garden holding a large cluster of blue-purple gradient hydrangeas close to chest, tilting head up looking directly into camera with gentle smile, bright summer sunlight from behind and above, dappled leaf shadows casting patterns on shoulders arms dress and flowers, soft daylight global illumination, luminous highlights on hair edges flower petals butterfly wings and silver accessories, 3-4 blue morpho butterflies landing on hair shoulder and flower cluster, creamy Cooke lens rendering, large aperture f/2.8, sparkling circular bokeh background with blurred hydrangeas and overexposed pale blue sky, soft colorful lens flare, dreamy garden atmosphere, cool blue-purple color grading with warm skin contrast, desaturated palette, --ar 9:16 --hd --raw --p",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/renwu-19.jpg",
+        "covers/entries/renwu-19-02.jpg",
+        "covers/entries/renwu-19-03.jpg",
+        "covers/entries/renwu-19-04.jpg",
+        "covers/entries/renwu-19-05.jpg"
+      ]
     },
     {
       "id": "renwu-20",
