@@ -980,7 +980,15 @@
       "aspect": "9:16",
       "promptText": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long light brown hair styled in loose side braids with pink ribbon ties and red flower accessory, green eyes, wearing a soft pink buttoned midi dress with brown cropped leather jacket, medium cinematic shot from eye level, standing in autumn birch forest turning body back to look over shoulder at camera, dress hem and hair braids flowing in wind, afternoon low-angle sunlight filtering through golden leaves, dappled leaf-shadow patterns casting across dress arms face and forest floor, soft daylight global illumination, luminous highlights on hair edges ribbons dress fabric and leather jacket, creamy Cooke lens rendering, large aperture f/2.5, sparkling circular bokeh background with blurred golden leaves white birch trunks and falling leaves, soft golden lens flare, dreamy autumn forest atmosphere, warm amber-gold color grading with cool blue sky contrast, desaturated warm tones, --ar 9:16 --hd --raw --p",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/renwu-20.jpg",
+        "covers/entries/renwu-20-02.jpg",
+        "covers/entries/renwu-20-03.jpg",
+        "covers/entries/renwu-20-04.jpg",
+        "covers/entries/renwu-20-05.jpg"
+      ],
+      "grokPrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long light brown hair in loose side braids with pink ribbons and a red flower accessory, green eyes, wearing a soft pink buttoned midi dress with a brown cropped leather jacket, medium cinematic eye-level shot, standing in an autumn birch forest, turning back to look over her shoulder at the camera, dress hem and braids flowing in the wind, afternoon sunlight filtering through golden leaves, dappled leaf shadows on her dress, arms, face and the forest floor, soft daylight, luminous highlights on hair, ribbons, dress fabric and leather, creamy lens, sparkling circular bokeh of golden leaves, white birch trunks and falling leaves, soft golden lens flare, dreamy autumn forest atmosphere, warm amber-gold color grade with cool blue sky contrast, desaturated warm tones"
     },
     {
       "id": "renwu-21",
