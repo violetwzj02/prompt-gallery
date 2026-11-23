@@ -1088,7 +1088,15 @@
       "aspect": "9:16",
       "promptText": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing light brown hair in loose ponytail with white ribbon, hair and ribbon blowing dramatically in sea breeze, wearing a soft mint green sundress with thin straps and white cardigan draped over shoulders, medium cinematic shot from side-front angle, standing at seaside wooden railing holding the rail with one hand, turning back to look at camera with playful gentle smile, bright afternoon sunlight from behind and side, soft rim lighting on hair edges and dress fabric, soft daylight global illumination, luminous highlights on flowing hair white ribbon dress fabric and wooden railing, sea spray mist in air, creamy Cooke lens rendering, large aperture f/2.2, sparkling circular bokeh background with blurred ocean horizon and clouds, soft colorful lens flare with blue-white tones, dreamy seaside atmosphere, cool cyan-white color grading with warm skin contrast, desaturated cool palette, --ar 9:16 --hd --raw --p",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/renwu-23.jpg",
+        "covers/entries/renwu-23-02.jpg",
+        "covers/entries/renwu-23-03.jpg",
+        "covers/entries/renwu-23-04.jpg",
+        "covers/entries/renwu-23-05.jpg"
+      ],
+      "grokPrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing light brown hair in a loose ponytail with a white ribbon, hair and ribbon blowing in the sea breeze, wearing a soft mint green sundress with thin straps and a white cardigan draped over her shoulders, medium cinematic shot from a side-front angle, standing at a seaside wooden railing holding the rail with one hand, turning back to look at the camera with a playful gentle smile, bright afternoon sunlight from behind and the side, soft rim light on hair and dress, sea spray mist in the air, creamy lens, sparkling circular bokeh of the ocean horizon and clouds, soft blue-white lens flare, dreamy seaside atmosphere, cool cyan-white color grade with warm skin contrast, desaturated cool palette"
     },
     {
       "id": "renwu-24",
