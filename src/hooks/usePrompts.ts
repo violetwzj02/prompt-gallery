@@ -33,7 +33,7 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
     let cancelled = false
     ;(async () => {
       try {
-        const res = await fetch('./data/prompts.json')
+        const res = await fetch(`./data/prompts.json?t=${Date.now()}`, { cache: 'no-store' })
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         const data = (await res.json()) as PromptsData
         if (cancelled) return
