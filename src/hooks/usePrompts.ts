@@ -11,6 +11,7 @@ import {
 import { loadLocalItems, saveLocalItems } from '../lib/localStore'
 import { supabase, syncErrorMessage } from '../lib/supabase'
 import { isVisibleCustomStyle } from '../utils/styleOrigin'
+import { QUYI_CARDS_URL } from '../utils/quyiCharacters'
 
 export interface GalleryMeta {
   count: number
@@ -33,16 +34,44 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
     let cancelled = false
     ;(async () => {
       try {
-        const res = await fetch(`./data/prompts.json?t=${Date.now()}`, { cache: 'no-store' })
+        const [res, quyiRes] = await Promise.all([
+          fetch(`./data/prompts.json?t=${Date.now()}`, { cache: 'no-store' }),
+          fetch(`${QUYI_CARDS_URL}?t=${Date.now()}`, { cache: 'no-store' }).catch(() => null),
+        ])
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         const data = (await res.json()) as PromptsData
         if (cancelled) return
-        setBase(data.items.map(normalizeItem))
+        let items = data.items.map(normalizeItem)
+        let collections = data.collections ?? []
+        if (quyiRes && quyiRes.ok) {
+          try {
+            const quyi = (await quyiRes.json()) as PromptsData
+            const extras = (quyi.items ?? []).map(normalizeItem)
+            const seen = new Set(items.map((item) => item.id))
+            items = [...items, ...extras.filter((item) => !seen.has(item.id))]
+            const colSeen = new Set(collections.map((col) => col.id))
+            collections = [
+              ...collections,
+              ...(quyi.collections ?? []).filter((col) => !colSeen.has(col.id)),
+            ]
+            collections = collections.map((col) => ({
+              ...col,
+              count: items.filter((item) => item.parentId === col.id).length,
+            }))
+          } catch {
+            /* Homepage still loads the core library if 18+ extras are missing. */
+          }
+        }
+        const categories = items.reduce<Record<string, number>>((acc, item) => {
+          acc[item.category] = (acc[item.category] ?? 0) + 1
+          return acc
+        }, {})
+        setBase(items)
         setMeta({
-          count: data.count,
+          count: items.length,
           masterCount: data.masterCount,
-          categories: data.categories,
-          collections: data.collections ?? [],
+          categories,
+          collections,
           tagFacets: data.tagFacets ?? { medium: [], aspect: [], style: [] },
         })
         setLocal(loadLocalItems())

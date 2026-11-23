@@ -7,6 +7,7 @@ import { useTheme } from './hooks/useTheme'
 import { useFavorites } from './hooks/useFavorites'
 import { useLikes } from './hooks/useLikes'
 import { PromptCard } from './components/PromptCard'
+import { CharacterSubnav } from './components/CharacterSubnav'
 import { PromptDetail } from './components/PromptDetail'
 import { AddStylePanel } from './components/AddStylePanel'
 import { AuthControl } from './components/AuthControl'
@@ -38,6 +39,7 @@ import {
   railCategoryNames,
   styleFacetExclude,
 } from './utils/category'
+import { isAdultCategory, sortCharacterNames } from './utils/quyiCharacters'
 import './App.css'
 
 export default function App() {
@@ -200,6 +202,28 @@ function GalleryApp() {
     return list
   })()
 
+  const adultCollections = useMemo(() => {
+    const list = collections.filter((col) => isAdultCategory(col.category))
+    const names = sortCharacterNames(
+      list.map((col) => col.name),
+      Object.fromEntries(list.map((col) => [col.name, counts.collection[col.id] ?? col.count])),
+    )
+    return names
+      .map((name) => list.find((col) => col.name === name))
+      .filter((col): col is NonNullable<typeof col> => Boolean(col))
+      .map((col) => ({
+        id: col.id,
+        name: col.name,
+        count: counts.collection[col.id] ?? col.count,
+        pending: col.name === '待归类',
+      }))
+  }, [collections, counts.collection])
+
+  const adultTotal = useMemo(
+    () => items.filter((item) => isAdultCategory(item.category)).length,
+    [items],
+  )
+
   const clearFilters = () =>
     update({
       ...EMPTY_FILTERS,
@@ -301,6 +325,10 @@ function GalleryApp() {
     }
     if (filters.category === ADULT_CATEGORY && (rawCategoryCounts[ADULT_CATEGORY] ?? 0) === 0) {
       return '「18+」分类暂无风格，后续可在添加风格时选择此大类。'
+    }
+    if (filters.category === ADULT_CATEGORY && filters.collectionId) {
+      const name = collections.find((col) => col.id === filters.collectionId)?.name
+      return name ? `「${name}」还没有可显示的卡片。` : '没有符合条件的提示词。'
     }
     return '没有符合条件的提示词。'
   })()
@@ -424,6 +452,20 @@ function GalleryApp() {
           {loading && <p className="state">正在载入图鉴…</p>}
           {error && (
             <p className="state state-error">无法载入图鉴数据：{error}。请确认 data/prompts.json 可访问。</p>
+          )}
+          {!loading && !error && isAdultCategory(filters.category) && (
+            <CharacterSubnav
+              characters={adultCollections}
+              activeId={filters.collectionId}
+              totalCount={counts.category[ADULT_CATEGORY] ?? adultTotal}
+              onSelect={(collectionId) =>
+                update({
+                  ...filters,
+                  category: ADULT_CATEGORY,
+                  collectionId,
+                })
+              }
+            />
           )}
           {!loading && !error && filtered.length === 0 && (
             <div className="state state-empty">

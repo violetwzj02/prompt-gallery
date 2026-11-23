@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0 --port 4173",
-    "parse": "python3 scripts/parse_prompts.py"
+    "parse": "python3 scripts/parse_prompts.py",
+    "ingest:quyi": "python3 scripts/ingest_quyi.py",
+    "test:quyi": "python3 scripts/test_ingest_quyi.py"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",

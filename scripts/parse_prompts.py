@@ -29,6 +29,7 @@ CAT_MAP = {
 }
 CAT_SLUG = {v: k for k, v in CAT_MAP.items()}
 CAT_SLUG["MJ"] = "mj"
+CAT_SLUG["18+"] = "eighteen"
 MJ_CATEGORY = "MJ"
 MJ_SLUG = "mj"
 # Cards that belong in the MJ 大类. Shao 赛博 cards and 米山舞风格 are assigned in

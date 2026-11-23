@@ -67,6 +67,11 @@ export function PromptCard({
       aria-label={item.title}
     >
       <CoverArt item={item} className="prompt-card__cover" />
+      {item.covers && item.covers.length > 1 && (
+        <span className="prompt-card__stack" aria-label={`组图 ${item.covers.length} 张`}>
+          组图 {item.covers.length}
+        </span>
+      )}
       {(onToggleLike || onToggleFavorite) && (
         <div className="card-marks">
           {onToggleLike && (

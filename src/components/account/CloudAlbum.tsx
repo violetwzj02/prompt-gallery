@@ -34,6 +34,9 @@ import {
 import { replaceHash, toAccountHash, type AccountRoute } from '../../utils/accountRoutes'
 import { DownloadOriginalButton } from '../DownloadOriginalButton'
 import { extFromMime, sanitizeFilename } from '../../utils/downloadOriginal'
+import { ADULT_CATEGORY } from '../../types'
+import { loadQuyiMeta, PENDING_CHARACTER, sortCharacterNames, type QuyiCharacter } from '../../utils/quyiCharacters'
+import { AlbumFlipBook } from './AlbumFlipBook'
 import './album.css'
 
 interface Props {
@@ -75,6 +78,12 @@ export function CloudAlbum({ route }: Props) {
   const [renameValue, setRenameValue] = useState('')
   const fileRef = useRef<HTMLInputElement>(null)
   const folderId = album.settings?.driveRootFolderId ?? null
+  const [plannedCharacters, setPlannedCharacters] = useState<QuyiCharacter[]>([])
+
+  useEffect(() => {
+    void loadQuyiMeta().then((meta) => setPlannedCharacters(meta?.characters ?? []))
+  }, [])
+
 
   useEffect(() => {
     const current = peekAccessToken()
@@ -83,6 +92,8 @@ export function CloudAlbum({ route }: Props) {
   }, [album.settings?.connectedGoogleEmail])
 
   const cat = route.cat
+  const characterFolder = route.folderId
+  const inAdult = cat === ADULT_CATEGORY
   const activeId = route.itemId
   const selected = useMemo(
     () => (activeId ? album.items.find((item) => item.id === activeId) ?? null : null),
@@ -110,9 +121,36 @@ export function CloudAlbum({ route }: Props) {
   const existingNames = useMemo(() => album.categories.map((category) => category.name), [album.categories])
 
   const visibleItems = useMemo(
-    () => album.items.filter((item) => itemHasCategory(item, cat)),
-    [album.items, cat],
+    () =>
+      album.items.filter((item) => itemHasCategory(item, cat)).filter((item) => {
+        if (!characterFolder) return true
+        return itemHasCategory(item, characterFolder)
+      }),
+    [album.items, cat, characterFolder],
   )
+
+  const adultFolders = useMemo(() => {
+    const adultItems = album.items.filter((item) => itemHasCategory(item, ADULT_CATEGORY))
+    const countMap: Record<string, number> = {}
+    const thumbs: Record<string, AlbumItem> = {}
+    for (const item of adultItems) {
+      const labels = [...item.autoCategories, ...item.customCategories].filter((name) => name !== ADULT_CATEGORY)
+      const unique = labels.length ? labels : [PENDING_CHARACTER]
+      for (const label of unique) {
+        countMap[label] = (countMap[label] ?? 0) + 1
+        if (!thumbs[label]) thumbs[label] = item
+      }
+    }
+    const planned = plannedCharacters.map((character) => character.displayName)
+    const extra = Object.keys(countMap).filter((name) => !planned.includes(name))
+    const names = sortCharacterNames([...planned, ...extra], countMap)
+    return names.map((name) => ({
+      name,
+      count: countMap[name] ?? 0,
+      pending: name === PENDING_CHARACTER,
+      thumb: thumbs[name] ?? null,
+    }))
+  }, [album.items, plannedCharacters])
 
   const counts = useMemo(() => {
     const map: Record<string, number> = { 全部: album.items.length }
@@ -124,12 +162,15 @@ export function CloudAlbum({ route }: Props) {
     return map
   }, [album.items])
 
-  const setAlbumHash = (next: { cat?: string | null; itemId?: string | null }) => {
+  const setAlbumHash = (next: { cat?: string | null; itemId?: string | null; folderId?: string | null }) => {
+    const nextCat = next.cat === undefined ? cat : next.cat
+    const nextFolder = next.folderId === undefined ? characterFolder : next.folderId
     replaceHash(
       toAccountHash({
         view: 'album',
-        cat: next.cat === undefined ? cat : next.cat,
+        cat: nextCat,
         itemId: next.itemId === undefined ? activeId : next.itemId,
+        folderId: nextCat === ADULT_CATEGORY ? nextFolder : null,
       }),
     )
   }
@@ -179,8 +220,19 @@ export function CloudAlbum({ route }: Props) {
         file,
         title,
         previewUrl: URL.createObjectURL(file),
-        auto: check.ok ? suggestAlbumPresets({ title, filename: file.name }) : [],
-        custom: [],
+        auto: check.ok
+          ? Array.from(
+              new Set([
+                ...suggestAlbumPresets({
+                  title,
+                  filename: file.name,
+                  promptCategory: inAdult || characterFolder ? ADULT_CATEGORY : null,
+                }),
+                ...(inAdult || characterFolder ? [ADULT_CATEGORY] : []),
+              ]),
+            )
+          : [],
+        custom: characterFolder && !isAlbumPreset(characterFolder) ? [characterFolder] : [],
         error: check.ok ? undefined : check.error,
       })
     }
@@ -286,7 +338,9 @@ export function CloudAlbum({ route }: Props) {
   const saveRename = async (category: AlbumCategory) => {
     try {
       await album.editCategory(category.id, renameValue)
-      if (cat === category.name) setAlbumHash({ cat: renameValue.trim() || category.name })
+      const nextName = renameValue.trim() || category.name
+      if (cat === category.name) setAlbumHash({ cat: nextName })
+      if (characterFolder === category.name) setAlbumHash({ folderId: nextName })
       setRenamingId(null)
     } catch (error) {
       setMessage(error instanceof Error ? error.message : '无法重命名分类')
@@ -476,7 +530,7 @@ export function CloudAlbum({ route }: Props) {
         <button
           type="button"
           className={`album-chip ${!cat ? 'is-active' : ''}`}
-          onClick={() => setAlbumHash({ cat: null, itemId: null })}
+          onClick={() => setAlbumHash({ cat: null, itemId: null, folderId: null })}
         >
           全部 <span>{counts['全部'] ?? 0}</span>
         </button>
@@ -485,7 +539,7 @@ export function CloudAlbum({ route }: Props) {
             type="button"
             key={category.id}
             className={`album-chip is-preset ${cat === category.name ? 'is-active' : ''}`}
-            onClick={() => setAlbumHash({ cat: category.name, itemId: null })}
+            onClick={() => setAlbumHash({ cat: category.name, itemId: null, folderId: null })}
           >
             {category.name} <span>{counts[category.name] ?? 0}</span>
           </button>
@@ -517,8 +571,12 @@ export function CloudAlbum({ route }: Props) {
             <span key={category.id} className="album-chip-row">
               <button
                 type="button"
-                className={`album-chip ${cat === category.name ? 'is-active' : ''}`}
-                onClick={() => setAlbumHash({ cat: category.name, itemId: null })}
+                className={`album-chip ${cat === category.name || characterFolder === category.name ? 'is-active' : ''}`}
+                onClick={() =>
+                  inAdult
+                    ? setAlbumHash({ cat: ADULT_CATEGORY, folderId: category.name, itemId: null })
+                    : setAlbumHash({ cat: category.name, itemId: null, folderId: null })
+                }
               >
                 {category.name} <span>{counts[category.name] ?? 0}</span>
               </button>
@@ -565,9 +623,61 @@ export function CloudAlbum({ route }: Props) {
         </form>
       </div>
 
-      {visibleItems.length === 0 ? (
+      {inAdult && !characterFolder && (
+        <>
+          <p className="album__hint">在 18+ 下按角色打开抽屉。文件夹里可以翻阅、层层堆叠。角色名与首页 18+ 子导航一致。</p>
+          <div className="album-drawers">
+            {adultFolders.map((folder) => (
+              <button
+                type="button"
+                key={folder.name}
+                className={`album-drawer${folder.pending ? ' is-pending' : ''}`}
+                onClick={() => setAlbumHash({ cat: ADULT_CATEGORY, folderId: folder.name, itemId: null })}
+              >
+                <div className="album-drawer__stack" aria-hidden>
+                  <div className="album-drawer__layer album-drawer__layer--2" />
+                  <div className="album-drawer__layer album-drawer__layer--1" />
+                  <div className="album-drawer__front">
+                    {folder.thumb && token ? (
+                      <DriveImage token={token} fileId={folder.thumb.driveFileId} title={folder.name} />
+                    ) : (
+                      <div className="album-ph">空文件夹</div>
+                    )}
+                  </div>
+                </div>
+                <p className="album-drawer__name">{folder.name}</p>
+                <p className="album-drawer__count">{folder.count} 张</p>
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+
+      {inAdult && characterFolder && (
+        <>
+          <nav className="album-crumb" aria-label="相册位置">
+            <button type="button" onClick={() => setAlbumHash({ cat: ADULT_CATEGORY, folderId: null, itemId: null })}>
+              18+
+            </button>
+            <span>/</span>
+            <span>{characterFolder}</span>
+          </nav>
+          {token && (
+            <AlbumFlipBook
+              items={visibleItems}
+              token={token}
+              character={characterFolder}
+              fetchImage={fetchDriveImageBlob}
+              onOpen={(item) => setAlbumHash({ itemId: item.id })}
+            />
+          )}
+        </>
+      )}
+
+      {!inAdult && visibleItems.length === 0 && (
         <p className="album__empty">这个分类里还没有图片。可以上传，或从图鉴详情页把封面加入云端相册。</p>
-      ) : (
+      )}
+      {!inAdult && visibleItems.length > 0 && (
         <div className="album-grid">
           {visibleItems.map((item) => (
             <button
