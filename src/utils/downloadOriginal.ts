@@ -340,14 +340,103 @@ export function isEphemeralUrl(url: string): boolean {
   return url.startsWith('blob:') || url.startsWith('data:')
 }
 
+export interface OriginalFileRef {
+  original: string
+  filename: string
+  bytes?: number
+}
+
+export interface OriginalsManifest {
+  files?: Record<string, OriginalFileRef>
+}
+
+/** Normalize a gallery or originals URL to a `covers/...` manifest key. */
+export function normalizeCoverKey(url: string): string | null {
+  let path = url.trim()
+  if (!path || isEphemeralUrl(path)) return null
+  try {
+    if (path.startsWith('//') || /^https?:/i.test(path)) {
+      const base = typeof window !== 'undefined' ? window.location.href : 'https://example.com/'
+      path = new URL(path, base).pathname
+    }
+  } catch {
+    return null
+  }
+  path = path.split('?')[0].split('#')[0].replace(/^\.\//, '')
+  const idx = path.search(/(?:^|\/)covers\//)
+  if (idx >= 0) path = path.slice(path.indexOf('covers/', idx === 0 ? 0 : idx))
+  path = path.replace(/^\/+/, '')
+  return path.startsWith('covers/') ? path : null
+}
+
+export function lookupOriginal(
+  displayUrl: string,
+  files: Record<string, OriginalFileRef> | null | undefined,
+): OriginalFileRef | null {
+  if (!files) return null
+  const key = normalizeCoverKey(displayUrl)
+  if (!key) return null
+  return files[key] ?? null
+}
+
+export function resolveDownloadTarget(
+  displayUrl: string,
+  files?: Record<string, OriginalFileRef> | null,
+  explicitName?: string,
+): { url: string; filename: string; fromOriginal: boolean } {
+  const ref = lookupOriginal(displayUrl, files)
+  if (ref) {
+    const href = resolveGallerySrc(ref.original) || `./${ref.original.replace(/^\.\//, '')}`
+    return {
+      url: href,
+      filename: sanitizeFilename(ref.filename || basenameFromUrl(ref.original)),
+      fromOriginal: true,
+    }
+  }
+  const href = resolveGallerySrc(displayUrl) || displayUrl
+  return {
+    url: href,
+    filename: sanitizeFilename(explicitName || basenameFromUrl(href)),
+    fromOriginal: false,
+  }
+}
+
+let originalsMapPromise: Promise<Record<string, OriginalFileRef>> | null = null
+
+export async function loadOriginalsMap(): Promise<Record<string, OriginalFileRef>> {
+  if (typeof fetch === 'undefined') return {}
+  if (!originalsMapPromise) {
+    originalsMapPromise = fetch(`./data/originals.json?t=${Date.now()}`, { cache: 'no-store' })
+      .then(async (res) => {
+        if (!res.ok) return {}
+        const data = (await res.json()) as OriginalsManifest
+        return data.files && typeof data.files === 'object' ? data.files : {}
+      })
+      .catch(() => ({}))
+  }
+  return originalsMapPromise
+}
+
+export function resetOriginalsMapCache(): void {
+  originalsMapPromise = null
+}
+
 export async function downloadOriginal(request: DownloadRequest): Promise<DownloadHistoryItem> {
-  const filename = sanitizeFilename(request.filename || basenameFromUrl(request.url))
+  let requestUrl = request.url
+  let filename = request.filename
+  if (!request.blob && requestUrl && !isEphemeralUrl(requestUrl)) {
+    const map = await loadOriginalsMap()
+    const target = resolveDownloadTarget(requestUrl, map, filename)
+    requestUrl = target.url
+    filename = target.filename
+  }
+  filename = sanitizeFilename(filename || basenameFromUrl(requestUrl))
   const source = (request.source || '').trim()
   const started: DownloadHistoryItem = {
     id: `dl-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     filename,
     source,
-    url: isEphemeralUrl(request.url) ? '' : request.url,
+    url: isEphemeralUrl(requestUrl) ? '' : requestUrl,
     time: Date.now(),
     size: request.blob?.size ?? null,
     status: 'fail',
@@ -355,7 +444,7 @@ export async function downloadOriginal(request: DownloadRequest): Promise<Downlo
   }
 
   try {
-    const { blob, url } = await resolveBlob(request)
+    const { blob, url } = await resolveBlob({ ...request, url: requestUrl })
     started.size = blob.size
     if (!started.url && !isEphemeralUrl(url)) started.url = url
 

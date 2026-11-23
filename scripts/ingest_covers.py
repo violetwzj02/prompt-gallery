@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INBOX = ROOT / "covers-inbox"
 ENTRIES = ROOT / "public" / "covers" / "entries"
+ORIGINALS = ROOT / "public" / "covers" / "originals"
 PROMPTS = ROOT / "public" / "data" / "prompts.json"
 PROGRESS = ROOT / "scripts" / "imagine-progress.json"
 MANIFEST = ROOT / "scripts" / "imagine-manifest.json"
@@ -32,6 +33,9 @@ def main(ids: list[str] | None = None) -> None:
             print(f"skip unknown {p.name}")
             continue
         dest = ENTIRES / f"{stem}.jpg"
+        ORIGINALS.mkdir(parents=True, exist_ok=True)
+        # Keep an un-reencoded copy for 「下载原图」; display still uses the JPEG.
+        shutil.copy2(p, ORIGINALS / f"{stem}{p.suffix.lower()}")
         if p.suffix.lower() in {".jpg", ".jpeg"}:
             shutil.copy2(p, dest)
         else:

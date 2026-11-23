@@ -23,6 +23,9 @@ const {
   parseDownloadHistory,
   resolveGallerySrc,
   isEphemeralUrl,
+  normalizeCoverKey,
+  lookupOriginal,
+  resolveDownloadTarget,
 } = mod
 
 const cases = []
@@ -58,6 +61,29 @@ check('history keeps valid', parsed.length, 1)
 check('history filename', parsed[0].filename, 'renwu-22-02.jpg')
 check('history folder', parsed[0].folderName, 'Pictures')
 check('history ignores junk', parseDownloadHistory('not-json').length, 0)
+
+const originals = {
+  'covers/entries/renwu-22-02.jpg': {
+    original: 'covers/originals/renwu-22-02.png',
+    filename: 'renwu-22-02.png',
+    bytes: 1823500,
+  },
+}
+check('key relative', normalizeCoverKey('./covers/entries/renwu-22-02.jpg'), 'covers/entries/renwu-22-02.jpg')
+check('key bare', normalizeCoverKey('covers/entries/renwu-22-02.jpg'), 'covers/entries/renwu-22-02.jpg')
+check('key query', normalizeCoverKey('./covers/entries/renwu-22-02.jpg?t=1'), 'covers/entries/renwu-22-02.jpg')
+check('key site path', normalizeCoverKey('https://example.com/prompt-gallery/covers/entries/renwu-22-02.jpg'), 'covers/entries/renwu-22-02.jpg')
+check('key ephemeral', normalizeCoverKey('blob:https://x/1'), null)
+check('lookup hit', lookupOriginal('./covers/entries/renwu-22-02.jpg', originals).filename, 'renwu-22-02.png')
+check('lookup miss', lookupOriginal('./covers/entries/renwu-22.jpg', originals), null)
+const hit = resolveDownloadTarget('./covers/entries/renwu-22-02.jpg', originals, 'renwu-22-02.jpg')
+check('target uses original url', hit.url, './covers/originals/renwu-22-02.png')
+check('target uses png name', hit.filename, 'renwu-22-02.png')
+check('target fromOriginal', hit.fromOriginal, true)
+const miss = resolveDownloadTarget('./covers/entries/renwu-22.jpg', originals, 'renwu-22.jpg')
+check('fallback url is display jpeg', miss.url, './covers/entries/renwu-22.jpg')
+check('fallback name stays jpg', miss.filename, 'renwu-22.jpg')
+check('fallback not original', miss.fromOriginal, false)
 
 const failed = cases.filter((c) => !c.ok)
 console.log(`${cases.length - failed.length}/${cases.length} passed`)
