@@ -1196,7 +1196,18 @@
       "aspect": "9:16",
       "promptText": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long black hair in a low ponytail with a pale jade ribbon and loose strands framing her face, wearing a pale celadon green modern hanfu-inspired dress with sheer layered sleeves and subtle embroidery, medium cinematic shot from side angle at eye level, walking slowly along a narrow mossy stone path through a dense bamboo grove holding a translucent paper umbrella over her shoulder, turning her head to look at camera with a calm gentle expression, soft diffused light after rain filtering through tall bamboo stalks, dappled light spots and fine mist drifting between the bamboo, soft daylight global illumination, luminous highlights on hair strands umbrella paper wet bamboo leaves and dress embroidery, creamy Cooke lens rendering, large aperture f/2.5, sparkling circular bokeh background with blurred bamboo trunks and glowing mist, soft green lens flare, dreamy misty bamboo forest atmosphere, cool jade-green color grading with warm light spots, desaturated cool palette, --ar 9:16 --hd --raw --p",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/renwu-26.jpg",
+        "covers/entries/renwu-26-02.jpg",
+        "covers/entries/renwu-26-03.jpg",
+        "covers/entries/renwu-26-04.jpg",
+        "covers/entries/renwu-26-05.jpg",
+        "covers/entries/renwu-26-06.jpg",
+        "covers/entries/renwu-26-07.jpg",
+        "covers/entries/renwu-26-08.jpg"
+      ],
+      "grokPrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long black hair in a low ponytail with a pale jade ribbon and loose strands framing her face, wearing a pale celadon green modern hanfu-inspired dress with sheer layered sleeves and subtle embroidery, medium cinematic side shot at eye level, walking slowly along a narrow mossy stone path through a dense bamboo grove, holding a translucent paper umbrella over her shoulder, turning her head to look at the camera with a calm gentle expression, soft diffused light after rain filtering through tall bamboo, dappled light spots and fine mist drifting between the stalks, creamy lens, sparkling circular bokeh of bamboo trunks and glowing mist, soft green lens flare, dreamy misty bamboo forest atmosphere, cool jade-green color grade with warm light spots, desaturated cool palette"
     },
     {
       "id": "renwu-27",
