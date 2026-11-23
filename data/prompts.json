@@ -1160,7 +1160,15 @@
       "aspect": "9:16",
       "promptText": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing light brown hair and white linen dress hem both blowing dramatically in the sea breeze, wearing a flowing white linen maxi dress with thin straps and barefoot, wide cinematic shot from side-front angle at eye level, walking through shallow water along the shoreline and turning back to look at camera with a soft wistful smile, golden hour sunlight low on the horizon behind her creating strong rim light, sea foam and shallow waves rippling around her ankles, soft daylight global illumination, luminous highlights on hair edges dress fabric wet skin and water surface, creamy Cooke lens rendering, large aperture f/2.2, sparkling circular bokeh background with blurred ocean horizon glowing golden and pastel clouds, soft colorful lens flare with warm orange and cool violet tones, dreamy twilight seaside atmosphere, warm golden-orange color grading with cool magenta-blue shadows, desaturated cinematic palette, --ar 9:16 --hd --raw --p",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/renwu-25.jpg",
+        "covers/entries/renwu-25-02.jpg",
+        "covers/entries/renwu-25-03.jpg",
+        "covers/entries/renwu-25-04.jpg",
+        "covers/entries/renwu-25-05.jpg"
+      ],
+      "grokPrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long flowing light brown hair and a white linen dress hem blowing in the sea breeze, wearing a flowing white linen maxi dress with thin straps, barefoot, wide cinematic side-front shot at eye level, walking through shallow water along the shoreline and turning back to look at the camera with a soft wistful smile, golden hour sunlight low on the horizon behind her with strong rim light, sea foam and shallow waves around her ankles, creamy lens, sparkling circular bokeh of a glowing ocean horizon and pastel clouds, soft orange and violet lens flare, dreamy twilight seaside atmosphere, warm golden-orange color grade with cool magenta-blue shadows, desaturated cinematic palette"
     },
     {
       "id": "renwu-26",
