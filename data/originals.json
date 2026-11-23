@@ -1,0 +1,371 @@
+{
+  "note": "Uncompressed originals for download. Display still uses covers/entries JPEGs.",
+  "count": 73,
+  "files": {
+    "covers/entries/changjing-9-01.jpg": {
+      "original": "covers/originals/changjing-9-01.png",
+      "filename": "changjing-9-01.png",
+      "bytes": 1573093
+    },
+    "covers/entries/changjing-9-02-02.jpg": {
+      "original": "covers/originals/changjing-9-02-02.png",
+      "filename": "changjing-9-02-02.png",
+      "bytes": 1956520
+    },
+    "covers/entries/changjing-9-02-03.jpg": {
+      "original": "covers/originals/changjing-9-02-03.png",
+      "filename": "changjing-9-02-03.png",
+      "bytes": 1927769
+    },
+    "covers/entries/changjing-9-02-04.jpg": {
+      "original": "covers/originals/changjing-9-02-04.png",
+      "filename": "changjing-9-02-04.png",
+      "bytes": 1724035
+    },
+    "covers/entries/changjing-9-02.jpg": {
+      "original": "covers/originals/changjing-9-02.png",
+      "filename": "changjing-9-02.png",
+      "bytes": 1873996
+    },
+    "covers/entries/changjing-9-03-02.jpg": {
+      "original": "covers/originals/changjing-9-03-02.png",
+      "filename": "changjing-9-03-02.png",
+      "bytes": 1883754
+    },
+    "covers/entries/changjing-9-03-03.jpg": {
+      "original": "covers/originals/changjing-9-03-03.png",
+      "filename": "changjing-9-03-03.png",
+      "bytes": 2112792
+    },
+    "covers/entries/changjing-9-03-04.jpg": {
+      "original": "covers/originals/changjing-9-03-04.png",
+      "filename": "changjing-9-03-04.png",
+      "bytes": 1846916
+    },
+    "covers/entries/changjing-9-03.jpg": {
+      "original": "covers/originals/changjing-9-03.png",
+      "filename": "changjing-9-03.png",
+      "bytes": 1905081
+    },
+    "covers/entries/changjing-9-04-02.jpg": {
+      "original": "covers/originals/changjing-9-04-02.png",
+      "filename": "changjing-9-04-02.png",
+      "bytes": 1774896
+    },
+    "covers/entries/changjing-9-04-03.jpg": {
+      "original": "covers/originals/changjing-9-04-03.png",
+      "filename": "changjing-9-04-03.png",
+      "bytes": 2090229
+    },
+    "covers/entries/changjing-9-04.jpg": {
+      "original": "covers/originals/changjing-9-04.png",
+      "filename": "changjing-9-04.png",
+      "bytes": 2036942
+    },
+    "covers/entries/changjing-9-05-02.jpg": {
+      "original": "covers/originals/changjing-9-05-02.png",
+      "filename": "changjing-9-05-02.png",
+      "bytes": 2012663
+    },
+    "covers/entries/changjing-9-05-03.jpg": {
+      "original": "covers/originals/changjing-9-05-03.png",
+      "filename": "changjing-9-05-03.png",
+      "bytes": 1875732
+    },
+    "covers/entries/changjing-9-05-04.jpg": {
+      "original": "covers/originals/changjing-9-05-04.png",
+      "filename": "changjing-9-05-04.png",
+      "bytes": 1793544
+    },
+    "covers/entries/changjing-9-05.jpg": {
+      "original": "covers/originals/changjing-9-05.png",
+      "filename": "changjing-9-05.png",
+      "bytes": 1969945
+    },
+    "covers/entries/changjing-9-06-02.jpg": {
+      "original": "covers/originals/changjing-9-06-02.png",
+      "filename": "changjing-9-06-02.png",
+      "bytes": 1932529
+    },
+    "covers/entries/changjing-9-06-03.jpg": {
+      "original": "covers/originals/changjing-9-06-03.png",
+      "filename": "changjing-9-06-03.png",
+      "bytes": 1751775
+    },
+    "covers/entries/changjing-9-06-04.jpg": {
+      "original": "covers/originals/changjing-9-06-04.png",
+      "filename": "changjing-9-06-04.png",
+      "bytes": 1899841
+    },
+    "covers/entries/changjing-9-06.jpg": {
+      "original": "covers/originals/changjing-9-06.png",
+      "filename": "changjing-9-06.png",
+      "bytes": 1934442
+    },
+    "covers/entries/changjing-9-07-02.jpg": {
+      "original": "covers/originals/changjing-9-07-02.png",
+      "filename": "changjing-9-07-02.png",
+      "bytes": 2203831
+    },
+    "covers/entries/changjing-9-07-03.jpg": {
+      "original": "covers/originals/changjing-9-07-03.png",
+      "filename": "changjing-9-07-03.png",
+      "bytes": 1897705
+    },
+    "covers/entries/changjing-9-07-04.jpg": {
+      "original": "covers/originals/changjing-9-07-04.png",
+      "filename": "changjing-9-07-04.png",
+      "bytes": 2083615
+    },
+    "covers/entries/changjing-9-07.jpg": {
+      "original": "covers/originals/changjing-9-07.png",
+      "filename": "changjing-9-07.png",
+      "bytes": 2116561
+    },
+    "covers/entries/renwu-18-02.jpg": {
+      "original": "covers/originals/renwu-18-02.png",
+      "filename": "renwu-18-02.png",
+      "bytes": 1758882
+    },
+    "covers/entries/renwu-18-03.jpg": {
+      "original": "covers/originals/renwu-18-03.png",
+      "filename": "renwu-18-03.png",
+      "bytes": 1753567
+    },
+    "covers/entries/renwu-18-04.jpg": {
+      "original": "covers/originals/renwu-18-04.png",
+      "filename": "renwu-18-04.png",
+      "bytes": 1706443
+    },
+    "covers/entries/renwu-18-05.jpg": {
+      "original": "covers/originals/renwu-18-05.png",
+      "filename": "renwu-18-05.png",
+      "bytes": 1794531
+    },
+    "covers/entries/renwu-19-02.jpg": {
+      "original": "covers/originals/renwu-19-02.png",
+      "filename": "renwu-19-02.png",
+      "bytes": 1885049
+    },
+    "covers/entries/renwu-19-03.jpg": {
+      "original": "covers/originals/renwu-19-03.png",
+      "filename": "renwu-19-03.png",
+      "bytes": 1862051
+    },
+    "covers/entries/renwu-19-04.jpg": {
+      "original": "covers/originals/renwu-19-04.png",
+      "filename": "renwu-19-04.png",
+      "bytes": 1843770
+    },
+    "covers/entries/renwu-19-05.jpg": {
+      "original": "covers/originals/renwu-19-05.png",
+      "filename": "renwu-19-05.png",
+      "bytes": 1929685
+    },
+    "covers/entries/renwu-20-02.jpg": {
+      "original": "covers/originals/renwu-20-02.png",
+      "filename": "renwu-20-02.png",
+      "bytes": 1780296
+    },
+    "covers/entries/renwu-20-03.jpg": {
+      "original": "covers/originals/renwu-20-03.png",
+      "filename": "renwu-20-03.png",
+      "bytes": 1728203
+    },
+    "covers/entries/renwu-20-04.jpg": {
+      "original": "covers/originals/renwu-20-04.png",
+      "filename": "renwu-20-04.png",
+      "bytes": 1735287
+    },
+    "covers/entries/renwu-20-05.jpg": {
+      "original": "covers/originals/renwu-20-05.png",
+      "filename": "renwu-20-05.png",
+      "bytes": 1785045
+    },
+    "covers/entries/renwu-21-02.jpg": {
+      "original": "covers/originals/renwu-21-02.png",
+      "filename": "renwu-21-02.png",
+      "bytes": 1752169
+    },
+    "covers/entries/renwu-21-03.jpg": {
+      "original": "covers/originals/renwu-21-03.png",
+      "filename": "renwu-21-03.png",
+      "bytes": 1788802
+    },
+    "covers/entries/renwu-21-04.jpg": {
+      "original": "covers/originals/renwu-21-04.png",
+      "filename": "renwu-21-04.png",
+      "bytes": 1757196
+    },
+    "covers/entries/renwu-22-02.jpg": {
+      "original": "covers/originals/renwu-22-02.png",
+      "filename": "renwu-22-02.png",
+      "bytes": 1823500
+    },
+    "covers/entries/renwu-22-03.jpg": {
+      "original": "covers/originals/renwu-22-03.png",
+      "filename": "renwu-22-03.png",
+      "bytes": 1679449
+    },
+    "covers/entries/renwu-22-04.jpg": {
+      "original": "covers/originals/renwu-22-04.png",
+      "filename": "renwu-22-04.png",
+      "bytes": 1689087
+    },
+    "covers/entries/renwu-22-05.jpg": {
+      "original": "covers/originals/renwu-22-05.png",
+      "filename": "renwu-22-05.png",
+      "bytes": 1698845
+    },
+    "covers/entries/renwu-23-02.jpg": {
+      "original": "covers/originals/renwu-23-02.png",
+      "filename": "renwu-23-02.png",
+      "bytes": 1651359
+    },
+    "covers/entries/renwu-23-03.jpg": {
+      "original": "covers/originals/renwu-23-03.png",
+      "filename": "renwu-23-03.png",
+      "bytes": 1795177
+    },
+    "covers/entries/renwu-23-04.jpg": {
+      "original": "covers/originals/renwu-23-04.png",
+      "filename": "renwu-23-04.png",
+      "bytes": 1778593
+    },
+    "covers/entries/renwu-23-05.jpg": {
+      "original": "covers/originals/renwu-23-05.png",
+      "filename": "renwu-23-05.png",
+      "bytes": 1733549
+    },
+    "covers/entries/renwu-24-02.jpg": {
+      "original": "covers/originals/renwu-24-02.png",
+      "filename": "renwu-24-02.png",
+      "bytes": 1782218
+    },
+    "covers/entries/renwu-24-03.jpg": {
+      "original": "covers/originals/renwu-24-03.png",
+      "filename": "renwu-24-03.png",
+      "bytes": 1804641
+    },
+    "covers/entries/renwu-24-04.jpg": {
+      "original": "covers/originals/renwu-24-04.png",
+      "filename": "renwu-24-04.png",
+      "bytes": 1760772
+    },
+    "covers/entries/renwu-24-05.jpg": {
+      "original": "covers/originals/renwu-24-05.png",
+      "filename": "renwu-24-05.png",
+      "bytes": 1706157
+    },
+    "covers/entries/renwu-25-02.jpg": {
+      "original": "covers/originals/renwu-25-02.png",
+      "filename": "renwu-25-02.png",
+      "bytes": 1513257
+    },
+    "covers/entries/renwu-25-03.jpg": {
+      "original": "covers/originals/renwu-25-03.png",
+      "filename": "renwu-25-03.png",
+      "bytes": 1405511
+    },
+    "covers/entries/renwu-25-04.jpg": {
+      "original": "covers/originals/renwu-25-04.png",
+      "filename": "renwu-25-04.png",
+      "bytes": 1604932
+    },
+    "covers/entries/renwu-25-05.jpg": {
+      "original": "covers/originals/renwu-25-05.png",
+      "filename": "renwu-25-05.png",
+      "bytes": 1602997
+    },
+    "covers/entries/renwu-26-02.jpg": {
+      "original": "covers/originals/renwu-26-02.png",
+      "filename": "renwu-26-02.png",
+      "bytes": 1808708
+    },
+    "covers/entries/renwu-26-03.jpg": {
+      "original": "covers/originals/renwu-26-03.png",
+      "filename": "renwu-26-03.png",
+      "bytes": 1886852
+    },
+    "covers/entries/renwu-26-04.jpg": {
+      "original": "covers/originals/renwu-26-04.png",
+      "filename": "renwu-26-04.png",
+      "bytes": 1787073
+    },
+    "covers/entries/renwu-26-05.jpg": {
+      "original": "covers/originals/renwu-26-05.png",
+      "filename": "renwu-26-05.png",
+      "bytes": 1666777
+    },
+    "covers/entries/renwu-26-06.jpg": {
+      "original": "covers/originals/renwu-26-06.png",
+      "filename": "renwu-26-06.png",
+      "bytes": 1769705
+    },
+    "covers/entries/renwu-26-07.jpg": {
+      "original": "covers/originals/renwu-26-07.png",
+      "filename": "renwu-26-07.png",
+      "bytes": 1759284
+    },
+    "covers/entries/renwu-26-08.jpg": {
+      "original": "covers/originals/renwu-26-08.png",
+      "filename": "renwu-26-08.png",
+      "bytes": 1757802
+    },
+    "covers/entries/yishu-47-02.jpg": {
+      "original": "covers/originals/yishu-47-02.png",
+      "filename": "yishu-47-02.png",
+      "bytes": 1498764
+    },
+    "covers/entries/yishu-47-03.jpg": {
+      "original": "covers/originals/yishu-47-03.png",
+      "filename": "yishu-47-03.png",
+      "bytes": 1992648
+    },
+    "covers/entries/yishu-47-04.jpg": {
+      "original": "covers/originals/yishu-47-04.png",
+      "filename": "yishu-47-04.png",
+      "bytes": 1638987
+    },
+    "covers/entries/yishu-47-05.jpg": {
+      "original": "covers/originals/yishu-47-05.png",
+      "filename": "yishu-47-05.png",
+      "bytes": 1541728
+    },
+    "covers/entries/yishu-47-06.jpg": {
+      "original": "covers/originals/yishu-47-06.png",
+      "filename": "yishu-47-06.png",
+      "bytes": 1257595
+    },
+    "covers/entries/yishu-47-07.jpg": {
+      "original": "covers/originals/yishu-47-07.png",
+      "filename": "yishu-47-07.png",
+      "bytes": 1495965
+    },
+    "covers/entries/yishu-47.jpg": {
+      "original": "covers/originals/yishu-47.png",
+      "filename": "yishu-47.png",
+      "bytes": 1571644
+    },
+    "covers/entries/yishu-50-02.jpg": {
+      "original": "covers/originals/yishu-50-02.png",
+      "filename": "yishu-50-02.png",
+      "bytes": 1817803
+    },
+    "covers/entries/yishu-50-03.jpg": {
+      "original": "covers/originals/yishu-50-03.png",
+      "filename": "yishu-50-03.png",
+      "bytes": 2005582
+    },
+    "covers/entries/yishu-50-04.jpg": {
+      "original": "covers/originals/yishu-50-04.png",
+      "filename": "yishu-50-04.png",
+      "bytes": 1683228
+    },
+    "covers/entries/yishu-50.jpg": {
+      "original": "covers/originals/yishu-50.png",
+      "filename": "yishu-50.png",
+      "bytes": 1793214
+    }
+  }
+}
