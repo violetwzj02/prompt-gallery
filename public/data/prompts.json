@@ -1001,7 +1001,14 @@
       "aspect": "9:16",
       "promptText": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long light brown hair in loose braid with pink ribbon and red flower accents, green eyes, wearing wine-red backless dress or white lace sheer dress with thin straps and pearl necklace, large white feathered wings spreading from back with detailed layered feathers, delicate golden halo floating above head with soft glow, medium cinematic shot from slightly low angle, standing in dense blooming flower garden holding orange-yellow roses or resting hand on lace neckline, turning to look back at camera or eyes gently closed, 2-3 pink butterflies landing on straw hat hair and shoulders, bright sunlight from behind illuminating wing feathers making them translucent and glowing, soft daylight global illumination, luminous highlights on wing edges hair strands flower petals and lace details, creamy Cooke lens rendering, large aperture f/2.2, sparkling circular bokeh background with blurred orange roses white daisies blue hydrangeas, soft golden-white lens flare, dreamy ethereal garden atmosphere, warm golden-white color grading with soft pink-blue accents, desaturated warm palette, --ar 9:16 --hd --raw --p",
       "duplicateNote": null,
-      "duplicateOf": null
+      "duplicateOf": null,
+      "covers": [
+        "covers/entries/renwu-21.jpg",
+        "covers/entries/renwu-21-02.jpg",
+        "covers/entries/renwu-21-03.jpg",
+        "covers/entries/renwu-21-04.jpg"
+      ],
+      "grokPrompt": "cinematic Japanese 3D CG animation still, semi-realistic stylized CG adult woman, long light brown hair in a loose braid with a pink ribbon and red flower accents, green eyes, wearing a wine-red backless dress with thin straps and a pearl necklace, large white feathered wings spreading from her back with detailed layered feathers, a delicate golden halo floating above her head with a soft glow, medium cinematic shot from a slightly low angle, standing in a dense blooming flower garden holding orange-yellow roses, turning to look back at the camera, pink butterflies landing on a straw hat, her hair and shoulders, bright sunlight from behind making the wing feathers translucent and glowing, soft daylight, luminous highlights on wings, hair and petals, creamy lens, sparkling circular bokeh of orange roses, white daisies and blue hydrangeas, soft golden-white lens flare, dreamy ethereal garden atmosphere, warm golden-white color grade with soft pink-blue accents"
     },
     {
       "id": "renwu-22",
