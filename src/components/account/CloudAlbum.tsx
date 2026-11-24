@@ -44,6 +44,7 @@ import { extFromMime, sanitizeFilename } from '../../utils/downloadOriginal'
 import { albumDisplayTitle } from '../../utils/albumDisplay'
 import { type DriveImagePriority } from '../../lib/driveImageCache'
 import { useDriveImageSlot } from '../../hooks/useDriveImageSlot'
+import { useDriveThumb } from '../../hooks/useDriveThumb'
 import { ADULT_CATEGORY } from '../../types'
 import { loadQuyiMeta, PENDING_CHARACTER, sortCharacterNames, type QuyiCharacter } from '../../utils/quyiCharacters'
 import { AlbumFlipBook } from './AlbumFlipBook'
@@ -842,7 +843,7 @@ export function CloudAlbum({ route, test }: Props) {
                   <div className="album-drawer__layer album-drawer__layer--1" />
                   <div className="album-drawer__front">
                     {folder.thumb && token && !characterFolder ? (
-                      <DriveImage token={token} fileId={folder.thumb.driveFileId} title={folder.name} priority="low" />
+                      <DriveThumbImage token={token} fileId={folder.thumb.driveFileId} title={folder.name} />
                     ) : (
                       <div className="album-ph">空文件夹</div>
                     )}
@@ -895,7 +896,7 @@ export function CloudAlbum({ route, test }: Props) {
               onClick={() => setAlbumHash({ itemId: item.id }, 'push')}
             >
               <div className="album-card__media">
-                <DriveImage token={token} fileId={item.driveFileId} title={albumDisplayTitle({ title: item.title, index: itemIndex + 1 })} priority="low" />
+                <DriveThumbImage token={token} fileId={item.driveFileId} title={albumDisplayTitle({ title: item.title, index: itemIndex + 1 })} />
               </div>
               <div className="album-card__body">
                 <p className="album-card__title">{albumDisplayTitle({ title: item.title, index: itemIndex + 1 })}</p>
@@ -1046,6 +1047,31 @@ function DraftEditor({
   )
 }
 
+function DriveThumbImage({
+  token,
+  fileId,
+  title,
+  contain = false,
+}: {
+  token: string | null
+  fileId: string
+  title?: string | null
+  contain?: boolean
+}) {
+  const thumb = useDriveThumb(token, fileId)
+  if (!token) return <div className="album-ph">连接谷歌云盘后可预览</div>
+  if (!thumb) return <div className="album-ph">载入中…</div>
+  return (
+    <img
+      src={thumb}
+      alt={title || ''}
+      loading="lazy"
+      decoding="async"
+      style={contain ? { objectFit: 'contain' } : undefined}
+    />
+  )
+}
+
 function DriveImage({
   token,
   fileId,
@@ -1062,13 +1088,18 @@ function DriveImage({
   priority?: DriveImagePriority
 }) {
   const slot = useDriveImageSlot({ token, fileId, priority })
+  const thumb = useDriveThumb(token, fileId)
   const url = slot.url
   const blob = slot.blob
   const error = slot.error
 
   if (error) return <div className="album-ph">{error}</div>
   if (!token) return <div className="album-ph">连接谷歌云盘后可预览</div>
-  if (!url) return <div className="album-ph">载入中…</div>
+  if (!url) {
+    // Show the CDN preview while the full-size bytes stream in.
+    if (thumb) return <img src={thumb} alt={title || ''} style={contain ? { objectFit: 'contain' } : undefined} />
+    return <div className="album-ph">载入中…</div>
+  }
   const filename = sanitizeFilename(`${title || 'album'}.${extFromMime(blob?.type || 'image/jpeg')}`)
   return (
     <>

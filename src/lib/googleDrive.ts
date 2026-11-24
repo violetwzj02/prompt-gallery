@@ -579,6 +579,27 @@ export async function fetchDriveImageBlob(token: string, fileId: string): Promis
   return response.blob()
 }
 
+/**
+ * Signed CDN link for one Drive image's preview, so browsing never needs the
+ * full-size bytes. Drive refreshes it per request; callers cache briefly.
+ */
+export async function fetchDriveThumbnailLink(
+  token: string,
+  fileId: string,
+  width = 1600,
+): Promise<string | null> {
+  const response = await driveFetch(
+    token,
+    `${DRIVE_API}/files/${encodeURIComponent(fileId)}?fields=id,thumbnailLink&supportsAllDrives=true`,
+  )
+  if (!response.ok) throw new Error(driveErrorMessage(response.status, '无法载入云盘缩略图'))
+  const data = (await response.json()) as { thumbnailLink?: unknown }
+  const link = typeof data.thumbnailLink === 'string' ? data.thumbnailLink.trim() : ''
+  if (!link) return null
+  // Drive returns `=s220`; any larger size is served from the same object.
+  return link.replace(/=s\d+$/, `=w${width}`)
+}
+
 export function sanitizeUploadFilename(name: string, mime: AcceptedImageType): string {
   const ext = extensionForMime(mime)
   const base = name

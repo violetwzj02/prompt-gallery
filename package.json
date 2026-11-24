@@ -9,15 +9,18 @@
     "preview": "vite preview --host 0.0.0.0 --port 4173",
     "parse": "python3 scripts/parse_prompts.py",
     "ingest:quyi": "python3 scripts/ingest_quyi.py",
-    "test": "node scripts/test-download-original.mjs && node scripts/test-google-drive-auth.mjs && node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs && node scripts/test-album-image-lifecycle.mjs && node scripts/test-album-trash.mjs && node scripts/test-album-trash-memory.mjs && node scripts/test-album-trash-ui.mjs && node scripts/test-cover-src.mjs && node scripts/test-dialog-chrome.mjs && node scripts/test-harness-css.mjs && python3 scripts/test_ingest_quyi.py && python3 scripts/test-grok-import.py",
+    "test": "node scripts/test-download-original.mjs && node scripts/test-google-drive-auth.mjs && node scripts/test-drive-thumbnails.mjs && node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs && node scripts/test-album-image-lifecycle.mjs && node scripts/test-album-trash.mjs && node scripts/test-album-trash-memory.mjs && node scripts/test-album-trash-ui.mjs && node scripts/test-album-thumb-ui.mjs && node scripts/test-cover-src.mjs && node scripts/test-dialog-chrome.mjs && node scripts/test-harness-css.mjs && python3 scripts/test_ingest_quyi.py && python scripts/test_grok_survey.py && python scripts/test_album_import.py && python3 scripts/test-grok-import.py",
     "test:download": "node scripts/test-download-original.mjs",
     "test:drive": "node scripts/test-google-drive-auth.mjs",
-    "test:quyi": "python3 scripts/test_ingest_quyi.py",
-    "test:album": "node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs && node scripts/test-album-image-lifecycle.mjs && node scripts/test-album-trash.mjs && node scripts/test-album-trash-memory.mjs && node scripts/test-album-trash-ui.mjs",
+    "test:quyi": "python3 scripts/test_ingest_quyi.py && python scripts/test_grok_survey.py && python scripts/test_album_import.py",
+    "test:album": "node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs && node scripts/test-album-image-lifecycle.mjs && node scripts/test-album-trash.mjs && node scripts/test-album-trash-memory.mjs && node scripts/test-album-trash-ui.mjs && node scripts/test-drive-thumbnails.mjs && node scripts/test-album-thumb-ui.mjs",
     "harness:album-cache": "node scripts/album-cache-harness/server.mjs",
     "test:ui": "node scripts/test-cover-src.mjs && node scripts/test-dialog-chrome.mjs && node scripts/test-harness-css.mjs && node scripts/test-album-trash-ui.mjs",
     "harness:gallery-ui": "node scripts/gallery-ui-harness/server.mjs",
-    "harness:album-trash": "node scripts/album-trash-harness/server.mjs"
+    "harness:album-trash": "node scripts/album-trash-harness/server.mjs",
+    "test:thumbs": "node scripts/test-drive-thumbnails.mjs && node scripts/test-album-thumb-ui.mjs",
+    "survey": "python scripts/grok_survey.py",
+    "album:export": "python scripts/album_import.py export"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",

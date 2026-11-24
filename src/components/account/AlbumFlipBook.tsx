@@ -3,6 +3,7 @@ import type { AlbumItem } from '../../lib/album'
 import { formatAlbumTime } from '../../lib/album'
 import { prefetchDriveImages } from '../../lib/driveImageCache'
 import { useDriveImageSlot } from '../../hooks/useDriveImageSlot'
+import { useDriveThumb } from '../../hooks/useDriveThumb'
 import { albumDisplayTitle } from '../../utils/albumDisplay'
 import { DownloadOriginalButton } from '../DownloadOriginalButton'
 import { extFromMime, sanitizeFilename } from '../../utils/downloadOriginal'
@@ -30,6 +31,7 @@ export function AlbumFlipBook({ items, token, character, onOpen }: Props) {
     fileId: current?.driveFileId ?? null,
     priority: 'high',
   })
+  const thumb = useDriveThumb(token, current?.driveFileId ?? null)
 
   useEffect(() => {
     if (!current) return
@@ -108,6 +110,8 @@ export function AlbumFlipBook({ items, token, character, onOpen }: Props) {
                   <div className="album-ph">{slot.error}</div>
                 ) : slot.url ? (
                   <img src={slot.url} alt={displayTitle || character} />
+                ) : thumb ? (
+                  <img src={thumb} alt={displayTitle || character} />
                 ) : (
                   <div className="album-ph">载入中…</div>
                 )
