@@ -1,3 +1,4 @@
+import { clearDriveImageCache, setDriveImageBlobFetcher } from './driveImageCache'
 export const DRIVE_FOLDER_NAME = '风格 Prompt 图鉴·云端相册'
 export const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.file'
 export const MAX_ALBUM_FILE_BYTES = 50 * 1024 * 1024
@@ -102,6 +103,8 @@ function readStoredToken(): TokenPayload | null {
 }
 
 function persistToken(payload: TokenPayload): void {
+  const previous = memoryToken?.accessToken
+  if (previous && previous !== payload.accessToken) clearDriveImageCache()
   memoryToken = payload
   if (typeof sessionStorage === 'undefined') return
   try {
@@ -125,6 +128,7 @@ export function peekDriveEmail(): string | undefined {
 
 export function clearDriveAccess(): void {
   memoryToken = null
+  clearDriveImageCache()
   if (typeof sessionStorage !== 'undefined') {
     try {
       sessionStorage.removeItem(TOKEN_STORAGE_KEY)
@@ -157,6 +161,7 @@ function clearAuthTimers(): void {
 
 export function resetDriveAuthForTests(): void {
   memoryToken = null
+  clearDriveImageCache()
   gisLoading = null
   tokenClient = null
   pendingToken = null
@@ -535,3 +540,5 @@ export function sanitizeUploadFilename(name: string, mime: AcceptedImageType): s
     .slice(0, 80)
   return `${base || 'album'}.${ext}`
 }
+
+setDriveImageBlobFetcher(({ token, fileId }) => fetchDriveImageBlob(token, fileId))

@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import type { AlbumItem } from '../../lib/album'
 import { formatAlbumTime } from '../../lib/album'
+import {
+  acquireDriveImage,
+  peekDriveImage,
+  prefetchDriveImages,
+  releaseDriveImage,
+  type DriveImageRecord,
+} from '../../lib/driveImageCache'
+import { albumDisplayTitle } from '../../utils/albumDisplay'
 import { DownloadOriginalButton } from '../DownloadOriginalButton'
 import { extFromMime, sanitizeFilename } from '../../utils/downloadOriginal'
 
@@ -15,42 +23,57 @@ interface Props {
   token: string
   character: string
   onOpen: (item: AlbumItem) => void
-  fetchImage: (token: string, fileId: string) => Promise<Blob>
 }
 
-export function AlbumFlipBook({ items, token, character, onOpen, fetchImage }: Props) {
+export function AlbumFlipBook({ items, token, character, onOpen }: Props) {
   const [index, setIndex] = useState(0)
   const [slot, setSlot] = useState<DriveSlot>({ url: null, blob: null, error: null })
   const startX = useRef<number | null>(null)
+  const itemKey = items.map((item) => item.id).join('|')
 
   useEffect(() => {
     setIndex(0)
-  }, [character, items.map((item) => item.id).join('|')])
+  }, [character, itemKey])
 
   const current = items[index] ?? null
+  const displayTitle = current ? albumDisplayTitle({ title: current.title, index: index + 1 }) : ''
 
   useEffect(() => {
     if (!current) {
       setSlot({ url: null, blob: null, error: null })
       return
     }
-    let revoked = false
-    let objectUrl: string | null = null
-    setSlot({ url: null, blob: null, error: null })
-    void fetchImage(token, current.driveFileId)
-      .then((blob) => {
-        if (revoked) return
-        objectUrl = URL.createObjectURL(blob)
-        setSlot({ url: objectUrl, blob, error: null })
+    let cancelled = false
+    let record: DriveImageRecord | null = null
+    const cached = peekDriveImage(current.driveFileId)
+    if (cached) {
+      setSlot({ url: cached.url, blob: cached.blob, error: null })
+    } else {
+      setSlot({ url: null, blob: null, error: null })
+    }
+    void acquireDriveImage(token, current.driveFileId)
+      .then((next) => {
+        if (cancelled) {
+          releaseDriveImage(next)
+          return
+        }
+        record = next
+        setSlot({ url: next.url, blob: next.blob, error: null })
       })
       .catch((err) => {
-        if (!revoked) setSlot({ url: null, blob: null, error: err instanceof Error ? err.message : '无法载入图片' })
+        if (!cancelled) setSlot({ url: null, blob: null, error: err instanceof Error ? err.message : '无法载入图片' })
       })
+    const neighbors: string[] = []
+    const prev = items[index - 1]
+    const nextItem = items[index + 1]
+    if (prev) neighbors.push(prev.driveFileId)
+    if (nextItem) neighbors.push(nextItem.driveFileId)
+    prefetchDriveImages(token, neighbors)
     return () => {
-      revoked = true
-      if (objectUrl) URL.revokeObjectURL(objectUrl)
+      cancelled = true
+      if (record) releaseDriveImage(record)
     }
-  }, [current?.id, current?.driveFileId, fetchImage, token])
+  }, [current, index, items, token])
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -75,7 +98,7 @@ export function AlbumFlipBook({ items, token, character, onOpen, fetchImage }: P
   const atEnd = index >= items.length - 1
   const depth = Math.min(4, items.length)
   const filename = current
-    ? sanitizeFilename(`${current.title || character}.${extFromMime(slot.blob?.type || 'image/jpeg')}`)
+    ? sanitizeFilename(`${displayTitle || character}.${extFromMime(slot.blob?.type || 'image/jpeg')}`)
     : 'image.jpg'
 
   const go = (next: number) => {
@@ -118,7 +141,7 @@ export function AlbumFlipBook({ items, token, character, onOpen, fetchImage }: P
                 slot.error ? (
                   <div className="album-ph">{slot.error}</div>
                 ) : slot.url ? (
-                  <img src={slot.url} alt={current?.title || character} />
+                  <img src={slot.url} alt={displayTitle || character} />
                 ) : (
                   <div className="album-ph">载入中…</div>
                 )
@@ -144,7 +167,7 @@ export function AlbumFlipBook({ items, token, character, onOpen, fetchImage }: P
             url={slot.url}
             blob={slot.blob ?? undefined}
             filename={filename}
-            source={current.title || character}
+            source={displayTitle || character}
           />
         )}
       </div>
@@ -155,7 +178,7 @@ export function AlbumFlipBook({ items, token, character, onOpen, fetchImage }: P
         </p>
         {current && (
           <>
-            <h3>{current.title || '未命名图片'}</h3>
+            <h3>{displayTitle}</h3>
             <p className="album__hint">
               {current.source === 'generated' ? '来自风格' : '上传'}
               {current.promptId ? ` · 风格 ${current.promptId}` : ''}
@@ -179,7 +202,7 @@ export function AlbumFlipBook({ items, token, character, onOpen, fetchImage }: P
               type="button"
               role="tab"
               aria-selected={i === index}
-              aria-label={item.title || `第 ${i + 1} 张`}
+              aria-label={albumDisplayTitle({ title: item.title, index: i + 1 })}
               className={`album-flip__dot${i === index ? ' is-active' : ''}`}
               onClick={() => go(i)}
             />

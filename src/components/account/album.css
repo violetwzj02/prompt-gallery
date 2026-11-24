@@ -412,6 +412,68 @@
   bottom: 0.75rem;
 }
 
+.album-lightbox__close,
+.album-viewer__close {
+  position: fixed;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 112;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  color: var(--text);
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.album-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 105;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: var(--bg);
+  padding: 0.85rem 1rem 1.2rem;
+  overflow: auto;
+}
+
+.album-viewer__bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 2.4rem;
+  padding: 0.15rem 3rem 0.55rem 0;
+  background: var(--bg);
+}
+
+.album-viewer__back {
+  margin: 0;
+  padding: 0.35rem 0.15rem;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.album-viewer__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
 .album-crumb {
   display: flex;
   flex-wrap: wrap;

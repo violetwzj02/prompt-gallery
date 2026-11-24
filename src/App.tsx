@@ -18,6 +18,7 @@ import { useProfile } from './hooks/useProfile'
 import { isAdmin } from './lib/admin'
 import { isAuthCallbackHash } from './lib/supabase'
 import {
+  ensureHashNavigationEvents,
   isReservedHash,
   parseAccountRoute,
   redirectLegacyAdminHash,
@@ -80,6 +81,7 @@ function GalleryApp() {
   )
 
   useEffect(() => {
+    ensureHashNavigationEvents()
     const onHash = () => {
       setLocationHash(window.location.hash)
       setFilters(parseHash(window.location.hash))

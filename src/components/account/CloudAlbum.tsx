@@ -14,7 +14,6 @@ import {
   clearDriveAccess,
   deleteDriveFile,
   driveFolderAccessible,
-  fetchDriveImageBlob,
   findOrCreateAlbumFolder,
   getDriveUserEmail,
   googleClientId,
@@ -35,9 +34,16 @@ import {
   suggestAlbumPresets,
   validateAlbumCategoryName,
 } from '../../utils/albumClassify'
-import { replaceHash, toAccountHash, type AccountRoute } from '../../utils/accountRoutes'
+import { albumHistoryState, closeAlbumHashLayer, pushHash, replaceHash, toAccountHash, type AccountRoute } from '../../utils/accountRoutes'
 import { DownloadOriginalButton } from '../DownloadOriginalButton'
 import { extFromMime, sanitizeFilename } from '../../utils/downloadOriginal'
+import { albumDisplayTitle } from '../../utils/albumDisplay'
+import {
+  acquireDriveImage,
+  peekDriveImage,
+  releaseDriveImage,
+  type DriveImageRecord,
+} from '../../lib/driveImageCache'
 import { ADULT_CATEGORY } from '../../types'
 import { loadQuyiMeta, PENDING_CHARACTER, sortCharacterNames, type QuyiCharacter } from '../../utils/quyiCharacters'
 import { AlbumFlipBook } from './AlbumFlipBook'
@@ -188,18 +194,64 @@ export function CloudAlbum({ route }: Props) {
     return map
   }, [album.items])
 
-  const setAlbumHash = (next: { cat?: string | null; itemId?: string | null; folderId?: string | null }) => {
+  const setAlbumHash = (
+    next: { cat?: string | null; itemId?: string | null; folderId?: string | null },
+    mode: 'push' | 'replace' = 'replace',
+  ) => {
     const nextCat = next.cat === undefined ? cat : next.cat
     const nextFolder = next.folderId === undefined ? characterFolder : next.folderId
-    replaceHash(
-      toAccountHash({
-        view: 'album',
-        cat: nextCat,
-        itemId: next.itemId === undefined ? activeId : next.itemId,
-        folderId: nextCat === ADULT_CATEGORY ? nextFolder : null,
-      }),
-    )
+    const nextItem = next.itemId === undefined ? activeId : next.itemId
+    const hash = toAccountHash({
+      view: 'album',
+      cat: nextCat,
+      itemId: nextItem,
+      folderId: nextCat === ADULT_CATEGORY ? nextFolder : null,
+    })
+    const openedFolder = Boolean(nextCat === ADULT_CATEGORY && nextFolder && nextFolder !== characterFolder)
+    const openedItem = Boolean(nextItem && nextItem !== activeId)
+    const layer = openedItem ? 'item' : openedFolder ? 'folder' : null
+    if (mode === 'push' && layer) {
+      pushHash(hash, albumHistoryState(layer))
+      return
+    }
+    replaceHash(hash)
   }
+
+  const closeFolderView = () => {
+    closeAlbumHashLayer({
+      expected: 'folder',
+      fallback: () => setAlbumHash({ cat: ADULT_CATEGORY, folderId: null, itemId: null }),
+    })
+  }
+
+  const closeItemView = () => {
+    closeAlbumHashLayer({
+      expected: 'item',
+      fallback: () => setAlbumHash({ itemId: null }),
+    })
+  }
+
+  useEffect(() => {
+    if (!inAdult || !characterFolder || selected) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      const tag = (event.target as HTMLElement | null)?.tagName
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return
+      event.preventDefault()
+      closeFolderView()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [inAdult, characterFolder, selected, cat, activeId])
+
+  useEffect(() => {
+    if (!characterFolder) return
+    const previous = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = previous
+    }
+  }, [characterFolder])
 
   const connect = () => {
     setDriveError(null)
@@ -622,7 +674,7 @@ export function CloudAlbum({ route }: Props) {
                 className={`album-chip ${cat === category.name || characterFolder === category.name ? 'is-active' : ''}`}
                 onClick={() =>
                   inAdult
-                    ? setAlbumHash({ cat: ADULT_CATEGORY, folderId: category.name, itemId: null })
+                    ? setAlbumHash({ cat: ADULT_CATEGORY, folderId: category.name, itemId: null }, 'push')
                     : setAlbumHash({ cat: category.name, itemId: null, folderId: null })
                 }
               >
@@ -671,8 +723,8 @@ export function CloudAlbum({ route }: Props) {
         </form>
       </div>
 
-      {inAdult && !characterFolder && (
-        <>
+      {inAdult && (
+        <div hidden={Boolean(characterFolder)}>
           <p className="album__hint">在 18+ 下按角色打开抽屉。文件夹里可以翻阅、层层堆叠。角色名与首页 18+ 子导航一致。</p>
           <div className="album-drawers">
             {adultFolders.map((folder) => (
@@ -680,7 +732,7 @@ export function CloudAlbum({ route }: Props) {
                 type="button"
                 key={folder.name}
                 className={`album-drawer${folder.pending ? ' is-pending' : ''}`}
-                onClick={() => setAlbumHash({ cat: ADULT_CATEGORY, folderId: folder.name, itemId: null })}
+                onClick={() => setAlbumHash({ cat: ADULT_CATEGORY, folderId: folder.name, itemId: null }, 'push')}
               >
                 <div className="album-drawer__stack" aria-hidden>
                   <div className="album-drawer__layer album-drawer__layer--2" />
@@ -698,28 +750,29 @@ export function CloudAlbum({ route }: Props) {
               </button>
             ))}
           </div>
-        </>
+        </div>
       )}
 
       {inAdult && characterFolder && (
-        <>
-          <nav className="album-crumb" aria-label="相册位置">
-            <button type="button" onClick={() => setAlbumHash({ cat: ADULT_CATEGORY, folderId: null, itemId: null })}>
-              18+
+        <div className="album-viewer" role="dialog" aria-modal="true" aria-label={characterFolder}>
+          <div className="album-viewer__bar">
+            <button type="button" className="album-viewer__back" onClick={closeFolderView}>
+              返回角色列表
             </button>
-            <span>/</span>
-            <span>{characterFolder}</span>
-          </nav>
+            <span className="album-viewer__name">{characterFolder}</span>
+          </div>
+          <button type="button" className="album-viewer__close" onClick={closeFolderView} aria-label="关闭">
+            ×
+          </button>
           {token && (
             <AlbumFlipBook
               items={visibleItems}
               token={token}
               character={characterFolder}
-              fetchImage={fetchDriveImageBlob}
-              onOpen={(item) => setAlbumHash({ itemId: item.id })}
+              onOpen={(item) => setAlbumHash({ itemId: item.id }, 'push')}
             />
           )}
-        </>
+        </div>
       )}
 
       {!inAdult && visibleItems.length === 0 && (
@@ -727,18 +780,18 @@ export function CloudAlbum({ route }: Props) {
       )}
       {!inAdult && visibleItems.length > 0 && (
         <div className="album-grid">
-          {visibleItems.map((item) => (
+          {visibleItems.map((item, itemIndex) => (
             <button
               type="button"
               key={item.id}
               className="album-card"
-              onClick={() => setAlbumHash({ itemId: item.id })}
+              onClick={() => setAlbumHash({ itemId: item.id }, 'push')}
             >
               <div className="album-card__media">
-                <DriveImage token={token} fileId={item.driveFileId} title={item.title} />
+                <DriveImage token={token} fileId={item.driveFileId} title={albumDisplayTitle({ title: item.title, index: itemIndex + 1 })} />
               </div>
               <div className="album-card__body">
-                <p className="album-card__title">{item.title || '未命名图片'}</p>
+                <p className="album-card__title">{albumDisplayTitle({ title: item.title, index: itemIndex + 1 })}</p>
                 <p className="album-card__meta">
                   {item.source === 'generated' ? '来自风格' : '上传'}
                   {item.autoCategories.concat(item.customCategories).length
@@ -757,7 +810,7 @@ export function CloudAlbum({ route }: Props) {
           token={token}
           customs={customs}
           existingNames={existingNames}
-          onClose={() => setAlbumHash({ itemId: null })}
+          onClose={closeItemView}
           onSave={async (patch) => {
             try {
               await ensureCustomNames(patch.customCategories)
@@ -888,7 +941,7 @@ function DriveImage({
   contain = false,
   download = false,
 }: {
-  token: string
+  token: string | null
   fileId: string
   title?: string | null
   contain?: boolean
@@ -899,28 +952,46 @@ function DriveImage({
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    let revoked = false
-    let objectUrl: string | null = null
-    setUrl(null)
-    setBlob(null)
-    setError(null)
-    void fetchDriveImageBlob(token, fileId)
-      .then((blob) => {
-        if (revoked) return
-        objectUrl = URL.createObjectURL(blob)
-        setBlob(blob)
-        setUrl(objectUrl)
+    if (!token) {
+      setUrl(null)
+      setBlob(null)
+      setError(null)
+      return
+    }
+    let cancelled = false
+    let record: DriveImageRecord | null = null
+    const cached = peekDriveImage(fileId)
+    if (cached) {
+      setUrl(cached.url)
+      setBlob(cached.blob)
+      setError(null)
+    } else {
+      setUrl(null)
+      setBlob(null)
+      setError(null)
+    }
+    void acquireDriveImage(token, fileId)
+      .then((next) => {
+        if (cancelled) {
+          releaseDriveImage(next)
+          return
+        }
+        record = next
+        setBlob(next.blob)
+        setUrl(next.url)
+        setError(null)
       })
       .catch((err) => {
-        if (!revoked) setError(err instanceof Error ? err.message : '无法载入图片')
+        if (!cancelled) setError(err instanceof Error ? err.message : '无法载入图片')
       })
     return () => {
-      revoked = true
-      if (objectUrl) URL.revokeObjectURL(objectUrl)
+      cancelled = true
+      if (record) releaseDriveImage(record)
     }
   }, [token, fileId])
 
   if (error) return <div className="album-ph">{error}</div>
+  if (!token) return <div className="album-ph">连接谷歌云盘后可预览</div>
   if (!url) return <div className="album-ph">载入中…</div>
   const filename = sanitizeFilename(`${title || 'album'}.${extFromMime(blob?.type || 'image/jpeg')}`)
   return (
@@ -949,7 +1020,7 @@ function AlbumLightbox({
   onDelete,
 }: {
   item: AlbumItem
-  token: string
+  token: string | null
   customs: AlbumCategory[]
   existingNames: string[]
   onClose: () => void
@@ -970,7 +1041,10 @@ function AlbumLightbox({
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
+      if (event.key !== 'Escape') return
+      event.preventDefault()
+      event.stopPropagation()
+      onClose()
     }
     window.addEventListener('keydown', onKey)
     const previous = document.body.style.overflow
@@ -991,15 +1065,26 @@ function AlbumLightbox({
 
   return (
     <div className="album-lightbox" onClick={onClose} role="presentation">
+      <button
+        type="button"
+        className="album-lightbox__close"
+        onClick={(event) => {
+          event.stopPropagation()
+          onClose()
+        }}
+        aria-label="关闭"
+      >
+        ×
+      </button>
       <div
         className="album-lightbox__sheet"
         role="dialog"
         aria-modal
-        aria-label={item.title || '云端相册图片'}
+        aria-label={albumDisplayTitle({ title: item.title, index: 1 }) || '云端相册图片'}
         onClick={(event) => event.stopPropagation()}
       >
         <div className="album-lightbox__media">
-          <DriveImage token={token} fileId={item.driveFileId} title={item.title} contain download />
+          <DriveImage token={token} fileId={item.driveFileId} title={albumDisplayTitle({ title: item.title, index: 1 })} contain download />
         </div>
         <div className="album-lightbox__body">
           <div className="album-lightbox__top">
@@ -1008,10 +1093,8 @@ function AlbumLightbox({
               value={title}
               onChange={(event) => setTitle(event.target.value)}
               aria-label="图片标题"
+              placeholder={albumDisplayTitle({ title: item.title, index: 1 })}
             />
-            <button type="button" className="btn btn-ghost" onClick={onClose} aria-label="关闭">
-              关闭
-            </button>
           </div>
           <p className="album__hint">
             {item.source === 'generated' ? '来自风格' : '上传'}

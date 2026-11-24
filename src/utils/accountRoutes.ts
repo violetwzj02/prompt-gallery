@@ -87,11 +87,71 @@ export function toAccountHash(route: Pick<AccountRoute, 'view'> & Partial<Accoun
   return qs ? `#/me?${qs}` : '#/me'
 }
 
-export function replaceHash(next: string): void {
+export type AlbumHistoryLayer = 'folder' | 'item'
+
+export interface AlbumHistoryState {
+  promptGalleryAlbum: AlbumHistoryLayer
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null
+}
+
+export function albumLayerFromHistoryState(state: unknown): AlbumHistoryLayer | null {
+  if (!isRecord(state)) return null
+  const value = state.promptGalleryAlbum
+  if (value === 'folder' || value === 'item') return value
+  return null
+}
+
+export function albumHistoryState(layer: AlbumHistoryLayer): AlbumHistoryState {
+  return { promptGalleryAlbum: layer }
+}
+
+function dispatchHashChange(): void {
+  if (typeof window === 'undefined') return
+  window.dispatchEvent(new HashChangeEvent('hashchange'))
+}
+
+export function replaceHash(next: string, state: unknown = null): void {
   if (typeof window === 'undefined') return
   if (window.location.hash === next) return
-  history.replaceState(null, '', next)
-  window.dispatchEvent(new HashChangeEvent('hashchange'))
+  history.replaceState(state ?? null, '', next)
+  dispatchHashChange()
+}
+
+export function pushHash(next: string, state: unknown = null): void {
+  if (typeof window === 'undefined') return
+  if (window.location.hash === next) return
+  history.pushState(state, '', next)
+  dispatchHashChange()
+}
+
+export function closeAlbumHashLayer(input: { expected: AlbumHistoryLayer; fallback: () => void }): void {
+  if (typeof window === 'undefined') {
+    input.fallback()
+    return
+  }
+  if (albumLayerFromHistoryState(window.history.state) === input.expected) {
+    window.history.back()
+    return
+  }
+  input.fallback()
+}
+
+let hashNavigationInstalled = false
+
+/** Browsers fire popstate on Back after pushState; hashchange is not guaranteed in every path. */
+export function ensureHashNavigationEvents(): void {
+  if (typeof window === 'undefined' || hashNavigationInstalled) return
+  hashNavigationInstalled = true
+  window.addEventListener('popstate', () => {
+    dispatchHashChange()
+  })
+}
+
+export function resetHashNavigationEventsForTests(): void {
+  hashNavigationInstalled = false
 }
 
 /**
