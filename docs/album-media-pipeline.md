@@ -82,7 +82,7 @@ python scripts/quyi_titles.py --write    # 写入 public/data/quyi-cards.json
 
 ```bash
 python scripts/album_import.py export                  # 先导出 items.json
-python scripts/album_naming.py fetch                   # 取每个条目的预览图 -> I:\wangzhanbendinglbum-thumbs
+python scripts/album_naming.py fetch                   # 取每个条目的预览图到本地暂存目录 album-thumbs
 python scripts/album_naming.py sheet                   # 拼成联系人表 -> sheets/sheet-01.jpg + labels.json
 # 看过 sheet 之后写一份 names.json：{"<album_id>": "蒂法·侧身跪坐", ...}
 python scripts/album_naming.py apply --map names.json  # 写回 album_items.title
