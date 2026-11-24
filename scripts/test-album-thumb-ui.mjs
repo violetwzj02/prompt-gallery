@@ -36,6 +36,8 @@ const { AlbumFlipBook, clearDriveImageCache, rebindDriveImageToken, clearDriveTh
 const THUMB = 'https://lh3.googleusercontent.com/drive-viewer/thumb=w1600'
 let thumbRequests = 0
 let mediaRequests = 0
+const pendingMedia = []
+let blobSeq = 0
 
 const happy = new Window({ url: 'https://example.test/#/me/album' })
 globalThis.window = happy
@@ -43,6 +45,12 @@ globalThis.document = happy.document
 globalThis.HTMLElement = happy.HTMLElement
 globalThis.Node = happy.Node
 globalThis.IS_REACT_ACT_ENVIRONMENT = true
+
+if (!globalThis.URL) globalThis.URL = {}
+if (typeof globalThis.URL.createObjectURL !== 'function') {
+  globalThis.URL.createObjectURL = () => `blob:test/${++blobSeq}`
+  globalThis.URL.revokeObjectURL = () => {}
+}
 
 globalThis.fetch = async (url, init) => {
   const href = String(url)
@@ -55,9 +63,19 @@ globalThis.fetch = async (url, init) => {
   }
   if (href.includes('alt=media')) {
     mediaRequests += 1
-    // Full-size bytes never arrive: this is the slow original that used to
-    // leave the card stuck on 「载入中…」.
-    return new Promise(() => {})
+    // Full-size bytes are held back first (the slow original that used to
+    // leave the card stuck on 「载入中…」), then released to prove the
+    // download path still receives the original bytes.
+    return new Promise((resolve) => {
+      pendingMedia.push(() =>
+        resolve(
+          new Response(new Blob(['FULL-RESOLUTION-ORIGINAL'], { type: 'image/jpeg' }), {
+            status: 200,
+            headers: { 'Content-Type': 'image/jpeg' },
+          }),
+        ),
+      )
+    })
   }
   if (href.includes('/files/') && init?.method === 'DELETE') return new Response(null, { status: 204 })
   return new Response('[]', { status: 200, headers: { 'Content-Type': 'application/json' } })
@@ -133,6 +151,15 @@ const afterImg = container.querySelector('.album-flip__card.is-front img')
 check('next card also shows a preview', Boolean(afterImg) && afterImg.getAttribute('src') === THUMB)
 check('flip reuses preview cache', thumbRequests > before, `requests ${before} -> ${thumbRequests}`)
 check('flip never shows 载入中', !container.textContent.includes('载入中'))
+
+// Release the original bytes: the viewer must swap to the full-size image and
+// keep handing the original blob to 「下载原图」.
+for (const resolveMedia of pendingMedia.splice(0)) resolveMedia()
+await settle()
+const fullImg = container.querySelector('.album-flip__card.is-front img')
+check('full-size image replaces the preview once it loads', Boolean(fullImg) && fullImg.getAttribute('src').startsWith('blob:'), fullImg ? fullImg.getAttribute('src') : 'no img')
+check('download button appears only with the original blob', container.textContent.includes('下载原图'))
+check('preview URL is not used as the download source', !container.innerHTML.includes(`href="${THUMB}"`))
 
 await act(async () => {
   root.unmount()

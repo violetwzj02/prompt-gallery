@@ -1,0 +1,53 @@
+{
+  "content": {
+    "name": "quyi-cards.json",
+    "path": "data/quyi-cards.json",
+    "sha": "ce46ed77ad666f6e68123c711cb24f5b8625a10b",
+    "size": 501734,
+    "url": "https://api.github.com/repos/violetwzj02/prompt-gallery/contents/data/quyi-cards.json?ref=gh-pages",
+    "html_url": "https://github.com/violetwzj02/prompt-gallery/blob/gh-pages/data/quyi-cards.json",
+    "git_url": "https://api.github.com/repos/violetwzj02/prompt-gallery/git/blobs/ce46ed77ad666f6e68123c711cb24f5b8625a10b",
+    "download_url": "https://raw.githubusercontent.com/violetwzj02/prompt-gallery/gh-pages/data/quyi-cards.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/violetwzj02/prompt-gallery/contents/data/quyi-cards.json?ref=gh-pages",
+      "git": "https://api.github.com/repos/violetwzj02/prompt-gallery/git/blobs/ce46ed77ad666f6e68123c711cb24f5b8625a10b",
+      "html": "https://github.com/violetwzj02/prompt-gallery/blob/gh-pages/data/quyi-cards.json"
+    }
+  },
+  "commit": {
+    "sha": "ec8f1c7db4ba5f28290f82a351617fdc4b2026bf",
+    "node_id": "C_kwDOVwFVwtoAKGVjOGYxYzdkYjRiYTVmMjgyOTBmODJhMzUxNjE3ZmRjNGIyMDI2YmY",
+    "url": "https://api.github.com/repos/violetwzj02/prompt-gallery/git/commits/ec8f1c7db4ba5f28290f82a351617fdc4b2026bf",
+    "html_url": "https://github.com/violetwzj02/prompt-gallery/commit/ec8f1c7db4ba5f28290f82a351617fdc4b2026bf",
+    "author": {
+      "name": "violetwzj02",
+      "email": "2133578934@qq.com",
+      "date": "2026-11-24T17:18:13Z"
+    },
+    "committer": {
+      "name": "violetwzj02",
+      "email": "2133578934@qq.com",
+      "date": "2026-11-24T17:18:13Z"
+    },
+    "tree": {
+      "sha": "d707705c92a1d288b748bc00189df66e7d94fb98",
+      "url": "https://api.github.com/repos/violetwzj02/prompt-gallery/git/trees/d707705c92a1d288b748bc00189df66e7d94fb98"
+    },
+    "message": "发布：18+ 卡片「角色 · 画面特色」命名",
+    "parents": [
+      {
+        "sha": "f1d5df04772a67106a6e40571bb8c00c30e701bf",
+        "url": "https://api.github.com/repos/violetwzj02/prompt-gallery/git/commits/f1d5df04772a67106a6e40571bb8c00c30e701bf",
+        "html_url": "https://github.com/violetwzj02/prompt-gallery/commit/f1d5df04772a67106a6e40571bb8c00c30e701bf"
+      }
+    ],
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  }
+}

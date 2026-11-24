@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>图鉴 · 一次性授权面板</title>
+    <style>
+      :root { color-scheme: light dark; --line: #d9d9de; --muted: #6b6b76; --accent: #111; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; padding: 32px 20px 64px;
+        font-family: "Noto Sans SC", -apple-system, "Segoe UI", sans-serif;
+        background: #f7f7f8; color: #1b1b1f; line-height: 1.65;
+      }
+      main { max-width: 760px; margin: 0 auto; }
+      h1 { font-size: 22px; margin: 0 0 4px; letter-spacing: .02em; }
+      .sub { color: var(--muted); font-size: 13px; margin: 0 0 24px; }
+      section {
+        background: #fff; border: 1px solid var(--line); border-radius: 12px;
+        padding: 18px 20px; margin-bottom: 16px;
+      }
+      h2 { font-size: 15px; margin: 0 0 10px; }
+      h2 span { color: var(--muted); font-weight: 400; font-size: 13px; margin-left: 6px; }
+      p { margin: 0 0 10px; font-size: 13.5px; }
+      button {
+        font: inherit; font-size: 13.5px; padding: 8px 16px; border-radius: 8px;
+        border: 1px solid #111; background: #111; color: #fff; cursor: pointer;
+      }
+      button.ghost { background: #fff; color: #111; }
+      button:disabled { opacity: .45; cursor: default; }
+      code, pre {
+        font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px;
+      }
+      pre {
+        margin: 10px 0 0; padding: 10px 12px; background: #f4f4f5; border-radius: 8px;
+        border: 1px solid var(--line); white-space: pre-wrap; word-break: break-all;
+        max-height: 210px; overflow: auto;
+      }
+      .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+      .hint { color: var(--muted); font-size: 12.5px; }
+      .warn { font-size: 12.5px; color: #8a5a00; background: #fff8e6; border: 1px solid #f0dfae; border-radius: 8px; padding: 8px 10px; }
+      kbd { background: #eee; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; font-size: 12px; }
+      ol, ul { margin: 6px 0 0; padding-left: 20px; font-size: 13.5px; }
+      li { margin-bottom: 4px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>图鉴 · 一次性授权面板</h1>
+      <p class="sub">
+        只在本页面内读取你自己的登录态，不上传、不保存、不写日志。用完关掉本页即可。
+      </p>
+
+      <section>
+        <h2>① Google Drive<span>点一次，弹窗里点「允许」</span></h2>
+        <p class="hint">
+          用相册同一个 OAuth 客户端申请 <code>drive.file</code> 权限，约 1 小时有效。
+          过期了回本页再点一次即可。
+        </p>
+        <div class="row">
+          <button id="drive-btn">授权 Google Drive</button>
+          <button id="drive-copy" class="ghost" disabled>复制 token</button>
+          <span id="drive-state" class="hint"></span>
+        </div>
+        <pre id="drive-out" hidden></pre>
+      </section>
+
+      <section>
+        <h2>② Supabase 会话<span>需要先在本站登录</span></h2>
+        <p class="hint">
+          读取本浏览器里你自己的 Supabase 登录态（含 refresh token），用于改相册标题、写相册记录。
+        </p>
+        <div class="row">
+          <button id="sb-btn">读取我的会话</button>
+          <button id="sb-copy" class="ghost" disabled>复制</button>
+          <span id="sb-state" class="hint"></span>
+        </div>
+        <pre id="sb-out" hidden></pre>
+      </section>
+
+      <section>
+        <h2>③ Grok 登录态<span>只能手工复制</span></h2>
+        <p class="hint">
+          Grok 的 <code>sso</code> cookie 是 httpOnly，网页脚本读不到，必须从开发者工具里复制：
+        </p>
+        <ol>
+          <li>新标签打开 <code>grok.com</code> 并确认已登录</li>
+          <li>按 <kbd>F12</kbd> → <code>Application</code>（应用）→ 左侧 <code>Cookies</code> → <code>https://grok.com</code></li>
+          <li>找到 <code>sso</code> 和 <code>sso-rw</code> 两行，双击 <code>Value</code> 列全选复制</li>
+          <li>按 <code>sso=&lt;值&gt;; sso-rw=&lt;值&gt;</code> 的格式贴给我</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>④ 一键打包<span>能拿到的部分合成一段</span></h2>
+        <p class="hint">把 ①② 的结果合成一段 JSON，复制后整段发我即可（Grok 那段仍需你手工补）。</p>
+        <div class="row">
+          <button id="all-btn">生成并复制</button>
+          <span id="all-state" class="hint"></span>
+        </div>
+        <pre id="all-out" hidden></pre>
+      </section>
+
+      <p class="warn">
+        这个页面暴露的是“访问者自己的”凭据：别人打开只会看到他自己没登录。仍建议用完立即关闭，
+        并把复制出去的 token 当作密码对待；Google token 约 1 小时自动失效，Supabase 会话可在个人中心退出登录使其失效。
+      </p>
+    </main>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+      const CLIENT_ID = '954700470615-e4ogvam1hss8kv3p7mo6sheio7r7565n.apps.googleusercontent.com'
+      const SCOPE = 'https://www.googleapis.com/auth/drive.file'
+      const state = { drive: null, supabase: null }
+
+      const $ = (id) => document.getElementById(id)
+
+      function show(id, text) {
+        const el = $(id)
+        el.hidden = false
+        el.textContent = text
+      }
+
+      async function copy(text, label) {
+        try {
+          await navigator.clipboard.writeText(text)
+          label.textContent = '已复制'
+        } catch {
+          const area = document.createElement('textarea')
+          area.value = text
+          document.body.appendChild(area)
+          area.select()
+          document.execCommand('copy')
+          area.remove()
+          label.textContent = '已复制'
+        }
+        setTimeout(() => (label.textContent = ''), 2500)
+      }
+
+      // ① Drive
+      $('drive-btn').addEventListener('click', () => {
+        if (!window.google || !google.accounts || !google.accounts.oauth2) {
+          $('drive-state').textContent = '谷歌组件还没加载完，等 2 秒再点一次'
+          return
+        }
+        const client = google.accounts.oauth2.initTokenClient({
+          client_id: CLIENT_ID,
+          scope: SCOPE,
+          callback: (response) => {
+            if (!response || !response.access_token) {
+              $('drive-state').textContent = '没拿到 token：' + (response && response.error ? response.error : '未知原因')
+              return
+            }
+            const expiresAt = Date.now() + Number(response.expires_in || 3600) * 1000
+            state.drive = { access_token: response.access_token, expires_at: new Date(expiresAt).toISOString() }
+            $('drive-state').textContent = '已授权，约 1 小时有效'
+            $('drive-copy').disabled = false
+            show('drive-out', response.access_token)
+          },
+        })
+        client.requestAccessToken({ prompt: 'consent' })
+      })
+      $('drive-copy').addEventListener('click', (e) => state.drive && copy(state.drive.access_token, e.target))
+
+      // ② Supabase
+      $('sb-btn').addEventListener('click', () => {
+        const key = Object.keys(localStorage).find((k) => /^sb-.*-auth-token$/.test(k))
+        if (!key) {
+          $('sb-state').textContent = '本浏览器没有登录态：先在原站点登录管理员账号再来'
+          return
+        }
+        let raw = localStorage.getItem(key)
+        try {
+          const parsed = JSON.parse(raw)
+          const session = parsed && parsed.currentSession ? parsed.currentSession : parsed
+          if (!session || !session.access_token) throw new Error('empty')
+          state.supabase = {
+            access_token: session.access_token,
+            refresh_token: session.refresh_token,
+            expires_at: session.expires_at ? new Date(session.expires_at * 1000).toISOString() : null,
+            email: session.user ? session.user.email : null,
+          }
+          raw = JSON.stringify(state.supabase, null, 2)
+        } catch {
+          $('sb-state').textContent = '读到的会话格式不认识，已原样输出，请直接发我'
+        }
+        $('sb-state').textContent = '已读取' + (state.supabase && state.supabase.email ? '：' + state.supabase.email : '')
+        $('sb-copy').disabled = false
+        show('sb-out', raw)
+      })
+      $('sb-copy').addEventListener('click', (e) => copy($('sb-out').textContent, e.target))
+
+      // ④ bundle
+      $('all-btn').addEventListener('click', (e) => {
+        const bundle = {
+          generated_at: new Date().toISOString(),
+          google_drive: state.drive,
+          supabase: state.supabase,
+          grok_cookie: '<把 sso=...; sso-rw=... 贴在这里>',
+        }
+        const text = JSON.stringify(bundle, null, 2)
+        show('all-out', text)
+        copy(text, e.target)
+      })
+    </script>
+  </body>
+</html>
