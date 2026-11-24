@@ -38,12 +38,8 @@ import { albumHistoryState, closeAlbumHashLayer, pushHash, replaceHash, toAccoun
 import { DownloadOriginalButton } from '../DownloadOriginalButton'
 import { extFromMime, sanitizeFilename } from '../../utils/downloadOriginal'
 import { albumDisplayTitle } from '../../utils/albumDisplay'
-import {
-  acquireDriveImage,
-  peekDriveImage,
-  releaseDriveImage,
-  type DriveImageRecord,
-} from '../../lib/driveImageCache'
+import { type DriveImagePriority } from '../../lib/driveImageCache'
+import { useDriveImageSlot } from '../../hooks/useDriveImageSlot'
 import { ADULT_CATEGORY } from '../../types'
 import { loadQuyiMeta, PENDING_CHARACTER, sortCharacterNames, type QuyiCharacter } from '../../utils/quyiCharacters'
 import { AlbumFlipBook } from './AlbumFlipBook'
@@ -738,8 +734,8 @@ export function CloudAlbum({ route }: Props) {
                   <div className="album-drawer__layer album-drawer__layer--2" />
                   <div className="album-drawer__layer album-drawer__layer--1" />
                   <div className="album-drawer__front">
-                    {folder.thumb && token ? (
-                      <DriveImage token={token} fileId={folder.thumb.driveFileId} title={folder.name} />
+                    {folder.thumb && token && !characterFolder ? (
+                      <DriveImage token={token} fileId={folder.thumb.driveFileId} title={folder.name} priority="low" />
                     ) : (
                       <div className="album-ph">空文件夹</div>
                     )}
@@ -788,7 +784,7 @@ export function CloudAlbum({ route }: Props) {
               onClick={() => setAlbumHash({ itemId: item.id }, 'push')}
             >
               <div className="album-card__media">
-                <DriveImage token={token} fileId={item.driveFileId} title={albumDisplayTitle({ title: item.title, index: itemIndex + 1 })} />
+                <DriveImage token={token} fileId={item.driveFileId} title={albumDisplayTitle({ title: item.title, index: itemIndex + 1 })} priority="low" />
               </div>
               <div className="album-card__body">
                 <p className="album-card__title">{albumDisplayTitle({ title: item.title, index: itemIndex + 1 })}</p>
@@ -940,55 +936,19 @@ function DriveImage({
   title,
   contain = false,
   download = false,
+  priority = 'high',
 }: {
   token: string | null
   fileId: string
   title?: string | null
   contain?: boolean
   download?: boolean
+  priority?: DriveImagePriority
 }) {
-  const [url, setUrl] = useState<string | null>(null)
-  const [blob, setBlob] = useState<Blob | null>(null)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    if (!token) {
-      setUrl(null)
-      setBlob(null)
-      setError(null)
-      return
-    }
-    let cancelled = false
-    let record: DriveImageRecord | null = null
-    const cached = peekDriveImage(fileId)
-    if (cached) {
-      setUrl(cached.url)
-      setBlob(cached.blob)
-      setError(null)
-    } else {
-      setUrl(null)
-      setBlob(null)
-      setError(null)
-    }
-    void acquireDriveImage(token, fileId)
-      .then((next) => {
-        if (cancelled) {
-          releaseDriveImage(next)
-          return
-        }
-        record = next
-        setBlob(next.blob)
-        setUrl(next.url)
-        setError(null)
-      })
-      .catch((err) => {
-        if (!cancelled) setError(err instanceof Error ? err.message : '无法载入图片')
-      })
-    return () => {
-      cancelled = true
-      if (record) releaseDriveImage(record)
-    }
-  }, [token, fileId])
+  const slot = useDriveImageSlot({ token, fileId, priority })
+  const url = slot.url
+  const blob = slot.blob
+  const error = slot.error
 
   if (error) return <div className="album-ph">{error}</div>
   if (!token) return <div className="album-ph">连接谷歌云盘后可预览</div>

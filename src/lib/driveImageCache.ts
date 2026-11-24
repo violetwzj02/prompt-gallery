@@ -4,12 +4,21 @@ export interface DriveImageRecord {
   url: string
 }
 
+export type DriveImageSessionState =
+  | { readonly status: 'active' }
+  | { readonly status: 'ended'; readonly reason: DriveImageCacheFailureReason }
+
+export type DriveImageSessionListener = (state: DriveImageSessionState) => void
+
 export interface DriveImageCache {
   peek: (fileId: string) => DriveImageRecord | null
   acquire: (token: string, fileId: string, priority?: DriveImagePriority) => Promise<DriveImageRecord>
   release: (record: DriveImageRecord) => void
   prefetch: (token: string, fileIds: readonly string[]) => void
-  clear: () => void
+  rebindToken: (token: string) => void
+  clear: (reason?: DriveImageCacheFailureReason) => void
+  session: () => DriveImageSessionState
+  subscribe: (listener: DriveImageSessionListener) => () => void
   stats: () => DriveImageCacheStats
 }
 
@@ -21,19 +30,44 @@ export interface DriveImageCacheStats {
   generation: number
   active: number
   queued: number
+  recent: number
+  boundToken: string | null
 }
 
 export type DriveImagePriority = 'high' | 'low'
+export type DriveImageCacheFailureReason = 'logout' | 'account-switch' | 'reset'
+
+export const DRIVE_IMAGE_SESSION_ENDED = '请重新连接谷歌云盘'
+
+export class DriveImageCacheError extends Error {
+  readonly reason: DriveImageCacheFailureReason
+  readonly retryable: boolean
+
+  constructor(reason: DriveImageCacheFailureReason) {
+    super(DRIVE_IMAGE_SESSION_ENDED)
+    this.name = 'DriveImageCacheError'
+    this.reason = reason
+    this.retryable = false
+  }
+}
+
+export function isDriveImageCacheError(error: unknown): error is DriveImageCacheError {
+  return error instanceof DriveImageCacheError
+}
+
+export function isDriveImageSessionEndedError(error: unknown): error is DriveImageCacheError {
+  return error instanceof DriveImageCacheError && !error.retryable
+}
 
 export interface CreateDriveImageCacheOptions {
   fetchBlob: (input: { token: string; fileId: string }) => Promise<Blob>
   maxBytes?: number
   maxEntries?: number
   maxConcurrent?: number
+  reservedHigh?: number
+  recentPins?: number
   isRetryable?: (error: unknown) => boolean
 }
-
-const CACHE_CLEARED = '相册图片缓存已清空'
 
 interface CacheEntry {
   fileId: string
@@ -57,6 +91,7 @@ function defaultIsRetryable(error: unknown): boolean {
     return true
   }
   if (!(error instanceof Error)) return false
+  if (isDriveImageSessionEndedError(error)) return false
   const raw = `${error.name} ${error.message}`.toLowerCase()
   if (raw.includes('abort')) return true
   if (raw.includes('failed to fetch') || raw.includes('networkerror') || raw.includes('load failed')) return true
@@ -70,15 +105,27 @@ function toRecord(entry: CacheEntry): DriveImageRecord {
 
 export function createDriveImageCache(options: CreateDriveImageCacheOptions): DriveImageCache {
   const maxBytes = options.maxBytes ?? 64 * 1024 * 1024
-  const maxEntries = options.maxEntries ?? 32
+  const maxEntries = options.maxEntries ?? 48
   const maxConcurrent = Math.max(1, options.maxConcurrent ?? 4)
+  const reservedHigh = Math.max(1, Math.min(options.reservedHigh ?? 2, maxConcurrent))
+  const recentLimit = Math.max(0, options.recentPins ?? 8)
   const isRetryable = options.isRetryable ?? defaultIsRetryable
 
   let generation = 0
-  let active = 0
+  let lastClearReason: DriveImageCacheFailureReason = 'reset'
+  let activeHigh = 0
+  let activeLow = 0
+  let boundToken: string | null = null
+  let sessionState: DriveImageSessionState = { status: 'active' }
+  const sessionListeners = new Set<DriveImageSessionListener>()
   const entries = new Map<string, CacheEntry>()
   const inflight = new Map<string, Promise<DriveImageRecord>>()
   const queue: QueueJob[] = []
+  const recent: string[] = []
+
+  function activeTotal(): number {
+    return activeHigh + activeLow
+  }
 
   function totalBytes(): number {
     let total = 0
@@ -92,14 +139,36 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
     return total
   }
 
+  function setSessionState(next: DriveImageSessionState): void {
+    sessionState = next
+    for (const listener of sessionListeners) listener(next)
+  }
+
+  function noteRecent(fileId: string): void {
+    if (recentLimit <= 0) return
+    const index = recent.indexOf(fileId)
+    if (index >= 0) recent.splice(index, 1)
+    recent.push(fileId)
+    if (recent.length > recentLimit) recent.shift()
+  }
+
+  function evictEntry(fileId: string, entry: CacheEntry): void {
+    URL.revokeObjectURL(entry.url)
+    entries.delete(fileId)
+    const index = recent.indexOf(fileId)
+    if (index >= 0) recent.splice(index, 1)
+  }
+
   function evictIfNeeded(): void {
     const over = () => entries.size > maxEntries || totalBytes() > maxBytes
     if (!over()) return
+    // Never evict in-use or recently viewed/prefetched images. Overflow is allowed
+    // when those protected entries are what keep the cache over budget.
     for (const [fileId, entry] of entries) {
       if (!over()) return
       if (entry.refs > 0) continue
-      URL.revokeObjectURL(entry.url)
-      entries.delete(fileId)
+      if (recent.includes(fileId)) continue
+      evictEntry(fileId, entry)
     }
   }
 
@@ -115,6 +184,7 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
     if (!entry) return null
     entry.refs += 1
     touch(fileId)
+    noteRecent(fileId)
     return toRecord(entry)
   }
 
@@ -123,24 +193,51 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
     if (job) job.priority = 'high'
   }
 
+  function hasQueuedHigh(): boolean {
+    return queue.some((item) => item.priority === 'high')
+  }
+
+  function canStart(priority: DriveImagePriority): boolean {
+    if (priority === 'high') {
+      if (activeTotal() < maxConcurrent) return true
+      // Leave room for a foreground image even when low-priority thumbs filled the cap.
+      return activeHigh < reservedHigh
+    }
+    if (activeTotal() >= maxConcurrent) return false
+    const lowCap = Math.max(0, maxConcurrent - reservedHigh)
+    if (hasQueuedHigh() && activeLow >= lowCap) return false
+    return true
+  }
+
   function takeNextJob(): QueueJob | undefined {
     const high = queue.findIndex((item) => item.priority === 'high')
-    if (high >= 0) {
+    if (high >= 0 && canStart('high')) {
       const [job] = queue.splice(high, 1)
       return job
     }
-    return queue.shift()
+    const low = queue.findIndex((item) => item.priority === 'low')
+    if (low >= 0 && canStart('low')) {
+      const [job] = queue.splice(low, 1)
+      return job
+    }
+    return undefined
+  }
+
+  function resolveToken(fallback: string): string {
+    return boundToken || fallback
   }
 
   async function fetchWithRetry(token: string, fileId: string, gen: number): Promise<Blob> {
     const attempt = async (): Promise<Blob> => {
-      if (gen !== generation) throw new Error(CACHE_CLEARED)
-      return options.fetchBlob({ token, fileId })
+      if (gen !== generation) throw new DriveImageCacheError(lastClearReason)
+      return options.fetchBlob({ token: resolveToken(token), fileId })
     }
     try {
       return await attempt()
     } catch (error) {
-      if (gen !== generation) throw new Error(CACHE_CLEARED)
+      if (gen !== generation) {
+        throw error instanceof DriveImageCacheError ? error : new DriveImageCacheError(lastClearReason)
+      }
       if (!isRetryable(error)) throw error
       return attempt()
     }
@@ -151,21 +248,30 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
     if (existing) {
       existing.refs += 1
       touch(fileId)
+      noteRecent(fileId)
       return toRecord(existing)
     }
     const url = URL.createObjectURL(blob)
     const entry: CacheEntry = { fileId, blob, url, refs: 1, size: blob.size }
     entries.set(fileId, entry)
+    noteRecent(fileId)
     evictIfNeeded()
     return toRecord(entry)
   }
 
+  function finishJob(priority: DriveImagePriority, fileId: string): void {
+    if (priority === 'high') activeHigh -= 1
+    else activeLow -= 1
+    inflight.delete(fileId)
+    pump()
+  }
+
   function pump(): void {
-    while (active < maxConcurrent) {
+    while (true) {
       const job = takeNextJob()
       if (!job) return
       if (job.generation !== generation) {
-        job.reject(new Error(CACHE_CLEARED))
+        job.reject(new DriveImageCacheError(lastClearReason))
         continue
       }
       const cached = retainCached(job.fileId)
@@ -174,24 +280,20 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
         continue
       }
       const gen = job.generation
-      active += 1
-      const finishJob = () => {
-        active -= 1
-        inflight.delete(job.fileId)
-        pump()
-      }
+      if (job.priority === 'high') activeHigh += 1
+      else activeLow += 1
       void fetchWithRetry(job.token, job.fileId, gen)
         .then((blob) => {
-          if (gen !== generation) throw new Error(CACHE_CLEARED)
+          if (gen !== generation) throw new DriveImageCacheError(lastClearReason)
           return storeBlob(job.fileId, blob)
         })
         .then(
           (record) => {
-            finishJob()
+            finishJob(job.priority, job.fileId)
             job.resolve(record)
           },
           (error) => {
-            finishJob()
+            finishJob(job.priority, job.fileId)
             job.reject(error)
           },
         )
@@ -199,6 +301,8 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
   }
 
   function acquire(token: string, fileId: string, priority: DriveImagePriority = 'high'): Promise<DriveImageRecord> {
+    if (sessionState.status === 'ended') return Promise.reject(new DriveImageCacheError(sessionState.reason))
+    if (!boundToken) boundToken = token
     const cached = retainCached(fileId)
     if (cached) return Promise.resolve(cached)
 
@@ -208,12 +312,12 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
       return pending.then((record) => {
         const again = retainCached(record.fileId)
         if (again) return again
-        throw new Error(CACHE_CLEARED)
+        throw new DriveImageCacheError(lastClearReason)
       })
     }
 
     const promise = new Promise<DriveImageRecord>((resolve, reject) => {
-      queue.push({ token, fileId, priority, generation, resolve, reject })
+      queue.push({ token: resolveToken(token), fileId, priority, generation, resolve, reject })
     })
     inflight.set(fileId, promise)
     pump()
@@ -233,6 +337,7 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
   }
 
   function prefetch(token: string, fileIds: readonly string[]): void {
+    if (sessionState.status === 'ended') return
     const seen = new Set<string>()
     for (const fileId of fileIds) {
       if (!fileId || seen.has(fileId)) continue
@@ -243,13 +348,23 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
     }
   }
 
-  function clear(): void {
+  function rebindToken(token: string): void {
+    boundToken = token
+    for (const job of queue) job.token = token
+    if (sessionState.status === 'ended') setSessionState({ status: 'active' })
+  }
+
+  function clear(reason: DriveImageCacheFailureReason = 'reset'): void {
+    lastClearReason = reason
     generation += 1
+    boundToken = null
+    setSessionState({ status: 'ended', reason })
     const pending = queue.splice(0, queue.length)
-    for (const job of pending) job.reject(new Error(CACHE_CLEARED))
+    for (const job of pending) job.reject(new DriveImageCacheError(reason))
     inflight.clear()
     for (const entry of entries.values()) URL.revokeObjectURL(entry.url)
     entries.clear()
+    recent.splice(0, recent.length)
   }
 
   function stats(): DriveImageCacheStats {
@@ -259,12 +374,25 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
       refs: totalRefs(),
       inflight: inflight.size,
       generation,
-      active,
+      active: activeTotal(),
       queued: queue.length,
+      recent: recent.length,
+      boundToken,
     }
   }
 
-  return { peek, acquire, release, prefetch, clear, stats }
+  function session(): DriveImageSessionState {
+    return sessionState
+  }
+
+  function subscribe(listener: DriveImageSessionListener): () => void {
+    sessionListeners.add(listener)
+    return () => {
+      sessionListeners.delete(listener)
+    }
+  }
+
+  return { peek, acquire, release, prefetch, rebindToken, clear, session, subscribe, stats }
 }
 
 let fetchBlobImpl: CreateDriveImageCacheOptions['fetchBlob'] | null = null
@@ -300,8 +428,20 @@ export function prefetchDriveImages(token: string, fileIds: readonly string[]): 
   albumDriveImageCache.prefetch(token, fileIds)
 }
 
-export function clearDriveImageCache(): void {
-  albumDriveImageCache.clear()
+export function rebindDriveImageToken(token: string): void {
+  albumDriveImageCache.rebindToken(token)
+}
+
+export function clearDriveImageCache(reason: DriveImageCacheFailureReason = 'reset'): void {
+  albumDriveImageCache.clear(reason)
+}
+
+export function peekDriveImageSession(): DriveImageSessionState {
+  return albumDriveImageCache.session()
+}
+
+export function subscribeDriveImageSession(listener: DriveImageSessionListener): () => void {
+  return albumDriveImageCache.subscribe(listener)
 }
 
 export function driveImageCacheStats(): DriveImageCacheStats {

@@ -1,4 +1,19 @@
-import { clearDriveImageCache, setDriveImageBlobFetcher } from './driveImageCache'
+import {
+  clearDriveImageCache,
+  rebindDriveImageToken,
+  setDriveImageBlobFetcher,
+} from './driveImageCache'
+
+export {
+  acquireDriveImage,
+  clearDriveImageCache,
+  DRIVE_IMAGE_SESSION_ENDED,
+  DriveImageCacheError,
+  driveImageCacheStats,
+  isDriveImageSessionEndedError,
+  peekDriveImage,
+  releaseDriveImage,
+} from './driveImageCache'
 export const DRIVE_FOLDER_NAME = '风格 Prompt 图鉴·云端相册'
 export const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.file'
 export const MAX_ALBUM_FILE_BYTES = 50 * 1024 * 1024
@@ -103,8 +118,10 @@ function readStoredToken(): TokenPayload | null {
 }
 
 function persistToken(payload: TokenPayload): void {
-  const previous = memoryToken?.accessToken
-  if (previous && previous !== payload.accessToken) clearDriveImageCache()
+  const previousEmail = memoryToken?.email
+  const emailChanged = Boolean(previousEmail && payload.email && previousEmail !== payload.email)
+  if (emailChanged) clearDriveImageCache('account-switch')
+  if (payload.accessToken) rebindDriveImageToken(payload.accessToken)
   memoryToken = payload
   if (typeof sessionStorage === 'undefined') return
   try {
@@ -126,16 +143,19 @@ export function peekDriveEmail(): string | undefined {
   return current?.email
 }
 
-export function clearDriveAccess(): void {
+function invalidateAccessTokenOnly(): void {
   memoryToken = null
-  clearDriveImageCache()
-  if (typeof sessionStorage !== 'undefined') {
-    try {
-      sessionStorage.removeItem(TOKEN_STORAGE_KEY)
-    } catch {
-      /* ignore */
-    }
+  if (typeof sessionStorage === 'undefined') return
+  try {
+    sessionStorage.removeItem(TOKEN_STORAGE_KEY)
+  } catch {
+    /* ignore */
   }
+}
+
+export function clearDriveAccess(): void {
+  invalidateAccessTokenOnly()
+  clearDriveImageCache('logout')
 }
 
 export function setDriveAuthTimeoutsForTests(timeouts: {
@@ -161,10 +181,11 @@ function clearAuthTimers(): void {
 
 export function resetDriveAuthForTests(): void {
   memoryToken = null
-  clearDriveImageCache()
+  clearDriveImageCache('reset')
   gisLoading = null
   tokenClient = null
   pendingToken = null
+  refreshAccessPromise = null
   clearAuthTimers()
   loadTimeoutMs = DEFAULT_LOAD_TIMEOUT_MS
   tokenTimeoutMs = DEFAULT_TOKEN_TIMEOUT_MS
@@ -385,7 +406,24 @@ function isNetworkError(error: unknown): boolean {
   return raw.includes('failed to fetch') || raw.includes('networkerror') || raw.includes('load failed')
 }
 
-async function driveFetch(token: string, url: string, init: RequestInit = {}): Promise<Response> {
+let refreshAccessPromise: Promise<string> | null = null
+
+async function refreshDriveAccessToken(): Promise<string> {
+  const current = peekAccessToken()
+  if (current) return current
+  if (refreshAccessPromise) return refreshAccessPromise
+  refreshAccessPromise = requestDriveAccess('').finally(() => {
+    refreshAccessPromise = null
+  })
+  return refreshAccessPromise
+}
+
+async function driveFetch(
+  token: string,
+  url: string,
+  init: RequestInit = {},
+  alreadyRetried = false,
+): Promise<Response> {
   const headers = new Headers(init.headers)
   headers.set('Authorization', `Bearer ${token}`)
   const controller = new AbortController()
@@ -398,8 +436,19 @@ async function driveFetch(token: string, url: string, init: RequestInit = {}): P
   }
   try {
     const response = await fetch(url, { ...init, headers, signal: controller.signal })
-    if (response.status === 401) clearDriveAccess()
-    return response
+    if (response.status !== 401) return response
+    if (alreadyRetried) {
+      clearDriveAccess()
+      return response
+    }
+    invalidateAccessTokenOnly()
+    try {
+      const next = await refreshDriveAccessToken()
+      return driveFetch(next, url, init, true)
+    } catch {
+      clearDriveAccess()
+      return response
+    }
   } catch (error) {
     if (isAbortError(error) || isNetworkError(error)) throw new Error(DRIVE_NETWORK_ERROR)
     throw error instanceof Error ? error : new Error(DRIVE_NETWORK_ERROR)

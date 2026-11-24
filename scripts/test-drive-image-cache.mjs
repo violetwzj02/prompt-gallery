@@ -13,7 +13,12 @@ buildSync({
   format: 'esm',
 })
 
-const { createDriveImageCache } = await import(pathToFileURL(outfile).href)
+const {
+  createDriveImageCache,
+  DriveImageCacheError,
+  DRIVE_IMAGE_SESSION_ENDED,
+  isDriveImageSessionEndedError,
+} = await import(pathToFileURL(outfile).href)
 
 const livingUrls = new Set()
 let urlSeq = 0
@@ -67,6 +72,7 @@ const cache = createDriveImageCache({
   maxEntries: 2,
   maxBytes: 40,
   maxConcurrent: 1,
+  recentPins: 0,
   fetchBlob: ({ fileId }) => {
     fetchCount += 1
     const job = deferred()
@@ -162,12 +168,17 @@ check('stale fetch started', staleCache.stats().inflight, 1)
 staleCache.clear()
 check('clear bumps generation', staleCache.stats().generation >= 1, true)
 lateResolve(solidBlob('stale', 8))
-await expectReject('cleared inflight rejects', staleAcquire, '相册图片缓存已清空')
+await expectReject('cleared inflight rejects', staleAcquire, DRIVE_IMAGE_SESSION_ENDED)
 check('stale result not cached', staleCache.peek('stale-file') === null, true)
 check('stale late result left no entry', staleCache.stats().entries, 0)
+check('session is ended after clear', staleCache.session().status, 'ended')
+await expectReject('acquire after clear stays rejected until rebind', staleCache.acquire('new-token', 'stale-file'), DRIVE_IMAGE_SESSION_ENDED)
+check('ended session does not auto fetch', staleCalls, 1)
 
+staleCache.rebindToken('new-token')
+check('rebind reopens the session', staleCache.session().status, 'active')
 const fresh = await staleCache.acquire('new-token', 'stale-file')
-check('new token can fetch after clear', fresh.fileId, 'stale-file')
+check('new token can fetch after rebind', fresh.fileId, 'stale-file')
 check('new token required a new fetch', staleCalls, 2)
 staleCache.release(fresh)
 staleCache.clear()
@@ -188,6 +199,118 @@ await new Promise((resolve) => setTimeout(resolve, 20))
 const n1 = await preCache.acquire('tok', 'n1')
 check('prefetch then acquire no extra fetch', prefCount, 2)
 preCache.release(n1)
+
+// Token rebind must not surface an internal clear error, and in-flight work should retry with the new token.
+let rebindTokens = []
+let rebindResolvers = []
+const rebindCache = createDriveImageCache({
+  fetchBlob: ({ token, fileId }) => {
+    rebindTokens.push(token)
+    return new Promise((resolve, reject) => {
+      rebindResolvers.push({ token, fileId, resolve, reject })
+    })
+  },
+})
+const rebound = rebindCache.acquire('tok-old', 'live-file')
+check('rebind fetch started with old token', rebindTokens[0], 'tok-old')
+rebindCache.rebindToken('tok-new')
+check('rebind keeps existing entries map', rebindCache.stats().generation, 0)
+const firstJob = rebindResolvers.shift()
+firstJob.reject(new Error('Failed to fetch'))
+let wait = 0
+while (rebindResolvers.length === 0 && wait < 30) {
+  await Promise.resolve()
+  wait += 1
+}
+const retryJob = rebindResolvers.shift()
+check('retry job arrived', Boolean(retryJob), true)
+retryJob.resolve(solidBlob('live', 8))
+const recLive = await rebound
+check('rebind retries with new token instead of failing', recLive.fileId, 'live-file')
+check('retry used rebound token', rebindTokens[1], 'tok-new')
+check('no cache-cleared string on rebind', recLive.url.includes('blob:'), true)
+rebindCache.release(recLive)
+
+// Logout mid-flight must reject with a session-ended error and must not be treated as retryable.
+let logoutResolve
+const logoutCache = createDriveImageCache({
+  fetchBlob: () => new Promise((resolve) => { logoutResolve = resolve }),
+})
+const logoutAcquire = logoutCache.acquire('tok', 'gone')
+logoutCache.clear('logout')
+logoutResolve(solidBlob('too-late', 8))
+try {
+  await logoutAcquire
+  check('logout inflight should reject', 'resolved', 'rejected')
+} catch (error) {
+  check('logout uses session-ended message, not cache-cleared', error.message, DRIVE_IMAGE_SESSION_ENDED)
+  check('logout error is not retryable', isDriveImageSessionEndedError(error) && error.reason === 'logout', true)
+  check('error name', error instanceof DriveImageCacheError, true)
+}
+check('logout does not cache late blob', logoutCache.peek('gone') === null, true)
+
+// Recent pins keep prefetched images even when many in-use thumbs overflow maxEntries.
+let pinFetches = 0
+const pinCache = createDriveImageCache({
+  maxEntries: 3,
+  maxBytes: 10_000,
+  recentPins: 3,
+  maxConcurrent: 4,
+  fetchBlob: ({ fileId }) => {
+    pinFetches += 1
+    return Promise.resolve(solidBlob(fileId, 8))
+  },
+})
+const thumbs = []
+for (const id of ['t1', 't2', 't3', 't4']) thumbs.push(await pinCache.acquire('tok', id))
+pinCache.prefetch('tok', ['prev', 'next'])
+await new Promise((resolve) => setTimeout(resolve, 20))
+const beforeBack = pinFetches
+const prev = await pinCache.acquire('tok', 'prev')
+check('back to prefetched neighbor does not refetch', pinFetches, beforeBack)
+check('previous image is a cache hit', prev.fileId, 'prev')
+pinCache.release(prev)
+for (const thumb of thumbs) pinCache.release(thumb)
+
+// High-priority viewer jobs are not starved by a pile of low-priority thumbs.
+const started = []
+const blockers = []
+const starveCache = createDriveImageCache({
+  maxConcurrent: 2,
+  reservedHigh: 1,
+  fetchBlob: ({ fileId }) => {
+    started.push(fileId)
+    return new Promise((resolve) => {
+      blockers.push({ fileId, resolve })
+    })
+  },
+})
+const low1 = starveCache.acquire('tok', 'low-1', 'low')
+const low2 = starveCache.acquire('tok', 'low-2', 'low')
+const low3 = starveCache.acquire('tok', 'low-3', 'low')
+await Promise.resolve()
+const high1 = starveCache.acquire('tok', 'view-1', 'high')
+await Promise.resolve()
+check('low traffic left a slot for the viewer', started.includes('view-1'), true)
+check('third low waited behind the viewer', started.includes('low-3'), false)
+const settleStarted = () => {
+  for (const job of blockers) {
+    if (!job.settled) {
+      job.settled = true
+      job.resolve(solidBlob(job.fileId, 8))
+    }
+  }
+}
+for (let step = 0; step < 40 && blockers.filter((job) => job.settled).length < 4; step += 1) {
+  settleStarted()
+  await Promise.resolve()
+}
+settleStarted()
+const [low1rec, low2rec, low3rec, high1rec] = await Promise.all([low1, low2, low3, high1])
+starveCache.release(low1rec)
+starveCache.release(low2rec)
+starveCache.release(low3rec)
+starveCache.release(high1rec)
 
 const failed = cases.filter((c) => !c.ok)
 console.log(`${cases.length - failed.length}/${cases.length} passed`)

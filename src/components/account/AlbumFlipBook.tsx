@@ -1,22 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import type { AlbumItem } from '../../lib/album'
 import { formatAlbumTime } from '../../lib/album'
-import {
-  acquireDriveImage,
-  peekDriveImage,
-  prefetchDriveImages,
-  releaseDriveImage,
-  type DriveImageRecord,
-} from '../../lib/driveImageCache'
+import { prefetchDriveImages } from '../../lib/driveImageCache'
+import { useDriveImageSlot } from '../../hooks/useDriveImageSlot'
 import { albumDisplayTitle } from '../../utils/albumDisplay'
 import { DownloadOriginalButton } from '../DownloadOriginalButton'
 import { extFromMime, sanitizeFilename } from '../../utils/downloadOriginal'
-
-interface DriveSlot {
-  url: string | null
-  blob: Blob | null
-  error: string | null
-}
 
 interface Props {
   items: AlbumItem[]
@@ -27,7 +16,6 @@ interface Props {
 
 export function AlbumFlipBook({ items, token, character, onOpen }: Props) {
   const [index, setIndex] = useState(0)
-  const [slot, setSlot] = useState<DriveSlot>({ url: null, blob: null, error: null })
   const startX = useRef<number | null>(null)
   const itemKey = items.map((item) => item.id).join('|')
 
@@ -37,42 +25,20 @@ export function AlbumFlipBook({ items, token, character, onOpen }: Props) {
 
   const current = items[index] ?? null
   const displayTitle = current ? albumDisplayTitle({ title: current.title, index: index + 1 }) : ''
+  const slot = useDriveImageSlot({
+    token,
+    fileId: current?.driveFileId ?? null,
+    priority: 'high',
+  })
 
   useEffect(() => {
-    if (!current) {
-      setSlot({ url: null, blob: null, error: null })
-      return
-    }
-    let cancelled = false
-    let record: DriveImageRecord | null = null
-    const cached = peekDriveImage(current.driveFileId)
-    if (cached) {
-      setSlot({ url: cached.url, blob: cached.blob, error: null })
-    } else {
-      setSlot({ url: null, blob: null, error: null })
-    }
-    void acquireDriveImage(token, current.driveFileId)
-      .then((next) => {
-        if (cancelled) {
-          releaseDriveImage(next)
-          return
-        }
-        record = next
-        setSlot({ url: next.url, blob: next.blob, error: null })
-      })
-      .catch((err) => {
-        if (!cancelled) setSlot({ url: null, blob: null, error: err instanceof Error ? err.message : '无法载入图片' })
-      })
+    if (!current) return
     const neighbors: string[] = []
     const prev = items[index - 1]
     const nextItem = items[index + 1]
     if (prev) neighbors.push(prev.driveFileId)
     if (nextItem) neighbors.push(nextItem.driveFileId)
     prefetchDriveImages(token, neighbors)
-    return () => {
-      cancelled = true
-      if (record) releaseDriveImage(record)
-    }
   }, [current, index, items, token])
 
   useEffect(() => {
@@ -176,7 +142,7 @@ export function AlbumFlipBook({ items, token, character, onOpen }: Props) {
         <p className="album-flip__count">
           {character} · {index + 1} / {items.length}
         </p>
-        {current && (
+        {current && !slot.error && (
           <>
             <h3>{displayTitle}</h3>
             <p className="album__hint">

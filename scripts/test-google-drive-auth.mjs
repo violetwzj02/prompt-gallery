@@ -139,7 +139,17 @@ const {
   setDriveAuthTimeoutsForTests,
   resetDriveAuthForTests,
   peekAccessToken,
+  peekDriveEmail,
+  fetchDriveImageBlob,
+  acquireDriveImage,
+  peekDriveImage,
+  releaseDriveImage,
+  driveImageCacheStats,
+  DRIVE_IMAGE_SESSION_ENDED,
 } = mod
+
+if (typeof URL.createObjectURL !== 'function') URL.createObjectURL = () => `blob:test/${Math.random()}`
+if (typeof URL.revokeObjectURL !== 'function') URL.revokeObjectURL = () => {}
 
 const cases = []
 const check = (name, ok, detail = '') => {
@@ -363,6 +373,130 @@ await withFresh(async ({ window }) => {
       peekAccessToken() === 'late-token',
     `state=${status.state} error=${status.error} peek=${peekAccessToken()}`,
   )
+})
+
+await withFresh(async ({ window }) => {
+  let issued = 'tok-a'
+  window.google = { accounts: { oauth2: mockOauth((_override, config) => {
+    config.callback({ access_token: issued, expires_in: 3600 })
+  }) } }
+  await preloadDriveAuth()
+  await requestDriveAccess('consent')
+  const previousFetch = globalThis.fetch
+  globalThis.fetch = async (url) => {
+    if (String(url).includes('about?fields=user')) {
+      return new Response(JSON.stringify({ user: { emailAddress: 'same@example.com' } }), { status: 200 })
+    }
+    return new Response('img-a', { status: 200 })
+  }
+  try {
+    await getDriveUserEmail('tok-a')
+    check('seed email for same-account refresh', peekDriveEmail() === 'same@example.com')
+    const first = await acquireDriveImage(peekAccessToken(), 'file-keep')
+    const urlsBefore = first.url
+    issued = 'tok-b'
+    const nextTok = await requestDriveAccess('consent')
+    check('same account new token is peeked', nextTok === 'tok-b' && peekAccessToken() === 'tok-b', `next=${nextTok} peek=${peekAccessToken()}`)
+    check('token refresh does not wipe image cache', peekDriveImage('file-keep') !== null && peekDriveImage('file-keep').url === urlsBefore)
+    await getDriveUserEmail('tok-b')
+    check('same email still keeps cache', peekDriveImage('file-keep') !== null)
+    releaseDriveImage(first)
+  } finally {
+    globalThis.fetch = previousFetch
+  }
+})
+
+await withFresh(async ({ window }) => {
+  let issued = 'tok-old-acct'
+  let email = 'alpha@example.com'
+  window.google = { accounts: { oauth2: mockOauth((_override, config) => {
+    config.callback({ access_token: issued, expires_in: 3600 })
+  }) } }
+  await preloadDriveAuth()
+  await requestDriveAccess('consent')
+  const previousFetch = globalThis.fetch
+  globalThis.fetch = async (url) => {
+    if (String(url).includes('about?fields=user')) {
+      return new Response(JSON.stringify({ user: { emailAddress: email } }), { status: 200 })
+    }
+    return new Response('img', { status: 200 })
+  }
+  try {
+    await getDriveUserEmail('tok-old-acct')
+    const first = await acquireDriveImage(peekAccessToken(), 'file-acct')
+    check('account image cached', peekDriveImage('file-acct') !== null)
+    issued = 'tok-new-acct'
+    email = 'beta@example.com'
+    await requestDriveAccess('consent')
+    await getDriveUserEmail('tok-new-acct')
+    check('account switch clears previous images', peekDriveImage('file-acct') === null, `peek=${Boolean(peekDriveImage('file-acct'))} email=${peekDriveEmail()}`)
+    releaseDriveImage(first)
+  } finally {
+    globalThis.fetch = previousFetch
+  }
+})
+
+await withFresh(async ({ window }) => {
+  let issued = 'tok-expired'
+  window.google = { accounts: { oauth2: mockOauth((_override, config) => {
+    config.callback({ access_token: issued, expires_in: 3600 })
+  }) } }
+  await preloadDriveAuth()
+  await requestDriveAccess('consent')
+  const previousFetch = globalThis.fetch
+  const auths = []
+  let imageCalls = 0
+  globalThis.fetch = async (url, init) => {
+    const header = init.headers.get ? init.headers.get('Authorization') : ''
+    auths.push(header)
+    if (String(url).includes('alt=media')) {
+      imageCalls += 1
+      if (header.includes('tok-expired')) return new Response('no', { status: 401 })
+      return new Response('img-ok', { status: 200 })
+    }
+    return new Response('no', { status: 500 })
+  }
+  try {
+    issued = 'tok-fresh'
+    const blob = await fetchDriveImageBlob('tok-expired', 'file-401')
+    check('401 refreshes and retries the image', imageCalls === 2 && blob.size > 0, `calls=${imageCalls}`)
+    check('retry used the fresh token', auths.some((item) => item.includes('tok-fresh')), `auths=${auths.join(',')}`)
+    check('401 refresh keeps session', peekAccessToken() === 'tok-fresh')
+  } finally {
+    globalThis.fetch = previousFetch
+  }
+})
+
+await withFresh(async ({ window }) => {
+  let issued = 'tok-dead'
+  window.google = { accounts: { oauth2: mockOauth((_override, config) => {
+    if (issued === 'fail-refresh') {
+      config.error_callback({ type: 'popup_closed_by_user' })
+      return
+    }
+    config.callback({ access_token: issued, expires_in: 3600 })
+  }) } }
+  await preloadDriveAuth()
+  await requestDriveAccess('consent')
+  const previousFetch = globalThis.fetch
+  globalThis.fetch = async (url) => {
+    if (String(url).includes('alt=media')) return new Response('no', { status: 401 })
+    return new Response('no', { status: 500 })
+  }
+  try {
+    issued = 'fail-refresh'
+    await fetchDriveImageBlob('tok-dead', 'file-kept-logout')
+    check('failed refresh should reject', false)
+  } catch (error) {
+    check(
+      'failed refresh logs out and does not keep a session token',
+      peekAccessToken() === null && error instanceof Error && error.message.length > 0,
+      `error=${error instanceof Error ? error.message : error} peek=${peekAccessToken()}`,
+    )
+    check('failed refresh clears image cache', driveImageCacheStats().entries === 0)
+  } finally {
+    globalThis.fetch = previousFetch
+  }
 })
 
 const failed = cases.filter((item) => !item.ok)

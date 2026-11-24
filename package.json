@@ -9,11 +9,12 @@
     "preview": "vite preview --host 0.0.0.0 --port 4173",
     "parse": "python3 scripts/parse_prompts.py",
     "ingest:quyi": "python3 scripts/ingest_quyi.py",
-    "test": "node scripts/test-download-original.mjs && node scripts/test-google-drive-auth.mjs && node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs && python3 scripts/test_ingest_quyi.py",
+    "test": "node scripts/test-download-original.mjs && node scripts/test-google-drive-auth.mjs && node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs && node scripts/test-album-image-lifecycle.mjs && python3 scripts/test_ingest_quyi.py",
     "test:download": "node scripts/test-download-original.mjs",
     "test:drive": "node scripts/test-google-drive-auth.mjs",
     "test:quyi": "python3 scripts/test_ingest_quyi.py",
-    "test:album": "node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs"
+    "test:album": "node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs && node scripts/test-album-image-lifecycle.mjs",
+    "harness:album-cache": "node scripts/album-cache-harness/server.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",
@@ -25,6 +26,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "happy-dom": "^21.0.4",
     "typescript": "~5.7.2",
     "vite": "^6.0.0"
   },
