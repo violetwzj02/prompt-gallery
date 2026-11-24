@@ -1,7 +1,7 @@
 {
-  "generatedFrom": "PROMPT_MASTER.md + obsidian-20261120.md",
+  "generatedFrom": "PROMPT_MASTER.md + obsidian-20261120.md + miku grok inspiration 2026-11-24",
   "masterCount": 106,
-  "count": 216,
+  "count": 251,
   "categories": {
     "人物": 27,
     "场景": 20,
@@ -9,7 +9,8 @@
     "特效": 36,
     "周边": 22,
     "艺术": 55,
-    "MJ": 18
+    "MJ": 18,
+    "Grok": 35
   },
   "collections": [
     {
@@ -71,13 +72,43 @@
       "name": "仙侠繁华试",
       "category": "场景",
       "count": 4
+    },
+    {
+      "id": "grok-renxiang",
+      "name": "人像写真",
+      "category": "Grok",
+      "count": 16
+    },
+    {
+      "id": "grok-haibao",
+      "name": "海报封面",
+      "category": "Grok",
+      "count": 8
+    },
+    {
+      "id": "grok-chahua",
+      "name": "插画角色",
+      "category": "Grok",
+      "count": 6
+    },
+    {
+      "id": "grok-changjing",
+      "name": "场景概念",
+      "category": "Grok",
+      "count": 3
+    },
+    {
+      "id": "grok-chanpin",
+      "name": "产品转化",
+      "category": "Grok",
+      "count": 2
     }
   ],
   "tagFacets": {
     "medium": [
       {
         "name": "图像",
-        "count": 201
+        "count": 225
       },
       {
         "name": "视频",
@@ -85,36 +116,48 @@
       },
       {
         "name": "模板",
-        "count": 7
+        "count": 12
       },
       {
         "name": "图生提示词",
-        "count": 3
+        "count": 9
       }
     ],
     "aspect": [
       {
         "name": "3:4",
-        "count": 24
+        "count": 28
       },
       {
         "name": "9:16",
-        "count": 15
+        "count": 21
       },
       {
         "name": "16:9",
-        "count": 9
-      },
-      {
-        "name": "1:1",
-        "count": 4
+        "count": 17
       },
       {
         "name": "2:3",
+        "count": 12
+      },
+      {
+        "name": "1:1",
+        "count": 6
+      },
+      {
+        "name": "4:3",
+        "count": 2
+      },
+      {
+        "name": "944:1120",
         "count": 2
       },
       {
         "name": "3:1",
+        "count": 1
+      },
+      {
+        "name": "3:2",
         "count": 1
       },
       {
@@ -125,11 +168,11 @@
     "style": [
       {
         "name": "人像",
-        "count": 35
+        "count": 51
       },
       {
         "name": "角色设定",
-        "count": 8
+        "count": 10
       },
       {
         "name": "精修",
@@ -149,7 +192,7 @@
       },
       {
         "name": "特写",
-        "count": 4
+        "count": 5
       },
       {
         "name": "远景",
@@ -169,23 +212,23 @@
       },
       {
         "name": "古风",
-        "count": 23
+        "count": 25
       },
       {
         "name": "科幻",
-        "count": 16
+        "count": 17
       },
       {
         "name": "巨构",
-        "count": 11
+        "count": 12
       },
       {
         "name": "海报",
-        "count": 36
+        "count": 41
       },
       {
         "name": "插画",
-        "count": 36
+        "count": 38
       },
       {
         "name": "艺术字",
@@ -193,7 +236,7 @@
       },
       {
         "name": "手写",
-        "count": 9
+        "count": 11
       },
       {
         "name": "书法",
@@ -205,27 +248,27 @@
       },
       {
         "name": "商品",
-        "count": 25
+        "count": 28
       },
       {
         "name": "写实",
-        "count": 37
+        "count": 48
       },
       {
         "name": "摄影",
-        "count": 59
+        "count": 75
       },
       {
         "name": "电影感",
-        "count": 37
+        "count": 40
       },
       {
         "name": "二次元",
-        "count": 9
+        "count": 12
       },
       {
         "name": "Q版",
-        "count": 3
+        "count": 5
       },
       {
         "name": "Midjourney",
@@ -233,19 +276,19 @@
       },
       {
         "name": "图生图",
-        "count": 16
+        "count": 18
       },
       {
         "name": "拼贴",
-        "count": 9
+        "count": 10
       },
       {
         "name": "极简",
-        "count": 12
+        "count": 13
       },
       {
         "name": "Cosplay",
-        "count": 2
+        "count": 3
       }
     ]
   }

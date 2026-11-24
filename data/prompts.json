@@ -1,7 +1,7 @@
 {
-  "generatedFrom": "PROMPT_MASTER.md + obsidian-20261120.md",
+  "generatedFrom": "PROMPT_MASTER.md + obsidian-20261120.md + miku grok inspiration 2026-11-24",
   "masterCount": 106,
-  "count": 216,
+  "count": 251,
   "categories": {
     "人物": 27,
     "场景": 20,
@@ -9,7 +9,8 @@
     "特效": 36,
     "周边": 22,
     "艺术": 55,
-    "MJ": 18
+    "MJ": 18,
+    "Grok": 35
   },
   "collections": [
     {
@@ -71,13 +72,43 @@
       "name": "仙侠繁华试",
       "category": "场景",
       "count": 4
+    },
+    {
+      "id": "grok-renxiang",
+      "name": "人像写真",
+      "category": "Grok",
+      "count": 16
+    },
+    {
+      "id": "grok-haibao",
+      "name": "海报封面",
+      "category": "Grok",
+      "count": 8
+    },
+    {
+      "id": "grok-chahua",
+      "name": "插画角色",
+      "category": "Grok",
+      "count": 6
+    },
+    {
+      "id": "grok-changjing",
+      "name": "场景概念",
+      "category": "Grok",
+      "count": 3
+    },
+    {
+      "id": "grok-chanpin",
+      "name": "产品转化",
+      "category": "Grok",
+      "count": 2
     }
   ],
   "tagFacets": {
     "medium": [
       {
         "name": "图像",
-        "count": 201
+        "count": 225
       },
       {
         "name": "视频",
@@ -85,36 +116,48 @@
       },
       {
         "name": "模板",
-        "count": 7
+        "count": 12
       },
       {
         "name": "图生提示词",
-        "count": 3
+        "count": 9
       }
     ],
     "aspect": [
       {
         "name": "3:4",
-        "count": 24
+        "count": 28
       },
       {
         "name": "9:16",
-        "count": 15
+        "count": 21
       },
       {
         "name": "16:9",
-        "count": 9
-      },
-      {
-        "name": "1:1",
-        "count": 4
+        "count": 17
       },
       {
         "name": "2:3",
+        "count": 12
+      },
+      {
+        "name": "1:1",
+        "count": 6
+      },
+      {
+        "name": "4:3",
+        "count": 2
+      },
+      {
+        "name": "944:1120",
         "count": 2
       },
       {
         "name": "3:1",
+        "count": 1
+      },
+      {
+        "name": "3:2",
         "count": 1
       },
       {
@@ -125,11 +168,11 @@
     "style": [
       {
         "name": "人像",
-        "count": 35
+        "count": 51
       },
       {
         "name": "角色设定",
-        "count": 8
+        "count": 10
       },
       {
         "name": "精修",
@@ -149,7 +192,7 @@
       },
       {
         "name": "特写",
-        "count": 4
+        "count": 5
       },
       {
         "name": "远景",
@@ -169,23 +212,23 @@
       },
       {
         "name": "古风",
-        "count": 23
+        "count": 25
       },
       {
         "name": "科幻",
-        "count": 16
+        "count": 17
       },
       {
         "name": "巨构",
-        "count": 11
+        "count": 12
       },
       {
         "name": "海报",
-        "count": 36
+        "count": 41
       },
       {
         "name": "插画",
-        "count": 36
+        "count": 38
       },
       {
         "name": "艺术字",
@@ -193,7 +236,7 @@
       },
       {
         "name": "手写",
-        "count": 9
+        "count": 11
       },
       {
         "name": "书法",
@@ -205,47 +248,47 @@
       },
       {
         "name": "商品",
-        "count": 25
+        "count": 28
       },
       {
         "name": "写实",
-        "count": 37
+        "count": 48
       },
       {
         "name": "摄影",
-        "count": 59
+        "count": 75
       },
       {
         "name": "电影感",
-        "count": 37
+        "count": 40
       },
       {
         "name": "二次元",
-        "count": 9
-      },
-      {
-        "name": "Q版",
-        "count": 3
-      },
-      {
-        "name": "Midjourney",
-        "count": 14
-      },
-      {
-        "name": "图生图",
-        "count": 16
-      },
-      {
-        "name": "拼贴",
-        "count": 9
-      },
-      {
-        "name": "极简",
         "count": 12
       },
       {
+        "name": "Q版",
+        "count": 5
+      },
+      {
+        "name": "Midjourney",
+        "count": 13
+      },
+      {
+        "name": "图生图",
+        "count": 18
+      },
+      {
+        "name": "拼贴",
+        "count": 10
+      },
+      {
+        "name": "极简",
+        "count": 13
+      },
+      {
         "name": "Cosplay",
-        "count": 2
+        "count": 3
       }
     ]
   },
@@ -6102,6 +6145,1145 @@
         "covers/entries/yishu-50-03.jpg",
         "covers/entries/yishu-50-04.jpg"
       ]
+    },
+    {
+      "id": "grok-3584",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "Raw photoreal high fidelity Girl",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/d1730cb437270ec743cd20e22ebc61a4)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n{\n    \"style_mode\": \"raw_photoreal_high_fidelity\",\n    \"look\": \"K-Pop idol aesthetic, flawless complexion, high-resolution digital photography, trendy\",\n    \"camera\": {\n      \"vantage\": \"slightly high angle (selfie perspective), direct address\",\n      \"framing\": \"extreme close-up (ECU), tight framing on the face and shoulders\",\n      \"lens_behavior\": \"portrait lens (e.g., 85mm prime), extremely shallow depth of field (DoF), sharp focus on the eyes\",\n      \"sensor_quality\": \"high fidelity, no digital noise\"\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"setting\": \"indoor studio or simple interior\",\n      \"lighting\": \"soft, even beauty lighting (e.g., large softbox or beauty dish), minimizing shadows, creating clear catchlights in the eyes, emphasizing glossy highlights\"\n    },\n    \"subject\": {\n      \"description\": \"young East Asian female, K-Pop idol styling\",\n      \"hair\": \"long, dark brown, wavy, glossy finish\",\n      \"expression\": {\n        \"mood\": \"playful, confident, slightly sultry\",\n        \"action\": \"looking directly into the lens, mouth slightly open, tongue slightly sticking out over the lower lip\"\n      },\n      \"makeup\": {\n        \"style\": \"contemporary K-beauty trends\",\n        \"complexion\": \"flawless, 'glass skin' effect, dewy/glossy finish, realistic micro-texture\",\n        \"cheeks\": \"rosy blush, high application\",\n        \"lips\": \"glossy, pink tint\"\n      },\n      \"attire\": {\n        \"top\": \"grey pinstriped halter top, structured design\",\n        \"details\": \"white contrasting collar lapel with silver snap buttons and circular metal hardware\"\n      },\n      \"accessories\": {\n        \"hair_clip\": \"decorative silver/rhinestone clip on her left side\",\n        \"earrings\": \"dangling silver earrings (heart motif)\"\n      }\n    },\n    \"background\": {\n      \"description\": \"plain, neutral grey or white wall, blurred (bokeh)\"\n    }\n  },\n  \"aesthetic_controls\": {\n    \"render_intent\": \"high-quality digital photograph suitable for promotional material or social media\",\n    \"material_fidelity\": [\n      \"realistic skin micro-texture (pores, gloss, makeup interaction)\",\n      \"individual hair strand detail\",\n      \"fabric texture of the pinstripe material\",\n      \"metallic shine of accessories\"\n    ],\n    \"color_grade\": {\n      \"overall\": \"neutral, slightly warm, vibrant skin tones, high clarity\",\n      \"contrast\": \"balanced\"\n    }\n  },\n  \"negative_prompt\": {\n    \"forbidden_elements\": [\"skin imperfections\", \"blemishes\", \"wrinkles\", \"harsh shadows\", \"textured/matte skin\", \"dry lips\", \"outdoor setting\", \"distorted features\", \"motion blur\", \"digital artifacts\"],\n    \"forbidden_style\": [\"anime\", \"painting\", \"illustration\", \"CGI render\", \"low resolution\", \"gritty realism\", \"vintage photography\", \"uncanny valley\", \"overly airbrushed/plastic skin\"]\n  }\n}\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/d1730cb437270ec743cd20e22ebc61a4",
+      "cover": "covers/entries/grok-3584.jpg",
+      "covers": [
+        "covers/entries/grok-3584.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 1,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "人像",
+        "摄影",
+        "写实"
+      ],
+      "medium": "图像",
+      "aspect": "9:16",
+      "promptText": "{\n    \"style_mode\": \"raw_photoreal_high_fidelity\",\n    \"look\": \"K-Pop idol aesthetic, flawless complexion, high-resolution digital photography, trendy\",\n    \"camera\": {\n      \"vantage\": \"slightly high angle (selfie perspective), direct address\",\n      \"framing\": \"extreme close-up (ECU), tight framing on the face and shoulders\",\n      \"lens_behavior\": \"portrait lens (e.g., 85mm prime), extremely shallow depth of field (DoF), sharp focus on the eyes\",\n      \"sensor_quality\": \"high fidelity, no digital noise\"\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"setting\": \"indoor studio or simple interior\",\n      \"lighting\": \"soft, even beauty lighting (e.g., large softbox or beauty dish), minimizing shadows, creating clear catchlights in the eyes, emphasizing glossy highlights\"\n    },\n    \"subject\": {\n      \"description\": \"young East Asian female, K-Pop idol styling\",\n      \"hair\": \"long, dark brown, wavy, glossy finish\",\n      \"expression\": {\n        \"mood\": \"playful, confident, slightly sultry\",\n        \"action\": \"looking directly into the lens, mouth slightly open, tongue slightly sticking out over the lower lip\"\n      },\n      \"makeup\": {\n        \"style\": \"contemporary K-beauty trends\",\n        \"complexion\": \"flawless, 'glass skin' effect, dewy/glossy finish, realistic micro-texture\",\n        \"cheeks\": \"rosy blush, high application\",\n        \"lips\": \"glossy, pink tint\"\n      },\n      \"attire\": {\n        \"top\": \"grey pinstriped halter top, structured design\",\n        \"details\": \"white contrasting collar lapel with silver snap buttons and circular metal hardware\"\n      },\n      \"accessories\": {\n        \"hair_clip\": \"decorative silver/rhinestone clip on her left side\",\n        \"earrings\": \"dangling silver earrings (heart motif)\"\n      }\n    },\n    \"background\": {\n      \"description\": \"plain, neutral grey or white wall, blurred (bokeh)\"\n    }\n  },\n  \"aesthetic_controls\": {\n    \"render_intent\": \"high-quality digital photograph suitable for promotional material or social media\",\n    \"material_fidelity\": [\n      \"realistic skin micro-texture (pores, gloss, makeup interaction)\",\n      \"individual hair strand detail\",\n      \"fabric texture of the pinstripe material\",\n      \"metallic shine of accessories\"\n    ],\n    \"color_grade\": {\n      \"overall\": \"neutral, slightly warm, vibrant skin tones, high clarity\",\n      \"contrast\": \"balanced\"\n    }\n  },\n  \"negative_prompt\": {\n    \"forbidden_elements\": [\"skin imperfections\", \"blemishes\", \"wrinkles\", \"harsh shadows\", \"textured/matte skin\", \"dry lips\", \"outdoor setting\", \"distorted features\", \"motion blur\", \"digital artifacts\"],\n    \"forbidden_style\": [\"anime\", \"painting\", \"illustration\", \"CGI render\", \"low resolution\", \"gritty realism\", \"vintage photography\", \"uncanny valley\", \"overly airbrushed/plastic skin\"]\n  }\n}",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "{\n    \"style_mode\": \"raw_photoreal_high_fidelity\",\n    \"look\": \"K-Pop idol aesthetic, flawless complexion, high-resolution digital photography, trendy\",\n    \"camera\": {\n      \"vantage\": \"slightly high angle (selfie perspective), direct address\",\n      \"framing\": \"extreme close-up (ECU), tight framing on the face and shoulders\",\n      \"lens_behavior\": \"portrait lens (e.g., 85mm prime), extremely shallow depth of field (DoF), sharp focus on the eyes\",\n      \"sensor_quality\": \"high fidelity, no digital noise\"\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"setting\": \"indoor studio or simple interior\",\n      \"lighting\": \"soft, even beauty lighting (e.g., large softbox or beauty dish), minimizing shadows, creating clear catchlights in the eyes, emphasizing glossy highlights\"\n    },\n    \"subject\": {\n      \"description\": \"young East Asian female, K-Pop idol styling\",\n      \"hair\": \"long, dark brown, wavy, glossy finish\",\n      \"expression\": {\n        \"mood\": \"playful, confident, slightly sultry\",\n        \"action\": \"looking directly into the lens, mouth slightly open, tongue slightly sticking out over the lower lip\"\n      },\n      \"makeup\": {\n        \"style\": \"contemporary K-beauty trends\",\n        \"complexion\": \"flawless, 'glass skin' effect, dewy/glossy finish, realistic micro-texture\",\n        \"cheeks\": \"rosy blush, high application\",\n        \"lips\": \"glossy, pink tint\"\n      },\n      \"attire\": {\n        \"top\": \"grey pinstriped halter top, structured design\",\n        \"details\": \"white contrasting collar lapel with silver snap buttons and circular metal hardware\"\n      },\n      \"accessories\": {\n        \"hair_clip\": \"decorative silver/rhinestone clip on her left side\",\n        \"earrings\": \"dangling silver earrings (heart motif)\"\n      }\n    },\n    \"background\": {\n      \"description\": \"plain, neutral grey or white wall, blurred (bokeh)\"\n    }\n  },\n  \"aesthetic_controls\": {\n    \"render_intent\": \"high-quality digital photograph suitable for promotional material or social media\",\n    \"material_fidelity\": [\n      \"realistic skin micro-texture (pores, gloss, makeup interaction)\",\n      \"individual hair strand detail\",\n      \"fabric texture of the pinstripe material\",\n      \"metallic shine of accessories\"\n    ],\n    \"color_grade\": {\n      \"overall\": \"neutral, slightly warm, vibrant skin tones, high clarity\",\n      \"contrast\": \"balanced\"\n    }\n  },\n  \"negative_prompt\": {\n    \"forbidden_elements\": [\"skin imperfections\", \"blemishes\", \"wrinkles\", \"harsh shadows\", \"textured/matte skin\", \"dry lips\", \"outdoor setting\", \"distorted features\", \"motion blur\", \"digital artifacts\"],\n    \"forbidden_style\": [\"anime\", \"painting\", \"illustration\", \"CGI render\", \"low resolution\", \"gritty realism\", \"vintage photography\", \"uncanny valley\", \"overly airbrushed/plastic skin\"]\n  }\n}"
+    },
+    {
+      "id": "grok-3585",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "年轻女性单人半身近景肖像",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/e571889350bf810b1f00b0c8a907bfb2)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n一、画面主题\n1 人物类型：年轻女性单人半身近景肖像\n2 姿态视角：侧身回眸，肩背朝向镜头外侧，头部微转看向镜头\n3 取景范围：头部到上背部与肩部，人物占画面主体，留少量背景空间\n4 画面比例：竖幅，人物略偏左，眼睛位于上三分线附近\n\n二、五官与表情\n1 表情气质：清冷克制，略带疏离感，不露齿\n2 眼部特征：大眼比例，睫毛清晰，眼神聚焦镜头，眼下轻微卧蚕与柔和阴影\n3 唇部特征：饱满水润，边缘柔和，带明显高光与果冻质感\n4 肤感特征：极致细腻平滑，毛孔弱化，整体偏白净通透\n\n三、妆容风格\n1 底妆：高遮瑕与柔雾磨皮结合，局部保留自然高光\n2 腮红：从颧骨到眼下扩散的粉色晕染，轻薄但可见\n3 眼妆：细致上眼线与自然加深眼尾，浅棕灰系过渡，整体干净\n4 唇妆：粉豆沙到浅玫瑰的渐变，叠加强光泽感\n\n四、发型与配饰\n1 发型：深色直发，低马尾或低位扎发，头顶蓬松自然\n2 刘海：中分，细碎发丝垂落两侧贴近脸颊\n3 眼镜：金属细框透明镜片，椭圆偏方的镜框，镜腿有金属装饰\n4 耳饰：耳廓位置小型耳钉，低调点缀\n\n五、服装与肌肤细节\n1 服装：红色细肩带，露背设计，肩带在画面右侧清晰可见\n2 皮肤光泽：肩背处有柔和反光，呈现细腻奶油肌质感\n\n六、光线与影调\n1 主光方向：左前上方柔光，覆盖面大，阴影非常软\n2 补光：正前方弱补光，压低对比度，使面部几乎无硬阴影\n3 高光控制：鼻梁、上唇、下唇与眼镜边缘有小面积亮点高光\n4 整体影调：低对比、柔雾感、层次细腻，暗部不死黑\n\n七、背景与环境\n1 背景：纯净单色浅粉灰渐变墙面，无纹理无杂物\n2 景深：背景强虚化或本身极简，使人物轮廓更突出\n3 氛围：干净、静谧、带轻微甜冷感\n\n八、镜头与画面质感模拟\n1 焦距感觉：中长焦近景压缩感，脸部比例自然不夸张\n2 景深表现：眼睛清晰，耳后与背景明显虚化\n3 清晰度：五官边缘清晰但不过锐，整体偏柔\n4 噪点：几乎无颗粒，呈现干净的商业人像质感\n\n九、后期处理要点\n1 磨皮：强但自然，保留少量面部结构与阴影过渡\n2 色彩：整体偏冷白肤色，腮红与唇色偏粉，红肩带饱和但不过分\n3 光晕：轻微柔光扩散效果，让高光更圆润\n4 统一性：控制对比与锐度，保持通透、柔和、清洁的画面一致性\n\n十、反向提示词\n1 画面问题：过度锐化、强对比、硬阴影、背景杂乱、噪点颗粒明显\n2 人物问题：夸张表情、露齿大笑、皮肤粗糙毛孔明显、油光满面、脸部畸变\n3 风格偏离：浓重舞台妆、强烈复古色偏、复杂服饰、夸张饰品、强烈环境光源干扰\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/e571889350bf810b1f00b0c8a907bfb2",
+      "cover": "covers/entries/grok-3585.jpg",
+      "covers": [
+        "covers/entries/grok-3585.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 2,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "人像",
+        "摄影",
+        "写实"
+      ],
+      "medium": "图像",
+      "aspect": "2:3",
+      "promptText": "一、画面主题\n1 人物类型：年轻女性单人半身近景肖像\n2 姿态视角：侧身回眸，肩背朝向镜头外侧，头部微转看向镜头\n3 取景范围：头部到上背部与肩部，人物占画面主体，留少量背景空间\n4 画面比例：竖幅，人物略偏左，眼睛位于上三分线附近\n\n二、五官与表情\n1 表情气质：清冷克制，略带疏离感，不露齿\n2 眼部特征：大眼比例，睫毛清晰，眼神聚焦镜头，眼下轻微卧蚕与柔和阴影\n3 唇部特征：饱满水润，边缘柔和，带明显高光与果冻质感\n4 肤感特征：极致细腻平滑，毛孔弱化，整体偏白净通透\n\n三、妆容风格\n1 底妆：高遮瑕与柔雾磨皮结合，局部保留自然高光\n2 腮红：从颧骨到眼下扩散的粉色晕染，轻薄但可见\n3 眼妆：细致上眼线与自然加深眼尾，浅棕灰系过渡，整体干净\n4 唇妆：粉豆沙到浅玫瑰的渐变，叠加强光泽感\n\n四、发型与配饰\n1 发型：深色直发，低马尾或低位扎发，头顶蓬松自然\n2 刘海：中分，细碎发丝垂落两侧贴近脸颊\n3 眼镜：金属细框透明镜片，椭圆偏方的镜框，镜腿有金属装饰\n4 耳饰：耳廓位置小型耳钉，低调点缀\n\n五、服装与肌肤细节\n1 服装：红色细肩带，露背设计，肩带在画面右侧清晰可见\n2 皮肤光泽：肩背处有柔和反光，呈现细腻奶油肌质感\n\n六、光线与影调\n1 主光方向：左前上方柔光，覆盖面大，阴影非常软\n2 补光：正前方弱补光，压低对比度，使面部几乎无硬阴影\n3 高光控制：鼻梁、上唇、下唇与眼镜边缘有小面积亮点高光\n4 整体影调：低对比、柔雾感、层次细腻，暗部不死黑\n\n七、背景与环境\n1 背景：纯净单色浅粉灰渐变墙面，无纹理无杂物\n2 景深：背景强虚化或本身极简，使人物轮廓更突出\n3 氛围：干净、静谧、带轻微甜冷感\n\n八、镜头与画面质感模拟\n1 焦距感觉：中长焦近景压缩感，脸部比例自然不夸张\n2 景深表现：眼睛清晰，耳后与背景明显虚化\n3 清晰度：五官边缘清晰但不过锐，整体偏柔\n4 噪点：几乎无颗粒，呈现干净的商业人像质感\n\n九、后期处理要点\n1 磨皮：强但自然，保留少量面部结构与阴影过渡\n2 色彩：整体偏冷白肤色，腮红与唇色偏粉，红肩带饱和但不过分\n3 光晕：轻微柔光扩散效果，让高光更圆润\n4 统一性：控制对比与锐度，保持通透、柔和、清洁的画面一致性\n\n十、反向提示词\n1 画面问题：过度锐化、强对比、硬阴影、背景杂乱、噪点颗粒明显\n2 人物问题：夸张表情、露齿大笑、皮肤粗糙毛孔明显、油光满面、脸部畸变\n3 风格偏离：浓重舞台妆、强烈复古色偏、复杂服饰、夸张饰品、强烈环境光源干扰",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "一、画面主题\n1 人物类型：年轻女性单人半身近景肖像\n2 姿态视角：侧身回眸，肩背朝向镜头外侧，头部微转看向镜头\n3 取景范围：头部到上背部与肩部，人物占画面主体，留少量背景空间\n4 画面比例：竖幅，人物略偏左，眼睛位于上三分线附近\n\n二、五官与表情\n1 表情气质：清冷克制，略带疏离感，不露齿\n2 眼部特征：大眼比例，睫毛清晰，眼神聚焦镜头，眼下轻微卧蚕与柔和阴影\n3 唇部特征：饱满水润，边缘柔和，带明显高光与果冻质感\n4 肤感特征：极致细腻平滑，毛孔弱化，整体偏白净通透\n\n三、妆容风格\n1 底妆：高遮瑕与柔雾磨皮结合，局部保留自然高光\n2 腮红：从颧骨到眼下扩散的粉色晕染，轻薄但可见\n3 眼妆：细致上眼线与自然加深眼尾，浅棕灰系过渡，整体干净\n4 唇妆：粉豆沙到浅玫瑰的渐变，叠加强光泽感\n\n四、发型与配饰\n1 发型：深色直发，低马尾或低位扎发，头顶蓬松自然\n2 刘海：中分，细碎发丝垂落两侧贴近脸颊\n3 眼镜：金属细框透明镜片，椭圆偏方的镜框，镜腿有金属装饰\n4 耳饰：耳廓位置小型耳钉，低调点缀\n\n五、服装与肌肤细节\n1 服装：红色细肩带，露背设计，肩带在画面右侧清晰可见\n2 皮肤光泽：肩背处有柔和反光，呈现细腻奶油肌质感\n\n六、光线与影调\n1 主光方向：左前上方柔光，覆盖面大，阴影非常软\n2 补光：正前方弱补光，压低对比度，使面部几乎无硬阴影\n3 高光控制：鼻梁、上唇、下唇与眼镜边缘有小面积亮点高光\n4 整体影调：低对比、柔雾感、层次细腻，暗部不死黑\n\n七、背景与环境\n1 背景：纯净单色浅粉灰渐变墙面，无纹理无杂物\n2 景深：背景强虚化或本身极简，使人物轮廓更突出\n3 氛围：干净、静谧、带轻微甜冷感\n\n八、镜头与画面质感模拟\n1 焦距感觉：中长焦近景压缩感，脸部比例自然不夸张\n2 景深表现：眼睛清晰，耳后与背景明显虚化\n3 清晰度：五官边缘清晰但不过锐，整体偏柔\n4 噪点：几乎无颗粒，呈现干净的商业人像质感\n\n九、后期处理要点\n1 磨皮：强但自然，保留少量面部结构与阴影过渡\n2 色彩：整体偏冷白肤色，腮红与唇色偏粉，红肩带饱和但不过分\n3 光晕：轻微柔光扩散效果，让高光更圆润\n4 统一性：控制对比与锐度，保持通透、柔和、清洁的画面一致性\n\n十、反向提示词\n1 画面问题：过度锐化、强对比、硬阴影、背景杂乱、噪点颗粒明显\n2 人物问题：夸张表情、露齿大笑、皮肤粗糙毛孔明显、油光满面、脸部畸变\n3 风格偏离：浓重舞台妆、强烈复古色偏、复杂服饰、夸张饰品、强烈环境光源干扰"
+    },
+    {
+      "id": "grok-3586",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "圣诞写真",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/ac813670404c47ca9133a7d2798a3afa)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\nProfessional studio portrait photography, Christmas winter theme, white studio background.  Young Asian woman, age 20-23, beautiful delicate features: - Large expressive eyes with double eyelids - Elegant facial features, high cheekbones - Natural makeup: soft pink blush, natural lip color - Shoulder-length dark brown hair - Fair porcelain skin with realistic texture (visible pores)  Outfit: - Bright red cable knit beanie - Bright red chunky wool scarf - Black wool coat  Studio setup: Pure white seamless background, professional soft lighting, snowflakes falling on hair/beanie/scarf  Technical: 85mm lens, f/1.8-2.8, natural soft studio lighting, realistic skin texture, high-end fashion portrait quality  Mood: Natural, warm, gentle expression, serene and contemplative\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/ac813670404c47ca9133a7d2798a3afa",
+      "cover": "covers/entries/grok-3586.jpg",
+      "covers": [
+        "covers/entries/grok-3586.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 3,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "人像",
+        "摄影",
+        "写实"
+      ],
+      "medium": "图像",
+      "aspect": "3:4",
+      "promptText": "Professional studio portrait photography, Christmas winter theme, white studio background.  Young Asian woman, age 20-23, beautiful delicate features: - Large expressive eyes with double eyelids - Elegant facial features, high cheekbones - Natural makeup: soft pink blush, natural lip color - Shoulder-length dark brown hair - Fair porcelain skin with realistic texture (visible pores)  Outfit: - Bright red cable knit beanie - Bright red chunky wool scarf - Black wool coat  Studio setup: Pure white seamless background, professional soft lighting, snowflakes falling on hair/beanie/scarf  Technical: 85mm lens, f/1.8-2.8, natural soft studio lighting, realistic skin texture, high-end fashion portrait quality  Mood: Natural, warm, gentle expression, serene and contemplative",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "Professional studio portrait photography, Christmas winter theme, white studio background.  Young Asian woman, age 20-23, beautiful delicate features: - Large expressive eyes with double eyelids - Elegant facial features, high cheekbones - Natural makeup: soft pink blush, natural lip color - Shoulder-length dark brown hair - Fair porcelain skin with realistic texture (visible pores)  Outfit: - Bright red cable knit beanie - Bright red chunky wool scarf - Black wool coat  Studio setup: Pure white seamless background, professional soft lighting, snowflakes falling on hair/beanie/scarf  Technical: 85mm lens, f/1.8-2.8, natural soft studio lighting, realistic skin texture, high-end fashion portrait quality  Mood: Natural, warm, gentle expression, serene and contemplative"
+    },
+    {
+      "id": "grok-3589",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "年轻女性可爱动作（逼真）",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/38427d83a01534a65013a41471941678)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n一、画面主题\n1 主体内容：超近景半身人像，年轻女性正对镜头，摆出可爱动作\n2 五官特点：脸型精致、眼睛偏大、右眼下方点了一颗小痣、唇色淡粉、妆容干净偏日韩感\n\n二、构图与视角\n1 景别：近景，人物占画面主要面积，人物部分超出画面四条边\n2 视角：略高机位或持机自然角度\n3 画面层次：无景深，像是用老款iPhone手机拍摄的，画面曝光明显、泛白\n\n三、光线与曝光\n1 光源方向：右侧强烈阳光\n2 光线质感：右侧强曝光、边缘带轻微光晕\n3 曝光特征：整体偏亮，高调倾向，局部高光略溢出\n4 对比关系：低对比、阴影浅\n\n四、清晰度与质感\n1 细节策略：主体五官与手部相对清楚，但整体锐度不硬\n2 皮肤质感：细腻平滑，磨皮观感\n3 画面颗粒：颗粒感弱\n\n五、造型与道具要点\n1 发型元素：刘海与侧发自然蓬松，头发上有可爱小发夹点缀\n2 手部元素：长甲造型，带亮片与浅色装饰图案，增加精致感\n3 服装质感：浅色家居感上衣，带蕾丝边或柔软边饰，强化温柔气质\n\n六、背景与环境\n1 场景类型：室内居家空间，背后桌子上杂乱，随意摆满生活用品\n2 干净程度：真实日常但不喧宾夺主\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/38427d83a01534a65013a41471941678",
+      "cover": "covers/entries/grok-3589.jpg",
+      "covers": [
+        "covers/entries/grok-3589.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 4,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "人像",
+        "摄影",
+        "写实"
+      ],
+      "medium": "图像",
+      "aspect": "9:16",
+      "promptText": "一、画面主题\n1 主体内容：超近景半身人像，年轻女性正对镜头，摆出可爱动作\n2 五官特点：脸型精致、眼睛偏大、右眼下方点了一颗小痣、唇色淡粉、妆容干净偏日韩感\n\n二、构图与视角\n1 景别：近景，人物占画面主要面积，人物部分超出画面四条边\n2 视角：略高机位或持机自然角度\n3 画面层次：无景深，像是用老款iPhone手机拍摄的，画面曝光明显、泛白\n\n三、光线与曝光\n1 光源方向：右侧强烈阳光\n2 光线质感：右侧强曝光、边缘带轻微光晕\n3 曝光特征：整体偏亮，高调倾向，局部高光略溢出\n4 对比关系：低对比、阴影浅\n\n四、清晰度与质感\n1 细节策略：主体五官与手部相对清楚，但整体锐度不硬\n2 皮肤质感：细腻平滑，磨皮观感\n3 画面颗粒：颗粒感弱\n\n五、造型与道具要点\n1 发型元素：刘海与侧发自然蓬松，头发上有可爱小发夹点缀\n2 手部元素：长甲造型，带亮片与浅色装饰图案，增加精致感\n3 服装质感：浅色家居感上衣，带蕾丝边或柔软边饰，强化温柔气质\n\n六、背景与环境\n1 场景类型：室内居家空间，背后桌子上杂乱，随意摆满生活用品\n2 干净程度：真实日常但不喧宾夺主",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "一、画面主题\n1 主体内容：超近景半身人像，年轻女性正对镜头，摆出可爱动作\n2 五官特点：脸型精致、眼睛偏大、右眼下方点了一颗小痣、唇色淡粉、妆容干净偏日韩感\n\n二、构图与视角\n1 景别：近景，人物占画面主要面积，人物部分超出画面四条边\n2 视角：略高机位或持机自然角度\n3 画面层次：无景深，像是用老款iPhone手机拍摄的，画面曝光明显、泛白\n\n三、光线与曝光\n1 光源方向：右侧强烈阳光\n2 光线质感：右侧强曝光、边缘带轻微光晕\n3 曝光特征：整体偏亮，高调倾向，局部高光略溢出\n4 对比关系：低对比、阴影浅\n\n四、清晰度与质感\n1 细节策略：主体五官与手部相对清楚，但整体锐度不硬\n2 皮肤质感：细腻平滑，磨皮观感\n3 画面颗粒：颗粒感弱\n\n五、造型与道具要点\n1 发型元素：刘海与侧发自然蓬松，头发上有可爱小发夹点缀\n2 手部元素：长甲造型，带亮片与浅色装饰图案，增加精致感\n3 服装质感：浅色家居感上衣，带蕾丝边或柔软边饰，强化温柔气质\n\n六、背景与环境\n1 场景类型：室内居家空间，背后桌子上杂乱，随意摆满生活用品\n2 干净程度：真实日常但不喧宾夺主"
+    },
+    {
+      "id": "grok-3593",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "圣诞节4宫格",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/7bbe965a2d19a5f8fb8e68edcc8a0cb9)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\nUse the face without any  change.A high-quality 2x2 creative photo collage of a young woman with long wavy black hair , posing inside cardboard boxes for a Christmas-themed challenge. She wears a cream, red, and green Fair Isle knit sweater.\nLayout & Interaction (Crucial):The right side features a continuous action across two panels. Red wine is poured from the top-right panel and flows vertically down into the bottom-right panel.\nPanel Details:\n\nTop Left: She blows artificial snow from her palms towards the camera.\nBottom Left: She holds glowing fairy lights and a red bauble, smiling warmly.\nTop Right: She leans on the box edge, holding a wine bottle, pouring red wine downwards so the liquid stream exits the bottom of this frame.\nBottom Right: She is positioned below, holding a wine glass that catches the stream of wine pouring down from the panel above. She is looking up, watching the wine flow into her glass.\n\nStyle: Creative box challenge photography, seamless cross-panel interaction, festive mood, soft studio lighting, ultra-realistic textures.\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/7bbe965a2d19a5f8fb8e68edcc8a0cb9",
+      "cover": "covers/entries/grok-3593.jpg",
+      "covers": [
+        "covers/entries/grok-3593.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 5,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "人像",
+        "摄影",
+        "拼贴",
+        "图生提示词"
+      ],
+      "medium": "图生提示词",
+      "aspect": "9:16",
+      "promptText": "Use the face without any  change.A high-quality 2x2 creative photo collage of a young woman with long wavy black hair , posing inside cardboard boxes for a Christmas-themed challenge. She wears a cream, red, and green Fair Isle knit sweater.\nLayout & Interaction (Crucial):The right side features a continuous action across two panels. Red wine is poured from the top-right panel and flows vertically down into the bottom-right panel.\nPanel Details:\n\nTop Left: She blows artificial snow from her palms towards the camera.\nBottom Left: She holds glowing fairy lights and a red bauble, smiling warmly.\nTop Right: She leans on the box edge, holding a wine bottle, pouring red wine downwards so the liquid stream exits the bottom of this frame.\nBottom Right: She is positioned below, holding a wine glass that catches the stream of wine pouring down from the panel above. She is looking up, watching the wine flow into her glass.\n\nStyle: Creative box challenge photography, seamless cross-panel interaction, festive mood, soft studio lighting, ultra-realistic textures.",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "Use the face without any  change.A high-quality 2x2 creative photo collage of a young woman with long wavy black hair , posing inside cardboard boxes for a Christmas-themed challenge. She wears a cream, red, and green Fair Isle knit sweater.\nLayout & Interaction (Crucial):The right side features a continuous action across two panels. Red wine is poured from the top-right panel and flows vertically down into the bottom-right panel.\nPanel Details:\n\nTop Left: She blows artificial snow from her palms towards the camera.\nBottom Left: She holds glowing fairy lights and a red bauble, smiling warmly.\nTop Right: She leans on the box edge, holding a wine bottle, pouring red wine downwards so the liquid stream exits the bottom of this frame.\nBottom Right: She is positioned below, holding a wine glass that catches the stream of wine pouring down from the panel above. She is looking up, watching the wine flow into her glass.\n\nStyle: Creative box challenge photography, seamless cross-panel interaction, festive mood, soft studio lighting, ultra-realistic textures."
+    },
+    {
+      "id": "grok-6488",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "黑发女子与哑光黑色跑车",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/b10a14b2e68def7a86a5d61f087d6e3b)\n\n原始分类：创意提示词\n作者：underwood96（Promptsref）\n\n**提示词**：\n\n{ \"subject\": { \"description\": \"A young woman with long straight jet-black hair and blunt bangs, calmly leaning on the front fender of a matte black performance coupe, monochrome harmony with a single red headlight accent, restrained luxury street-editorial mood.\", \"mirror_rules\": [], \"age\": \"early 20s\", \"expression\": { \"eyes\": { \"look\": \"side glance\", \"energy\": \"cool, detached\", \"direction\": \"looking to her right (camera-left)\" }, \"mouth\": { \"position\": \"closed, relaxed\", \"energy\": \"quiet, controlled\" }, \"overall\": \"calm, minimal emotion, high-end restraint\" }, \"face\": { \"preserve_original\": true, \"makeup\": \"minimal natural makeup, soft matte skin finish, subtle eyeliner\" } }, \"hair\": { \"color\": \"jet black\", \"style\": \"long straight hair with blunt bangs\", \"effect\": \"smooth, slightly glossy strands, neat silhouette\" }, \"body\": { \"frame\": \"slim\", \"waist\": \"narrow\", \"chest\": \"subtle\", \"legs\": \"long legs with bare thighs visible\", \"skin\": { \"visible_areas\": \"face, hands, legs\", \"tone\": \"light neutral\", \"texture\": \"smooth, cool-to-the-touch, satin-like\", \"lighting_effect\": \"soft open-shade gradients with gentle contrast\" } }, \"pose\": { \"position\": \"leaning and half-sitting on the front fender area near the front wheel\", \"base\": \"one knee bent, hip resting on the car, shoulders slightly relaxed\", \"overall\": \"casual yet composed, a deliberate stillness\" }, \"clothing\": { \"top\": { \"type\": \"oversized hoodie\", \"color\": \"black\", \"details\": \"kangaroo pocket, long sleeves, soft fleece feel, minimal logos\", \"effect\": \"matte texture that absorbs light\" }, \"bottom\": { \"type\": \"black short shorts\", \"color\": \"black\", \"details\": \"very short hem, paired with black knee-high socks and black sneakers (subtle red outsole accent)\", \"effect\": \"clean silhouette, streetwear minimalism\" } }, \"accessories\": { \"prop\": \"matte black BMW M4-style performance coupe, large twin kidney grille, black multi-spoke wheels, red LED headlight signature glowing softly\" }, \"photography\": { \"camera_style\": \"high-end automotive street editorial, realistic digital photo\", \"angle\": \"slightly low to eye-level, 3/4 front view of the car\", \"shot_type\": \"full car with the model, subject placed on the right third, generous negative space above and below\", \"aspect_ratio\": \"3:4 vertical\", \"texture\": \"crisp details, deep blacks, subtle shadow noise, gentle vignette, clean modern look\", \"lighting\": \"late afternoon sun hits the architecture; subject and car in open shade with soft ambient fill, controlled contrast\", \"depth_of_field\": \"moderate depth, subject and car sharp, background slightly softened but still readable\" }, \"background\": { \"setting\": \"quiet modern urban complex driveway in front of minimalist architecture\", \"wall_color\": \"cool gray concrete and off-white facade panels\", \"elements\": [ \"large diagonal concrete structure cutting across the frame\", \"tall glass windows with dark frames\", \"small sparse trees near the building\", \"clean paved sidewalk and curb\", \"dark asphalt street in the foreground\" ], \"atmosphere\": \"silent, premium, minimalist, no crowds\", \"lighting\": \"hard-edged building shadows with soft shaded foreground\" }, \"the_vibe\": { \"energy\": \"low-key power\", \"mood\": \"cool, quiet, self-possessed\", \"aesthetic\": \"monochrome luxury minimalism, restrained street glam\", \"authenticity\": \"real location, real light, everyday calm turned cinematic\", \"intimacy\": \"you feel like you arrived one minute after she parked\", \"story\": \"She had just ended a wordless dusk drive; now she waits in the shade while the city’s geometry holds its breath, and the red lights keep a small secret alive.\", \"caption_energy\": \"No flex. Just presence.\" }, \"constraints\": { \"must_keep\": [ \"monochrome palette (black/gray/neutral architecture)\", \"woman leaning on a matte black performance coupe\", \"red LED headlight accents as the only strong color\", \"large diagonal architectural line dominating the upper frame\", \"vertical composition with generous negative space above and a calm bottom margin\", \"subject in open shade, sunlit building in the background\" ], \"avoid\": [ \"busy backgrounds or crowds\", \"bright colorful outfits\", \"exaggerated smile or dramatic facial expression\", \"wide-angle distortion of the car\", \"overly glossy paint or unrealistic reflections\", \"text overlays, watermarks, heavy filters\" ] }, \"negative_prompt\": [ \"cartoon\", \"anime\", \"illustration\", \"oversaturated\", \"neon\", \"busy background\", \"extra people\", \"text\", \"watermark\", \"logo overlay\", \"lowres\", \"blurry\", \"motion blur\", \"overexposed skin\", \"plastic skin\", \"distorted anatomy\", \"extra limbs\", \"warped car body\", \"unreal reflections\", \"heavy HDR\" ] }\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/b10a14b2e68def7a86a5d61f087d6e3b",
+      "cover": "covers/entries/grok-6488.jpg",
+      "covers": [
+        "covers/entries/grok-6488.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 6,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "人像",
+        "摄影",
+        "写实",
+        "电影感"
+      ],
+      "medium": "图像",
+      "aspect": "2:3",
+      "promptText": "{ \"subject\": { \"description\": \"A young woman with long straight jet-black hair and blunt bangs, calmly leaning on the front fender of a matte black performance coupe, monochrome harmony with a single red headlight accent, restrained luxury street-editorial mood.\", \"mirror_rules\": [], \"age\": \"early 20s\", \"expression\": { \"eyes\": { \"look\": \"side glance\", \"energy\": \"cool, detached\", \"direction\": \"looking to her right (camera-left)\" }, \"mouth\": { \"position\": \"closed, relaxed\", \"energy\": \"quiet, controlled\" }, \"overall\": \"calm, minimal emotion, high-end restraint\" }, \"face\": { \"preserve_original\": true, \"makeup\": \"minimal natural makeup, soft matte skin finish, subtle eyeliner\" } }, \"hair\": { \"color\": \"jet black\", \"style\": \"long straight hair with blunt bangs\", \"effect\": \"smooth, slightly glossy strands, neat silhouette\" }, \"body\": { \"frame\": \"slim\", \"waist\": \"narrow\", \"chest\": \"subtle\", \"legs\": \"long legs with bare thighs visible\", \"skin\": { \"visible_areas\": \"face, hands, legs\", \"tone\": \"light neutral\", \"texture\": \"smooth, cool-to-the-touch, satin-like\", \"lighting_effect\": \"soft open-shade gradients with gentle contrast\" } }, \"pose\": { \"position\": \"leaning and half-sitting on the front fender area near the front wheel\", \"base\": \"one knee bent, hip resting on the car, shoulders slightly relaxed\", \"overall\": \"casual yet composed, a deliberate stillness\" }, \"clothing\": { \"top\": { \"type\": \"oversized hoodie\", \"color\": \"black\", \"details\": \"kangaroo pocket, long sleeves, soft fleece feel, minimal logos\", \"effect\": \"matte texture that absorbs light\" }, \"bottom\": { \"type\": \"black short shorts\", \"color\": \"black\", \"details\": \"very short hem, paired with black knee-high socks and black sneakers (subtle red outsole accent)\", \"effect\": \"clean silhouette, streetwear minimalism\" } }, \"accessories\": { \"prop\": \"matte black BMW M4-style performance coupe, large twin kidney grille, black multi-spoke wheels, red LED headlight signature glowing softly\" }, \"photography\": { \"camera_style\": \"high-end automotive street editorial, realistic digital photo\", \"angle\": \"slightly low to eye-level, 3/4 front view of the car\", \"shot_type\": \"full car with the model, subject placed on the right third, generous negative space above and below\", \"aspect_ratio\": \"3:4 vertical\", \"texture\": \"crisp details, deep blacks, subtle shadow noise, gentle vignette, clean modern look\", \"lighting\": \"late afternoon sun hits the architecture; subject and car in open shade with soft ambient fill, controlled contrast\", \"depth_of_field\": \"moderate depth, subject and car sharp, background slightly softened but still readable\" }, \"background\": { \"setting\": \"quiet modern urban complex driveway in front of minimalist architecture\", \"wall_color\": \"cool gray concrete and off-white facade panels\", \"elements\": [ \"large diagonal concrete structure cutting across the frame\", \"tall glass windows with dark frames\", \"small sparse trees near the building\", \"clean paved sidewalk and curb\", \"dark asphalt street in the foreground\" ], \"atmosphere\": \"silent, premium, minimalist, no crowds\", \"lighting\": \"hard-edged building shadows with soft shaded foreground\" }, \"the_vibe\": { \"energy\": \"low-key power\", \"mood\": \"cool, quiet, self-possessed\", \"aesthetic\": \"monochrome luxury minimalism, restrained street glam\", \"authenticity\": \"real location, real light, everyday calm turned cinematic\", \"intimacy\": \"you feel like you arrived one minute after she parked\", \"story\": \"She had just ended a wordless dusk drive; now she waits in the shade while the city’s geometry holds its breath, and the red lights keep a small secret alive.\", \"caption_energy\": \"No flex. Just presence.\" }, \"constraints\": { \"must_keep\": [ \"monochrome palette (black/gray/neutral architecture)\", \"woman leaning on a matte black performance coupe\", \"red LED headlight accents as the only strong color\", \"large diagonal architectural line dominating the upper frame\", \"vertical composition with generous negative space above and a calm bottom margin\", \"subject in open shade, sunlit building in the background\" ], \"avoid\": [ \"busy backgrounds or crowds\", \"bright colorful outfits\", \"exaggerated smile or dramatic facial expression\", \"wide-angle distortion of the car\", \"overly glossy paint or unrealistic reflections\", \"text overlays, watermarks, heavy filters\" ] }, \"negative_prompt\": [ \"cartoon\", \"anime\", \"illustration\", \"oversaturated\", \"neon\", \"busy background\", \"extra people\", \"text\", \"watermark\", \"logo overlay\", \"lowres\", \"blurry\", \"motion blur\", \"overexposed skin\", \"plastic skin\", \"distorted anatomy\", \"extra limbs\", \"warped car body\", \"unreal reflections\", \"heavy HDR\" ] }",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "{ \"subject\": { \"description\": \"A young woman with long straight jet-black hair and blunt bangs, calmly leaning on the front fender of a matte black performance coupe, monochrome harmony with a single red headlight accent, restrained luxury street-editorial mood.\", \"mirror_rules\": [], \"age\": \"early 20s\", \"expression\": { \"eyes\": { \"look\": \"side glance\", \"energy\": \"cool, detached\", \"direction\": \"looking to her right (camera-left)\" }, \"mouth\": { \"position\": \"closed, relaxed\", \"energy\": \"quiet, controlled\" }, \"overall\": \"calm, minimal emotion, high-end restraint\" }, \"face\": { \"preserve_original\": true, \"makeup\": \"minimal natural makeup, soft matte skin finish, subtle eyeliner\" } }, \"hair\": { \"color\": \"jet black\", \"style\": \"long straight hair with blunt bangs\", \"effect\": \"smooth, slightly glossy strands, neat silhouette\" }, \"body\": { \"frame\": \"slim\", \"waist\": \"narrow\", \"chest\": \"subtle\", \"legs\": \"long legs with bare thighs visible\", \"skin\": { \"visible_areas\": \"face, hands, legs\", \"tone\": \"light neutral\", \"texture\": \"smooth, cool-to-the-touch, satin-like\", \"lighting_effect\": \"soft open-shade gradients with gentle contrast\" } }, \"pose\": { \"position\": \"leaning and half-sitting on the front fender area near the front wheel\", \"base\": \"one knee bent, hip resting on the car, shoulders slightly relaxed\", \"overall\": \"casual yet composed, a deliberate stillness\" }, \"clothing\": { \"top\": { \"type\": \"oversized hoodie\", \"color\": \"black\", \"details\": \"kangaroo pocket, long sleeves, soft fleece feel, minimal logos\", \"effect\": \"matte texture that absorbs light\" }, \"bottom\": { \"type\": \"black short shorts\", \"color\": \"black\", \"details\": \"very short hem, paired with black knee-high socks and black sneakers (subtle red outsole accent)\", \"effect\": \"clean silhouette, streetwear minimalism\" } }, \"accessories\": { \"prop\": \"matte black BMW M4-style performance coupe, large twin kidney grille, black multi-spoke wheels, red LED headlight signature glowing softly\" }, \"photography\": { \"camera_style\": \"high-end automotive street editorial, realistic digital photo\", \"angle\": \"slightly low to eye-level, 3/4 front view of the car\", \"shot_type\": \"full car with the model, subject placed on the right third, generous negative space above and below\", \"aspect_ratio\": \"3:4 vertical\", \"texture\": \"crisp details, deep blacks, subtle shadow noise, gentle vignette, clean modern look\", \"lighting\": \"late afternoon sun hits the architecture; subject and car in open shade with soft ambient fill, controlled contrast\", \"depth_of_field\": \"moderate depth, subject and car sharp, background slightly softened but still readable\" }, \"background\": { \"setting\": \"quiet modern urban complex driveway in front of minimalist architecture\", \"wall_color\": \"cool gray concrete and off-white facade panels\", \"elements\": [ \"large diagonal concrete structure cutting across the frame\", \"tall glass windows with dark frames\", \"small sparse trees near the building\", \"clean paved sidewalk and curb\", \"dark asphalt street in the foreground\" ], \"atmosphere\": \"silent, premium, minimalist, no crowds\", \"lighting\": \"hard-edged building shadows with soft shaded foreground\" }, \"the_vibe\": { \"energy\": \"low-key power\", \"mood\": \"cool, quiet, self-possessed\", \"aesthetic\": \"monochrome luxury minimalism, restrained street glam\", \"authenticity\": \"real location, real light, everyday calm turned cinematic\", \"intimacy\": \"you feel like you arrived one minute after she parked\", \"story\": \"She had just ended a wordless dusk drive; now she waits in the shade while the city’s geometry holds its breath, and the red lights keep a small secret alive.\", \"caption_energy\": \"No flex. Just presence.\" }, \"constraints\": { \"must_keep\": [ \"monochrome palette (black/gray/neutral architecture)\", \"woman leaning on a matte black performance coupe\", \"red LED headlight accents as the only strong color\", \"large diagonal architectural line dominating the upper frame\", \"vertical composition with generous negative space above and a calm bottom margin\", \"subject in open shade, sunlit building in the background\" ], \"avoid\": [ \"busy backgrounds or crowds\", \"bright colorful outfits\", \"exaggerated smile or dramatic facial expression\", \"wide-angle distortion of the car\", \"overly glossy paint or unrealistic reflections\", \"text overlays, watermarks, heavy filters\" ] }, \"negative_prompt\": [ \"cartoon\", \"anime\", \"illustration\", \"oversaturated\", \"neon\", \"busy background\", \"extra people\", \"text\", \"watermark\", \"logo overlay\", \"lowres\", \"blurry\", \"motion blur\", \"overexposed skin\", \"plastic skin\", \"distorted anatomy\", \"extra limbs\", \"warped car body\", \"unreal reflections\", \"heavy HDR\" ] }"
+    },
+    {
+      "id": "grok-6517",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "酒红穿搭的闪光灯夜间自拍",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/96d09981887b7fefa7bf020d4a129469)\n\n原始分类：创意提示词\n作者：underwood96（Promptsref）\n\n**提示词**：\n\n{\r\n  \"subject\": {\r\n    \"description\": \"A photorealistic closeup selfie of a young Asian woman with a cool, edgy aesthetic, captured at night.\",\r\n    \"mirror_rules\": \"Direct camera gaze, non-mirrored, sharp focus on eyes.\",\r\n    \"age\": \"18-22 years old\",\r\n    \"expression\": {\r\n      \"eyes\": {\r\n        \"look\": \"direct, slightly innocent but alluring\",\r\n        \"energy\": \"calm, doe-eyed\",\r\n        \"direction\": \"looking into the lens\"\r\n      },\r\n      \"mouth\": {\r\n        \"position\": \"slightly parted lips\",\r\n        \"energy\": \"soft, relaxed\"\r\n      },\r\n      \"overall\": \"effortless chic, pure desire style\"\r\n    },\r\n    \"face\": {\r\n      \"preserve_original\": \"true\",\r\n      \"makeup\": \"porcelain pale skin foundation, slight under-eye blush, glossy reddish lips, defined eyeliner\"\r\n    },\r\n    \"hair\": {\r\n      \"color\": \"jet black\",\r\n      \"style\": \"short bob with blunt bangs, straight and sleek\",\r\n      \"effect\": \"shiny under flash\"\r\n    },\r\n    \"body\": {\r\n      \"frame\": \"slim, petite\",\r\n      \"waist\": \"narrow\",\r\n      \"chest\": \"fitted\",\r\n      \"legs\": \"not visible\",\r\n      \"skin\": {\r\n        \"visible_areas\": \"face, neck, chest, stomach\",\r\n        \"tone\": \"cold white, pale porcelain\",\r\n        \"texture\": \"smooth but with realistic skin grain\",\r\n        \"lighting_effect\": \"brightly illuminated by direct flash, high contrast\"\r\n      }\r\n    },\r\n    \"pose\": {\r\n      \"position\": \"standing\",\r\n      \"base\": \"angled slightly to the side\",\r\n      \"overall\": \"one arm extended for selfie, other hand resting on hip/waist area\"\r\n    },\r\n    \"clothing\": {\r\n      \"top\": {\r\n        \"type\": \"long-sleeved ribbed zip-up top with collar\",\r\n        \"color\": \"deep red / burgundy\",\r\n        \"details\": \"silver zipper halfway down, shoulder cutouts/sleeveless look with detached sleeves structure\",\r\n        \"effect\": \"tight fit, highlighting curves\"\r\n      },\r\n      \"bottom\": {\r\n        \"type\": \"waist of black pants/skirt\",\r\n        \"color\": \"black\",\r\n        \"details\": \"minimal visibility\"\r\n      }\r\n    }\r\n  },\r\n  \"accessories\": {\r\n    \"jewelry\": {\r\n      \"neck\": \"black choker with a silver cross pendant\",\r\n      \"ears\": \"multiple silver stud earrings/ear cuffs\",\r\n      \"hands\": \"silver rings on fingers\"\r\n    },\r\n    \"device\": \"white smartwatch on left wrist\",\r\n    \"prop\": \"black backpack straps visible over shoulders\"\r\n  },\r\n  \"photography\": {\r\n    \"camera_style\": \"Direct flash photography, CCD digital camera aesthetic, high ISO vibe\",\r\n    \"angle\": \"eye-level selfie angle, close-up\",\r\n    \"shot_type\": \"waist-up portrait\",\r\n    \"aspect_ratio\": \"9:16 vertical\",\r\n    \"texture\": \"flash-washed foreground, sharp details, slight grain/noise\",\r\n    \"lighting\": \"harsh direct frontal flash, rapid fall-off to black background\",\r\n    \"depth_of_field\": \"deep enough to keep face and torso sharp\"\r\n  },\r\n  \"background\": {\r\n    \"setting\": \"outdoor night environment\",\r\n    \"wall_color\": \"pitch black darkness\",\r\n    \"elements\": [\r\n      \"faint distant lights/stars in the dark void\",\r\n      \"indistinguishable night surroundings\"\r\n    ],\r\n    \"atmosphere\": \"mysterious, nocturnal, solitary\",\r\n    \"lighting\": \"minimal ambient light, dominated by camera flash\"\r\n  },\r\n  \"the_vibe\": {\r\n    \"energy\": \"cool girl energy, y2k influence\",\r\n    \"mood\": \"intimate, candid, slightly melancholic yet confident\",\r\n    \"aesthetic\": \"social media night selfie, flashcore\",\r\n    \"authenticity\": \"raw flash look mixed with polished beauty\",\r\n    \"intimacy\": \"high, direct eye contact\",\r\n    \"story\": \"a moment captured during a night walk, documenting an outfit and a mood\",\r\n    \"caption_energy\": \"night vibes, flash on, no filter needed\"\r\n  },\r\n  \"constraints\": {\r\n    \"must_keep\": [\r\n      \"direct flash lighting effect\",\r\n      \"pale skin tone\",\r\n      \"red zip-up top\",\r\n      \"black short hair with bangs\",\r\n      \"cross choker\"\r\n    ],\r\n    \"avoid\": [\r\n      \"daylight\",\r\n      \"bright background\",\r\n      \"warm lighting\",\r\n      \"long hair\",\r\n      \"smiling widely\"\r\n    ]\r\n  },\r\n  \"negative_prompt\": [\r\n    \"sunlight\",\r\n    \"bright background\",\r\n    \"blurry\",\r\n    \"low resolution\",\r\n    \"warm tone\",\r\n    \"tan skin\",\r\n    \"curly hair\",\r\n    \"glasses\",\r\n    \"cartoon\",\r\n    \"3d render\"\r\n  ]\r\n}\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/96d09981887b7fefa7bf020d4a129469",
+      "cover": "covers/entries/grok-6517.jpg",
+      "covers": [
+        "covers/entries/grok-6517.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 7,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "GPT Image 2.5 Sunburst",
+        "人像",
+        "摄影",
+        "写实"
+      ],
+      "medium": "图像",
+      "aspect": "2:3",
+      "promptText": "{\r\n  \"subject\": {\r\n    \"description\": \"A photorealistic closeup selfie of a young Asian woman with a cool, edgy aesthetic, captured at night.\",\r\n    \"mirror_rules\": \"Direct camera gaze, non-mirrored, sharp focus on eyes.\",\r\n    \"age\": \"18-22 years old\",\r\n    \"expression\": {\r\n      \"eyes\": {\r\n        \"look\": \"direct, slightly innocent but alluring\",\r\n        \"energy\": \"calm, doe-eyed\",\r\n        \"direction\": \"looking into the lens\"\r\n      },\r\n      \"mouth\": {\r\n        \"position\": \"slightly parted lips\",\r\n        \"energy\": \"soft, relaxed\"\r\n      },\r\n      \"overall\": \"effortless chic, pure desire style\"\r\n    },\r\n    \"face\": {\r\n      \"preserve_original\": \"true\",\r\n      \"makeup\": \"porcelain pale skin foundation, slight under-eye blush, glossy reddish lips, defined eyeliner\"\r\n    },\r\n    \"hair\": {\r\n      \"color\": \"jet black\",\r\n      \"style\": \"short bob with blunt bangs, straight and sleek\",\r\n      \"effect\": \"shiny under flash\"\r\n    },\r\n    \"body\": {\r\n      \"frame\": \"slim, petite\",\r\n      \"waist\": \"narrow\",\r\n      \"chest\": \"fitted\",\r\n      \"legs\": \"not visible\",\r\n      \"skin\": {\r\n        \"visible_areas\": \"face, neck, chest, stomach\",\r\n        \"tone\": \"cold white, pale porcelain\",\r\n        \"texture\": \"smooth but with realistic skin grain\",\r\n        \"lighting_effect\": \"brightly illuminated by direct flash, high contrast\"\r\n      }\r\n    },\r\n    \"pose\": {\r\n      \"position\": \"standing\",\r\n      \"base\": \"angled slightly to the side\",\r\n      \"overall\": \"one arm extended for selfie, other hand resting on hip/waist area\"\r\n    },\r\n    \"clothing\": {\r\n      \"top\": {\r\n        \"type\": \"long-sleeved ribbed zip-up top with collar\",\r\n        \"color\": \"deep red / burgundy\",\r\n        \"details\": \"silver zipper halfway down, shoulder cutouts/sleeveless look with detached sleeves structure\",\r\n        \"effect\": \"tight fit, highlighting curves\"\r\n      },\r\n      \"bottom\": {\r\n        \"type\": \"waist of black pants/skirt\",\r\n        \"color\": \"black\",\r\n        \"details\": \"minimal visibility\"\r\n      }\r\n    }\r\n  },\r\n  \"accessories\": {\r\n    \"jewelry\": {\r\n      \"neck\": \"black choker with a silver cross pendant\",\r\n      \"ears\": \"multiple silver stud earrings/ear cuffs\",\r\n      \"hands\": \"silver rings on fingers\"\r\n    },\r\n    \"device\": \"white smartwatch on left wrist\",\r\n    \"prop\": \"black backpack straps visible over shoulders\"\r\n  },\r\n  \"photography\": {\r\n    \"camera_style\": \"Direct flash photography, CCD digital camera aesthetic, high ISO vibe\",\r\n    \"angle\": \"eye-level selfie angle, close-up\",\r\n    \"shot_type\": \"waist-up portrait\",\r\n    \"aspect_ratio\": \"9:16 vertical\",\r\n    \"texture\": \"flash-washed foreground, sharp details, slight grain/noise\",\r\n    \"lighting\": \"harsh direct frontal flash, rapid fall-off to black background\",\r\n    \"depth_of_field\": \"deep enough to keep face and torso sharp\"\r\n  },\r\n  \"background\": {\r\n    \"setting\": \"outdoor night environment\",\r\n    \"wall_color\": \"pitch black darkness\",\r\n    \"elements\": [\r\n      \"faint distant lights/stars in the dark void\",\r\n      \"indistinguishable night surroundings\"\r\n    ],\r\n    \"atmosphere\": \"mysterious, nocturnal, solitary\",\r\n    \"lighting\": \"minimal ambient light, dominated by camera flash\"\r\n  },\r\n  \"the_vibe\": {\r\n    \"energy\": \"cool girl energy, y2k influence\",\r\n    \"mood\": \"intimate, candid, slightly melancholic yet confident\",\r\n    \"aesthetic\": \"social media night selfie, flashcore\",\r\n    \"authenticity\": \"raw flash look mixed with polished beauty\",\r\n    \"intimacy\": \"high, direct eye contact\",\r\n    \"story\": \"a moment captured during a night walk, documenting an outfit and a mood\",\r\n    \"caption_energy\": \"night vibes, flash on, no filter needed\"\r\n  },\r\n  \"constraints\": {\r\n    \"must_keep\": [\r\n      \"direct flash lighting effect\",\r\n      \"pale skin tone\",\r\n      \"red zip-up top\",\r\n      \"black short hair with bangs\",\r\n      \"cross choker\"\r\n    ],\r\n    \"avoid\": [\r\n      \"daylight\",\r\n      \"bright background\",\r\n      \"warm lighting\",\r\n      \"long hair\",\r\n      \"smiling widely\"\r\n    ]\r\n  },\r\n  \"negative_prompt\": [\r\n    \"sunlight\",\r\n    \"bright background\",\r\n    \"blurry\",\r\n    \"low resolution\",\r\n    \"warm tone\",\r\n    \"tan skin\",\r\n    \"curly hair\",\r\n    \"glasses\",\r\n    \"cartoon\",\r\n    \"3d render\"\r\n  ]\r\n}",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "{\r\n  \"subject\": {\r\n    \"description\": \"A photorealistic closeup selfie of a young Asian woman with a cool, edgy aesthetic, captured at night.\",\r\n    \"mirror_rules\": \"Direct camera gaze, non-mirrored, sharp focus on eyes.\",\r\n    \"age\": \"18-22 years old\",\r\n    \"expression\": {\r\n      \"eyes\": {\r\n        \"look\": \"direct, slightly innocent but alluring\",\r\n        \"energy\": \"calm, doe-eyed\",\r\n        \"direction\": \"looking into the lens\"\r\n      },\r\n      \"mouth\": {\r\n        \"position\": \"slightly parted lips\",\r\n        \"energy\": \"soft, relaxed\"\r\n      },\r\n      \"overall\": \"effortless chic, pure desire style\"\r\n    },\r\n    \"face\": {\r\n      \"preserve_original\": \"true\",\r\n      \"makeup\": \"porcelain pale skin foundation, slight under-eye blush, glossy reddish lips, defined eyeliner\"\r\n    },\r\n    \"hair\": {\r\n      \"color\": \"jet black\",\r\n      \"style\": \"short bob with blunt bangs, straight and sleek\",\r\n      \"effect\": \"shiny under flash\"\r\n    },\r\n    \"body\": {\r\n      \"frame\": \"slim, petite\",\r\n      \"waist\": \"narrow\",\r\n      \"chest\": \"fitted\",\r\n      \"legs\": \"not visible\",\r\n      \"skin\": {\r\n        \"visible_areas\": \"face, neck, chest, stomach\",\r\n        \"tone\": \"cold white, pale porcelain\",\r\n        \"texture\": \"smooth but with realistic skin grain\",\r\n        \"lighting_effect\": \"brightly illuminated by direct flash, high contrast\"\r\n      }\r\n    },\r\n    \"pose\": {\r\n      \"position\": \"standing\",\r\n      \"base\": \"angled slightly to the side\",\r\n      \"overall\": \"one arm extended for selfie, other hand resting on hip/waist area\"\r\n    },\r\n    \"clothing\": {\r\n      \"top\": {\r\n        \"type\": \"long-sleeved ribbed zip-up top with collar\",\r\n        \"color\": \"deep red / burgundy\",\r\n        \"details\": \"silver zipper halfway down, shoulder cutouts/sleeveless look with detached sleeves structure\",\r\n        \"effect\": \"tight fit, highlighting curves\"\r\n      },\r\n      \"bottom\": {\r\n        \"type\": \"waist of black pants/skirt\",\r\n        \"color\": \"black\",\r\n        \"details\": \"minimal visibility\"\r\n      }\r\n    }\r\n  },\r\n  \"accessories\": {\r\n    \"jewelry\": {\r\n      \"neck\": \"black choker with a silver cross pendant\",\r\n      \"ears\": \"multiple silver stud earrings/ear cuffs\",\r\n      \"hands\": \"silver rings on fingers\"\r\n    },\r\n    \"device\": \"white smartwatch on left wrist\",\r\n    \"prop\": \"black backpack straps visible over shoulders\"\r\n  },\r\n  \"photography\": {\r\n    \"camera_style\": \"Direct flash photography, CCD digital camera aesthetic, high ISO vibe\",\r\n    \"angle\": \"eye-level selfie angle, close-up\",\r\n    \"shot_type\": \"waist-up portrait\",\r\n    \"aspect_ratio\": \"9:16 vertical\",\r\n    \"texture\": \"flash-washed foreground, sharp details, slight grain/noise\",\r\n    \"lighting\": \"harsh direct frontal flash, rapid fall-off to black background\",\r\n    \"depth_of_field\": \"deep enough to keep face and torso sharp\"\r\n  },\r\n  \"background\": {\r\n    \"setting\": \"outdoor night environment\",\r\n    \"wall_color\": \"pitch black darkness\",\r\n    \"elements\": [\r\n      \"faint distant lights/stars in the dark void\",\r\n      \"indistinguishable night surroundings\"\r\n    ],\r\n    \"atmosphere\": \"mysterious, nocturnal, solitary\",\r\n    \"lighting\": \"minimal ambient light, dominated by camera flash\"\r\n  },\r\n  \"the_vibe\": {\r\n    \"energy\": \"cool girl energy, y2k influence\",\r\n    \"mood\": \"intimate, candid, slightly melancholic yet confident\",\r\n    \"aesthetic\": \"social media night selfie, flashcore\",\r\n    \"authenticity\": \"raw flash look mixed with polished beauty\",\r\n    \"intimacy\": \"high, direct eye contact\",\r\n    \"story\": \"a moment captured during a night walk, documenting an outfit and a mood\",\r\n    \"caption_energy\": \"night vibes, flash on, no filter needed\"\r\n  },\r\n  \"constraints\": {\r\n    \"must_keep\": [\r\n      \"direct flash lighting effect\",\r\n      \"pale skin tone\",\r\n      \"red zip-up top\",\r\n      \"black short hair with bangs\",\r\n      \"cross choker\"\r\n    ],\r\n    \"avoid\": [\r\n      \"daylight\",\r\n      \"bright background\",\r\n      \"warm lighting\",\r\n      \"long hair\",\r\n      \"smiling widely\"\r\n    ]\r\n  },\r\n  \"negative_prompt\": [\r\n    \"sunlight\",\r\n    \"bright background\",\r\n    \"blurry\",\r\n    \"low resolution\",\r\n    \"warm tone\",\r\n    \"tan skin\",\r\n    \"curly hair\",\r\n    \"glasses\",\r\n    \"cartoon\",\r\n    \"3d render\"\r\n  ]\r\n}"
+    },
+    {
+      "id": "grok-6524",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "日系颗粒感冷艳猫娘自拍",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/4cb648568010a46cd9242b363a7afdd3)\n\n原始分类：创意提示词\n作者：underwood96（Promptsref）\n\n**提示词**：\n\nJapanese Instagram-inspired aesthetic with a muted, cool-toned palette. The image has a low-resolution, highly grainy texture, creating the rough feel of casual smartphone photography. A catgirl coser is taking a selfie, wearing a black choker. Her aloof, icy aura stands out clearly. There is slight overexposure on her face, especially around her hazy eyes. Her lips are slightly parted, and her long, slender fingers are especially striking. The whole image radiates a unique charm. She is a doll-like cute girl with waist-length hair. The composition feels casual and unpolished, yet captures the vivid beauty of everyday life. She appears shy, feeling the wind, interacting with the camera. Portrait photography, daily snapshot style, not carefully staged or lit. Enchanting and slightly dangerous-looking少女 vibe, cool pale skin, oval face with a pointed chin, fair complexion, realistic photography, tilted composition, shot from a low angle. Soft pale white tones with a slight silvery cast, white-light atmosphere with side lighting outlining her silhouette. The image includes multiple exposure effects with semi-transparent overlapping light and shadow, a soft out-of-focus feel, and is shot with a super wide-angle lens. Strong perspective compresses the background space, expressing a sense of dynamic beauty. The details are vivid and exquisitely rendered, like a masterpiece.\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/4cb648568010a46cd9242b363a7afdd3",
+      "cover": "covers/entries/grok-6524.jpg",
+      "covers": [
+        "covers/entries/grok-6524.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 8,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "人像",
+        "摄影",
+        "Cosplay"
+      ],
+      "medium": "图像",
+      "aspect": "3:2",
+      "promptText": "Japanese Instagram-inspired aesthetic with a muted, cool-toned palette. The image has a low-resolution, highly grainy texture, creating the rough feel of casual smartphone photography. A catgirl coser is taking a selfie, wearing a black choker. Her aloof, icy aura stands out clearly. There is slight overexposure on her face, especially around her hazy eyes. Her lips are slightly parted, and her long, slender fingers are especially striking. The whole image radiates a unique charm. She is a doll-like cute girl with waist-length hair. The composition feels casual and unpolished, yet captures the vivid beauty of everyday life. She appears shy, feeling the wind, interacting with the camera. Portrait photography, daily snapshot style, not carefully staged or lit. Enchanting and slightly dangerous-looking少女 vibe, cool pale skin, oval face with a pointed chin, fair complexion, realistic photography, tilted composition, shot from a low angle. Soft pale white tones with a slight silvery cast, white-light atmosphere with side lighting outlining her silhouette. The image includes multiple exposure effects with semi-transparent overlapping light and shadow, a soft out-of-focus feel, and is shot with a super wide-angle lens. Strong perspective compresses the background space, expressing a sense of dynamic beauty. The details are vivid and exquisitely rendered, like a masterpiece.",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "Japanese Instagram-inspired aesthetic with a muted, cool-toned palette. The image has a low-resolution, highly grainy texture, creating the rough feel of casual smartphone photography. A catgirl coser is taking a selfie, wearing a black choker. Her aloof, icy aura stands out clearly. There is slight overexposure on her face, especially around her hazy eyes. Her lips are slightly parted, and her long, slender fingers are especially striking. The whole image radiates a unique charm. She is a doll-like cute girl with waist-length hair. The composition feels casual and unpolished, yet captures the vivid beauty of everyday life. She appears shy, feeling the wind, interacting with the camera. Portrait photography, daily snapshot style, not carefully staged or lit. Enchanting and slightly dangerous-looking少女 vibe, cool pale skin, oval face with a pointed chin, fair complexion, realistic photography, tilted composition, shot from a low angle. Soft pale white tones with a slight silvery cast, white-light atmosphere with side lighting outlining her silhouette. The image includes multiple exposure effects with semi-transparent overlapping light and shadow, a soft out-of-focus feel, and is shot with a super wide-angle lens. Strong perspective compresses the background space, expressing a sense of dynamic beauty. The details are vivid and exquisitely rendered, like a masterpiece."
+    },
+    {
+      "id": "grok-6561",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "白色绒毯上的静谧沉思",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/ec364700719f2f6ab556f8b4b31dcf2a)\n\n原始分类：创意提示词\n作者：underwood96（Promptsref）\n\n**提示词**：\n\n{\r\n  \"subject\": {\r\n    \"description\": \"A young Asian woman with long straight black hair, lying on a soft white furry surface, looking directly at the camera with a calm and introspective expression\",\r\n    \"mirror_rules\": \"smartphone mirror selfie, text and icons should be readable and not mirrored\",\r\n    \"age\": \"20-25 years old\",\r\n    \"expression\": {\r\n      \"eyes\": {\r\n        \"look\": \"deep and contemplative\",\r\n        \"energy\": \"soft and gentle\",\r\n        \"direction\": \"directly at camera\"\r\n      },\r\n      \"mouth\": {\r\n        \"position\": \"slightly parted\",\r\n        \"energy\": \"relaxed and natural\"\r\n      },\r\n      \"overall\": \"calm, introspective, and slightly vulnerable\"\r\n    },\r\n    \"face\": {\r\n      \"preserve_original\": true,\r\n      \"makeup\": \"natural makeup with subtle blush on cheeks, defined eyebrows, and natural lip color\"\r\n    },\r\n    \"hair\": {\r\n      \"color\": \"jet black\",\r\n      \"style\": \"long straight hair naturally falling over shoulders and face\",\r\n      \"effect\": \"soft and flowing texture\"\r\n    },\r\n    \"body\": {\r\n      \"frame\": \"slender and graceful\",\r\n      \"waist\": \"slim\",\r\n      \"chest\": \"natural\",\r\n      \"legs\": \"not visible\",\r\n      \"skin\": {\r\n        \"visible_areas\": \"face, neck, shoulders, arms\",\r\n        \"tone\": \"fair and smooth\",\r\n        \"texture\": \"soft and radiant\",\r\n        \"lighting_effect\": \"warm natural light enhancing skin glow\"\r\n      }\r\n    },\r\n    \"pose\": {\r\n      \"position\": \"lying on side\",\r\n      \"base\": \"supporting head with hand\",\r\n      \"overall\": \"relaxed and natural lying posture\"\r\n    },\r\n    \"clothing\": {\r\n      \"top\": {\r\n        \"type\": \"white long-sleeved shirt\",\r\n        \"color\": \"pure white\",\r\n        \"details\": \"simple design, slightly loose fit\",\r\n        \"effect\": \"clean and minimalistic\"\r\n      },\r\n      \"bottom\": {\r\n        \"type\": \"dark green pants\",\r\n        \"color\": \"deep green\",\r\n        \"details\": \"casual fit\"\r\n      }\r\n    }\r\n  },\r\n  \"accessories\": {\r\n    \"device\": \"smartphone for mirror selfie\",\r\n    \"prop\": \"small bottle with dark liquid\"\r\n  },\r\n  \"photography\": {\r\n    \"camera_style\": \"smartphone mirror selfie aesthetic\",\r\n    \"angle\": \"eye-level mirror reflection\",\r\n    \"shot_type\": \"waist-up portrait, centered composition\",\r\n    \"aspect_ratio\": \"3:4\",\r\n    \"texture\": \"natural smartphone photography, soft focus, warm color temperature\",\r\n    \"lighting\": \"soft natural light coming from side, creating gentle shadows\",\r\n    \"depth_of_field\": \"shallow depth of field, background slightly blurred\"\r\n  },\r\n  \"background\": {\r\n    \"setting\": \"indoor bedroom or cozy room\",\r\n    \"wall_color\": \"not visible\",\r\n    \"elements\": [\"soft white furry blanket or rug\", \"bed or couch\"],\r\n    \"atmosphere\": \"warm, intimate, and cozy\",\r\n    \"lighting\": \"natural diffused light creating a soft glow\"\r\n  },\r\n  \"the_vibe\": {\r\n    \"energy\": \"calm and peaceful\",\r\n    \"mood\": \"introspective and slightly melancholic\",\r\n    \"aesthetic\": \"soft girl, cozycore, minimalist\",\r\n    \"authenticity\": \"genuine and unposed\",\r\n    \"intimacy\": \"private and personal moment\",\r\n    \"story\": \"a quiet moment of self-reflection in a cozy space\",\r\n    \"caption_energy\": \"silent thoughts, warm embraces\"\r\n  },\r\n  \"constraints\": {\r\n    \"must_keep\": [\"natural expression\", \"soft lighting\", \"cozy atmosphere\", \"mirror selfie style\"],\r\n    \"avoid\": [\"over-edited look\", \"harsh shadows\", \"unnatural poses\"]\r\n  },\r\n  \"negative_prompt\": [\"plastic surgery look\", \"heavy makeup\", \"artificial lighting\", \"staged poses\", \"unnatural skin texture\"]\r\n}\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/ec364700719f2f6ab556f8b4b31dcf2a",
+      "cover": "covers/entries/grok-6561.jpg",
+      "covers": [
+        "covers/entries/grok-6561.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 9,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "人像",
+        "摄影",
+        "写实"
+      ],
+      "medium": "图像",
+      "aspect": "2:3",
+      "promptText": "{\r\n  \"subject\": {\r\n    \"description\": \"A young Asian woman with long straight black hair, lying on a soft white furry surface, looking directly at the camera with a calm and introspective expression\",\r\n    \"mirror_rules\": \"smartphone mirror selfie, text and icons should be readable and not mirrored\",\r\n    \"age\": \"20-25 years old\",\r\n    \"expression\": {\r\n      \"eyes\": {\r\n        \"look\": \"deep and contemplative\",\r\n        \"energy\": \"soft and gentle\",\r\n        \"direction\": \"directly at camera\"\r\n      },\r\n      \"mouth\": {\r\n        \"position\": \"slightly parted\",\r\n        \"energy\": \"relaxed and natural\"\r\n      },\r\n      \"overall\": \"calm, introspective, and slightly vulnerable\"\r\n    },\r\n    \"face\": {\r\n      \"preserve_original\": true,\r\n      \"makeup\": \"natural makeup with subtle blush on cheeks, defined eyebrows, and natural lip color\"\r\n    },\r\n    \"hair\": {\r\n      \"color\": \"jet black\",\r\n      \"style\": \"long straight hair naturally falling over shoulders and face\",\r\n      \"effect\": \"soft and flowing texture\"\r\n    },\r\n    \"body\": {\r\n      \"frame\": \"slender and graceful\",\r\n      \"waist\": \"slim\",\r\n      \"chest\": \"natural\",\r\n      \"legs\": \"not visible\",\r\n      \"skin\": {\r\n        \"visible_areas\": \"face, neck, shoulders, arms\",\r\n        \"tone\": \"fair and smooth\",\r\n        \"texture\": \"soft and radiant\",\r\n        \"lighting_effect\": \"warm natural light enhancing skin glow\"\r\n      }\r\n    },\r\n    \"pose\": {\r\n      \"position\": \"lying on side\",\r\n      \"base\": \"supporting head with hand\",\r\n      \"overall\": \"relaxed and natural lying posture\"\r\n    },\r\n    \"clothing\": {\r\n      \"top\": {\r\n        \"type\": \"white long-sleeved shirt\",\r\n        \"color\": \"pure white\",\r\n        \"details\": \"simple design, slightly loose fit\",\r\n        \"effect\": \"clean and minimalistic\"\r\n      },\r\n      \"bottom\": {\r\n        \"type\": \"dark green pants\",\r\n        \"color\": \"deep green\",\r\n        \"details\": \"casual fit\"\r\n      }\r\n    }\r\n  },\r\n  \"accessories\": {\r\n    \"device\": \"smartphone for mirror selfie\",\r\n    \"prop\": \"small bottle with dark liquid\"\r\n  },\r\n  \"photography\": {\r\n    \"camera_style\": \"smartphone mirror selfie aesthetic\",\r\n    \"angle\": \"eye-level mirror reflection\",\r\n    \"shot_type\": \"waist-up portrait, centered composition\",\r\n    \"aspect_ratio\": \"3:4\",\r\n    \"texture\": \"natural smartphone photography, soft focus, warm color temperature\",\r\n    \"lighting\": \"soft natural light coming from side, creating gentle shadows\",\r\n    \"depth_of_field\": \"shallow depth of field, background slightly blurred\"\r\n  },\r\n  \"background\": {\r\n    \"setting\": \"indoor bedroom or cozy room\",\r\n    \"wall_color\": \"not visible\",\r\n    \"elements\": [\"soft white furry blanket or rug\", \"bed or couch\"],\r\n    \"atmosphere\": \"warm, intimate, and cozy\",\r\n    \"lighting\": \"natural diffused light creating a soft glow\"\r\n  },\r\n  \"the_vibe\": {\r\n    \"energy\": \"calm and peaceful\",\r\n    \"mood\": \"introspective and slightly melancholic\",\r\n    \"aesthetic\": \"soft girl, cozycore, minimalist\",\r\n    \"authenticity\": \"genuine and unposed\",\r\n    \"intimacy\": \"private and personal moment\",\r\n    \"story\": \"a quiet moment of self-reflection in a cozy space\",\r\n    \"caption_energy\": \"silent thoughts, warm embraces\"\r\n  },\r\n  \"constraints\": {\r\n    \"must_keep\": [\"natural expression\", \"soft lighting\", \"cozy atmosphere\", \"mirror selfie style\"],\r\n    \"avoid\": [\"over-edited look\", \"harsh shadows\", \"unnatural poses\"]\r\n  },\r\n  \"negative_prompt\": [\"plastic surgery look\", \"heavy makeup\", \"artificial lighting\", \"staged poses\", \"unnatural skin texture\"]\r\n}",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "{\r\n  \"subject\": {\r\n    \"description\": \"A young Asian woman with long straight black hair, lying on a soft white furry surface, looking directly at the camera with a calm and introspective expression\",\r\n    \"mirror_rules\": \"smartphone mirror selfie, text and icons should be readable and not mirrored\",\r\n    \"age\": \"20-25 years old\",\r\n    \"expression\": {\r\n      \"eyes\": {\r\n        \"look\": \"deep and contemplative\",\r\n        \"energy\": \"soft and gentle\",\r\n        \"direction\": \"directly at camera\"\r\n      },\r\n      \"mouth\": {\r\n        \"position\": \"slightly parted\",\r\n        \"energy\": \"relaxed and natural\"\r\n      },\r\n      \"overall\": \"calm, introspective, and slightly vulnerable\"\r\n    },\r\n    \"face\": {\r\n      \"preserve_original\": true,\r\n      \"makeup\": \"natural makeup with subtle blush on cheeks, defined eyebrows, and natural lip color\"\r\n    },\r\n    \"hair\": {\r\n      \"color\": \"jet black\",\r\n      \"style\": \"long straight hair naturally falling over shoulders and face\",\r\n      \"effect\": \"soft and flowing texture\"\r\n    },\r\n    \"body\": {\r\n      \"frame\": \"slender and graceful\",\r\n      \"waist\": \"slim\",\r\n      \"chest\": \"natural\",\r\n      \"legs\": \"not visible\",\r\n      \"skin\": {\r\n        \"visible_areas\": \"face, neck, shoulders, arms\",\r\n        \"tone\": \"fair and smooth\",\r\n        \"texture\": \"soft and radiant\",\r\n        \"lighting_effect\": \"warm natural light enhancing skin glow\"\r\n      }\r\n    },\r\n    \"pose\": {\r\n      \"position\": \"lying on side\",\r\n      \"base\": \"supporting head with hand\",\r\n      \"overall\": \"relaxed and natural lying posture\"\r\n    },\r\n    \"clothing\": {\r\n      \"top\": {\r\n        \"type\": \"white long-sleeved shirt\",\r\n        \"color\": \"pure white\",\r\n        \"details\": \"simple design, slightly loose fit\",\r\n        \"effect\": \"clean and minimalistic\"\r\n      },\r\n      \"bottom\": {\r\n        \"type\": \"dark green pants\",\r\n        \"color\": \"deep green\",\r\n        \"details\": \"casual fit\"\r\n      }\r\n    }\r\n  },\r\n  \"accessories\": {\r\n    \"device\": \"smartphone for mirror selfie\",\r\n    \"prop\": \"small bottle with dark liquid\"\r\n  },\r\n  \"photography\": {\r\n    \"camera_style\": \"smartphone mirror selfie aesthetic\",\r\n    \"angle\": \"eye-level mirror reflection\",\r\n    \"shot_type\": \"waist-up portrait, centered composition\",\r\n    \"aspect_ratio\": \"3:4\",\r\n    \"texture\": \"natural smartphone photography, soft focus, warm color temperature\",\r\n    \"lighting\": \"soft natural light coming from side, creating gentle shadows\",\r\n    \"depth_of_field\": \"shallow depth of field, background slightly blurred\"\r\n  },\r\n  \"background\": {\r\n    \"setting\": \"indoor bedroom or cozy room\",\r\n    \"wall_color\": \"not visible\",\r\n    \"elements\": [\"soft white furry blanket or rug\", \"bed or couch\"],\r\n    \"atmosphere\": \"warm, intimate, and cozy\",\r\n    \"lighting\": \"natural diffused light creating a soft glow\"\r\n  },\r\n  \"the_vibe\": {\r\n    \"energy\": \"calm and peaceful\",\r\n    \"mood\": \"introspective and slightly melancholic\",\r\n    \"aesthetic\": \"soft girl, cozycore, minimalist\",\r\n    \"authenticity\": \"genuine and unposed\",\r\n    \"intimacy\": \"private and personal moment\",\r\n    \"story\": \"a quiet moment of self-reflection in a cozy space\",\r\n    \"caption_energy\": \"silent thoughts, warm embraces\"\r\n  },\r\n  \"constraints\": {\r\n    \"must_keep\": [\"natural expression\", \"soft lighting\", \"cozy atmosphere\", \"mirror selfie style\"],\r\n    \"avoid\": [\"over-edited look\", \"harsh shadows\", \"unnatural poses\"]\r\n  },\r\n  \"negative_prompt\": [\"plastic surgery look\", \"heavy makeup\", \"artificial lighting\", \"staged poses\", \"unnatural skin texture\"]\r\n}"
+    },
+    {
+      "id": "grok-2745",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "年轻女子坐在购物车里",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/69b9c6359b6577529f678052e0930e08)\n\n原始分类：品牌设计\n作者：@_MehdiSharifi_（AiWind）\n\n**提示词**：\n\n一张活泼、高能量的鱼眼肖像，描绘一位时尚的年轻女性，二十出头，坐在一辆金属购物车里，置身于一个充满活力的超市零食货架过道。她留着深棕色长发，扎成松散的低双马尾，带着俏皮的眨眼和一丝微笑，用手指做出取景框手势框住眼睛，展示着修长的美甲。她身穿黑色背心，腰间系着一件蓝白格子衬衫，穿着白色堆堆袜，脚踏带有浅蓝色点缀的超大厚底白色运动鞋，双腿伸向镜头，形成动感的透视缩短效果，并强调了鞋子。这是一张从高角度拍摄的特写镜头，使用超广角鱼眼镜头（8-10毫米），景深很深（f/8-f/11），导致前景元素（运动鞋）夸张，背景是摆满彩色零食的弯曲货架。高调、平直的商业照明照亮了整个场景，营造出鲜艳的色彩和全程清晰的焦点。风格体现了Z世代社交媒体趋势、Y2K影响和街头风格。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/69b9c6359b6577529f678052e0930e08",
+      "cover": "covers/entries/grok-2745.jpg",
+      "covers": [
+        "covers/entries/grok-2745.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 10,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "branding",
+        "food",
+        "interior",
+        "landscape",
+        "minimalist",
+        "nature",
+        "photography",
+        "portrait",
+        "product",
+        "vehicle",
+        "人像",
+        "摄影",
+        "写实"
+      ],
+      "medium": "图像",
+      "aspect": "2:3",
+      "promptText": "一张活泼、高能量的鱼眼肖像，描绘一位时尚的年轻女性，二十出头，坐在一辆金属购物车里，置身于一个充满活力的超市零食货架过道。她留着深棕色长发，扎成松散的低双马尾，带着俏皮的眨眼和一丝微笑，用手指做出取景框手势框住眼睛，展示着修长的美甲。她身穿黑色背心，腰间系着一件蓝白格子衬衫，穿着白色堆堆袜，脚踏带有浅蓝色点缀的超大厚底白色运动鞋，双腿伸向镜头，形成动感的透视缩短效果，并强调了鞋子。这是一张从高角度拍摄的特写镜头，使用超广角鱼眼镜头（8-10毫米），景深很深（f/8-f/11），导致前景元素（运动鞋）夸张，背景是摆满彩色零食的弯曲货架。高调、平直的商业照明照亮了整个场景，营造出鲜艳的色彩和全程清晰的焦点。风格体现了Z世代社交媒体趋势、Y2K影响和街头风格。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "一张活泼、高能量的鱼眼肖像，描绘一位时尚的年轻女性，二十出头，坐在一辆金属购物车里，置身于一个充满活力的超市零食货架过道。她留着深棕色长发，扎成松散的低双马尾，带着俏皮的眨眼和一丝微笑，用手指做出取景框手势框住眼睛，展示着修长的美甲。她身穿黑色背心，腰间系着一件蓝白格子衬衫，穿着白色堆堆袜，脚踏带有浅蓝色点缀的超大厚底白色运动鞋，双腿伸向镜头，形成动感的透视缩短效果，并强调了鞋子。这是一张从高角度拍摄的特写镜头，使用超广角鱼眼镜头（8-10毫米），景深很深（f/8-f/11），导致前景元素（运动鞋）夸张，背景是摆满彩色零食的弯曲货架。高调、平直的商业照明照亮了整个场景，营造出鲜艳的色彩和全程清晰的焦点。风格体现了Z世代社交媒体趋势、Y2K影响和街头风格。"
+    },
+    {
+      "id": "grok-2758",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "年轻女性的超近特写肖像",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/a9f424068632169948d337fb6ebf98cc)\n\n原始分类：品牌设计\n作者：@Just_sharon7（AiWind）\n\n**提示词**：\n\n一位令人惊艳的年轻东亚女性的超特写肖像，拥有无瑕的瓷器般肌肤，大而闪亮的深棕色眼睛，长睫毛，淡粉色腮红，亮泽的红润嘴唇，长而直的丝滑深棕色头发，带有微妙的挑染。她用双手在一个眼睛周围做出俏皮的手指框姿势，极其详细的长杏仁形指甲，带有光泽的紫色大理石和银色镀铬星系美甲，点缀着微小水钻。身穿黑白横条纹超大针织毛衣，罗纹袖口，叠戴精致的银项链，带有水晶吊坠和小粉色宝石。柔和的摄影棚灯光，明亮的白色无缝背景，高级时尚美容杂志风格，锐利细节，带有自然光泽的完美肌肤纹理，浅景深，使用85mm f/1.4镜头拍摄，超现实主义照片，8k，杰作，最佳品质\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/a9f424068632169948d337fb6ebf98cc",
+      "cover": "covers/entries/grok-2758.jpg",
+      "covers": [
+        "covers/entries/grok-2758.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 11,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "3d",
+        "cartoon",
+        "fashion",
+        "logo",
+        "nature",
+        "photography",
+        "portrait",
+        "vehicle",
+        "人像",
+        "摄影",
+        "特写"
+      ],
+      "medium": "图像",
+      "aspect": "2:3",
+      "promptText": "一位令人惊艳的年轻东亚女性的超特写肖像，拥有无瑕的瓷器般肌肤，大而闪亮的深棕色眼睛，长睫毛，淡粉色腮红，亮泽的红润嘴唇，长而直的丝滑深棕色头发，带有微妙的挑染。她用双手在一个眼睛周围做出俏皮的手指框姿势，极其详细的长杏仁形指甲，带有光泽的紫色大理石和银色镀铬星系美甲，点缀着微小水钻。身穿黑白横条纹超大针织毛衣，罗纹袖口，叠戴精致的银项链，带有水晶吊坠和小粉色宝石。柔和的摄影棚灯光，明亮的白色无缝背景，高级时尚美容杂志风格，锐利细节，带有自然光泽的完美肌肤纹理，浅景深，使用85mm f/1.4镜头拍摄，超现实主义照片，8k，杰作，最佳品质",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "一位令人惊艳的年轻东亚女性的超特写肖像，拥有无瑕的瓷器般肌肤，大而闪亮的深棕色眼睛，长睫毛，淡粉色腮红，亮泽的红润嘴唇，长而直的丝滑深棕色头发，带有微妙的挑染。她用双手在一个眼睛周围做出俏皮的手指框姿势，极其详细的长杏仁形指甲，带有光泽的紫色大理石和银色镀铬星系美甲，点缀着微小水钻。身穿黑白横条纹超大针织毛衣，罗纹袖口，叠戴精致的银项链，带有水晶吊坠和小粉色宝石。柔和的摄影棚灯光，明亮的白色无缝背景，高级时尚美容杂志风格，锐利细节，带有自然光泽的完美肌肤纹理，浅景深，使用85mm f/1.4镜头拍摄，超现实主义照片，8k，杰作，最佳品质"
+    },
+    {
+      "id": "grok-2774",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "同一张脸的柔和模糊的侧面特写",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/6ccda06c81d8bbc0e780636d0cabf991)\n\n原始分类：角色设计\n作者：@ShreyaYadav___（AiWind）\n\n**提示词**：\n\n一张参考图片中女性的全身艺术肖像，保持完全相同的面部。她优雅地坐在地板上，穿着一件现代黑色上衣、柔软宽松的灰色牛仔裤和厚实的灰白色运动鞋。她及腰长的波浪状奶棕色头发自然垂落，其中一半编成美丽的辫子。她向上看，开心地笑着，捕捉到一个自信坦率的微笑。背景是艺术化的单色（黑白）构图，特色是同一张脸柔和模糊的特写侧面轮廓，营造出时尚的双层美学。高质量的柔和光线、逼真的纹理、电影般的真实感和艺术肖像氛围。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/6ccda06c81d8bbc0e780636d0cabf991",
+      "cover": "covers/entries/grok-2774.jpg",
+      "covers": [
+        "covers/entries/grok-2774.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 12,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "character",
+        "fashion",
+        "nature",
+        "portrait",
+        "人像",
+        "摄影",
+        "图生提示词"
+      ],
+      "medium": "图生提示词",
+      "aspect": "3:4",
+      "promptText": "一张参考图片中女性的全身艺术肖像，保持完全相同的面部。她优雅地坐在地板上，穿着一件现代黑色上衣、柔软宽松的灰色牛仔裤和厚实的灰白色运动鞋。她及腰长的波浪状奶棕色头发自然垂落，其中一半编成美丽的辫子。她向上看，开心地笑着，捕捉到一个自信坦率的微笑。背景是艺术化的单色（黑白）构图，特色是同一张脸柔和模糊的特写侧面轮廓，营造出时尚的双层美学。高质量的柔和光线、逼真的纹理、电影般的真实感和艺术肖像氛围。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "一张参考图片中女性的全身艺术肖像，保持完全相同的面部。她优雅地坐在地板上，穿着一件现代黑色上衣、柔软宽松的灰色牛仔裤和厚实的灰白色运动鞋。她及腰长的波浪状奶棕色头发自然垂落，其中一半编成美丽的辫子。她向上看，开心地笑着，捕捉到一个自信坦率的微笑。背景是艺术化的单色（黑白）构图，特色是同一张脸柔和模糊的特写侧面轮廓，营造出时尚的双层美学。高质量的柔和光线、逼真的纹理、电影般的真实感和艺术肖像氛围。"
+    },
+    {
+      "id": "grok-2775",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "夜晚吐舌头女生的自拍照",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/71e60aed8b19509f9143ffd9ff515b77)\n\n原始分类：摄影\n作者：@xmliisu（AiWind）\n\n**提示词**：\n\n[图像规格]\n类型 = 写实肖像\n风格 = 抖音美学\n分辨率 = 高质量\n\n[主体细节]\n人口统计 = 年轻亚洲女性\n面部结构 = 100%原始面孔（无编辑）\n头发质地 = 直发，有光泽\n头发颜色 = 黑色\n头发长度 = 长\n\n[妆容与造型]\n风格 = 抖音风格\n眼妆 = 突出大眼睛，长睫毛\n脸颊 = 红润\n指甲 = 长，涂有漂亮的深黑色\n\n[服装与配饰]\n眼镜 = 细银框眼镜\n上衣 = 黑色单肩无肩带上衣\n腰部配饰 = 棕色和金色条纹布腰带（系成蝴蝶结）\n项链 = 小号银色Vivienne Westwood土星项链\n\n[姿势与表情]\n动作 = 正在自拍\n角度 = 从上方\n右臂 = 抬起，拿着手机\n左手 = 拿着一个圆形黑色棒棒糖\n表情 = 自信的凝视，舌头微微伸出\n\n[环境与背景]\n位置 = 户外停车场\n时间 = 夜晚\n地面 = 灰色混凝土，带有白色停车线\n特色车辆 = 黑色布加迪（可见格栅和保险杠）\n光照条件 = 路灯和远处的城市灯光昏暗照明\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/71e60aed8b19509f9143ffd9ff515b77",
+      "cover": "covers/entries/grok-2775.jpg",
+      "covers": [
+        "covers/entries/grok-2775.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 13,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "fashion",
+        "landscape",
+        "portrait",
+        "vehicle",
+        "人像",
+        "摄影",
+        "写实"
+      ],
+      "medium": "图像",
+      "aspect": "9:16",
+      "promptText": "[图像规格]\n类型 = 写实肖像\n风格 = 抖音美学\n分辨率 = 高质量\n\n[主体细节]\n人口统计 = 年轻亚洲女性\n面部结构 = 100%原始面孔（无编辑）\n头发质地 = 直发，有光泽\n头发颜色 = 黑色\n头发长度 = 长\n\n[妆容与造型]\n风格 = 抖音风格\n眼妆 = 突出大眼睛，长睫毛\n脸颊 = 红润\n指甲 = 长，涂有漂亮的深黑色\n\n[服装与配饰]\n眼镜 = 细银框眼镜\n上衣 = 黑色单肩无肩带上衣\n腰部配饰 = 棕色和金色条纹布腰带（系成蝴蝶结）\n项链 = 小号银色Vivienne Westwood土星项链\n\n[姿势与表情]\n动作 = 正在自拍\n角度 = 从上方\n右臂 = 抬起，拿着手机\n左手 = 拿着一个圆形黑色棒棒糖\n表情 = 自信的凝视，舌头微微伸出\n\n[环境与背景]\n位置 = 户外停车场\n时间 = 夜晚\n地面 = 灰色混凝土，带有白色停车线\n特色车辆 = 黑色布加迪（可见格栅和保险杠）\n光照条件 = 路灯和远处的城市灯光昏暗照明",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "[图像规格]\n类型 = 写实肖像\n风格 = 抖音美学\n分辨率 = 高质量\n\n[主体细节]\n人口统计 = 年轻亚洲女性\n面部结构 = 100%原始面孔（无编辑）\n头发质地 = 直发，有光泽\n头发颜色 = 黑色\n头发长度 = 长\n\n[妆容与造型]\n风格 = 抖音风格\n眼妆 = 突出大眼睛，长睫毛\n脸颊 = 红润\n指甲 = 长，涂有漂亮的深黑色\n\n[服装与配饰]\n眼镜 = 细银框眼镜\n上衣 = 黑色单肩无肩带上衣\n腰部配饰 = 棕色和金色条纹布腰带（系成蝴蝶结）\n项链 = 小号银色Vivienne Westwood土星项链\n\n[姿势与表情]\n动作 = 正在自拍\n角度 = 从上方\n右臂 = 抬起，拿着手机\n左手 = 拿着一个圆形黑色棒棒糖\n表情 = 自信的凝视，舌头微微伸出\n\n[环境与背景]\n位置 = 户外停车场\n时间 = 夜晚\n地面 = 灰色混凝土，带有白色停车线\n特色车辆 = 黑色布加迪（可见格栅和保险杠）\n光照条件 = 路灯和远处的城市灯光昏暗照明"
+    },
+    {
+      "id": "grok-2859",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "一位年轻的日本美女模特",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/2b49c8ce2ead9400a2c1d5e9baf01113)\n\n原始分类：摄影\n作者：@Ankit_patel211（AiWind）\n\n**提示词**：\n\n提示 - 一位年轻的日本美女模特，魅力四射，穿着时尚的黑色明暗对比（chiaroscuro）条纹短款黑色牛仔裤服装，在户外拍摄。四分之三肖像（从下半身往上），身体构图优雅，比例均衡。长波浪状浅棕色头发，质感蓬松。柔和的韩式美妆：带微妙微光的蜜桃粉色眼影，卷翘长睫毛，精致眼线，温暖的榛色美瞳（带来娃娃般放大效果），玫瑰色腮红，玫瑰粉渐变丝绒哑光唇。服装：黑色短牛仔裤和裙子。配饰：垂坠耳环。姿势：略微前倾，迷人的凝视，展现女性魅力。环境：东京城市建筑场景，自然光。摄影风格：高端户外时尚肖像，柔和明亮的阳光，电影般的柔和光晕，浅景深，清晰的皮肤渲染，通透的色彩分级，轻微胶片颗粒。氛围：活泼，温暖，浪漫，俏皮的节日氛围。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/2b49c8ce2ead9400a2c1d5e9baf01113",
+      "cover": "covers/entries/grok-2859.jpg",
+      "covers": [
+        "covers/entries/grok-2859.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 14,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "architecture",
+        "fashion",
+        "landscape",
+        "nature",
+        "photography",
+        "portrait",
+        "人像",
+        "摄影",
+        "写实"
+      ],
+      "medium": "图像",
+      "aspect": "9:16",
+      "promptText": "提示 - 一位年轻的日本美女模特，魅力四射，穿着时尚的黑色明暗对比（chiaroscuro）条纹短款黑色牛仔裤服装，在户外拍摄。四分之三肖像（从下半身往上），身体构图优雅，比例均衡。长波浪状浅棕色头发，质感蓬松。柔和的韩式美妆：带微妙微光的蜜桃粉色眼影，卷翘长睫毛，精致眼线，温暖的榛色美瞳（带来娃娃般放大效果），玫瑰色腮红，玫瑰粉渐变丝绒哑光唇。服装：黑色短牛仔裤和裙子。配饰：垂坠耳环。姿势：略微前倾，迷人的凝视，展现女性魅力。环境：东京城市建筑场景，自然光。摄影风格：高端户外时尚肖像，柔和明亮的阳光，电影般的柔和光晕，浅景深，清晰的皮肤渲染，通透的色彩分级，轻微胶片颗粒。氛围：活泼，温暖，浪漫，俏皮的节日氛围。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "提示 - 一位年轻的日本美女模特，魅力四射，穿着时尚的黑色明暗对比（chiaroscuro）条纹短款黑色牛仔裤服装，在户外拍摄。四分之三肖像（从下半身往上），身体构图优雅，比例均衡。长波浪状浅棕色头发，质感蓬松。柔和的韩式美妆：带微妙微光的蜜桃粉色眼影，卷翘长睫毛，精致眼线，温暖的榛色美瞳（带来娃娃般放大效果），玫瑰色腮红，玫瑰粉渐变丝绒哑光唇。服装：黑色短牛仔裤和裙子。配饰：垂坠耳环。姿势：略微前倾，迷人的凝视，展现女性魅力。环境：东京城市建筑场景，自然光。摄影风格：高端户外时尚肖像，柔和明亮的阳光，电影般的柔和光晕，浅景深，清晰的皮肤渲染，通透的色彩分级，轻微胶片颗粒。氛围：活泼，温暖，浪漫，俏皮的节日氛围。"
+    },
+    {
+      "id": "grok-3027",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "女性站在KAWS风格艺术雕塑旁",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/170d49d02290d3372a696806bc44c4d2)\n\n原始分类：角色设计\n作者：@xmiiru_（AiWind）\n\n**提示词**：\n\n超现实时尚编辑摄影，一位时尚年轻女性姿势摆在灰色KAWS风格艺术雕塑旁。一只膝盖着地，一条腿向前弯曲，身体略微倾斜，一只手臂随意地搭在雕塑的头上，另一只手叉腰。自信而凌厉的表情，锐利的目光看向镜头。戴着鲜艳的橙色渔夫帽，上面有蝴蝶徽章，白色修身露脐T恤，上面有橙色蝴蝶图案，亮橙色运动裤，带白色滚边，白色运动鞋。小号橙色单肩包，可见细微纹身，编发点缀，极简首饰。单色橙色街头服饰美学。极简室内空间，灰色墙壁，干净地板。柔和漫射影棚灯光，逼真皮肤纹理，锐利对焦，高级时装街头服饰氛围，专业摄影，超细节，8K分辨率。不要改变原始面貌。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/170d49d02290d3372a696806bc44c4d2",
+      "cover": "covers/entries/grok-3027.jpg",
+      "covers": [
+        "covers/entries/grok-3027.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 15,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "cartoon",
+        "fashion",
+        "illustration",
+        "interior",
+        "minimalist",
+        "photography",
+        "sculpture",
+        "vehicle",
+        "人像",
+        "摄影",
+        "时尚"
+      ],
+      "medium": "图像",
+      "aspect": "2:3",
+      "promptText": "超现实时尚编辑摄影，一位时尚年轻女性姿势摆在灰色KAWS风格艺术雕塑旁。一只膝盖着地，一条腿向前弯曲，身体略微倾斜，一只手臂随意地搭在雕塑的头上，另一只手叉腰。自信而凌厉的表情，锐利的目光看向镜头。戴着鲜艳的橙色渔夫帽，上面有蝴蝶徽章，白色修身露脐T恤，上面有橙色蝴蝶图案，亮橙色运动裤，带白色滚边，白色运动鞋。小号橙色单肩包，可见细微纹身，编发点缀，极简首饰。单色橙色街头服饰美学。极简室内空间，灰色墙壁，干净地板。柔和漫射影棚灯光，逼真皮肤纹理，锐利对焦，高级时装街头服饰氛围，专业摄影，超细节，8K分辨率。不要改变原始面貌。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "超现实时尚编辑摄影，一位时尚年轻女性姿势摆在灰色KAWS风格艺术雕塑旁。一只膝盖着地，一条腿向前弯曲，身体略微倾斜，一只手臂随意地搭在雕塑的头上，另一只手叉腰。自信而凌厉的表情，锐利的目光看向镜头。戴着鲜艳的橙色渔夫帽，上面有蝴蝶徽章，白色修身露脐T恤，上面有橙色蝴蝶图案，亮橙色运动裤，带白色滚边，白色运动鞋。小号橙色单肩包，可见细微纹身，编发点缀，极简首饰。单色橙色街头服饰美学。极简室内空间，灰色墙壁，干净地板。柔和漫射影棚灯光，逼真皮肤纹理，锐利对焦，高级时装街头服饰氛围，专业摄影，超细节，8K分辨率。不要改变原始面貌。"
+    },
+    {
+      "id": "grok-3071",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "女子在一辆复古美式车内",
+      "usage": "用途：Grok 人像写真提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/7904cc74fee486654dbe13d71270ef33)\n\n原始分类：品牌设计\n作者：@_MehdiSharifi_（AiWind）\n\n**提示词**：\n\n一个电影般的广角内景镜头，展现了一位时尚的年轻女性在黄金时段慵懒地躺在一辆复古美式肌肉车内。主题：一名20出头的年轻女性，拥有一头浓密、饱满、被阳光亲吻过的蜂蜜金色长发，发型蓬松且有被风吹过的质感。她的皮肤白皙，在阳光下呈现温暖的金色底调，眼神自信、诱人地直视镜头，略微噘嘴。她穿着一件黑色泡泡袖田园风迷你连衣裙或连身衣，搭配甜心领口。她舒适地斜躺在前排长椅/桶形座椅上，一条腿伸向镜头（透视缩短），一条腿弯曲，一只手随意地靠在额头上。她的动作是慵懒地躺在副驾驶座上，用左手遮挡眼睛/触摸头发，营造出一种放松、叛逆的“酷女孩”美学。环境：一辆经典的1960年代/70年代肌肉车内饰。前景元素包括复古木质三辐方向盘（局部视图）、黑色乙烯基仪表盘和镀铬装饰。透过车窗可见的背景元素是木质牧场式围栏、晴朗的蓝天以及后视镜中反射出她脸部的一小部分。灯光是自然黄金时段光线，直射、温暖的金琥珀色阳光照亮了她的脸部、发丝高光和腿部。车厢内有深邃、高对比度的阴影，营造出深度感。风格：35毫米胶片摄影，复古美式，时尚杂志风格，独立公路旅行美学。品质：高保真，胶片颗粒模拟，皮革和皮肤的超逼真纹理。场景构图：主题人物慵懒而有态度，占据画面主体。广角内景镜头，对靴子造成透视畸变。深度分层：方向盘前景 -> 主体焦点 -> 外部背景。视觉描述：一位金发波浪的超写实年轻女性。连衣裙的黑色面料吸光，而皮靴则有镜面高光。温暖、发光的皮肤纹理，带有阳光的自然高光。灯光和氛围：黄金时段自然光。硬朗的阳光透过车窗射入，在内饰的软垫上投下清晰的阴影线。色彩分级：温暖，柯达Portra 400风格，浓郁的黑色和充满活力的肤色。当前服装：黑色长袖泡泡肩上衣配甜心领口，黑色厚底系带马丁靴（Dr. Martens风格）。主要物体：复古汽车座椅（罗纹黑色皮革）、方向盘、后视镜。次要物体：车外木质围栏、镀铬门把手。相机和镜头：24毫米或28毫米（广角）定焦镜头，f/5.6光圈（足以保持内景清晰，外部略微柔和），相机角度与坐着的主体齐平，从驾驶员侧视角拍摄。散景效果极小，大部分背景清晰。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/7904cc74fee486654dbe13d71270ef33",
+      "cover": "covers/entries/grok-3071.jpg",
+      "covers": [
+        "covers/entries/grok-3071.jpg"
+      ],
+      "parentId": "grok-renxiang",
+      "collection": "人像写真",
+      "collectionIndex": 16,
+      "collectionTotal": 16,
+      "tags": [
+        "Grok",
+        "branding",
+        "fashion",
+        "interior",
+        "landscape",
+        "minimalist",
+        "nature",
+        "photography",
+        "product",
+        "retro",
+        "vehicle",
+        "人像",
+        "摄影",
+        "写实",
+        "电影感"
+      ],
+      "medium": "图像",
+      "aspect": "2:3",
+      "promptText": "一个电影般的广角内景镜头，展现了一位时尚的年轻女性在黄金时段慵懒地躺在一辆复古美式肌肉车内。主题：一名20出头的年轻女性，拥有一头浓密、饱满、被阳光亲吻过的蜂蜜金色长发，发型蓬松且有被风吹过的质感。她的皮肤白皙，在阳光下呈现温暖的金色底调，眼神自信、诱人地直视镜头，略微噘嘴。她穿着一件黑色泡泡袖田园风迷你连衣裙或连身衣，搭配甜心领口。她舒适地斜躺在前排长椅/桶形座椅上，一条腿伸向镜头（透视缩短），一条腿弯曲，一只手随意地靠在额头上。她的动作是慵懒地躺在副驾驶座上，用左手遮挡眼睛/触摸头发，营造出一种放松、叛逆的“酷女孩”美学。环境：一辆经典的1960年代/70年代肌肉车内饰。前景元素包括复古木质三辐方向盘（局部视图）、黑色乙烯基仪表盘和镀铬装饰。透过车窗可见的背景元素是木质牧场式围栏、晴朗的蓝天以及后视镜中反射出她脸部的一小部分。灯光是自然黄金时段光线，直射、温暖的金琥珀色阳光照亮了她的脸部、发丝高光和腿部。车厢内有深邃、高对比度的阴影，营造出深度感。风格：35毫米胶片摄影，复古美式，时尚杂志风格，独立公路旅行美学。品质：高保真，胶片颗粒模拟，皮革和皮肤的超逼真纹理。场景构图：主题人物慵懒而有态度，占据画面主体。广角内景镜头，对靴子造成透视畸变。深度分层：方向盘前景 -> 主体焦点 -> 外部背景。视觉描述：一位金发波浪的超写实年轻女性。连衣裙的黑色面料吸光，而皮靴则有镜面高光。温暖、发光的皮肤纹理，带有阳光的自然高光。灯光和氛围：黄金时段自然光。硬朗的阳光透过车窗射入，在内饰的软垫上投下清晰的阴影线。色彩分级：温暖，柯达Portra 400风格，浓郁的黑色和充满活力的肤色。当前服装：黑色长袖泡泡肩上衣配甜心领口，黑色厚底系带马丁靴（Dr. Martens风格）。主要物体：复古汽车座椅（罗纹黑色皮革）、方向盘、后视镜。次要物体：车外木质围栏、镀铬门把手。相机和镜头：24毫米或28毫米（广角）定焦镜头，f/5.6光圈（足以保持内景清晰，外部略微柔和），相机角度与坐着的主体齐平，从驾驶员侧视角拍摄。散景效果极小，大部分背景清晰。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "一个电影般的广角内景镜头，展现了一位时尚的年轻女性在黄金时段慵懒地躺在一辆复古美式肌肉车内。主题：一名20出头的年轻女性，拥有一头浓密、饱满、被阳光亲吻过的蜂蜜金色长发，发型蓬松且有被风吹过的质感。她的皮肤白皙，在阳光下呈现温暖的金色底调，眼神自信、诱人地直视镜头，略微噘嘴。她穿着一件黑色泡泡袖田园风迷你连衣裙或连身衣，搭配甜心领口。她舒适地斜躺在前排长椅/桶形座椅上，一条腿伸向镜头（透视缩短），一条腿弯曲，一只手随意地靠在额头上。她的动作是慵懒地躺在副驾驶座上，用左手遮挡眼睛/触摸头发，营造出一种放松、叛逆的“酷女孩”美学。环境：一辆经典的1960年代/70年代肌肉车内饰。前景元素包括复古木质三辐方向盘（局部视图）、黑色乙烯基仪表盘和镀铬装饰。透过车窗可见的背景元素是木质牧场式围栏、晴朗的蓝天以及后视镜中反射出她脸部的一小部分。灯光是自然黄金时段光线，直射、温暖的金琥珀色阳光照亮了她的脸部、发丝高光和腿部。车厢内有深邃、高对比度的阴影，营造出深度感。风格：35毫米胶片摄影，复古美式，时尚杂志风格，独立公路旅行美学。品质：高保真，胶片颗粒模拟，皮革和皮肤的超逼真纹理。场景构图：主题人物慵懒而有态度，占据画面主体。广角内景镜头，对靴子造成透视畸变。深度分层：方向盘前景 -> 主体焦点 -> 外部背景。视觉描述：一位金发波浪的超写实年轻女性。连衣裙的黑色面料吸光，而皮靴则有镜面高光。温暖、发光的皮肤纹理，带有阳光的自然高光。灯光和氛围：黄金时段自然光。硬朗的阳光透过车窗射入，在内饰的软垫上投下清晰的阴影线。色彩分级：温暖，柯达Portra 400风格，浓郁的黑色和充满活力的肤色。当前服装：黑色长袖泡泡肩上衣配甜心领口，黑色厚底系带马丁靴（Dr. Martens风格）。主要物体：复古汽车座椅（罗纹黑色皮革）、方向盘、后视镜。次要物体：车外木质围栏、镀铬门把手。相机和镜头：24毫米或28毫米（广角）定焦镜头，f/5.6光圈（足以保持内景清晰，外部略微柔和），相机角度与坐着的主体齐平，从驾驶员侧视角拍摄。散景效果极小，大部分背景清晰。"
+    },
+    {
+      "id": "grok-3569",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "教授白板风格图片",
+      "usage": "用途：Grok 海报 / 封面提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/8f77a9e84e6fcf4104c383ff5c39c30b)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n使用教授白板图像：包含图表、箭头、方框和说明文字，以视觉方式解释核心概念。同时使用多种颜色。(不用出现人物形象) 内容为：\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/8f77a9e84e6fcf4104c383ff5c39c30b",
+      "cover": "covers/entries/grok-3569.jpg",
+      "covers": [
+        "covers/entries/grok-3569.jpg"
+      ],
+      "parentId": "grok-haibao",
+      "collection": "海报封面",
+      "collectionIndex": 1,
+      "collectionTotal": 8,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "模板",
+        "信息图"
+      ],
+      "medium": "模板",
+      "aspect": "16:9",
+      "promptText": "使用教授白板图像：包含图表、箭头、方框和说明文字，以视觉方式解释核心概念。同时使用多种颜色。(不用出现人物形象) 内容为：",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "使用教授白板图像：包含图表、箭头、方框和说明文字，以视觉方式解释核心概念。同时使用多种颜色。(不用出现人物形象) 内容为："
+    },
+    {
+      "id": "grok-3570",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "票据风格 (ticket)封面",
+      "usage": "用途：Grok 海报 / 封面提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/9aa8ac62b299f17d4dbe9ed7f5cbf56f)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n帮我根据下面的设计风格要求和内容要求，生成一张中文的信息图片： \n设计风格要求： \n运用3-4种不同字号创造层次感，关键词使用最大字号 主标题字号需要比副标题和介绍大三倍以上，采用网格排版，类似高级杂志 文字与装饰元素间保持和谐的比例关系 确保视觉流向清晰，引导读者目光移动 \n数字极简票券风设计风格 \n**黑白对比主导：**高度对比的黑白配色方案，形成强烈视觉冲击 \n**票券化布局：**类似登机牌、门票或电子凭证的结构设计 \n**几何分区明确：**画面被精确划分为信息区块，井然有序 \n**留白艺术运用：**大量有效留白提升整体通透感和优雅度 \n**东西方美学融合：**结合中文传统排版与西方现代设计语言 \n**工业设计感：**注册商标符号、条形码等商业元素的精致运用 \n**数字界面映射：**模拟电子屏幕或应用界面的信息呈现方式 文字排版风格 \n**中英混排对比：**中英文字体混合使用，创造文化融合感 \n**尺寸层级分明：**主标题大号处理，副文本精致小巧 \n**多向排列组合：**包含横排、竖排、斜排等多方向文字布局 \n**间距精确控制：**字符间距和行距经过精心计算，保持呼吸感 \n**符号化装饰：**括号、下划线、箭头融入文字设计 \n**衬线与非衬线混搭：**不同字体家族交替使用，增强层次感 \n**时间信息格式化：**日期标注采用统一格式，搭配方向指示符 视觉元素风格 \n**功能性指示符：**各类箭头、星号作为视觉引导和强调 UI元素借鉴：\"CHECK IN\"、\"@\"等数字界面元素的平面化应用 \n**边框与分割线：**简洁线条用于区隔不同信息区域 \n**简约图形符号：**最小化的设计符号传达核心信息 \n**手写风点缀：**如\"Romantic\"的手写体为机械排版增添人文温度 \n**方向性视觉流动：**通过元素排布创造从左到右、从上到下的阅读节奏 **负空间利用：**将空白区域视为积极设计元素的一部分 \n文本信息：\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/9aa8ac62b299f17d4dbe9ed7f5cbf56f",
+      "cover": "covers/entries/grok-3570.jpg",
+      "covers": [
+        "covers/entries/grok-3570.jpg"
+      ],
+      "parentId": "grok-haibao",
+      "collection": "海报封面",
+      "collectionIndex": 2,
+      "collectionTotal": 8,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "海报",
+        "封面",
+        "信息图"
+      ],
+      "medium": "图像",
+      "aspect": "16:9",
+      "promptText": "帮我根据下面的设计风格要求和内容要求，生成一张中文的信息图片： \n设计风格要求： \n运用3-4种不同字号创造层次感，关键词使用最大字号 主标题字号需要比副标题和介绍大三倍以上，采用网格排版，类似高级杂志 文字与装饰元素间保持和谐的比例关系 确保视觉流向清晰，引导读者目光移动 \n数字极简票券风设计风格 \n**黑白对比主导：**高度对比的黑白配色方案，形成强烈视觉冲击 \n**票券化布局：**类似登机牌、门票或电子凭证的结构设计 \n**几何分区明确：**画面被精确划分为信息区块，井然有序 \n**留白艺术运用：**大量有效留白提升整体通透感和优雅度 \n**东西方美学融合：**结合中文传统排版与西方现代设计语言 \n**工业设计感：**注册商标符号、条形码等商业元素的精致运用 \n**数字界面映射：**模拟电子屏幕或应用界面的信息呈现方式 文字排版风格 \n**中英混排对比：**中英文字体混合使用，创造文化融合感 \n**尺寸层级分明：**主标题大号处理，副文本精致小巧 \n**多向排列组合：**包含横排、竖排、斜排等多方向文字布局 \n**间距精确控制：**字符间距和行距经过精心计算，保持呼吸感 \n**符号化装饰：**括号、下划线、箭头融入文字设计 \n**衬线与非衬线混搭：**不同字体家族交替使用，增强层次感 \n**时间信息格式化：**日期标注采用统一格式，搭配方向指示符 视觉元素风格 \n**功能性指示符：**各类箭头、星号作为视觉引导和强调 UI元素借鉴：\"CHECK IN\"、\"@\"等数字界面元素的平面化应用 \n**边框与分割线：**简洁线条用于区隔不同信息区域 \n**简约图形符号：**最小化的设计符号传达核心信息 \n**手写风点缀：**如\"Romantic\"的手写体为机械排版增添人文温度 \n**方向性视觉流动：**通过元素排布创造从左到右、从上到下的阅读节奏 **负空间利用：**将空白区域视为积极设计元素的一部分 \n文本信息：",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "帮我根据下面的设计风格要求和内容要求，生成一张中文的信息图片： \n设计风格要求： \n运用3-4种不同字号创造层次感，关键词使用最大字号 主标题字号需要比副标题和介绍大三倍以上，采用网格排版，类似高级杂志 文字与装饰元素间保持和谐的比例关系 确保视觉流向清晰，引导读者目光移动 \n数字极简票券风设计风格 \n**黑白对比主导：**高度对比的黑白配色方案，形成强烈视觉冲击 \n**票券化布局：**类似登机牌、门票或电子凭证的结构设计 \n**几何分区明确：**画面被精确划分为信息区块，井然有序 \n**留白艺术运用：**大量有效留白提升整体通透感和优雅度 \n**东西方美学融合：**结合中文传统排版与西方现代设计语言 \n**工业设计感：**注册商标符号、条形码等商业元素的精致运用 \n**数字界面映射：**模拟电子屏幕或应用界面的信息呈现方式 文字排版风格 \n**中英混排对比：**中英文字体混合使用，创造文化融合感 \n**尺寸层级分明：**主标题大号处理，副文本精致小巧 \n**多向排列组合：**包含横排、竖排、斜排等多方向文字布局 \n**间距精确控制：**字符间距和行距经过精心计算，保持呼吸感 \n**符号化装饰：**括号、下划线、箭头融入文字设计 \n**衬线与非衬线混搭：**不同字体家族交替使用，增强层次感 \n**时间信息格式化：**日期标注采用统一格式，搭配方向指示符 视觉元素风格 \n**功能性指示符：**各类箭头、星号作为视觉引导和强调 UI元素借鉴：\"CHECK IN\"、\"@\"等数字界面元素的平面化应用 \n**边框与分割线：**简洁线条用于区隔不同信息区域 \n**简约图形符号：**最小化的设计符号传达核心信息 \n**手写风点缀：**如\"Romantic\"的手写体为机械排版增添人文温度 \n**方向性视觉流动：**通过元素排布创造从左到右、从上到下的阅读节奏 **负空间利用：**将空白区域视为积极设计元素的一部分 \n文本信息："
+    },
+    {
+      "id": "grok-3571",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "手写风格学习笔记封面",
+      "usage": "用途：Grok 海报 / 封面提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/246a0f58464fc500e5517b504345340b)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n在下面内容基础上制作逼真的手写风格学习笔记封面。使用学生手写字体，背景为带有纸张纹理的A4横线笔记本纸。关键术语用黄色荧光笔高亮标记，页面右上角写上日期 \"2026年6月13日\" 并用红色手绘圆圈圈出。在边缘添加手绘箭头、简笔画涂鸦来辅助解释概念。整体风格自然、略带随意的学习氛围。 \n比例：16:9\n内容为：\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/246a0f58464fc500e5517b504345340b",
+      "cover": "covers/entries/grok-3571.jpg",
+      "covers": [
+        "covers/entries/grok-3571.jpg"
+      ],
+      "parentId": "grok-haibao",
+      "collection": "海报封面",
+      "collectionIndex": 3,
+      "collectionTotal": 8,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "模板",
+        "手写",
+        "封面"
+      ],
+      "medium": "模板",
+      "aspect": "16:9",
+      "promptText": "在下面内容基础上制作逼真的手写风格学习笔记封面。使用学生手写字体，背景为带有纸张纹理的A4横线笔记本纸。关键术语用黄色荧光笔高亮标记，页面右上角写上日期 \"2026年6月13日\" 并用红色手绘圆圈圈出。在边缘添加手绘箭头、简笔画涂鸦来辅助解释概念。整体风格自然、略带随意的学习氛围。 \n比例：16:9\n内容为：",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "在下面内容基础上制作逼真的手写风格学习笔记封面。使用学生手写字体，背景为带有纸张纹理的A4横线笔记本纸。关键术语用黄色荧光笔高亮标记，页面右上角写上日期 \"2026年6月13日\" 并用红色手绘圆圈圈出。在边缘添加手绘箭头、简笔画涂鸦来辅助解释概念。整体风格自然、略带随意的学习氛围。 \n比例：16:9\n内容为："
+    },
+    {
+      "id": "grok-3572",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "矢量插画封面",
+      "usage": "用途：Grok 海报 / 封面提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/9b987d5fe635147b9c4bd699e3b5441d)\n\n原始分类：插画艺术\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n核心指令： \n生成一张横向全景式的扁平化矢量插画封面。画面中必须包含清晰的中文文字标题。 \n插画风格： \n采用扁平化矢量插画（Flat Vector Illustration）。画面中所有元素（包括文字外框）必须包含清晰、统一粗细的黑色单线轮廓描边（Monoline/Uniform Stroke）。线条末端圆润，避免尖锐棱角，类似填色书线稿风格。色彩填涂需简洁，仅使用极少量扁平阴影，严禁使用任何渐变色或3D渲染效果。 构图与空间： 横向全景式构图（Panoramic），插画部分主要占据版面顶部 1/3 的空间。\n采用平视或稍微俯视的 2.5D 视角。通过清晰的图层前后遮挡来表现纵深感，所有远近图层的清晰度一致，不要使用大气透视模糊。 \n几何化内容： 将所有物体进行几何化简化，追求“玩具模型”般的可爱感。例如：树木简化为棒棒糖或三角形，建筑简化为简单的矩形块面组合，窗户简化为整齐的小方格网格。 \n装饰与配色： 在空白处添加装饰性的几何元素平衡视觉密度，如放射状线条（代表阳光/能量）、药丸状云朵、小圆点和星星。背景使用米色/奶油色纸张纹理。\n强调色采用复古柔和色调：珊瑚红、薄荷绿、芥末黄、赭石色和岩石蓝。 \n字体排版与内容（关键修改）： 全局语言要求： 画面中显示的所有文本都必须是中文汉字。 \n主标题： 位于画面显著位置，巨大的、加粗的中文复古衬线体风格（类似老报纸宋体），体现权威感与优雅感，带有黑色描边。 \n副标题： 位于一个矩形色块容器内，使用清晰的中文黑体（无衬线风格）。 \n请在下方填写需要生成的中文内容：\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/9b987d5fe635147b9c4bd699e3b5441d",
+      "cover": "covers/entries/grok-3572.jpg",
+      "covers": [
+        "covers/entries/grok-3572.jpg"
+      ],
+      "parentId": "grok-haibao",
+      "collection": "海报封面",
+      "collectionIndex": 4,
+      "collectionTotal": 8,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "插画",
+        "封面",
+        "矢量"
+      ],
+      "medium": "图像",
+      "aspect": "16:9",
+      "promptText": "核心指令： \n生成一张横向全景式的扁平化矢量插画封面。画面中必须包含清晰的中文文字标题。 \n插画风格： \n采用扁平化矢量插画（Flat Vector Illustration）。画面中所有元素（包括文字外框）必须包含清晰、统一粗细的黑色单线轮廓描边（Monoline/Uniform Stroke）。线条末端圆润，避免尖锐棱角，类似填色书线稿风格。色彩填涂需简洁，仅使用极少量扁平阴影，严禁使用任何渐变色或3D渲染效果。 构图与空间： 横向全景式构图（Panoramic），插画部分主要占据版面顶部 1/3 的空间。\n采用平视或稍微俯视的 2.5D 视角。通过清晰的图层前后遮挡来表现纵深感，所有远近图层的清晰度一致，不要使用大气透视模糊。 \n几何化内容： 将所有物体进行几何化简化，追求“玩具模型”般的可爱感。例如：树木简化为棒棒糖或三角形，建筑简化为简单的矩形块面组合，窗户简化为整齐的小方格网格。 \n装饰与配色： 在空白处添加装饰性的几何元素平衡视觉密度，如放射状线条（代表阳光/能量）、药丸状云朵、小圆点和星星。背景使用米色/奶油色纸张纹理。\n强调色采用复古柔和色调：珊瑚红、薄荷绿、芥末黄、赭石色和岩石蓝。 \n字体排版与内容（关键修改）： 全局语言要求： 画面中显示的所有文本都必须是中文汉字。 \n主标题： 位于画面显著位置，巨大的、加粗的中文复古衬线体风格（类似老报纸宋体），体现权威感与优雅感，带有黑色描边。 \n副标题： 位于一个矩形色块容器内，使用清晰的中文黑体（无衬线风格）。 \n请在下方填写需要生成的中文内容：",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "核心指令： \n生成一张横向全景式的扁平化矢量插画封面。画面中必须包含清晰的中文文字标题。 \n插画风格： \n采用扁平化矢量插画（Flat Vector Illustration）。画面中所有元素（包括文字外框）必须包含清晰、统一粗细的黑色单线轮廓描边（Monoline/Uniform Stroke）。线条末端圆润，避免尖锐棱角，类似填色书线稿风格。色彩填涂需简洁，仅使用极少量扁平阴影，严禁使用任何渐变色或3D渲染效果。 构图与空间： 横向全景式构图（Panoramic），插画部分主要占据版面顶部 1/3 的空间。\n采用平视或稍微俯视的 2.5D 视角。通过清晰的图层前后遮挡来表现纵深感，所有远近图层的清晰度一致，不要使用大气透视模糊。 \n几何化内容： 将所有物体进行几何化简化，追求“玩具模型”般的可爱感。例如：树木简化为棒棒糖或三角形，建筑简化为简单的矩形块面组合，窗户简化为整齐的小方格网格。 \n装饰与配色： 在空白处添加装饰性的几何元素平衡视觉密度，如放射状线条（代表阳光/能量）、药丸状云朵、小圆点和星星。背景使用米色/奶油色纸张纹理。\n强调色采用复古柔和色调：珊瑚红、薄荷绿、芥末黄、赭石色和岩石蓝。 \n字体排版与内容（关键修改）： 全局语言要求： 画面中显示的所有文本都必须是中文汉字。 \n主标题： 位于画面显著位置，巨大的、加粗的中文复古衬线体风格（类似老报纸宋体），体现权威感与优雅感，带有黑色描边。 \n副标题： 位于一个矩形色块容器内，使用清晰的中文黑体（无衬线风格）。 \n请在下方填写需要生成的中文内容："
+    },
+    {
+      "id": "grok-3573",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "强叙事自媒体封面",
+      "usage": "用途：Grok 海报 / 封面提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/ba399f02d369c61ba136adf39c580aae)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n围绕任意主题内容生成一张强叙事自媒体封面：画面必须由一个强烈而统一的主色场统摄，主色从主题自身的时代、材质、行业、地域和情绪里提取，占据绝大部分背景，像一层有厚度的旧纸、墙面、漆面或印刷底版；标题使用与主色形成高反差的旧白、灰白、浅金属色或主题派生的明亮浅色，带微微发黄、磨损、掉粉和纸浆颗粒感；最深的结构只用接近墨黑、焦褐或主题里的深暗色压住阴影、插画剪影和空间裂层。整体不要多彩，应该像同一种颜色系统里长出的三四个明暗角色：大底负责情绪，浅字负责冲击，深色负责重量，少量强调只在视线最该停留的地方出现。标题文字是画面的主结构，字体必须有碑刻、拓印、木刻、旧报刊大标题和民国招贴混合出的厚重感，笔画宽大、横竖有力，转折处带刀削般的硬边和不规则缺口，局部有宋体式骨架或雕版字的锋利收笔，但不能变成现代黑体、圆体、电脑综艺字或干净书法字。几个关键汉字要巨大到像占据空间的石块和墙体，字面有磨蚀、断墨、套印不齐、纤维刮痕和粗粝颗粒，次要文字围绕它们形成疏密节奏，而不是平均排满。插画配图跟随主题自然发生，不预设固定题材，只从主题自身的冲突、身份、时代、材质和精神里生出带叙事感的形象，让它们依附、潜入、遮蔽或浮现在巨字周围，像被同一张底版一起印出来，而不是后贴上去的说明图。信息不要说透，保留沉默、遮挡和未完全显影的部分；第一眼必须是巨大旧字和单一强色的压迫，第二眼才读到主题插画在文字内部和周围生长出的故事、压力和余味。\n\n主题：\n[替换为你的内容]\n\n注意：文字逻辑重点，所有文字也要能快速读取，文字要大\n比例16:9\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/ba399f02d369c61ba136adf39c580aae",
+      "cover": "covers/entries/grok-3573.jpg",
+      "covers": [
+        "covers/entries/grok-3573.jpg"
+      ],
+      "parentId": "grok-haibao",
+      "collection": "海报封面",
+      "collectionIndex": 5,
+      "collectionTotal": 8,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "海报",
+        "封面",
+        "社媒"
+      ],
+      "medium": "图像",
+      "aspect": "16:9",
+      "promptText": "围绕任意主题内容生成一张强叙事自媒体封面：画面必须由一个强烈而统一的主色场统摄，主色从主题自身的时代、材质、行业、地域和情绪里提取，占据绝大部分背景，像一层有厚度的旧纸、墙面、漆面或印刷底版；标题使用与主色形成高反差的旧白、灰白、浅金属色或主题派生的明亮浅色，带微微发黄、磨损、掉粉和纸浆颗粒感；最深的结构只用接近墨黑、焦褐或主题里的深暗色压住阴影、插画剪影和空间裂层。整体不要多彩，应该像同一种颜色系统里长出的三四个明暗角色：大底负责情绪，浅字负责冲击，深色负责重量，少量强调只在视线最该停留的地方出现。标题文字是画面的主结构，字体必须有碑刻、拓印、木刻、旧报刊大标题和民国招贴混合出的厚重感，笔画宽大、横竖有力，转折处带刀削般的硬边和不规则缺口，局部有宋体式骨架或雕版字的锋利收笔，但不能变成现代黑体、圆体、电脑综艺字或干净书法字。几个关键汉字要巨大到像占据空间的石块和墙体，字面有磨蚀、断墨、套印不齐、纤维刮痕和粗粝颗粒，次要文字围绕它们形成疏密节奏，而不是平均排满。插画配图跟随主题自然发生，不预设固定题材，只从主题自身的冲突、身份、时代、材质和精神里生出带叙事感的形象，让它们依附、潜入、遮蔽或浮现在巨字周围，像被同一张底版一起印出来，而不是后贴上去的说明图。信息不要说透，保留沉默、遮挡和未完全显影的部分；第一眼必须是巨大旧字和单一强色的压迫，第二眼才读到主题插画在文字内部和周围生长出的故事、压力和余味。\n\n主题：\n[替换为你的内容]\n\n注意：文字逻辑重点，所有文字也要能快速读取，文字要大\n比例16:9",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "围绕任意主题内容生成一张强叙事自媒体封面：画面必须由一个强烈而统一的主色场统摄，主色从主题自身的时代、材质、行业、地域和情绪里提取，占据绝大部分背景，像一层有厚度的旧纸、墙面、漆面或印刷底版；标题使用与主色形成高反差的旧白、灰白、浅金属色或主题派生的明亮浅色，带微微发黄、磨损、掉粉和纸浆颗粒感；最深的结构只用接近墨黑、焦褐或主题里的深暗色压住阴影、插画剪影和空间裂层。整体不要多彩，应该像同一种颜色系统里长出的三四个明暗角色：大底负责情绪，浅字负责冲击，深色负责重量，少量强调只在视线最该停留的地方出现。标题文字是画面的主结构，字体必须有碑刻、拓印、木刻、旧报刊大标题和民国招贴混合出的厚重感，笔画宽大、横竖有力，转折处带刀削般的硬边和不规则缺口，局部有宋体式骨架或雕版字的锋利收笔，但不能变成现代黑体、圆体、电脑综艺字或干净书法字。几个关键汉字要巨大到像占据空间的石块和墙体，字面有磨蚀、断墨、套印不齐、纤维刮痕和粗粝颗粒，次要文字围绕它们形成疏密节奏，而不是平均排满。插画配图跟随主题自然发生，不预设固定题材，只从主题自身的冲突、身份、时代、材质和精神里生出带叙事感的形象，让它们依附、潜入、遮蔽或浮现在巨字周围，像被同一张底版一起印出来，而不是后贴上去的说明图。信息不要说透，保留沉默、遮挡和未完全显影的部分；第一眼必须是巨大旧字和单一强色的压迫，第二眼才读到主题插画在文字内部和周围生长出的故事、压力和余味。\n\n主题：\n[替换为你的内容]\n\n注意：文字逻辑重点，所有文字也要能快速读取，文字要大\n比例16:9"
+    },
+    {
+      "id": "grok-3574",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "黑白灰先锋海报设计",
+      "usage": "用途：Grok 海报 / 封面提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/5cde565c63e2567686c7cf3929c64490)\n\n原始分类：海报设计\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n你是一名顶级黑白灰先锋海报设计师、实验字体设计师、瑞士网格设计师、现代主义平面设计师、几何构成艺术指导、独立艺术节视觉总监。\n\n请根据我输入的主题，生成一张具有：\n\n“黑白灰先锋海报 + 随机字体排版 + 随机几何母题 + 极简留白 + 现代主义构成 + 少量强调色点缀”\n\n的高级视觉海报。\n\n==================================================\n【用户输入】\n==================================================\n\n主题词 / 主标题：{{主题词}}\n\n英文辅助：{{英文辅助，可留空}}\n\n副标题：{{副标题，可留空}}\n\n画幅比例：{{5:2 / 4:5 / 1:1 / 3:2}}\n\n背景倾向：{{黑底 / 白底 / 灰底 / 自动随机}}\n\n强调色：{{橙色 / 红色 / 黄色 / 无 / 自动随机}}\n\n用途：{{X封面 / 海报 / 公众号封面 / 作品集封面}}\n\n==================================================\n一、总目标\n==================================================\n\n请生成一张真正高级、克制、灵动的黑白灰先锋海报。\n\n画面必须像一套成熟视觉系统中的其中一张，而不是固定模板。\n\n核心目标：\n\n1. 字体排版必须随机、多样、有实验性；\n2. 几何图形必须随机、多样、有系统感；\n3. 构图方式必须随机，不要每次都像同一张模板；\n4. 黑白灰层次必须丰富；\n5. 主标题必须清晰、完整、准确；\n6. 强调色只能少量出现；\n7. 信息量必须克制，不能变成杂志目录、课程封面或信息图。\n\n整体气质参考：\n\n- modernist typography poster\n- Swiss grid poster\n- black and white experimental poster\n- abstract geometric poster\n- independent art festival poster\n- contemporary design exhibition visual\n- high-end editorial graphic design\n- minimal but dynamic visual system\n\n==================================================\n二、强制随机机制\n==================================================\n\n每次生成都必须随机选择不同版式，不要复用固定模板。\n\n请在同一视觉系统下随机变化：\n\n1. 背景随机：\n- 黑底\n- 白底\n- 灰底\n- 黑白分区\n- 大面积留白\n- 深灰空间背景\n\n2. 字体方向随机：\n- 巨型横排\n- 巨型竖排\n- 横竖混排\n- 靠边排版\n- 居中排版\n- 压底排版\n- 分散式排版\n- 满版大字\n- 英文旋转 90 度\n- 中文与英文交错排列\n\n3. 构图骨架随机：\n- 中央构图\n- 上下错层\n- 斜向构图\n- 环绕构图\n- 四角张力\n- 满版字体\n- 极端留白\n- 垂直轴\n- 水平轴\n- 透视空间\n- 分散式构图\n- 黑白块面对比构图\n\n4. 几何母题随机：\n每张图从以下几何母题中随机选择 2–4 种组合，不要每次都用同一种图形：\n\n- 半圆\n- 切割圆\n- 圆环\n- 同心圆\n- 模糊黑洞\n- 漏斗线阵\n- 透视矩形阵列\n- 线框球体\n- 层叠椭圆\n- 点阵\n- 细线网格\n- 几何切片\n- 灰度渐变块\n- 透明矩形面板\n- 黑白矩形块\n- 斜向切割线\n- 波形线阵\n- 不规则曲线\n- 极细路径线\n- 小型人物尺度对比\n- 微型强调色节点\n\n==================================================\n三、构图规则\n==================================================\n\n禁止默认生成“左边大标题，右边几何图形”的固定结构。\n\n可以使用以下构图，但每次必须随机变化：\n\n【A. 中央构图】\n主标题位于中心，几何图形围绕标题展开。\n\n【B. 上下错层构图】\n文字在上方或下方，几何图形在另一层形成错位关系。\n\n【C. 斜向构图】\n用斜线、斜向矩形、倾斜路径或斜向文字形成动势。\n\n【D. 环绕构图】\n几何图形位于中心，文字围绕图形边缘排列。\n\n【E. 四角张力构图】\n文字和图形分布在不同角落，通过线条或点建立关系。\n\n【F. 满版字体构图】\n主标题占据大部分画面，几何图形嵌入文字周围的负空间。\n\n【G. 极端留白构图】\n大面积留白，只放置一个主标题、一个几何母题和一个强调色点。\n\n【H. 垂直轴构图】\n以一条竖向轴线组织文字、圆形、矩形和点阵。\n\n【I. 水平轴构图】\n以一条水平轴线组织标题、路径线和几何节点。\n\n【J. 分散式构图】\n主标题被拆成几个可读字块，分布在画面不同区域，但仍保持整体秩序。\n\n限制：\n- 不要每次标题都在左侧；\n- 不要每次几何图形都在右侧；\n- 不要固定为“标题 + 圆 + 发散线”；\n- 不要生成普通 PPT 封面构图；\n- 不要生成课程封面构图；\n- 不要生成信息图构图。\n\n==================================================\n四、文字排版规则\n==================================================\n\n主标题必须完整、准确、清晰可读。\n\n文字排版必须有变化，请随机组合 2–4 种方式：\n\n- 巨型横排\n- 巨型竖排\n- 横竖混排\n- 大小反差\n- 字距拉开\n- 压缩字体\n- 分散字块\n- 沿边缘排列\n- 旋转 90 度的英文辅助词\n- 中英文交错\n- 文字贴近几何轴线\n- 文字嵌入几何负空间\n- 文字围绕几何图形排布\n- 英文作为结构梁\n- 中文作为视觉锚点\n\n重要限制：\n\n- 主标题不能被裁掉；\n- 主标题不能缺笔画；\n- 主标题不能错字；\n- 主标题不能被图形遮挡到影响识别；\n- 不要把中文字做成无法阅读的变形字体；\n- 不要过度切割文字；\n- 可以有实验排版，但必须保证主题词一眼可读。\n\n中文字体方向：\n现代黑体、几何黑体、粗黑无衬线、窄体黑体。\n\n英文字体方向：\ngrotesk、neo-grotesque、condensed sans-serif、geometric sans-serif。\n\n禁止：\n书法体、手写体、卡通字体、可爱字体、过度扭曲字体。\n\n==================================================\n五、几何图形规则\n==================================================\n\n几何图形必须多样，不能只使用一个圆和一组发散线。\n\n每张图必须从以下 6 个几何家族中选择至少 3 个家族组合：\n\n【A. 圆形家族】\n圆、半圆、圆环、同心圆、偏心圆、切割圆、灰度球面、模糊圆影。\n\n【B. 线性家族】\n直线、折线、路径线、弧线、波形线、平行线、放射线、断裂线。\n\n【C. 块面家族】\n矩形、窄条、黑白块面、灰色透明块、梯形、长条切片、方块阵列。\n\n【D. 空间家族】\n透视门、通道、阶梯、折叠平面、透明面板、层叠平面、空间入口。\n\n【E. 网格纹理家族】\n点阵、局部网格、扫描线、颗粒、网点、灰雾、低透明度线框。\n\n【F. 结构符号家族】\n箭头、节点、坐标点、十字标记、短线、中心轴、连接线。\n\n组合规则：\n\n- 每张图至少出现 3 个几何家族；\n- 每个家族只取少量元素；\n- 几何元素要有秩序，不要堆满；\n- 不要只使用“一个大圆 + 一组发散线”；\n- 不要只使用科技感透视网格；\n- 不要让几何图形变成复杂信息图；\n- 几何图形必须有视觉节奏和空间层次。\n\n==================================================\n六、图文融合规则\n==================================================\n\n文字和几何必须融合，但不能破坏文字可读性。\n\n允许：\n\n- 线条沿文字边缘延伸；\n- 圆形位于文字旁边或负空间中；\n- 矩形与文字对齐；\n- 点阵围绕文字形成节奏；\n- 轴线穿过画面但不切坏文字；\n- 几何图形托住文字；\n- 英文辅助词成为几何结构的一部分；\n- 主标题和几何元素共同形成平衡；\n- 图形从文字后方展开；\n- 图形围绕文字；\n- 图形成为文字的空间背景。\n\n禁止：\n\n- 几何图形遮住主标题关键笔画；\n- 图形独立摆在一边；\n- 文字独立摆在另一边；\n- 图文完全无关系；\n- 图形只是装饰贴纸。\n\n==================================================\n七、黑白灰层次规则\n==================================================\n\n画面以黑、白、灰为主。\n\n必须至少包含以下灰度层次中的 4 种：\n\n- 纯黑\n- 暗灰\n- 中灰\n- 浅灰\n- 白色\n- 半透明灰\n- 细线灰\n- 灰度渐变\n- 轻微纸张颗粒\n- 轻微模糊阴影\n\n黑底时：\n黑色不能死黑，需要暗灰线条、低透明度网格、灰度渐变、轻微颗粒、暗部几何轮廓。\n\n白底时：\n白色不能像空白 PPT，需要浅灰线条、纸面颗粒、淡灰结构、黑色强标题。\n\n灰底时：\n使用中性灰、暖灰或冷灰作为背景，搭配黑白字体和低对比几何层次。\n\n==================================================\n八、强调色规则\n==================================================\n\n强调色只允许极少量出现。\n\n如果使用强调色：\n\n- 只使用一种颜色；\n- 只出现 1–2 处；\n- 面积不超过画面 2%；\n- 只能作为小圆点、短线、小矩形、节点或十字标记；\n- 不能大面积上色；\n- 不能多彩；\n- 不能渐变霓虹。\n\n强调色必须像视觉锚点，不是装饰贴纸。\n\n==================================================\n九、辅助文字严格限制\n==================================================\n\n除以下内容外，不允许生成其他杂志式信息：\n\n允许：\n\n1. 用户输入的主标题；\n2. 用户输入的英文辅助词；\n3. 用户输入的副标题；\n4. 最多 3 个极短关键词，例如 INPUT / THINK / OUTPUT。\n\n禁止生成：\n\n- VOL\n- ISSUE\n- SERIES\n- 2024\n- 2025\n- 2026\n- 日期\n- 编号\n- 条形码\n- 出版物信息\n- 角落杂志标签\n- 大段英文说明\n- 密集小字\n- 栏目标题\n- 假 UI 面板\n- 课程目录\n- 技能列表\n- 信息图列表\n\n画面必须少信息，不要杂志封面感。\n\n==================================================\n十、生成多张时的规则\n==================================================\n\n如果我要求生成多张，例如 5 张或 9 张：\n\n- 必须分别生成独立图片；\n- 不要合并成一张合集；\n- 不要做拼贴；\n- 不要做九宫格；\n- 每张都必须可以单独保存；\n- 每张都必须使用不同背景、不同字体方向、不同几何母题、不同构图骨架；\n- 风格统一，但版式不能重复。\n\n如果系统无法一次生成多张独立图，请逐张生成，每次只生成一张。\n\n==================================================\n十一、严格禁止\n==================================================\n\n禁止：\n\n- 固定左字右图；\n- 单一大圆加发散线；\n- 杂志封面感；\n- 活动海报信息栏；\n- PPT 封面；\n- 课程封面；\n- 信息图模板；\n- 科技发布会封面；\n- 蓝紫霓虹；\n- 机器人；\n- 代码雨；\n- 图标堆叠；\n- 假 UI 面板；\n- 复杂 3D；\n- 九宫格；\n- 多方案拼贴；\n- 真实品牌 logo；\n- 主标题错字；\n- 主标题缺笔画；\n- 主标题被严重遮挡；\n- 画面过满；\n- 画面过空；\n- 元素堆砌；\n- 低级装饰感。\n\n==================================================\n十二、最终效果\n==================================================\n\n最终海报必须做到：\n\n1. 主标题一眼清晰；\n2. 字体排版有变化；\n3. 几何图形有多样性；\n4. 构图不固定为左右结构；\n5. 黑白灰层次丰富；\n6. 强调色极少但精准；\n7. 信息极少，不像杂志目录；\n8. 画面高级、克制、灵动；\n9. 像专业现代主义海报；\n10. 不是 PPT，不是课程封面，不是信息图。\n\n请直接生成最终海报画面。\n不要输出解释。\n不要生成九宫格。\n不要生成多方案合集。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/5cde565c63e2567686c7cf3929c64490",
+      "cover": "covers/entries/grok-3574.jpg",
+      "covers": [
+        "covers/entries/grok-3574.jpg"
+      ],
+      "parentId": "grok-haibao",
+      "collection": "海报封面",
+      "collectionIndex": 6,
+      "collectionTotal": 8,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "海报",
+        "极简"
+      ],
+      "medium": "图像",
+      "aspect": "16:9",
+      "promptText": "你是一名顶级黑白灰先锋海报设计师、实验字体设计师、瑞士网格设计师、现代主义平面设计师、几何构成艺术指导、独立艺术节视觉总监。\n\n请根据我输入的主题，生成一张具有：\n\n“黑白灰先锋海报 + 随机字体排版 + 随机几何母题 + 极简留白 + 现代主义构成 + 少量强调色点缀”\n\n的高级视觉海报。\n\n==================================================\n【用户输入】\n==================================================\n\n主题词 / 主标题：{{主题词}}\n\n英文辅助：{{英文辅助，可留空}}\n\n副标题：{{副标题，可留空}}\n\n画幅比例：{{5:2 / 4:5 / 1:1 / 3:2}}\n\n背景倾向：{{黑底 / 白底 / 灰底 / 自动随机}}\n\n强调色：{{橙色 / 红色 / 黄色 / 无 / 自动随机}}\n\n用途：{{X封面 / 海报 / 公众号封面 / 作品集封面}}\n\n==================================================\n一、总目标\n==================================================\n\n请生成一张真正高级、克制、灵动的黑白灰先锋海报。\n\n画面必须像一套成熟视觉系统中的其中一张，而不是固定模板。\n\n核心目标：\n\n1. 字体排版必须随机、多样、有实验性；\n2. 几何图形必须随机、多样、有系统感；\n3. 构图方式必须随机，不要每次都像同一张模板；\n4. 黑白灰层次必须丰富；\n5. 主标题必须清晰、完整、准确；\n6. 强调色只能少量出现；\n7. 信息量必须克制，不能变成杂志目录、课程封面或信息图。\n\n整体气质参考：\n\n- modernist typography poster\n- Swiss grid poster\n- black and white experimental poster\n- abstract geometric poster\n- independent art festival poster\n- contemporary design exhibition visual\n- high-end editorial graphic design\n- minimal but dynamic visual system\n\n==================================================\n二、强制随机机制\n==================================================\n\n每次生成都必须随机选择不同版式，不要复用固定模板。\n\n请在同一视觉系统下随机变化：\n\n1. 背景随机：\n- 黑底\n- 白底\n- 灰底\n- 黑白分区\n- 大面积留白\n- 深灰空间背景\n\n2. 字体方向随机：\n- 巨型横排\n- 巨型竖排\n- 横竖混排\n- 靠边排版\n- 居中排版\n- 压底排版\n- 分散式排版\n- 满版大字\n- 英文旋转 90 度\n- 中文与英文交错排列\n\n3. 构图骨架随机：\n- 中央构图\n- 上下错层\n- 斜向构图\n- 环绕构图\n- 四角张力\n- 满版字体\n- 极端留白\n- 垂直轴\n- 水平轴\n- 透视空间\n- 分散式构图\n- 黑白块面对比构图\n\n4. 几何母题随机：\n每张图从以下几何母题中随机选择 2–4 种组合，不要每次都用同一种图形：\n\n- 半圆\n- 切割圆\n- 圆环\n- 同心圆\n- 模糊黑洞\n- 漏斗线阵\n- 透视矩形阵列\n- 线框球体\n- 层叠椭圆\n- 点阵\n- 细线网格\n- 几何切片\n- 灰度渐变块\n- 透明矩形面板\n- 黑白矩形块\n- 斜向切割线\n- 波形线阵\n- 不规则曲线\n- 极细路径线\n- 小型人物尺度对比\n- 微型强调色节点\n\n==================================================\n三、构图规则\n==================================================\n\n禁止默认生成“左边大标题，右边几何图形”的固定结构。\n\n可以使用以下构图，但每次必须随机变化：\n\n【A. 中央构图】\n主标题位于中心，几何图形围绕标题展开。\n\n【B. 上下错层构图】\n文字在上方或下方，几何图形在另一层形成错位关系。\n\n【C. 斜向构图】\n用斜线、斜向矩形、倾斜路径或斜向文字形成动势。\n\n【D. 环绕构图】\n几何图形位于中心，文字围绕图形边缘排列。\n\n【E. 四角张力构图】\n文字和图形分布在不同角落，通过线条或点建立关系。\n\n【F. 满版字体构图】\n主标题占据大部分画面，几何图形嵌入文字周围的负空间。\n\n【G. 极端留白构图】\n大面积留白，只放置一个主标题、一个几何母题和一个强调色点。\n\n【H. 垂直轴构图】\n以一条竖向轴线组织文字、圆形、矩形和点阵。\n\n【I. 水平轴构图】\n以一条水平轴线组织标题、路径线和几何节点。\n\n【J. 分散式构图】\n主标题被拆成几个可读字块，分布在画面不同区域，但仍保持整体秩序。\n\n限制：\n- 不要每次标题都在左侧；\n- 不要每次几何图形都在右侧；\n- 不要固定为“标题 + 圆 + 发散线”；\n- 不要生成普通 PPT 封面构图；\n- 不要生成课程封面构图；\n- 不要生成信息图构图。\n\n==================================================\n四、文字排版规则\n==================================================\n\n主标题必须完整、准确、清晰可读。\n\n文字排版必须有变化，请随机组合 2–4 种方式：\n\n- 巨型横排\n- 巨型竖排\n- 横竖混排\n- 大小反差\n- 字距拉开\n- 压缩字体\n- 分散字块\n- 沿边缘排列\n- 旋转 90 度的英文辅助词\n- 中英文交错\n- 文字贴近几何轴线\n- 文字嵌入几何负空间\n- 文字围绕几何图形排布\n- 英文作为结构梁\n- 中文作为视觉锚点\n\n重要限制：\n\n- 主标题不能被裁掉；\n- 主标题不能缺笔画；\n- 主标题不能错字；\n- 主标题不能被图形遮挡到影响识别；\n- 不要把中文字做成无法阅读的变形字体；\n- 不要过度切割文字；\n- 可以有实验排版，但必须保证主题词一眼可读。\n\n中文字体方向：\n现代黑体、几何黑体、粗黑无衬线、窄体黑体。\n\n英文字体方向：\ngrotesk、neo-grotesque、condensed sans-serif、geometric sans-serif。\n\n禁止：\n书法体、手写体、卡通字体、可爱字体、过度扭曲字体。\n\n==================================================\n五、几何图形规则\n==================================================\n\n几何图形必须多样，不能只使用一个圆和一组发散线。\n\n每张图必须从以下 6 个几何家族中选择至少 3 个家族组合：\n\n【A. 圆形家族】\n圆、半圆、圆环、同心圆、偏心圆、切割圆、灰度球面、模糊圆影。\n\n【B. 线性家族】\n直线、折线、路径线、弧线、波形线、平行线、放射线、断裂线。\n\n【C. 块面家族】\n矩形、窄条、黑白块面、灰色透明块、梯形、长条切片、方块阵列。\n\n【D. 空间家族】\n透视门、通道、阶梯、折叠平面、透明面板、层叠平面、空间入口。\n\n【E. 网格纹理家族】\n点阵、局部网格、扫描线、颗粒、网点、灰雾、低透明度线框。\n\n【F. 结构符号家族】\n箭头、节点、坐标点、十字标记、短线、中心轴、连接线。\n\n组合规则：\n\n- 每张图至少出现 3 个几何家族；\n- 每个家族只取少量元素；\n- 几何元素要有秩序，不要堆满；\n- 不要只使用“一个大圆 + 一组发散线”；\n- 不要只使用科技感透视网格；\n- 不要让几何图形变成复杂信息图；\n- 几何图形必须有视觉节奏和空间层次。\n\n==================================================\n六、图文融合规则\n==================================================\n\n文字和几何必须融合，但不能破坏文字可读性。\n\n允许：\n\n- 线条沿文字边缘延伸；\n- 圆形位于文字旁边或负空间中；\n- 矩形与文字对齐；\n- 点阵围绕文字形成节奏；\n- 轴线穿过画面但不切坏文字；\n- 几何图形托住文字；\n- 英文辅助词成为几何结构的一部分；\n- 主标题和几何元素共同形成平衡；\n- 图形从文字后方展开；\n- 图形围绕文字；\n- 图形成为文字的空间背景。\n\n禁止：\n\n- 几何图形遮住主标题关键笔画；\n- 图形独立摆在一边；\n- 文字独立摆在另一边；\n- 图文完全无关系；\n- 图形只是装饰贴纸。\n\n==================================================\n七、黑白灰层次规则\n==================================================\n\n画面以黑、白、灰为主。\n\n必须至少包含以下灰度层次中的 4 种：\n\n- 纯黑\n- 暗灰\n- 中灰\n- 浅灰\n- 白色\n- 半透明灰\n- 细线灰\n- 灰度渐变\n- 轻微纸张颗粒\n- 轻微模糊阴影\n\n黑底时：\n黑色不能死黑，需要暗灰线条、低透明度网格、灰度渐变、轻微颗粒、暗部几何轮廓。\n\n白底时：\n白色不能像空白 PPT，需要浅灰线条、纸面颗粒、淡灰结构、黑色强标题。\n\n灰底时：\n使用中性灰、暖灰或冷灰作为背景，搭配黑白字体和低对比几何层次。\n\n==================================================\n八、强调色规则\n==================================================\n\n强调色只允许极少量出现。\n\n如果使用强调色：\n\n- 只使用一种颜色；\n- 只出现 1–2 处；\n- 面积不超过画面 2%；\n- 只能作为小圆点、短线、小矩形、节点或十字标记；\n- 不能大面积上色；\n- 不能多彩；\n- 不能渐变霓虹。\n\n强调色必须像视觉锚点，不是装饰贴纸。\n\n==================================================\n九、辅助文字严格限制\n==================================================\n\n除以下内容外，不允许生成其他杂志式信息：\n\n允许：\n\n1. 用户输入的主标题；\n2. 用户输入的英文辅助词；\n3. 用户输入的副标题；\n4. 最多 3 个极短关键词，例如 INPUT / THINK / OUTPUT。\n\n禁止生成：\n\n- VOL\n- ISSUE\n- SERIES\n- 2024\n- 2025\n- 2026\n- 日期\n- 编号\n- 条形码\n- 出版物信息\n- 角落杂志标签\n- 大段英文说明\n- 密集小字\n- 栏目标题\n- 假 UI 面板\n- 课程目录\n- 技能列表\n- 信息图列表\n\n画面必须少信息，不要杂志封面感。\n\n==================================================\n十、生成多张时的规则\n==================================================\n\n如果我要求生成多张，例如 5 张或 9 张：\n\n- 必须分别生成独立图片；\n- 不要合并成一张合集；\n- 不要做拼贴；\n- 不要做九宫格；\n- 每张都必须可以单独保存；\n- 每张都必须使用不同背景、不同字体方向、不同几何母题、不同构图骨架；\n- 风格统一，但版式不能重复。\n\n如果系统无法一次生成多张独立图，请逐张生成，每次只生成一张。\n\n==================================================\n十一、严格禁止\n==================================================\n\n禁止：\n\n- 固定左字右图；\n- 单一大圆加发散线；\n- 杂志封面感；\n- 活动海报信息栏；\n- PPT 封面；\n- 课程封面；\n- 信息图模板；\n- 科技发布会封面；\n- 蓝紫霓虹；\n- 机器人；\n- 代码雨；\n- 图标堆叠；\n- 假 UI 面板；\n- 复杂 3D；\n- 九宫格；\n- 多方案拼贴；\n- 真实品牌 logo；\n- 主标题错字；\n- 主标题缺笔画；\n- 主标题被严重遮挡；\n- 画面过满；\n- 画面过空；\n- 元素堆砌；\n- 低级装饰感。\n\n==================================================\n十二、最终效果\n==================================================\n\n最终海报必须做到：\n\n1. 主标题一眼清晰；\n2. 字体排版有变化；\n3. 几何图形有多样性；\n4. 构图不固定为左右结构；\n5. 黑白灰层次丰富；\n6. 强调色极少但精准；\n7. 信息极少，不像杂志目录；\n8. 画面高级、克制、灵动；\n9. 像专业现代主义海报；\n10. 不是 PPT，不是课程封面，不是信息图。\n\n请直接生成最终海报画面。\n不要输出解释。\n不要生成九宫格。\n不要生成多方案合集。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "你是一名顶级黑白灰先锋海报设计师、实验字体设计师、瑞士网格设计师、现代主义平面设计师、几何构成艺术指导、独立艺术节视觉总监。\n\n请根据我输入的主题，生成一张具有：\n\n“黑白灰先锋海报 + 随机字体排版 + 随机几何母题 + 极简留白 + 现代主义构成 + 少量强调色点缀”\n\n的高级视觉海报。\n\n==================================================\n【用户输入】\n==================================================\n\n主题词 / 主标题：{{主题词}}\n\n英文辅助：{{英文辅助，可留空}}\n\n副标题：{{副标题，可留空}}\n\n画幅比例：{{5:2 / 4:5 / 1:1 / 3:2}}\n\n背景倾向：{{黑底 / 白底 / 灰底 / 自动随机}}\n\n强调色：{{橙色 / 红色 / 黄色 / 无 / 自动随机}}\n\n用途：{{X封面 / 海报 / 公众号封面 / 作品集封面}}\n\n==================================================\n一、总目标\n==================================================\n\n请生成一张真正高级、克制、灵动的黑白灰先锋海报。\n\n画面必须像一套成熟视觉系统中的其中一张，而不是固定模板。\n\n核心目标：\n\n1. 字体排版必须随机、多样、有实验性；\n2. 几何图形必须随机、多样、有系统感；\n3. 构图方式必须随机，不要每次都像同一张模板；\n4. 黑白灰层次必须丰富；\n5. 主标题必须清晰、完整、准确；\n6. 强调色只能少量出现；\n7. 信息量必须克制，不能变成杂志目录、课程封面或信息图。\n\n整体气质参考：\n\n- modernist typography poster\n- Swiss grid poster\n- black and white experimental poster\n- abstract geometric poster\n- independent art festival poster\n- contemporary design exhibition visual\n- high-end editorial graphic design\n- minimal but dynamic visual system\n\n==================================================\n二、强制随机机制\n==================================================\n\n每次生成都必须随机选择不同版式，不要复用固定模板。\n\n请在同一视觉系统下随机变化：\n\n1. 背景随机：\n- 黑底\n- 白底\n- 灰底\n- 黑白分区\n- 大面积留白\n- 深灰空间背景\n\n2. 字体方向随机：\n- 巨型横排\n- 巨型竖排\n- 横竖混排\n- 靠边排版\n- 居中排版\n- 压底排版\n- 分散式排版\n- 满版大字\n- 英文旋转 90 度\n- 中文与英文交错排列\n\n3. 构图骨架随机：\n- 中央构图\n- 上下错层\n- 斜向构图\n- 环绕构图\n- 四角张力\n- 满版字体\n- 极端留白\n- 垂直轴\n- 水平轴\n- 透视空间\n- 分散式构图\n- 黑白块面对比构图\n\n4. 几何母题随机：\n每张图从以下几何母题中随机选择 2–4 种组合，不要每次都用同一种图形：\n\n- 半圆\n- 切割圆\n- 圆环\n- 同心圆\n- 模糊黑洞\n- 漏斗线阵\n- 透视矩形阵列\n- 线框球体\n- 层叠椭圆\n- 点阵\n- 细线网格\n- 几何切片\n- 灰度渐变块\n- 透明矩形面板\n- 黑白矩形块\n- 斜向切割线\n- 波形线阵\n- 不规则曲线\n- 极细路径线\n- 小型人物尺度对比\n- 微型强调色节点\n\n==================================================\n三、构图规则\n==================================================\n\n禁止默认生成“左边大标题，右边几何图形”的固定结构。\n\n可以使用以下构图，但每次必须随机变化：\n\n【A. 中央构图】\n主标题位于中心，几何图形围绕标题展开。\n\n【B. 上下错层构图】\n文字在上方或下方，几何图形在另一层形成错位关系。\n\n【C. 斜向构图】\n用斜线、斜向矩形、倾斜路径或斜向文字形成动势。\n\n【D. 环绕构图】\n几何图形位于中心，文字围绕图形边缘排列。\n\n【E. 四角张力构图】\n文字和图形分布在不同角落，通过线条或点建立关系。\n\n【F. 满版字体构图】\n主标题占据大部分画面，几何图形嵌入文字周围的负空间。\n\n【G. 极端留白构图】\n大面积留白，只放置一个主标题、一个几何母题和一个强调色点。\n\n【H. 垂直轴构图】\n以一条竖向轴线组织文字、圆形、矩形和点阵。\n\n【I. 水平轴构图】\n以一条水平轴线组织标题、路径线和几何节点。\n\n【J. 分散式构图】\n主标题被拆成几个可读字块，分布在画面不同区域，但仍保持整体秩序。\n\n限制：\n- 不要每次标题都在左侧；\n- 不要每次几何图形都在右侧；\n- 不要固定为“标题 + 圆 + 发散线”；\n- 不要生成普通 PPT 封面构图；\n- 不要生成课程封面构图；\n- 不要生成信息图构图。\n\n==================================================\n四、文字排版规则\n==================================================\n\n主标题必须完整、准确、清晰可读。\n\n文字排版必须有变化，请随机组合 2–4 种方式：\n\n- 巨型横排\n- 巨型竖排\n- 横竖混排\n- 大小反差\n- 字距拉开\n- 压缩字体\n- 分散字块\n- 沿边缘排列\n- 旋转 90 度的英文辅助词\n- 中英文交错\n- 文字贴近几何轴线\n- 文字嵌入几何负空间\n- 文字围绕几何图形排布\n- 英文作为结构梁\n- 中文作为视觉锚点\n\n重要限制：\n\n- 主标题不能被裁掉；\n- 主标题不能缺笔画；\n- 主标题不能错字；\n- 主标题不能被图形遮挡到影响识别；\n- 不要把中文字做成无法阅读的变形字体；\n- 不要过度切割文字；\n- 可以有实验排版，但必须保证主题词一眼可读。\n\n中文字体方向：\n现代黑体、几何黑体、粗黑无衬线、窄体黑体。\n\n英文字体方向：\ngrotesk、neo-grotesque、condensed sans-serif、geometric sans-serif。\n\n禁止：\n书法体、手写体、卡通字体、可爱字体、过度扭曲字体。\n\n==================================================\n五、几何图形规则\n==================================================\n\n几何图形必须多样，不能只使用一个圆和一组发散线。\n\n每张图必须从以下 6 个几何家族中选择至少 3 个家族组合：\n\n【A. 圆形家族】\n圆、半圆、圆环、同心圆、偏心圆、切割圆、灰度球面、模糊圆影。\n\n【B. 线性家族】\n直线、折线、路径线、弧线、波形线、平行线、放射线、断裂线。\n\n【C. 块面家族】\n矩形、窄条、黑白块面、灰色透明块、梯形、长条切片、方块阵列。\n\n【D. 空间家族】\n透视门、通道、阶梯、折叠平面、透明面板、层叠平面、空间入口。\n\n【E. 网格纹理家族】\n点阵、局部网格、扫描线、颗粒、网点、灰雾、低透明度线框。\n\n【F. 结构符号家族】\n箭头、节点、坐标点、十字标记、短线、中心轴、连接线。\n\n组合规则：\n\n- 每张图至少出现 3 个几何家族；\n- 每个家族只取少量元素；\n- 几何元素要有秩序，不要堆满；\n- 不要只使用“一个大圆 + 一组发散线”；\n- 不要只使用科技感透视网格；\n- 不要让几何图形变成复杂信息图；\n- 几何图形必须有视觉节奏和空间层次。\n\n==================================================\n六、图文融合规则\n==================================================\n\n文字和几何必须融合，但不能破坏文字可读性。\n\n允许：\n\n- 线条沿文字边缘延伸；\n- 圆形位于文字旁边或负空间中；\n- 矩形与文字对齐；\n- 点阵围绕文字形成节奏；\n- 轴线穿过画面但不切坏文字；\n- 几何图形托住文字；\n- 英文辅助词成为几何结构的一部分；\n- 主标题和几何元素共同形成平衡；\n- 图形从文字后方展开；\n- 图形围绕文字；\n- 图形成为文字的空间背景。\n\n禁止：\n\n- 几何图形遮住主标题关键笔画；\n- 图形独立摆在一边；\n- 文字独立摆在另一边；\n- 图文完全无关系；\n- 图形只是装饰贴纸。\n\n==================================================\n七、黑白灰层次规则\n==================================================\n\n画面以黑、白、灰为主。\n\n必须至少包含以下灰度层次中的 4 种：\n\n- 纯黑\n- 暗灰\n- 中灰\n- 浅灰\n- 白色\n- 半透明灰\n- 细线灰\n- 灰度渐变\n- 轻微纸张颗粒\n- 轻微模糊阴影\n\n黑底时：\n黑色不能死黑，需要暗灰线条、低透明度网格、灰度渐变、轻微颗粒、暗部几何轮廓。\n\n白底时：\n白色不能像空白 PPT，需要浅灰线条、纸面颗粒、淡灰结构、黑色强标题。\n\n灰底时：\n使用中性灰、暖灰或冷灰作为背景，搭配黑白字体和低对比几何层次。\n\n==================================================\n八、强调色规则\n==================================================\n\n强调色只允许极少量出现。\n\n如果使用强调色：\n\n- 只使用一种颜色；\n- 只出现 1–2 处；\n- 面积不超过画面 2%；\n- 只能作为小圆点、短线、小矩形、节点或十字标记；\n- 不能大面积上色；\n- 不能多彩；\n- 不能渐变霓虹。\n\n强调色必须像视觉锚点，不是装饰贴纸。\n\n==================================================\n九、辅助文字严格限制\n==================================================\n\n除以下内容外，不允许生成其他杂志式信息：\n\n允许：\n\n1. 用户输入的主标题；\n2. 用户输入的英文辅助词；\n3. 用户输入的副标题；\n4. 最多 3 个极短关键词，例如 INPUT / THINK / OUTPUT。\n\n禁止生成：\n\n- VOL\n- ISSUE\n- SERIES\n- 2024\n- 2025\n- 2026\n- 日期\n- 编号\n- 条形码\n- 出版物信息\n- 角落杂志标签\n- 大段英文说明\n- 密集小字\n- 栏目标题\n- 假 UI 面板\n- 课程目录\n- 技能列表\n- 信息图列表\n\n画面必须少信息，不要杂志封面感。\n\n==================================================\n十、生成多张时的规则\n==================================================\n\n如果我要求生成多张，例如 5 张或 9 张：\n\n- 必须分别生成独立图片；\n- 不要合并成一张合集；\n- 不要做拼贴；\n- 不要做九宫格；\n- 每张都必须可以单独保存；\n- 每张都必须使用不同背景、不同字体方向、不同几何母题、不同构图骨架；\n- 风格统一，但版式不能重复。\n\n如果系统无法一次生成多张独立图，请逐张生成，每次只生成一张。\n\n==================================================\n十一、严格禁止\n==================================================\n\n禁止：\n\n- 固定左字右图；\n- 单一大圆加发散线；\n- 杂志封面感；\n- 活动海报信息栏；\n- PPT 封面；\n- 课程封面；\n- 信息图模板；\n- 科技发布会封面；\n- 蓝紫霓虹；\n- 机器人；\n- 代码雨；\n- 图标堆叠；\n- 假 UI 面板；\n- 复杂 3D；\n- 九宫格；\n- 多方案拼贴；\n- 真实品牌 logo；\n- 主标题错字；\n- 主标题缺笔画；\n- 主标题被严重遮挡；\n- 画面过满；\n- 画面过空；\n- 元素堆砌；\n- 低级装饰感。\n\n==================================================\n十二、最终效果\n==================================================\n\n最终海报必须做到：\n\n1. 主标题一眼清晰；\n2. 字体排版有变化；\n3. 几何图形有多样性；\n4. 构图不固定为左右结构；\n5. 黑白灰层次丰富；\n6. 强调色极少但精准；\n7. 信息极少，不像杂志目录；\n8. 画面高级、克制、灵动；\n9. 像专业现代主义海报；\n10. 不是 PPT，不是课程封面，不是信息图。\n\n请直接生成最终海报画面。\n不要输出解释。\n不要生成九宫格。\n不要生成多方案合集。"
+    },
+    {
+      "id": "grok-3576",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "东方神话人物志百科海报",
+      "usage": "用途：Grok 海报 / 封面提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/3f8cec005330891e6adae0e28e682ca8)\n\n原始分类：海报设计\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n请基于【孙悟空】生成一张竖版 A4「东方神话人物志」百科海报。\n\n你是一名东方神话视觉设定师、古籍图谱设计师和中文信息图设计师。请根据【人物名称】在东方神话、民间传说、古籍、戏曲、文学或传统文化中的已知形象，生成一张内容完整、视觉统一、具有东方神话气质的人物档案海报。\n\n最重要原则：\n全部内容必须围绕【人物名称】展开，不要套用通用神仙模板。\n人物形象、法器、坐骑、神通、典故、象征物、背景场景都必须符合【人物名称】的神话设定。\n如果该人物存在多个传说版本，请采用最广为人知的版本；存在异文时，可以在相关板块简短标注“传说版本不一”。\n不确定的信息不要强行编造，可写“民间传说中多有异文”或“相关记载较少”。\n不要使用北欧符文、维京图腾、哥特边框、西方盔甲、欧式城堡、西幻恶魔角、赛博朋克元素。\n整体必须是东方神话审美，而不是“西幻人物换中式衣服”。\n整体视觉风格：\n东方神话史诗感，融合《山海经》异兽图谱、敦煌壁画、青绿山水、唐代人物画、宋元古画、青铜器纹样、古籍注疏和符箓篆刻风格。画面庄重、神秘、古雅、华丽但克制。\n画面构图：\n\n竖版 A4 海报，中轴对称布局。中央为【人物名称】的全身或半身主视觉，姿态庄严，有神性和叙事感。人物服饰、发冠、法器、神态、灵兽、背景都要符合该人物传说。左右两侧为信息卡片，底部为核心总结。四周使用云雷纹、回纹、青铜纹、祥云纹、卷草纹、山海纹、篆刻印章式边框。\n主标题：“【人物名称】”\n副标题：“东方神话人物志｜根据该人物神话传说生成”\n顶部精神题记：请根据【人物名称】的核心精神，自动生成一句古雅、凝练、有哲学意味的题记。题记要体现该人物背后的价值观、生命姿态或精神内核，而不是说明性文字。不要写“非史实考证”“仅供参考”“传说版本”等免责声明。字数控制在 12-28 字，适合放在标题下方。题记应与人物高度绑定，不要套用“守护苍生”“大道无边”等空泛句式。\n\n请生成以下内容板块：\n【1. 神格身份】说明【人物名称】在东方神话体系中的身份定位。\n【2. 神话源流】说明该人物主要出自哪些神话、古籍、民间传说、小说、戏曲或宗教信仰。\n【3. 司职权柄】总结该人物掌管或象征的领域。\n【4. 形象特征】描述该人物的典型外貌、服饰、神态、姿态和视觉气质。\n【5. 法器神通】展示该人物最具代表性的法器、兵器、符咒、神通或能力。\n【6. 灵兽坐骑 / 随身象征】如果【人物名称】有坐骑、灵兽、伴生生灵，请展示其名称、形态和寓意。如果没有明确坐骑，请改为“随身象征物”或“相关意象”。不要强行给每个人物安排龙、凤、仙鹤或麒麟。\n【7. 典故出处】列出 2-4 个与【人物名称】相关的经典故事、传说片段或文化典故。不要虚构不存在的典故。若版本不一，请标注“异文较多”。\n【8. 象征意象】提炼该人物最核心的视觉符号。符号必须与【人物名称】相关。\n【9. 神话谱系】说明该人物与其他神话人物、阵营、族属或体系的关系。如果谱系不明确，请写“谱系传说不一”。\n【10. 文化影响】说明该人物在民俗、节日、祭祀、文学、戏曲、绘画、庙宇、影视或现代文化中的影响。\n【11. 精神内核】从神话叙事角度总结该人物象征的精神。这里只分析神话形象，不推断真实人物性格。\n【12. 核心总结】用一段古雅但易懂的中文总结【人物名称】：“【人物名称】在东方神话中象征……，其形象融合了……，代表着……。”\n\n视觉版式要求：\n顶部：大标题 + 副标题 + 精神题记。\n中央：人物主视觉，气势庄重，细节丰富。\n左侧栏目：神格身份、神话源流、司职权柄、形象特征、法器神通。\n右侧栏目：灵兽坐骑/随身象征、典故出处、象征意象、神话谱系、文化影响。\n底部：精神内核 + 核心总结。\n可加入小型图标、注释线、古籍标签、卷轴卡片、青铜铭牌、朱砂印章、符箓纹样。\n信息卡片像古书页、玉简、青铜牌、卷轴或碑铭，不要像现代科技 UI。\n\n材质与纹样：\n宣纸肌理、矿物颜料、鎏金线条、朱砂印章、墨色晕染、青铜器铭文、云雷纹、回纹、祥云纹、山水纹、敦煌藻井纹样。\n\n配色规则：\n根据【人物名称】的属性自动选择东方配色。火焰 / 战斗 / 护法：朱砂、玄黑、鎏金、赤红。月亮 / 水系 / 清冷神祇：黛青、银白、月白、石蓝。山川 / 木系 / 自然神灵：石绿、青黛、玉白、赭石。帝王 / 天庭 / 尊神：鎏金、玄黑、朱砂、玉白。妖灵 / 山海异兽：墨黑、铜绿、暗金、赭红。不要所有人物都使用同一套配色。\n\n文字要求：\n中文必须清晰可读，标题大气，正文简短准确。不要乱码、伪文字、错别字、文字重叠或裁切。如果空间不足，优先压缩正文，但保留所有板块标题。\n\n避免：\n北欧符文、维京风、哥特边框、西方盔甲、欧式城堡、魔幻游戏 UI、赛博朋克、现代科技感、过度暗黑、随机龙凤、无关法器、模板化神仙形象、与【人物名称】无关的典故、空泛精神题记。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/3f8cec005330891e6adae0e28e682ca8",
+      "cover": "covers/entries/grok-3576.jpg",
+      "covers": [
+        "covers/entries/grok-3576.jpg"
+      ],
+      "parentId": "grok-haibao",
+      "collection": "海报封面",
+      "collectionIndex": 7,
+      "collectionTotal": 8,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "海报设计",
+        "UI",
+        "Infographic",
+        "Poster",
+        "Fashion",
+        "Story",
+        "History",
+        "海报",
+        "模板",
+        "古风"
+      ],
+      "medium": "模板",
+      "aspect": "2:3",
+      "promptText": "请基于【孙悟空】生成一张竖版 A4「东方神话人物志」百科海报。\n\n你是一名东方神话视觉设定师、古籍图谱设计师和中文信息图设计师。请根据【人物名称】在东方神话、民间传说、古籍、戏曲、文学或传统文化中的已知形象，生成一张内容完整、视觉统一、具有东方神话气质的人物档案海报。\n\n最重要原则：\n全部内容必须围绕【人物名称】展开，不要套用通用神仙模板。\n人物形象、法器、坐骑、神通、典故、象征物、背景场景都必须符合【人物名称】的神话设定。\n如果该人物存在多个传说版本，请采用最广为人知的版本；存在异文时，可以在相关板块简短标注“传说版本不一”。\n不确定的信息不要强行编造，可写“民间传说中多有异文”或“相关记载较少”。\n不要使用北欧符文、维京图腾、哥特边框、西方盔甲、欧式城堡、西幻恶魔角、赛博朋克元素。\n整体必须是东方神话审美，而不是“西幻人物换中式衣服”。\n整体视觉风格：\n东方神话史诗感，融合《山海经》异兽图谱、敦煌壁画、青绿山水、唐代人物画、宋元古画、青铜器纹样、古籍注疏和符箓篆刻风格。画面庄重、神秘、古雅、华丽但克制。\n画面构图：\n\n竖版 A4 海报，中轴对称布局。中央为【人物名称】的全身或半身主视觉，姿态庄严，有神性和叙事感。人物服饰、发冠、法器、神态、灵兽、背景都要符合该人物传说。左右两侧为信息卡片，底部为核心总结。四周使用云雷纹、回纹、青铜纹、祥云纹、卷草纹、山海纹、篆刻印章式边框。\n主标题：“【人物名称】”\n副标题：“东方神话人物志｜根据该人物神话传说生成”\n顶部精神题记：请根据【人物名称】的核心精神，自动生成一句古雅、凝练、有哲学意味的题记。题记要体现该人物背后的价值观、生命姿态或精神内核，而不是说明性文字。不要写“非史实考证”“仅供参考”“传说版本”等免责声明。字数控制在 12-28 字，适合放在标题下方。题记应与人物高度绑定，不要套用“守护苍生”“大道无边”等空泛句式。\n\n请生成以下内容板块：\n【1. 神格身份】说明【人物名称】在东方神话体系中的身份定位。\n【2. 神话源流】说明该人物主要出自哪些神话、古籍、民间传说、小说、戏曲或宗教信仰。\n【3. 司职权柄】总结该人物掌管或象征的领域。\n【4. 形象特征】描述该人物的典型外貌、服饰、神态、姿态和视觉气质。\n【5. 法器神通】展示该人物最具代表性的法器、兵器、符咒、神通或能力。\n【6. 灵兽坐骑 / 随身象征】如果【人物名称】有坐骑、灵兽、伴生生灵，请展示其名称、形态和寓意。如果没有明确坐骑，请改为“随身象征物”或“相关意象”。不要强行给每个人物安排龙、凤、仙鹤或麒麟。\n【7. 典故出处】列出 2-4 个与【人物名称】相关的经典故事、传说片段或文化典故。不要虚构不存在的典故。若版本不一，请标注“异文较多”。\n【8. 象征意象】提炼该人物最核心的视觉符号。符号必须与【人物名称】相关。\n【9. 神话谱系】说明该人物与其他神话人物、阵营、族属或体系的关系。如果谱系不明确，请写“谱系传说不一”。\n【10. 文化影响】说明该人物在民俗、节日、祭祀、文学、戏曲、绘画、庙宇、影视或现代文化中的影响。\n【11. 精神内核】从神话叙事角度总结该人物象征的精神。这里只分析神话形象，不推断真实人物性格。\n【12. 核心总结】用一段古雅但易懂的中文总结【人物名称】：“【人物名称】在东方神话中象征……，其形象融合了……，代表着……。”\n\n视觉版式要求：\n顶部：大标题 + 副标题 + 精神题记。\n中央：人物主视觉，气势庄重，细节丰富。\n左侧栏目：神格身份、神话源流、司职权柄、形象特征、法器神通。\n右侧栏目：灵兽坐骑/随身象征、典故出处、象征意象、神话谱系、文化影响。\n底部：精神内核 + 核心总结。\n可加入小型图标、注释线、古籍标签、卷轴卡片、青铜铭牌、朱砂印章、符箓纹样。\n信息卡片像古书页、玉简、青铜牌、卷轴或碑铭，不要像现代科技 UI。\n\n材质与纹样：\n宣纸肌理、矿物颜料、鎏金线条、朱砂印章、墨色晕染、青铜器铭文、云雷纹、回纹、祥云纹、山水纹、敦煌藻井纹样。\n\n配色规则：\n根据【人物名称】的属性自动选择东方配色。火焰 / 战斗 / 护法：朱砂、玄黑、鎏金、赤红。月亮 / 水系 / 清冷神祇：黛青、银白、月白、石蓝。山川 / 木系 / 自然神灵：石绿、青黛、玉白、赭石。帝王 / 天庭 / 尊神：鎏金、玄黑、朱砂、玉白。妖灵 / 山海异兽：墨黑、铜绿、暗金、赭红。不要所有人物都使用同一套配色。\n\n文字要求：\n中文必须清晰可读，标题大气，正文简短准确。不要乱码、伪文字、错别字、文字重叠或裁切。如果空间不足，优先压缩正文，但保留所有板块标题。\n\n避免：\n北欧符文、维京风、哥特边框、西方盔甲、欧式城堡、魔幻游戏 UI、赛博朋克、现代科技感、过度暗黑、随机龙凤、无关法器、模板化神仙形象、与【人物名称】无关的典故、空泛精神题记。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "请基于【孙悟空】生成一张竖版 A4「东方神话人物志」百科海报。\n\n你是一名东方神话视觉设定师、古籍图谱设计师和中文信息图设计师。请根据【人物名称】在东方神话、民间传说、古籍、戏曲、文学或传统文化中的已知形象，生成一张内容完整、视觉统一、具有东方神话气质的人物档案海报。\n\n最重要原则：\n全部内容必须围绕【人物名称】展开，不要套用通用神仙模板。\n人物形象、法器、坐骑、神通、典故、象征物、背景场景都必须符合【人物名称】的神话设定。\n如果该人物存在多个传说版本，请采用最广为人知的版本；存在异文时，可以在相关板块简短标注“传说版本不一”。\n不确定的信息不要强行编造，可写“民间传说中多有异文”或“相关记载较少”。\n不要使用北欧符文、维京图腾、哥特边框、西方盔甲、欧式城堡、西幻恶魔角、赛博朋克元素。\n整体必须是东方神话审美，而不是“西幻人物换中式衣服”。\n整体视觉风格：\n东方神话史诗感，融合《山海经》异兽图谱、敦煌壁画、青绿山水、唐代人物画、宋元古画、青铜器纹样、古籍注疏和符箓篆刻风格。画面庄重、神秘、古雅、华丽但克制。\n画面构图：\n\n竖版 A4 海报，中轴对称布局。中央为【人物名称】的全身或半身主视觉，姿态庄严，有神性和叙事感。人物服饰、发冠、法器、神态、灵兽、背景都要符合该人物传说。左右两侧为信息卡片，底部为核心总结。四周使用云雷纹、回纹、青铜纹、祥云纹、卷草纹、山海纹、篆刻印章式边框。\n主标题：“【人物名称】”\n副标题：“东方神话人物志｜根据该人物神话传说生成”\n顶部精神题记：请根据【人物名称】的核心精神，自动生成一句古雅、凝练、有哲学意味的题记。题记要体现该人物背后的价值观、生命姿态或精神内核，而不是说明性文字。不要写“非史实考证”“仅供参考”“传说版本”等免责声明。字数控制在 12-28 字，适合放在标题下方。题记应与人物高度绑定，不要套用“守护苍生”“大道无边”等空泛句式。\n\n请生成以下内容板块：\n【1. 神格身份】说明【人物名称】在东方神话体系中的身份定位。\n【2. 神话源流】说明该人物主要出自哪些神话、古籍、民间传说、小说、戏曲或宗教信仰。\n【3. 司职权柄】总结该人物掌管或象征的领域。\n【4. 形象特征】描述该人物的典型外貌、服饰、神态、姿态和视觉气质。\n【5. 法器神通】展示该人物最具代表性的法器、兵器、符咒、神通或能力。\n【6. 灵兽坐骑 / 随身象征】如果【人物名称】有坐骑、灵兽、伴生生灵，请展示其名称、形态和寓意。如果没有明确坐骑，请改为“随身象征物”或“相关意象”。不要强行给每个人物安排龙、凤、仙鹤或麒麟。\n【7. 典故出处】列出 2-4 个与【人物名称】相关的经典故事、传说片段或文化典故。不要虚构不存在的典故。若版本不一，请标注“异文较多”。\n【8. 象征意象】提炼该人物最核心的视觉符号。符号必须与【人物名称】相关。\n【9. 神话谱系】说明该人物与其他神话人物、阵营、族属或体系的关系。如果谱系不明确，请写“谱系传说不一”。\n【10. 文化影响】说明该人物在民俗、节日、祭祀、文学、戏曲、绘画、庙宇、影视或现代文化中的影响。\n【11. 精神内核】从神话叙事角度总结该人物象征的精神。这里只分析神话形象，不推断真实人物性格。\n【12. 核心总结】用一段古雅但易懂的中文总结【人物名称】：“【人物名称】在东方神话中象征……，其形象融合了……，代表着……。”\n\n视觉版式要求：\n顶部：大标题 + 副标题 + 精神题记。\n中央：人物主视觉，气势庄重，细节丰富。\n左侧栏目：神格身份、神话源流、司职权柄、形象特征、法器神通。\n右侧栏目：灵兽坐骑/随身象征、典故出处、象征意象、神话谱系、文化影响。\n底部：精神内核 + 核心总结。\n可加入小型图标、注释线、古籍标签、卷轴卡片、青铜铭牌、朱砂印章、符箓纹样。\n信息卡片像古书页、玉简、青铜牌、卷轴或碑铭，不要像现代科技 UI。\n\n材质与纹样：\n宣纸肌理、矿物颜料、鎏金线条、朱砂印章、墨色晕染、青铜器铭文、云雷纹、回纹、祥云纹、山水纹、敦煌藻井纹样。\n\n配色规则：\n根据【人物名称】的属性自动选择东方配色。火焰 / 战斗 / 护法：朱砂、玄黑、鎏金、赤红。月亮 / 水系 / 清冷神祇：黛青、银白、月白、石蓝。山川 / 木系 / 自然神灵：石绿、青黛、玉白、赭石。帝王 / 天庭 / 尊神：鎏金、玄黑、朱砂、玉白。妖灵 / 山海异兽：墨黑、铜绿、暗金、赭红。不要所有人物都使用同一套配色。\n\n文字要求：\n中文必须清晰可读，标题大气，正文简短准确。不要乱码、伪文字、错别字、文字重叠或裁切。如果空间不足，优先压缩正文，但保留所有板块标题。\n\n避免：\n北欧符文、维京风、哥特边框、西方盔甲、欧式城堡、魔幻游戏 UI、赛博朋克、现代科技感、过度暗黑、随机龙凤、无关法器、模板化神仙形象、与【人物名称】无关的典故、空泛精神题记。"
+    },
+    {
+      "id": "grok-3591",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "生日快乐涂鸦贺卡照片",
+      "usage": "用途：Grok 海报 / 封面提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/9e262e1ceab0d627099cc818e7f4c881)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n主体呈现:中心人物(参考图)需完整露出，面部无遮挡;涂鸦元素环绕主体分布，且不覆盖人物面部，涂鸦线条为手绘风格，颜色选白色、黄色、粉色。\n\n图案选择:包含生日主题图案(小蛋糕、蜡烛、气球、星星、爱心、彩带、礼物盒)与特殊元素(红包、元宝、金条、钞票雨、招财猫)，另有装饰线条(波浪线、虚线、闪光点、小花朵、箭头)。\n\n文字设计:主标题:“Happy Birthday!\"，采用手写涂鸦体，置于底部且为大字。\n\n日期标记:\"2026.01.21”，风格随性涂鸦，数字略带弧度，放在顶部。\n\n祝福文字:左右两侧各4-6行，均竖向排列;关键词(如“暴富”“上岸”发大财”)用更大字号(普通文字1.5-2倍)+彩色(黄色/粉色)强调;每行文字大小不完全一致，文字略带倾斜、旋转，部分字跳跃式排列。\n\n核心风格要求:笔触:如马克笔/粉笔在照片上直接涂写的感觉，粗细不均匀，边缘略有毛边，非平滑电脑字体。\n\n字迹:有不完美感(略有歪斜、大小不一、间距不等，似真人随手写)，部分笔画自然连笔，非一笔一划分开。\n\n力度:笔画起笔轻、中间重、收笔轻，有手写力度感;字形圆润饱满，转角带弧度，非棱角分明。\n\n细节:部分字的点/撇用小爱心或小星星替代。\n\n色彩搭配:主色为白色手绘线条，点缀色为柔和黄色、粉色、浅蓝色高光，强调色为黄色/粉色(用于部分文字)。整体氛围:轻松、温馨、欢庆，符合小红书/Instagram风格生日帖子美学，且必须是真实手写涂鸦风格，非电脑字体。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/9e262e1ceab0d627099cc818e7f4c881",
+      "cover": "covers/entries/grok-3591.jpg",
+      "covers": [
+        "covers/entries/grok-3591.jpg"
+      ],
+      "parentId": "grok-haibao",
+      "collection": "海报封面",
+      "collectionIndex": 8,
+      "collectionTotal": 8,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "海报",
+        "手写"
+      ],
+      "medium": "图像",
+      "aspect": "4:3",
+      "promptText": "主体呈现:中心人物(参考图)需完整露出，面部无遮挡;涂鸦元素环绕主体分布，且不覆盖人物面部，涂鸦线条为手绘风格，颜色选白色、黄色、粉色。\n\n图案选择:包含生日主题图案(小蛋糕、蜡烛、气球、星星、爱心、彩带、礼物盒)与特殊元素(红包、元宝、金条、钞票雨、招财猫)，另有装饰线条(波浪线、虚线、闪光点、小花朵、箭头)。\n\n文字设计:主标题:“Happy Birthday!\"，采用手写涂鸦体，置于底部且为大字。\n\n日期标记:\"2026.01.21”，风格随性涂鸦，数字略带弧度，放在顶部。\n\n祝福文字:左右两侧各4-6行，均竖向排列;关键词(如“暴富”“上岸”发大财”)用更大字号(普通文字1.5-2倍)+彩色(黄色/粉色)强调;每行文字大小不完全一致，文字略带倾斜、旋转，部分字跳跃式排列。\n\n核心风格要求:笔触:如马克笔/粉笔在照片上直接涂写的感觉，粗细不均匀，边缘略有毛边，非平滑电脑字体。\n\n字迹:有不完美感(略有歪斜、大小不一、间距不等，似真人随手写)，部分笔画自然连笔，非一笔一划分开。\n\n力度:笔画起笔轻、中间重、收笔轻，有手写力度感;字形圆润饱满，转角带弧度，非棱角分明。\n\n细节:部分字的点/撇用小爱心或小星星替代。\n\n色彩搭配:主色为白色手绘线条，点缀色为柔和黄色、粉色、浅蓝色高光，强调色为黄色/粉色(用于部分文字)。整体氛围:轻松、温馨、欢庆，符合小红书/Instagram风格生日帖子美学，且必须是真实手写涂鸦风格，非电脑字体。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "主体呈现:中心人物(参考图)需完整露出，面部无遮挡;涂鸦元素环绕主体分布，且不覆盖人物面部，涂鸦线条为手绘风格，颜色选白色、黄色、粉色。\n\n图案选择:包含生日主题图案(小蛋糕、蜡烛、气球、星星、爱心、彩带、礼物盒)与特殊元素(红包、元宝、金条、钞票雨、招财猫)，另有装饰线条(波浪线、虚线、闪光点、小花朵、箭头)。\n\n文字设计:主标题:“Happy Birthday!\"，采用手写涂鸦体，置于底部且为大字。\n\n日期标记:\"2026.01.21”，风格随性涂鸦，数字略带弧度，放在顶部。\n\n祝福文字:左右两侧各4-6行，均竖向排列;关键词(如“暴富”“上岸”发大财”)用更大字号(普通文字1.5-2倍)+彩色(黄色/粉色)强调;每行文字大小不完全一致，文字略带倾斜、旋转，部分字跳跃式排列。\n\n核心风格要求:笔触:如马克笔/粉笔在照片上直接涂写的感觉，粗细不均匀，边缘略有毛边，非平滑电脑字体。\n\n字迹:有不完美感(略有歪斜、大小不一、间距不等，似真人随手写)，部分笔画自然连笔，非一笔一划分开。\n\n力度:笔画起笔轻、中间重、收笔轻，有手写力度感;字形圆润饱满，转角带弧度，非棱角分明。\n\n细节:部分字的点/撇用小爱心或小星星替代。\n\n色彩搭配:主色为白色手绘线条，点缀色为柔和黄色、粉色、浅蓝色高光，强调色为黄色/粉色(用于部分文字)。整体氛围:轻松、温馨、欢庆，符合小红书/Instagram风格生日帖子美学，且必须是真实手写涂鸦风格，非电脑字体。"
+    },
+    {
+      "id": "grok-3577",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "手绘风格黑白插画",
+      "usage": "用途：Grok 插画 / 角色设定提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/e3692d580ff2e2a9f602ad121ab0e883)\n\n原始分类：插画艺术\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n手绘风格黑白插画，小红书封面设计，极简风，白色背景，黑色线稿人物，一个年轻男性坐在桌前认真写字，桌上有笔记本、马克杯、闹钟和书本，整体是线条感强的涂鸦风，类似手账插画风格\n画面包含大标题排版：“{{标题}}”，字体为手写粗体，带有随意感 局部用黄色作为强调色（下划线、圈重点、星星点缀等）\n画面左侧有便利贴，上面写文字：\n{{便利贴文字，可以1、2、3分条}}\n右侧有灯泡图标+“每天2小时认真尝试”\n底部有一句黑底白字的文案条 整体风格： 知识博主风 、真实记录感、轻松但克制、不商业化\n风格参考：手绘涂鸦、黑白线稿+少量高亮色 构图干净，信息分区清晰，适合内容封面传播\n底部标签：{{底部标签，可用 | 分割}}\n高分辨率\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/e3692d580ff2e2a9f602ad121ab0e883",
+      "cover": "covers/entries/grok-3577.jpg",
+      "covers": [
+        "covers/entries/grok-3577.jpg"
+      ],
+      "parentId": "grok-chahua",
+      "collection": "插画角色",
+      "collectionIndex": 1,
+      "collectionTotal": 6,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "插画"
+      ],
+      "medium": "图像",
+      "aspect": "3:4",
+      "promptText": "手绘风格黑白插画，小红书封面设计，极简风，白色背景，黑色线稿人物，一个年轻男性坐在桌前认真写字，桌上有笔记本、马克杯、闹钟和书本，整体是线条感强的涂鸦风，类似手账插画风格\n画面包含大标题排版：“{{标题}}”，字体为手写粗体，带有随意感 局部用黄色作为强调色（下划线、圈重点、星星点缀等）\n画面左侧有便利贴，上面写文字：\n{{便利贴文字，可以1、2、3分条}}\n右侧有灯泡图标+“每天2小时认真尝试”\n底部有一句黑底白字的文案条 整体风格： 知识博主风 、真实记录感、轻松但克制、不商业化\n风格参考：手绘涂鸦、黑白线稿+少量高亮色 构图干净，信息分区清晰，适合内容封面传播\n底部标签：{{底部标签，可用 | 分割}}\n高分辨率",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "手绘风格黑白插画，小红书封面设计，极简风，白色背景，黑色线稿人物，一个年轻男性坐在桌前认真写字，桌上有笔记本、马克杯、闹钟和书本，整体是线条感强的涂鸦风，类似手账插画风格\n画面包含大标题排版：“{{标题}}”，字体为手写粗体，带有随意感 局部用黄色作为强调色（下划线、圈重点、星星点缀等）\n画面左侧有便利贴，上面写文字：\n{{便利贴文字，可以1、2、3分条}}\n右侧有灯泡图标+“每天2小时认真尝试”\n底部有一句黑底白字的文案条 整体风格： 知识博主风 、真实记录感、轻松但克制、不商业化\n风格参考：手绘涂鸦、黑白线稿+少量高亮色 构图干净，信息分区清晰，适合内容封面传播\n底部标签：{{底部标签，可用 | 分割}}\n高分辨率"
+    },
+    {
+      "id": "grok-3578",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "黑神话悟空",
+      "usage": "用途：Grok 插画 / 角色设定提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/60480c998eb03a88ee6ec4e163b6ba08)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n用 gpt-image-2 生成\n根据{黑神话悟空}自动生成一张收藏版史诗叙事海报， \n\n巨大优雅的{悟空}人物侧脸剪影作为外轮廓，剪影内部自动生长出最契合该主题的完整世界观、标志性场景、角色关系、象征符号、关键建筑、生物、道具与氛围。\n\n整体不是普通拼贴，而是高级的剪影轮廓填充式叙事合成，带有双重曝光式联想，但强化为电影级叙事表达与空间调度。\n\n电影海报风格 + 东方现实主义美学融合，强调真实物理光影、镜头语言、空间纵深与叙事层级。\n\n光影采用电影级侧逆光与局部暖光点缀，冷暖对比克制真实，加入体积光与轻雾增强空间感。\n\n材质表现为真实质感（建筑、丝绸、肌肤、石材），避免纯绘画笔触感，\n\n保留柔和空气透视，但优化为电影级景深与焦点控制。\n\n轻微胶片颗粒，边缘飞白与刷痕改为电影式柔和融合过渡，\n\n大面积留白，版式克制高级，安静、宏大、克制、宿命感强的东方电影叙事。\n\n所有元素必须强绑定主题，一眼识别，不要杂乱，不要硬拼贴，不要模板化背景，不要廉价奇幻素材。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/60480c998eb03a88ee6ec4e163b6ba08",
+      "cover": "covers/entries/grok-3578.jpg",
+      "covers": [
+        "covers/entries/grok-3578.jpg"
+      ],
+      "parentId": "grok-chahua",
+      "collection": "插画角色",
+      "collectionIndex": 2,
+      "collectionTotal": 6,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "角色设定",
+        "游戏",
+        "二次元"
+      ],
+      "medium": "图像",
+      "aspect": "2:3",
+      "promptText": "用 gpt-image-2 生成\n根据{黑神话悟空}自动生成一张收藏版史诗叙事海报， \n\n巨大优雅的{悟空}人物侧脸剪影作为外轮廓，剪影内部自动生长出最契合该主题的完整世界观、标志性场景、角色关系、象征符号、关键建筑、生物、道具与氛围。\n\n整体不是普通拼贴，而是高级的剪影轮廓填充式叙事合成，带有双重曝光式联想，但强化为电影级叙事表达与空间调度。\n\n电影海报风格 + 东方现实主义美学融合，强调真实物理光影、镜头语言、空间纵深与叙事层级。\n\n光影采用电影级侧逆光与局部暖光点缀，冷暖对比克制真实，加入体积光与轻雾增强空间感。\n\n材质表现为真实质感（建筑、丝绸、肌肤、石材），避免纯绘画笔触感，\n\n保留柔和空气透视，但优化为电影级景深与焦点控制。\n\n轻微胶片颗粒，边缘飞白与刷痕改为电影式柔和融合过渡，\n\n大面积留白，版式克制高级，安静、宏大、克制、宿命感强的东方电影叙事。\n\n所有元素必须强绑定主题，一眼识别，不要杂乱，不要硬拼贴，不要模板化背景，不要廉价奇幻素材。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "用 gpt-image-2 生成\n根据{黑神话悟空}自动生成一张收藏版史诗叙事海报， \n\n巨大优雅的{悟空}人物侧脸剪影作为外轮廓，剪影内部自动生长出最契合该主题的完整世界观、标志性场景、角色关系、象征符号、关键建筑、生物、道具与氛围。\n\n整体不是普通拼贴，而是高级的剪影轮廓填充式叙事合成，带有双重曝光式联想，但强化为电影级叙事表达与空间调度。\n\n电影海报风格 + 东方现实主义美学融合，强调真实物理光影、镜头语言、空间纵深与叙事层级。\n\n光影采用电影级侧逆光与局部暖光点缀，冷暖对比克制真实，加入体积光与轻雾增强空间感。\n\n材质表现为真实质感（建筑、丝绸、肌肤、石材），避免纯绘画笔触感，\n\n保留柔和空气透视，但优化为电影级景深与焦点控制。\n\n轻微胶片颗粒，边缘飞白与刷痕改为电影式柔和融合过渡，\n\n大面积留白，版式克制高级，安静、宏大、克制、宿命感强的东方电影叙事。\n\n所有元素必须强绑定主题，一眼识别，不要杂乱，不要硬拼贴，不要模板化背景，不要廉价奇幻素材。"
+    },
+    {
+      "id": "grok-3579",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "多视角主角图",
+      "usage": "用途：Grok 插画 / 角色设定提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/7a0ae978fc6a121945ffc7bd118916c4)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n分析输入图像的整个构图。识别所有存在的关键主体（无论是单人、群体/情侣、车辆还是特定物体）及其空间关系/互动。 生成一个连贯的 3x3 网格“电影印样（Contact Sheet）”，展示在同一环境中完全是这些主体的 9 个不同镜头。 你必须调整标准的电影镜头类型以适应内容（例如，如果是群体，保持群体在一起；如果是物体，构图包含整个物体）： 第 1 行（建立背景）： 大远景 (ELS)： 主体在广阔的环境中显得很小。 全景 (LS)： 完整的主体或群体从上到下可见（从头到脚 / 从车轮到车顶）。 中远景 (美式镜头/四分之三)： 构图从膝盖以上（针对人物）或 3/4 视角（针对物体）。 第 2 行（核心覆盖）： 4. 中景 (MS)： 构图从腰部以上（或物体的中心核心）。聚焦于互动/动作。 5. 中特写 (MCU)： 构图从胸部以上。主要主体的亲密构图。 6. 特写 (CU)： 紧凑构图于脸部或物体的“正面”。 第 3 行（细节与角度）： 7. 大特写 (ECU)： 强烈聚焦于关键特征（眼睛、手、标志、纹理）的微距细节。 8. 低角度镜头 (仰视/虫眼)： 从地面仰望主体（壮观/英雄感）。 9. 高角度镜头 (俯视/鸟瞰)： 从上方俯瞰主体。 确保严格的一致性：所有 9 个面板中是相同的人物/物体、相同的衣服和相同的光照。景深应逼真地变化（特写镜头中的背景虚化）。 一个包含 9 个面板的专业 3x3 电影故事板网格。 该网格以全面的焦距范围展示输入图像中的特定主体/场景。 顶行： 宽广环境镜头，全视图，3/4 剪辑（膝上景）。 中间行： 腰部以上视图，胸部以上视图，脸部/正面特写。 底行： 微距细节，低角度，高角度。 所有帧均具有照片般逼真的纹理，一致的电影级调色，以及针对所分析的主体或物体特定数量的正确构图。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/7a0ae978fc6a121945ffc7bd118916c4",
+      "cover": "covers/entries/grok-3579.jpg",
+      "covers": [
+        "covers/entries/grok-3579.jpg"
+      ],
+      "parentId": "grok-chahua",
+      "collection": "插画角色",
+      "collectionIndex": 3,
+      "collectionTotal": 6,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "角色设定",
+        "多视角"
+      ],
+      "medium": "图像",
+      "aspect": "944:1120",
+      "promptText": "分析输入图像的整个构图。识别所有存在的关键主体（无论是单人、群体/情侣、车辆还是特定物体）及其空间关系/互动。 生成一个连贯的 3x3 网格“电影印样（Contact Sheet）”，展示在同一环境中完全是这些主体的 9 个不同镜头。 你必须调整标准的电影镜头类型以适应内容（例如，如果是群体，保持群体在一起；如果是物体，构图包含整个物体）： 第 1 行（建立背景）： 大远景 (ELS)： 主体在广阔的环境中显得很小。 全景 (LS)： 完整的主体或群体从上到下可见（从头到脚 / 从车轮到车顶）。 中远景 (美式镜头/四分之三)： 构图从膝盖以上（针对人物）或 3/4 视角（针对物体）。 第 2 行（核心覆盖）： 4. 中景 (MS)： 构图从腰部以上（或物体的中心核心）。聚焦于互动/动作。 5. 中特写 (MCU)： 构图从胸部以上。主要主体的亲密构图。 6. 特写 (CU)： 紧凑构图于脸部或物体的“正面”。 第 3 行（细节与角度）： 7. 大特写 (ECU)： 强烈聚焦于关键特征（眼睛、手、标志、纹理）的微距细节。 8. 低角度镜头 (仰视/虫眼)： 从地面仰望主体（壮观/英雄感）。 9. 高角度镜头 (俯视/鸟瞰)： 从上方俯瞰主体。 确保严格的一致性：所有 9 个面板中是相同的人物/物体、相同的衣服和相同的光照。景深应逼真地变化（特写镜头中的背景虚化）。 一个包含 9 个面板的专业 3x3 电影故事板网格。 该网格以全面的焦距范围展示输入图像中的特定主体/场景。 顶行： 宽广环境镜头，全视图，3/4 剪辑（膝上景）。 中间行： 腰部以上视图，胸部以上视图，脸部/正面特写。 底行： 微距细节，低角度，高角度。 所有帧均具有照片般逼真的纹理，一致的电影级调色，以及针对所分析的主体或物体特定数量的正确构图。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "分析输入图像的整个构图。识别所有存在的关键主体（无论是单人、群体/情侣、车辆还是特定物体）及其空间关系/互动。 生成一个连贯的 3x3 网格“电影印样（Contact Sheet）”，展示在同一环境中完全是这些主体的 9 个不同镜头。 你必须调整标准的电影镜头类型以适应内容（例如，如果是群体，保持群体在一起；如果是物体，构图包含整个物体）： 第 1 行（建立背景）： 大远景 (ELS)： 主体在广阔的环境中显得很小。 全景 (LS)： 完整的主体或群体从上到下可见（从头到脚 / 从车轮到车顶）。 中远景 (美式镜头/四分之三)： 构图从膝盖以上（针对人物）或 3/4 视角（针对物体）。 第 2 行（核心覆盖）： 4. 中景 (MS)： 构图从腰部以上（或物体的中心核心）。聚焦于互动/动作。 5. 中特写 (MCU)： 构图从胸部以上。主要主体的亲密构图。 6. 特写 (CU)： 紧凑构图于脸部或物体的“正面”。 第 3 行（细节与角度）： 7. 大特写 (ECU)： 强烈聚焦于关键特征（眼睛、手、标志、纹理）的微距细节。 8. 低角度镜头 (仰视/虫眼)： 从地面仰望主体（壮观/英雄感）。 9. 高角度镜头 (俯视/鸟瞰)： 从上方俯瞰主体。 确保严格的一致性：所有 9 个面板中是相同的人物/物体、相同的衣服和相同的光照。景深应逼真地变化（特写镜头中的背景虚化）。 一个包含 9 个面板的专业 3x3 电影故事板网格。 该网格以全面的焦距范围展示输入图像中的特定主体/场景。 顶行： 宽广环境镜头，全视图，3/4 剪辑（膝上景）。 中间行： 腰部以上视图，胸部以上视图，脸部/正面特写。 底行： 微距细节，低角度，高角度。 所有帧均具有照片般逼真的纹理，一致的电影级调色，以及针对所分析的主体或物体特定数量的正确构图。"
+    },
+    {
+      "id": "grok-3582",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "3D Twitter Profile Card（3D 推特个人资料卡片）",
+      "usage": "用途：Grok 插画 / 角色设定提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/674e530155d97af4695a81240018190c)\n\n原始分类：人像头像\n作者：dongyubin（GitHub）\n\n**提示词**：\n\nCreate a hyper-realistic 3D render of a transparent twitter profile card, designed like a futuristic glass ID badge held gently between two fingers. The card should be rectangular with rounded corners, made of clear glossy glass or acrylic, with glowing neon edges in pink, purple, and orange gradient inspired by the twitter color palette. Display the following profile information on the card using modern, minimal sans-serif typography.\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/674e530155d97af4695a81240018190c",
+      "cover": "covers/entries/grok-3582.jpg",
+      "covers": [
+        "covers/entries/grok-3582.jpg"
+      ],
+      "parentId": "grok-chahua",
+      "collection": "插画角色",
+      "collectionIndex": 4,
+      "collectionTotal": 6,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "3D",
+        "商品"
+      ],
+      "medium": "图像",
+      "aspect": "16:9",
+      "promptText": "Create a hyper-realistic 3D render of a transparent twitter profile card, designed like a futuristic glass ID badge held gently between two fingers. The card should be rectangular with rounded corners, made of clear glossy glass or acrylic, with glowing neon edges in pink, purple, and orange gradient inspired by the twitter color palette. Display the following profile information on the card using modern, minimal sans-serif typography.",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "Create a hyper-realistic 3D render of a transparent twitter profile card, designed like a futuristic glass ID badge held gently between two fingers. The card should be rectangular with rounded corners, made of clear glossy glass or acrylic, with glowing neon edges in pink, purple, and orange gradient inspired by the twitter color palette. Display the following profile information on the card using modern, minimal sans-serif typography."
+    },
+    {
+      "id": "grok-3583",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "3D cartoon girl",
+      "usage": "用途：Grok 插画 / 角色设定提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/095c71cc66223bfdc2e1e61d129cec95)\n\n原始分类：3D手工风\n作者：dongyubin（GitHub）\n\n**提示词**：\n\ncheerful 3D cartoon girl with long dark hair, white flower hair clip, expressive brown eyes, soft rounded features; wearing a mix of cute outfits (white off-shoulder top, yellow sweater, purple tee, green dress, blue pajamas, coral shirt, pink blazer); each pose conveys emotions like waving, hugging, clapping, sleeping, and giving a thumbs up\nSetting: bright neutral background in a 3×3 grid sticker layout, each labeled with phrases — “Goodmorning,” “Lunch kana,” “Huh?,” “Hugs,” “Thank you,” “Goodnight,” “You’re the best,” “miss you,” and “good job”; with an elegant overlay at the top center reading “Thank You 900 Followers” in a friendly, modern font\nLighting: soft diffuse daylight, balanced exposure emphasizing 3D shading and gloss\nCamera: straight-on, symmetrical framing, close-up shot for detail clarity\nStyle: kawaii 3D emoji-sticker illustration, modern gratitude aesthetic\nColor Palette: warm and pastel tones — cream, blush pink, sage green, sky blue, peach, ivory\nQuality: ultra-detailed, high-resolution, photorealistic 3D render\nReference: uploaded face\nNegative Prompt: distorted text, blur, watermark, overexposure, bad anatomy\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/095c71cc66223bfdc2e1e61d129cec95",
+      "cover": "covers/entries/grok-3583.jpg",
+      "covers": [
+        "covers/entries/grok-3583.jpg"
+      ],
+      "parentId": "grok-chahua",
+      "collection": "插画角色",
+      "collectionIndex": 5,
+      "collectionTotal": 6,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "Q版",
+        "3D",
+        "二次元",
+        "图生提示词"
+      ],
+      "medium": "图生提示词",
+      "aspect": "1:1",
+      "promptText": "cheerful 3D cartoon girl with long dark hair, white flower hair clip, expressive brown eyes, soft rounded features; wearing a mix of cute outfits (white off-shoulder top, yellow sweater, purple tee, green dress, blue pajamas, coral shirt, pink blazer); each pose conveys emotions like waving, hugging, clapping, sleeping, and giving a thumbs up\nSetting: bright neutral background in a 3×3 grid sticker layout, each labeled with phrases — “Goodmorning,” “Lunch kana,” “Huh?,” “Hugs,” “Thank you,” “Goodnight,” “You’re the best,” “miss you,” and “good job”; with an elegant overlay at the top center reading “Thank You 900 Followers” in a friendly, modern font\nLighting: soft diffuse daylight, balanced exposure emphasizing 3D shading and gloss\nCamera: straight-on, symmetrical framing, close-up shot for detail clarity\nStyle: kawaii 3D emoji-sticker illustration, modern gratitude aesthetic\nColor Palette: warm and pastel tones — cream, blush pink, sage green, sky blue, peach, ivory\nQuality: ultra-detailed, high-resolution, photorealistic 3D render\nReference: uploaded face\nNegative Prompt: distorted text, blur, watermark, overexposure, bad anatomy",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "cheerful 3D cartoon girl with long dark hair, white flower hair clip, expressive brown eyes, soft rounded features; wearing a mix of cute outfits (white off-shoulder top, yellow sweater, purple tee, green dress, blue pajamas, coral shirt, pink blazer); each pose conveys emotions like waving, hugging, clapping, sleeping, and giving a thumbs up\nSetting: bright neutral background in a 3×3 grid sticker layout, each labeled with phrases — “Goodmorning,” “Lunch kana,” “Huh?,” “Hugs,” “Thank you,” “Goodnight,” “You’re the best,” “miss you,” and “good job”; with an elegant overlay at the top center reading “Thank You 900 Followers” in a friendly, modern font\nLighting: soft diffuse daylight, balanced exposure emphasizing 3D shading and gloss\nCamera: straight-on, symmetrical framing, close-up shot for detail clarity\nStyle: kawaii 3D emoji-sticker illustration, modern gratitude aesthetic\nColor Palette: warm and pastel tones — cream, blush pink, sage green, sky blue, peach, ivory\nQuality: ultra-detailed, high-resolution, photorealistic 3D render\nReference: uploaded face\nNegative Prompt: distorted text, blur, watermark, overexposure, bad anatomy"
+    },
+    {
+      "id": "grok-3590",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "蜡笔小新头像",
+      "usage": "用途：Grok 插画 / 角色设定提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/e53086661fbdf6f19c02923359f62700)\n\n原始分类：人像头像\n作者：dongyubin（GitHub）\n\n**提示词**：\n\nTransform the character into the classic “Crayon Shin-chan” anime style. Use simple, wobbly black outline lines. Color with flat, bright fill colors (no shading). Exaggerate the facial features: simple dot eyes, thick eyebrows, and a mischievous or surprised mouth. Make the body proportions cute and chibi-like. Background in simple cartoon style.\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/e53086661fbdf6f19c02923359f62700",
+      "cover": "covers/entries/grok-3590.jpg",
+      "covers": [
+        "covers/entries/grok-3590.jpg"
+      ],
+      "parentId": "grok-chahua",
+      "collection": "插画角色",
+      "collectionIndex": 6,
+      "collectionTotal": 6,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "二次元",
+        "Q版",
+        "图生提示词"
+      ],
+      "medium": "图生提示词",
+      "aspect": "3:4",
+      "promptText": "Transform the character into the classic “Crayon Shin-chan” anime style. Use simple, wobbly black outline lines. Color with flat, bright fill colors (no shading). Exaggerate the facial features: simple dot eyes, thick eyebrows, and a mischievous or surprised mouth. Make the body proportions cute and chibi-like. Background in simple cartoon style.",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "Transform the character into the classic “Crayon Shin-chan” anime style. Use simple, wobbly black outline lines. Color with flat, bright fill colors (no shading). Exaggerate the facial features: simple dot eyes, thick eyebrows, and a mischievous or surprised mouth. Make the body proportions cute and chibi-like. Background in simple cartoon style."
+    },
+    {
+      "id": "grok-3568",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "BioEden Reveal Trailer",
+      "usage": "用途：Grok 场景概念提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/330199a5529650ee8d582cdbd1169385)\n\n原始分类：创意提示词\n作者：that-cod（GitHub）\n\n**提示词**：\n\nBioEden – Reveal Trailer !BioEden - Reveal Trailer> </a> </div> <div style= Step into your next cozy management game with BioEden! Heal a barren world with care: manage resources, build sustainable networks and bring wonderful animal species back to life. 🍃 SUBSCRIBE TO XBOX: https://xbx.lv/2EEjmaR FOLLOW XBOX https://twitter.com/xbox https://www.facebook.com/xbox https://www.instagram.com/xbox/ https://www.tiktok.com/@xbox https://www.threads.net/@xbox https://bsky.app/profile/xbox.com BioEden – Reveal Trailer The reveal trailer for BioEden marks a pivotal moment in the fusion of biotechnology and narrative imagination. As audiences tune in for a first, cinematic glimpse, the trailer deftly balances scientific curiosity with human stakes, inviting viewers to explore questions that lie at the heart of contemporary bioscience. From the opening frame, BioEden establishes a mood of disciplined awe. The visuals juxtapose pristine laboratory geometry with organic, branching sequences that hint at nature’s complexity. Light plays across glassware, microfluidic channels, and cinematic macro imagery, signaling a world where precision and wonder coexist. This juxtaposition is more than aesthetic; it conveys a thematic promise—that advancement in biology is both a rigorous craft and a narrative possibility waiting to unfold. The pacing of the trailer mirrors the discipline of research. Brief, purposeful cuts introduce a cast of researchers, clinicians, and patient voices, each representing different stakes in the BioEden ecosystem. The score threads a careful tension through moments of discovery and ethical reflection, reinforcing that every breakthrough carries responsibilities alongside opportunity. Narratively, BioEden positions itself at the intersection of data-driven science and human impact. Visual motifs suggest a biosphere-like system, where genetic insight, environmental context, and bioprocess engineering converge. This framing prompts viewers to consider how integrated approaches—combining computational biology, synthetic biology, and translational medicine—could unlock solutions for previously intractable challenges. The trailer’s central conceit—the possibility of an engineered biology that can be stewarded with transparency and rigor—speaks to a broader industry conversation. It nods to ongoing efforts in open science, reproducibility, and ethically guided innovation while underscoring the imaginative potential of next-generation platforms. By balancing demonstrable realism with aspirational storytelling, the trailer invites audiences to envision partnerships across academia, industry, and patient communities. In terms of production quality, BioEden delivers a polished, cinematic experience. The visual effects emphasize accuracy without sacrificing narrative clarity. Subtle tactile textures—glass, gel, and cellular structures—are rendered with care, enhancing immersion while avoiding sensory overload. The result is a trailer that feels credible to experts and accessible to a general audience, a balance that is essential for broad engagement with complex bioscience topics. As a teaser for a larger project, BioEden succeeds by providing a clear sense of direction without revealing all the answers. It projects a roadmap of inquiry: how to translate laboratory breakthroughs into real-world impact, how to govern the ethics of innovation, and how to cultivate trust among diverse stakeholders. For viewers, the trailer is less about conclusions and more about curiosity—an invitation to follow a journey that could redefine our relationship with living systems. If the reveal trailer is any indication, BioEden will foster dialogue across disciplines and communities. It has the potential to spark conversations about responsible innovation, collaborative frameworks, and the social implications of biotechnology. As the screen fades to black, the impression endures: discovery is a collective venture, and the next chapter will be written through collaboration, transparency, and a shared commitment to the responsible advancement of science. 24/7 Video Game All the best video games, all the time. Watch no commentary gaming videos live and on demand. By Adrian M ThePRO the Game Professional. Join The Pro Gamers Community • You are a pro gamer! • Share your content! • Get discovered! Join The Pro Gamers Community on social media or login to 24/7 Video Game and submit your posts right to this website. Up Game Shop New & used video games, consoles, handhelds, retro, and gaming merchandise. Up Game Shop has the latest and greatest video game deals on the internet.  \"hqdefault-836-jpg\") June 6, 2026 at 04:16PM More Information Follow for more content like this. 24/7 Video Game All of the best video games, all of the time. YouTube Twitch Kick Facebook Instagram Reddit TikTok X Up Game Shop Donate To St. Jude's Children's Research Hospital submitted by /u/GameProfessional to r/HaloInfinity [link] [comments]\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/330199a5529650ee8d582cdbd1169385",
+      "cover": "covers/entries/grok-3568.jpg",
+      "covers": [
+        "covers/entries/grok-3568.jpg"
+      ],
+      "parentId": "grok-changjing",
+      "collection": "场景概念",
+      "collectionIndex": 1,
+      "collectionTotal": 3,
+      "tags": [
+        "Grok",
+        "Grok Imagine",
+        "科幻",
+        "电影感"
+      ],
+      "medium": "图像",
+      "aspect": "4:3",
+      "promptText": "BioEden – Reveal Trailer !BioEden - Reveal Trailer> </a> </div> <div style= Step into your next cozy management game with BioEden! Heal a barren world with care: manage resources, build sustainable networks and bring wonderful animal species back to life. 🍃 SUBSCRIBE TO XBOX: https://xbx.lv/2EEjmaR FOLLOW XBOX https://twitter.com/xbox https://www.facebook.com/xbox https://www.instagram.com/xbox/ https://www.tiktok.com/@xbox https://www.threads.net/@xbox https://bsky.app/profile/xbox.com BioEden – Reveal Trailer The reveal trailer for BioEden marks a pivotal moment in the fusion of biotechnology and narrative imagination. As audiences tune in for a first, cinematic glimpse, the trailer deftly balances scientific curiosity with human stakes, inviting viewers to explore questions that lie at the heart of contemporary bioscience. From the opening frame, BioEden establishes a mood of disciplined awe. The visuals juxtapose pristine laboratory geometry with organic, branching sequences that hint at nature’s complexity. Light plays across glassware, microfluidic channels, and cinematic macro imagery, signaling a world where precision and wonder coexist. This juxtaposition is more than aesthetic; it conveys a thematic promise—that advancement in biology is both a rigorous craft and a narrative possibility waiting to unfold. The pacing of the trailer mirrors the discipline of research. Brief, purposeful cuts introduce a cast of researchers, clinicians, and patient voices, each representing different stakes in the BioEden ecosystem. The score threads a careful tension through moments of discovery and ethical reflection, reinforcing that every breakthrough carries responsibilities alongside opportunity. Narratively, BioEden positions itself at the intersection of data-driven science and human impact. Visual motifs suggest a biosphere-like system, where genetic insight, environmental context, and bioprocess engineering converge. This framing prompts viewers to consider how integrated approaches—combining computational biology, synthetic biology, and translational medicine—could unlock solutions for previously intractable challenges. The trailer’s central conceit—the possibility of an engineered biology that can be stewarded with transparency and rigor—speaks to a broader industry conversation. It nods to ongoing efforts in open science, reproducibility, and ethically guided innovation while underscoring the imaginative potential of next-generation platforms. By balancing demonstrable realism with aspirational storytelling, the trailer invites audiences to envision partnerships across academia, industry, and patient communities. In terms of production quality, BioEden delivers a polished, cinematic experience. The visual effects emphasize accuracy without sacrificing narrative clarity. Subtle tactile textures—glass, gel, and cellular structures—are rendered with care, enhancing immersion while avoiding sensory overload. The result is a trailer that feels credible to experts and accessible to a general audience, a balance that is essential for broad engagement with complex bioscience topics. As a teaser for a larger project, BioEden succeeds by providing a clear sense of direction without revealing all the answers. It projects a roadmap of inquiry: how to translate laboratory breakthroughs into real-world impact, how to govern the ethics of innovation, and how to cultivate trust among diverse stakeholders. For viewers, the trailer is less about conclusions and more about curiosity—an invitation to follow a journey that could redefine our relationship with living systems. If the reveal trailer is any indication, BioEden will foster dialogue across disciplines and communities. It has the potential to spark conversations about responsible innovation, collaborative frameworks, and the social implications of biotechnology. As the screen fades to black, the impression endures: discovery is a collective venture, and the next chapter will be written through collaboration, transparency, and a shared commitment to the responsible advancement of science. 24/7 Video Game All the best video games, all the time. Watch no commentary gaming videos live and on demand. By Adrian M ThePRO the Game Professional. Join The Pro Gamers Community • You are a pro gamer! • Share your content! • Get discovered! Join The Pro Gamers Community on social media or login to 24/7 Video Game and submit your posts right to this website. Up Game Shop New & used video games, consoles, handhelds, retro, and gaming merchandise. Up Game Shop has the latest and greatest video game deals on the internet.  \"hqdefault-836-jpg\") June 6, 2026 at 04:16PM More Information Follow for more content like this. 24/7 Video Game All of the best video games, all of the time. YouTube Twitch Kick Facebook Instagram Reddit TikTok X Up Game Shop Donate To St. Jude's Children's Research Hospital submitted by /u/GameProfessional to r/HaloInfinity [link] [comments]",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "BioEden – Reveal Trailer !BioEden - Reveal Trailer> </a> </div> <div style= Step into your next cozy management game with BioEden! Heal a barren world with care: manage resources, build sustainable networks and bring wonderful animal species back to life. 🍃 SUBSCRIBE TO XBOX: https://xbx.lv/2EEjmaR FOLLOW XBOX https://twitter.com/xbox https://www.facebook.com/xbox https://www.instagram.com/xbox/ https://www.tiktok.com/@xbox https://www.threads.net/@xbox https://bsky.app/profile/xbox.com BioEden – Reveal Trailer The reveal trailer for BioEden marks a pivotal moment in the fusion of biotechnology and narrative imagination. As audiences tune in for a first, cinematic glimpse, the trailer deftly balances scientific curiosity with human stakes, inviting viewers to explore questions that lie at the heart of contemporary bioscience. From the opening frame, BioEden establishes a mood of disciplined awe. The visuals juxtapose pristine laboratory geometry with organic, branching sequences that hint at nature’s complexity. Light plays across glassware, microfluidic channels, and cinematic macro imagery, signaling a world where precision and wonder coexist. This juxtaposition is more than aesthetic; it conveys a thematic promise—that advancement in biology is both a rigorous craft and a narrative possibility waiting to unfold. The pacing of the trailer mirrors the discipline of research. Brief, purposeful cuts introduce a cast of researchers, clinicians, and patient voices, each representing different stakes in the BioEden ecosystem. The score threads a careful tension through moments of discovery and ethical reflection, reinforcing that every breakthrough carries responsibilities alongside opportunity. Narratively, BioEden positions itself at the intersection of data-driven science and human impact. Visual motifs suggest a biosphere-like system, where genetic insight, environmental context, and bioprocess engineering converge. This framing prompts viewers to consider how integrated approaches—combining computational biology, synthetic biology, and translational medicine—could unlock solutions for previously intractable challenges. The trailer’s central conceit—the possibility of an engineered biology that can be stewarded with transparency and rigor—speaks to a broader industry conversation. It nods to ongoing efforts in open science, reproducibility, and ethically guided innovation while underscoring the imaginative potential of next-generation platforms. By balancing demonstrable realism with aspirational storytelling, the trailer invites audiences to envision partnerships across academia, industry, and patient communities. In terms of production quality, BioEden delivers a polished, cinematic experience. The visual effects emphasize accuracy without sacrificing narrative clarity. Subtle tactile textures—glass, gel, and cellular structures—are rendered with care, enhancing immersion while avoiding sensory overload. The result is a trailer that feels credible to experts and accessible to a general audience, a balance that is essential for broad engagement with complex bioscience topics. As a teaser for a larger project, BioEden succeeds by providing a clear sense of direction without revealing all the answers. It projects a roadmap of inquiry: how to translate laboratory breakthroughs into real-world impact, how to govern the ethics of innovation, and how to cultivate trust among diverse stakeholders. For viewers, the trailer is less about conclusions and more about curiosity—an invitation to follow a journey that could redefine our relationship with living systems. If the reveal trailer is any indication, BioEden will foster dialogue across disciplines and communities. It has the potential to spark conversations about responsible innovation, collaborative frameworks, and the social implications of biotechnology. As the screen fades to black, the impression endures: discovery is a collective venture, and the next chapter will be written through collaboration, transparency, and a shared commitment to the responsible advancement of science. 24/7 Video Game All the best video games, all the time. Watch no commentary gaming videos live and on demand. By Adrian M ThePRO the Game Professional. Join The Pro Gamers Community • You are a pro gamer! • Share your content! • Get discovered! Join The Pro Gamers Community on social media or login to 24/7 Video Game and submit your posts right to this website. Up Game Shop New & used video games, consoles, handhelds, retro, and gaming merchandise. Up Game Shop has the latest and greatest video game deals on the internet.  \"hqdefault-836-jpg\") June 6, 2026 at 04:16PM More Information Follow for more content like this. 24/7 Video Game All of the best video games, all of the time. YouTube Twitch Kick Facebook Instagram Reddit TikTok X Up Game Shop Donate To St. Jude's Children's Research Hospital submitted by /u/GameProfessional to r/HaloInfinity [link] [comments]"
+    },
+    {
+      "id": "grok-3575",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "中式天庭+东方神话+巨型建筑",
+      "usage": "用途：Grok 场景概念提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/88c2e494ff12e6c43cb835a7ea99e9c4)\n\n原始分类：建筑空间\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n东方超现实神殿美学，云海之上的东方神话世界。\n画面主体为[场景主体]，空间中包含[建筑结构]，整体呈现巨构中式天宫/不可能建筑/神圣宫阙的感觉。\n场景被[环境元素]包围，远处的[远景目标]被[遮挡方式]部分遮挡，只显露轮廓或局部，强化神秘感与想象空间。\n画面中有[人物数量与身份]，他们[人物动作]，人物比例很小，用来强调建筑与世界尺度的巨大。天空或空间中出现[异象元素]，进一步强化东方神话与史诗感。\n整体光线为[光线类型]，主色调为[色彩方案]。\n构图强调[镜头构图]，气质应当[情绪关键词]。\ncinematic oriental fantasy, celestial palace, monumental architecture, cloud sea, divine light, impossible architecture, epic scale, surreal sacred atmosphere, ultra detailed.\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/88c2e494ff12e6c43cb835a7ea99e9c4",
+      "cover": "covers/entries/grok-3575.jpg",
+      "covers": [
+        "covers/entries/grok-3575.jpg"
+      ],
+      "parentId": "grok-changjing",
+      "collection": "场景概念",
+      "collectionIndex": 2,
+      "collectionTotal": 3,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "巨构",
+        "古风",
+        "场景"
+      ],
+      "medium": "模板",
+      "aspect": "16:9",
+      "promptText": "东方超现实神殿美学，云海之上的东方神话世界。\n画面主体为[场景主体]，空间中包含[建筑结构]，整体呈现巨构中式天宫/不可能建筑/神圣宫阙的感觉。\n场景被[环境元素]包围，远处的[远景目标]被[遮挡方式]部分遮挡，只显露轮廓或局部，强化神秘感与想象空间。\n画面中有[人物数量与身份]，他们[人物动作]，人物比例很小，用来强调建筑与世界尺度的巨大。天空或空间中出现[异象元素]，进一步强化东方神话与史诗感。\n整体光线为[光线类型]，主色调为[色彩方案]。\n构图强调[镜头构图]，气质应当[情绪关键词]。\ncinematic oriental fantasy, celestial palace, monumental architecture, cloud sea, divine light, impossible architecture, epic scale, surreal sacred atmosphere, ultra detailed.",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "东方超现实神殿美学，云海之上的东方神话世界。\n画面主体为[场景主体]，空间中包含[建筑结构]，整体呈现巨构中式天宫/不可能建筑/神圣宫阙的感觉。\n场景被[环境元素]包围，远处的[远景目标]被[遮挡方式]部分遮挡，只显露轮廓或局部，强化神秘感与想象空间。\n画面中有[人物数量与身份]，他们[人物动作]，人物比例很小，用来强调建筑与世界尺度的巨大。天空或空间中出现[异象元素]，进一步强化东方神话与史诗感。\n整体光线为[光线类型]，主色调为[色彩方案]。\n构图强调[镜头构图]，气质应当[情绪关键词]。\ncinematic oriental fantasy, celestial palace, monumental architecture, cloud sea, divine light, impossible architecture, epic scale, surreal sacred atmosphere, ultra detailed."
+    },
+    {
+      "id": "grok-3592",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "Christmas City Books",
+      "usage": "用途：Grok 场景概念提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/8bf36e608123a97c8f6cec38c8d96e47)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\nA highly detailed, magical miniature winter scene of [CITY] emerging from the open pages of an old vintage book, 1080x1080 square format. The book lies on a wooden table with worn spine, aged pages, scattered coins, ornaments, and a vintage map. The visible page has “[CITY]” elegantly written in vintage typography at the top. Soft snowfall, cold winter daylight from a nearby window, delicate bokeh snow particles. In the center: iconic [CITY] landmarks covered in fresh snow, glowing with warm festive lights. Miniature Christmas market with wooden stalls, steaming drinks, food vendors, people in winter clothes leaving footprints. Snow-covered trees create a magical winter mood. Soft golden illumination, cold diffused daylight mixed with warm festive lights, cinematic shallow depth of field, hyper-detailed miniature textures, realistic snow buildup, glowing particles. Photorealistic, miniature scale, 8k, 1080x1080 square composition\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/8bf36e608123a97c8f6cec38c8d96e47",
+      "cover": "covers/entries/grok-3592.jpg",
+      "covers": [
+        "covers/entries/grok-3592.jpg"
+      ],
+      "parentId": "grok-changjing",
+      "collection": "场景概念",
+      "collectionIndex": 3,
+      "collectionTotal": 3,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "模板",
+        "节日",
+        "微缩"
+      ],
+      "medium": "模板",
+      "aspect": "1:1",
+      "promptText": "A highly detailed, magical miniature winter scene of [CITY] emerging from the open pages of an old vintage book, 1080x1080 square format. The book lies on a wooden table with worn spine, aged pages, scattered coins, ornaments, and a vintage map. The visible page has “[CITY]” elegantly written in vintage typography at the top. Soft snowfall, cold winter daylight from a nearby window, delicate bokeh snow particles. In the center: iconic [CITY] landmarks covered in fresh snow, glowing with warm festive lights. Miniature Christmas market with wooden stalls, steaming drinks, food vendors, people in winter clothes leaving footprints. Snow-covered trees create a magical winter mood. Soft golden illumination, cold diffused daylight mixed with warm festive lights, cinematic shallow depth of field, hyper-detailed miniature textures, realistic snow buildup, glowing particles. Photorealistic, miniature scale, 8k, 1080x1080 square composition",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "A highly detailed, magical miniature winter scene of [CITY] emerging from the open pages of an old vintage book, 1080x1080 square format. The book lies on a wooden table with worn spine, aged pages, scattered coins, ornaments, and a vintage map. The visible page has “[CITY]” elegantly written in vintage typography at the top. Soft snowfall, cold winter daylight from a nearby window, delicate bokeh snow particles. In the center: iconic [CITY] landmarks covered in fresh snow, glowing with warm festive lights. Miniature Christmas market with wooden stalls, steaming drinks, food vendors, people in winter clothes leaving footprints. Snow-covered trees create a magical winter mood. Soft golden illumination, cold diffused daylight mixed with warm festive lights, cinematic shallow depth of field, hyper-detailed miniature textures, realistic snow buildup, glowing particles. Photorealistic, miniature scale, 8k, 1080x1080 square composition"
+    },
+    {
+      "id": "grok-3587",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "图片变手办提示词",
+      "usage": "用途：Grok 图生图 / 产品转化提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/82bfa6c01698e72c5a3e1fb1190c0510)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\nturn this photo into a character figure. Behind it, place a box with the character’s image printed on it, and a computer showing the Blender modeling process on its screen. In front of the box, add a round plastic base with the character figure standing on it. set the scene indoors if possible\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/82bfa6c01698e72c5a3e1fb1190c0510",
+      "cover": "covers/entries/grok-3587.jpg",
+      "covers": [
+        "covers/entries/grok-3587.jpg"
+      ],
+      "parentId": "grok-chanpin",
+      "collection": "产品转化",
+      "collectionIndex": 1,
+      "collectionTotal": 2,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "商品",
+        "图生图",
+        "图生提示词"
+      ],
+      "medium": "图生提示词",
+      "aspect": "944:1120",
+      "promptText": "turn this photo into a character figure. Behind it, place a box with the character’s image printed on it, and a computer showing the Blender modeling process on its screen. In front of the box, add a round plastic base with the character figure standing on it. set the scene indoors if possible",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "grokPrompt": "turn this photo into a character figure. Behind it, place a box with the character’s image printed on it, and a computer showing the Blender modeling process on its screen. In front of the box, add a round plastic base with the character figure standing on it. set the scene indoors if possible"
+    },
+    {
+      "id": "grok-3588",
+      "category": "Grok",
+      "categorySlug": "grok",
+      "title": "图片变手机透视图",
+      "usage": "用途：Grok 图生图 / 产品转化提示词。",
+      "body": "来源：[Miku Inspiration / Grok](https://miku.app.itstudio.club/zh/inspiration/share/82099ea7ad22069501962bae6f3abab2)\n\n原始分类：创意提示词\n作者：dongyubin（GitHub）\n\n**提示词**：\n\n一只手拿着智能手机，背景是有落叶和绿色长椅的秋季公园。手机屏幕上显示着一张**{主体}的生动照片。手机屏幕内的背景景观与手机后方真实的虚化背景完美对齐，创造出一种透明的错觉。屏幕上画有白色的手写文字注释和箭头，指向{主体}**的特征。柔和的自然光，照片级真实感，4k分辨率，高细节，创意社交媒体摄影风格。3D 弹出效果：上半身从屏幕中浮现，下半身留在用户界面内。{主体}**的图片如图，保留面部和外形特征不做任何改变。\n",
+      "source": "https://miku.app.itstudio.club/zh/inspiration/share/82099ea7ad22069501962bae6f3abab2",
+      "cover": "covers/entries/grok-3588.jpg",
+      "covers": [
+        "covers/entries/grok-3588.jpg"
+      ],
+      "parentId": "grok-chanpin",
+      "collection": "产品转化",
+      "collectionIndex": 2,
+      "collectionTotal": 2,
+      "tags": [
+        "Grok",
+        "GPT Image 2",
+        "Nano Banana",
+        "Grok Image",
+        "商品",
+        "图生图",
+        "图生提示词"
+      ],
+      "medium": "图生提示词",
+      "aspect": "9:16",
+      "promptText": "一只手拿着智能手机，背景是有落叶和绿色长椅的秋季公园。手机屏幕上显示着一张**{主体}的生动照片。手机屏幕内的背景景观与手机后方真实的虚化背景完美对齐，创造出一种透明的错觉。屏幕上画有白色的手写文字注释和箭头，指向{主体}**的特征。柔和的自然光，照片级真实感，4k分辨率，高细节，创意社交媒体摄影风格。3D 弹出效果：上半身从屏幕中浮现，下半身留在用户界面内。{主体}**的图片如图，保留面部和外形特征不做任何改变。",
+      "duplicateNote": null,
+      "duplicateOf": null,
+      "chinesePrompt": "一只手拿着智能手机，背景是有落叶和绿色长椅的秋季公园。手机屏幕上显示着一张**{主体}的生动照片。手机屏幕内的背景景观与手机后方真实的虚化背景完美对齐，创造出一种透明的错觉。屏幕上画有白色的手写文字注释和箭头，指向{主体}**的特征。柔和的自然光，照片级真实感，4k分辨率，高细节，创意社交媒体摄影风格。3D 弹出效果：上半身从屏幕中浮现，下半身留在用户界面内。{主体}**的图片如图，保留面部和外形特征不做任何改变。"
     }
   ]
 }

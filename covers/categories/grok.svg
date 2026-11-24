@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10161a"/>
+      <stop offset="100%" stop-color="#1c2d33"/>
+    </linearGradient>
+    <radialGradient id="g2" cx="70%" cy="24%" r="62%">
+      <stop offset="0%" stop-color="#5f7f8c" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#5f7f8c" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#b7cdd4" opacity="0.16"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#g1)"/>
+  <rect width="400" height="300" fill="url(#dots)"/>
+  <circle cx="328" cy="46" r="120" fill="url(#g2)"/>
+  <path d="M48 198 C120 150, 170 230, 248 168 S330 128, 400 176" fill="none" stroke="#5f7f8c" stroke-width="1.2" opacity="0.45"/>
+  <rect x="86" y="92" width="64" height="64" rx="8" fill="none" stroke="#9eb8c0" stroke-width="1.1" opacity="0.4"/>
+  <circle cx="118" cy="124" r="14" fill="none" stroke="#c5d6dc" stroke-width="0.8" opacity="0.35"/>
+  <text x="28" y="255" font-family="Georgia, serif" font-size="11" fill="#5f7f8c" opacity="0.72" letter-spacing="3">XAI IMAGE</text>
+  <text x="28" y="280" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#ffffff" opacity="0.92">Grok</text>
+</svg>

@@ -1,6 +1,6 @@
 {
   "note": "Uncompressed originals for download. Display still uses covers/entries JPEGs.",
-  "count": 73,
+  "count": 108,
   "files": {
     "covers/entries/changjing-9-01.jpg": {
       "original": "covers/originals/changjing-9-01.png",
@@ -366,6 +366,181 @@
       "original": "covers/originals/yishu-50.png",
       "filename": "yishu-50.png",
       "bytes": 1793214
+    },
+    "covers/entries/grok-3584.jpg": {
+      "original": "covers/originals/grok-3584.jpg",
+      "filename": "grok-3584.jpg",
+      "bytes": 479812
+    },
+    "covers/entries/grok-3585.jpg": {
+      "original": "covers/originals/grok-3585.jpg",
+      "filename": "grok-3585.jpg",
+      "bytes": 99459
+    },
+    "covers/entries/grok-3586.jpg": {
+      "original": "covers/originals/grok-3586.webp",
+      "filename": "grok-3586.webp",
+      "bytes": 233010
+    },
+    "covers/entries/grok-3589.jpg": {
+      "original": "covers/originals/grok-3589.jpg",
+      "filename": "grok-3589.jpg",
+      "bytes": 185328
+    },
+    "covers/entries/grok-3593.jpg": {
+      "original": "covers/originals/grok-3593.jpg",
+      "filename": "grok-3593.jpg",
+      "bytes": 528786
+    },
+    "covers/entries/grok-6488.jpg": {
+      "original": "covers/originals/grok-6488.jpg",
+      "filename": "grok-6488.jpg",
+      "bytes": 182060
+    },
+    "covers/entries/grok-6517.jpg": {
+      "original": "covers/originals/grok-6517.jpg",
+      "filename": "grok-6517.jpg",
+      "bytes": 143781
+    },
+    "covers/entries/grok-6524.jpg": {
+      "original": "covers/originals/grok-6524.jpg",
+      "filename": "grok-6524.jpg",
+      "bytes": 164880
+    },
+    "covers/entries/grok-6561.jpg": {
+      "original": "covers/originals/grok-6561.jpg",
+      "filename": "grok-6561.jpg",
+      "bytes": 162270
+    },
+    "covers/entries/grok-2745.jpg": {
+      "original": "covers/originals/grok-2745.jpg",
+      "filename": "grok-2745.jpg",
+      "bytes": 270682
+    },
+    "covers/entries/grok-2758.jpg": {
+      "original": "covers/originals/grok-2758.jpg",
+      "filename": "grok-2758.jpg",
+      "bytes": 118461
+    },
+    "covers/entries/grok-2774.jpg": {
+      "original": "covers/originals/grok-2774.jpg",
+      "filename": "grok-2774.jpg",
+      "bytes": 519894
+    },
+    "covers/entries/grok-2775.jpg": {
+      "original": "covers/originals/grok-2775.jpg",
+      "filename": "grok-2775.jpg",
+      "bytes": 167238
+    },
+    "covers/entries/grok-2859.jpg": {
+      "original": "covers/originals/grok-2859.jpg",
+      "filename": "grok-2859.jpg",
+      "bytes": 178202
+    },
+    "covers/entries/grok-3027.jpg": {
+      "original": "covers/originals/grok-3027.jpg",
+      "filename": "grok-3027.jpg",
+      "bytes": 161517
+    },
+    "covers/entries/grok-3071.jpg": {
+      "original": "covers/originals/grok-3071.jpg",
+      "filename": "grok-3071.jpg",
+      "bytes": 202441
+    },
+    "covers/entries/grok-3569.jpg": {
+      "original": "covers/originals/grok-3569.webp",
+      "filename": "grok-3569.webp",
+      "bytes": 312806
+    },
+    "covers/entries/grok-3570.jpg": {
+      "original": "covers/originals/grok-3570.webp",
+      "filename": "grok-3570.webp",
+      "bytes": 89922
+    },
+    "covers/entries/grok-3571.jpg": {
+      "original": "covers/originals/grok-3571.jpg",
+      "filename": "grok-3571.jpg",
+      "bytes": 294757
+    },
+    "covers/entries/grok-3572.jpg": {
+      "original": "covers/originals/grok-3572.jpg",
+      "filename": "grok-3572.jpg",
+      "bytes": 337003
+    },
+    "covers/entries/grok-3573.jpg": {
+      "original": "covers/originals/grok-3573.jpg",
+      "filename": "grok-3573.jpg",
+      "bytes": 476208
+    },
+    "covers/entries/grok-3574.jpg": {
+      "original": "covers/originals/grok-3574.jpg",
+      "filename": "grok-3574.jpg",
+      "bytes": 184281
+    },
+    "covers/entries/grok-3576.jpg": {
+      "original": "covers/originals/grok-3576.jpg",
+      "filename": "grok-3576.jpg",
+      "bytes": 635523
+    },
+    "covers/entries/grok-3591.jpg": {
+      "original": "covers/originals/grok-3591.png",
+      "filename": "grok-3591.png",
+      "bytes": 1083509
+    },
+    "covers/entries/grok-3577.jpg": {
+      "original": "covers/originals/grok-3577.webp",
+      "filename": "grok-3577.webp",
+      "bytes": 234892
+    },
+    "covers/entries/grok-3578.jpg": {
+      "original": "covers/originals/grok-3578.webp",
+      "filename": "grok-3578.webp",
+      "bytes": 231278
+    },
+    "covers/entries/grok-3579.jpg": {
+      "original": "covers/originals/grok-3579.jpg",
+      "filename": "grok-3579.jpg",
+      "bytes": 208608
+    },
+    "covers/entries/grok-3582.jpg": {
+      "original": "covers/originals/grok-3582.webp",
+      "filename": "grok-3582.webp",
+      "bytes": 70186
+    },
+    "covers/entries/grok-3583.jpg": {
+      "original": "covers/originals/grok-3583.jpg",
+      "filename": "grok-3583.jpg",
+      "bytes": 138058
+    },
+    "covers/entries/grok-3590.jpg": {
+      "original": "covers/originals/grok-3590.png",
+      "filename": "grok-3590.png",
+      "bytes": 1161349
+    },
+    "covers/entries/grok-3568.jpg": {
+      "original": "covers/originals/grok-3568.jpg",
+      "filename": "grok-3568.jpg",
+      "bytes": 37150
+    },
+    "covers/entries/grok-3575.jpg": {
+      "original": "covers/originals/grok-3575.webp",
+      "filename": "grok-3575.webp",
+      "bytes": 308804
+    },
+    "covers/entries/grok-3592.jpg": {
+      "original": "covers/originals/grok-3592.jpg",
+      "filename": "grok-3592.jpg",
+      "bytes": 416114
+    },
+    "covers/entries/grok-3587.jpg": {
+      "original": "covers/originals/grok-3587.jpg",
+      "filename": "grok-3587.jpg",
+      "bytes": 175146
+    },
+    "covers/entries/grok-3588.jpg": {
+      "original": "covers/originals/grok-3588.jpg",
+      "filename": "grok-3588.jpg",
+      "bytes": 125515
     }
   }
 }
