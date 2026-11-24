@@ -65,6 +65,17 @@ python scripts/ingest_quyi.py --write-display-covers   # 生成 quyi-cards.json 
 `ingest_quyi.py` 读的是 `covers-inbox/quyi-survey/imagine-manifest.json` 和 `covers-inbox/quyi-downloads/`，
 因此第 1、2 步输出必须落在默认路径（或用 `--write-display-covers` 前先同步过去）。
 
+## 6. 卡片命名（角色 · 画面特色）
+
+```bash
+python scripts/quyi_titles.py            # 预览：每张卡的旧名 → 新名
+python scripts/quyi_titles.py --write    # 写入 public/data/quyi-cards.json
+```
+
+标题只从该卡自己的提示词里提取「姿态 / 手部 / 机位 / 场景」四类信息（如 `蒂法 · 坐地 分腿V字 双手撑地`），
+提示词里没有可用描述时保留原名，不靠编号凑数；同角色同姿态的多张卡自动加（2）（3）区分。
+每次 `ingest_quyi.py` 重新生成 `quyi-cards.json` 之后都要再跑一次这一步。
+
 ## 校验
 
 ```bash
