@@ -9,6 +9,8 @@ import {
   type AlbumItem,
 } from '../../lib/album'
 import {
+  DRIVE_AUTH_READY_RETRY_MESSAGE,
+  DRIVE_NETWORK_ERROR,
   clearDriveAccess,
   deleteDriveFile,
   driveFolderAccessible,
@@ -16,8 +18,10 @@ import {
   findOrCreateAlbumFolder,
   getDriveUserEmail,
   googleClientId,
+  isDriveAuthReady,
   peekAccessToken,
   peekDriveEmail,
+  preloadDriveAuth,
   requestDriveAccess,
   sanitizeUploadFilename,
   uploadDriveImage,
@@ -66,6 +70,7 @@ export function CloudAlbum({ route }: Props) {
   const [token, setToken] = useState<string | null>(() => peekAccessToken())
   const [driveEmail, setDriveEmail] = useState<string | undefined>(() => peekDriveEmail())
   const [connecting, setConnecting] = useState(false)
+  const [authPreparing, setAuthPreparing] = useState(() => !isDriveAuthReady())
   const [driveError, setDriveError] = useState<string | null>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [drafts, setDrafts] = useState<DraftFile[]>([])
@@ -82,6 +87,27 @@ export function CloudAlbum({ route }: Props) {
 
   useEffect(() => {
     void loadQuyiMeta().then((meta) => setPlannedCharacters(meta?.characters ?? []))
+  }, [])
+
+  useEffect(() => {
+    let cancelled = false
+    if (isDriveAuthReady()) {
+      setAuthPreparing(false)
+      return
+    }
+    setAuthPreparing(true)
+    void preloadDriveAuth()
+      .then(() => {
+        if (!cancelled) setAuthPreparing(false)
+      })
+      .catch((error) => {
+        if (cancelled) return
+        setAuthPreparing(false)
+        setDriveError(error instanceof Error ? error.message : DRIVE_NETWORK_ERROR)
+      })
+    return () => {
+      cancelled = true
+    }
   }, [])
 
 
@@ -175,33 +201,50 @@ export function CloudAlbum({ route }: Props) {
     )
   }
 
-  const connect = async () => {
-    setConnecting(true)
+  const connect = () => {
     setDriveError(null)
-    try {
-      const access = await requestDriveAccess(peekAccessToken() ? '' : 'consent')
-      const email = await getDriveUserEmail(access)
-      const savedId = album.settings?.driveRootFolderId
-      if (savedId) {
-        const ok = await driveFolderAccessible(access, savedId)
-        if (!ok) {
-          const hint = album.settings?.connectedGoogleEmail
-            ? `请使用原先连接的谷歌账号（${album.settings.connectedGoogleEmail}）重新授权。`
-            : '请使用原先连接相册的谷歌账号重新授权。'
-          throw new Error(`无法访问已保存的相册目录。${hint}`)
-        }
-        await album.connectSettings({ driveRootFolderId: savedId, connectedGoogleEmail: email })
-      } else {
-        const createdId = await findOrCreateAlbumFolder(access)
-        await album.connectSettings({ driveRootFolderId: createdId, connectedGoogleEmail: email })
-      }
-      setToken(access)
-      setDriveEmail(email)
-    } catch (error) {
-      setDriveError(error instanceof Error ? error.message : '连接谷歌云盘失败，请稍后重试')
-    } finally {
-      setConnecting(false)
+    if (!isDriveAuthReady()) {
+      setAuthPreparing(true)
+      void preloadDriveAuth()
+        .then(() => {
+          setAuthPreparing(false)
+          setDriveError(DRIVE_AUTH_READY_RETRY_MESSAGE)
+        })
+        .catch((error) => {
+          setAuthPreparing(false)
+          setDriveError(error instanceof Error ? error.message : DRIVE_NETWORK_ERROR)
+        })
+      return
     }
+
+    setConnecting(true)
+    const accessPromise = requestDriveAccess(peekAccessToken() ? '' : 'consent')
+    void accessPromise
+      .then(async (access) => {
+        const email = await getDriveUserEmail(access)
+        const savedId = album.settings?.driveRootFolderId
+        if (savedId) {
+          const ok = await driveFolderAccessible(access, savedId)
+          if (!ok) {
+            const hint = album.settings?.connectedGoogleEmail
+              ? `请使用原先连接的谷歌账号（${album.settings.connectedGoogleEmail}）重新授权。`
+              : '请使用原先连接相册的谷歌账号重新授权。'
+            throw new Error(`无法访问已保存的相册目录。${hint}`)
+          }
+          await album.connectSettings({ driveRootFolderId: savedId, connectedGoogleEmail: email })
+        } else {
+          const createdId = await findOrCreateAlbumFolder(access)
+          await album.connectSettings({ driveRootFolderId: createdId, connectedGoogleEmail: email })
+        }
+        setToken(access)
+        setDriveEmail(email)
+      })
+      .catch((error) => {
+        setDriveError(error instanceof Error ? error.message : '连接谷歌云盘失败，请稍后重试')
+      })
+      .finally(() => {
+        setConnecting(false)
+      })
   }
 
   const disconnect = () => {
@@ -411,8 +454,13 @@ export function CloudAlbum({ route }: Props) {
         {driveError && <p className="album__error">{driveError}</p>}
         {album.error && !album.schemaMissing && <p className="album__error">{album.error}</p>}
         <div className="album__actions">
-          <button type="button" className="btn btn-primary" onClick={() => void connect()} disabled={connecting}>
-            {connecting ? '正在连接…' : '连接谷歌云盘'}
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={connect}
+            disabled={connecting || authPreparing}
+          >
+            {connecting ? '正在连接…' : authPreparing ? '正在准备连接…' : '连接谷歌云盘'}
           </button>
         </div>
       </div>

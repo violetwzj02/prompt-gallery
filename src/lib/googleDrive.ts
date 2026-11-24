@@ -4,11 +4,25 @@ export const MAX_ALBUM_FILE_BYTES = 50 * 1024 * 1024
 export const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'] as const
 export type AcceptedImageType = (typeof ACCEPTED_IMAGE_TYPES)[number]
 
-const GIS_SRC = 'https://accounts.google.com/gsi/client'
+export const GIS_SRC = 'https://accounts.google.com/gsi/client'
 const TOKEN_STORAGE_KEY = 'prompt-gallery.drive.token.v1'
 const TOKEN_SKEW_MS = 60_000
 const DRIVE_API = 'https://www.googleapis.com/drive/v3'
 const DRIVE_UPLOAD = 'https://www.googleapis.com/upload/drive/v3/files'
+const DEFAULT_LOAD_TIMEOUT_MS = 20_000
+const DEFAULT_TOKEN_TIMEOUT_MS = 20_000
+const DEFAULT_API_TIMEOUT_MS = 20_000
+
+export const DRIVE_NETWORK_ERROR = '无法连接 Google 服务，请检查网络/代理或广告拦截'
+export const DRIVE_POPUP_INCOMPLETE_ERROR = '弹窗被拦或未完成，请允许弹出窗口后重新连接谷歌云盘'
+export const DRIVE_AUTH_NOT_READY_ERROR = '谷歌登录组件尚未就绪，请稍候再点一次「连接谷歌云盘」'
+export const DRIVE_AUTH_READY_RETRY_MESSAGE = '谷歌登录组件已就绪，请再点一次「连接谷歌云盘」'
+
+let loadTimeoutMs = DEFAULT_LOAD_TIMEOUT_MS
+let tokenTimeoutMs = DEFAULT_TOKEN_TIMEOUT_MS
+let apiTimeoutMs = DEFAULT_API_TIMEOUT_MS
+let loadTimer: ReturnType<typeof setTimeout> | null = null
+let tokenTimer: ReturnType<typeof setTimeout> | null = null
 
 interface TokenPayload {
   accessToken: string
@@ -111,7 +125,45 @@ export function peekDriveEmail(): string | undefined {
 
 export function clearDriveAccess(): void {
   memoryToken = null
+  if (typeof sessionStorage !== 'undefined') {
+    try {
+      sessionStorage.removeItem(TOKEN_STORAGE_KEY)
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
+export function setDriveAuthTimeoutsForTests(timeouts: {
+  loadMs?: number
+  tokenMs?: number
+  apiMs?: number
+}): void {
+  if (timeouts.loadMs !== undefined) loadTimeoutMs = timeouts.loadMs
+  if (timeouts.tokenMs !== undefined) tokenTimeoutMs = timeouts.tokenMs
+  if (timeouts.apiMs !== undefined) apiTimeoutMs = timeouts.apiMs
+}
+
+function clearAuthTimers(): void {
+  if (loadTimer !== null) {
+    clearTimeout(loadTimer)
+    loadTimer = null
+  }
+  if (tokenTimer !== null) {
+    clearTimeout(tokenTimer)
+    tokenTimer = null
+  }
+}
+
+export function resetDriveAuthForTests(): void {
+  memoryToken = null
+  gisLoading = null
   tokenClient = null
+  pendingToken = null
+  clearAuthTimers()
+  loadTimeoutMs = DEFAULT_LOAD_TIMEOUT_MS
+  tokenTimeoutMs = DEFAULT_TOKEN_TIMEOUT_MS
+  apiTimeoutMs = DEFAULT_API_TIMEOUT_MS
   if (typeof sessionStorage !== 'undefined') {
     try {
       sessionStorage.removeItem(TOKEN_STORAGE_KEY)
@@ -148,35 +200,65 @@ export function validateAlbumImage(file: Blob, filename = ''): { ok: true; mime:
   return { ok: true, mime }
 }
 
+function readOauth2(): GoogleOauth2 | undefined {
+  return typeof window === 'undefined' ? undefined : window.google?.accounts?.oauth2
+}
+
+function removeGisScript(script: HTMLScriptElement): void {
+  script.onload = null
+  script.onerror = null
+  script.remove()
+}
+
+function discardStaleGisScript(): void {
+  if (typeof document === 'undefined') return
+  const previous = document.querySelector<HTMLScriptElement>(`script[src="${GIS_SRC}"]`)
+  if (!previous || readOauth2()) return
+  removeGisScript(previous)
+}
+
 function loadGis(): Promise<GoogleOauth2> {
   if (typeof window === 'undefined') return Promise.reject(new Error('当前环境无法连接谷歌云盘'))
-  const existing = window.google?.accounts?.oauth2
+  const existing = readOauth2()
   if (existing) return Promise.resolve(existing)
   if (gisLoading) return gisLoading
+
+  discardStaleGisScript()
+
   gisLoading = new Promise((resolve, reject) => {
+    let settled = false
+    const finish = (action: () => void) => {
+      if (settled) return
+      settled = true
+      if (loadTimer !== null) {
+        clearTimeout(loadTimer)
+        loadTimer = null
+      }
+      action()
+    }
+    const fail = () => {
+      finish(() => {
+        gisLoading = null
+        discardStaleGisScript()
+        reject(new Error(DRIVE_NETWORK_ERROR))
+      })
+    }
+    loadTimer = setTimeout(fail, loadTimeoutMs)
+
     const ready = () => {
-      const api = window.google?.accounts?.oauth2
+      const api = readOauth2()
       if (api) {
-        resolve(api)
+        finish(() => resolve(api))
         return
       }
-      reject(new Error('无法载入谷歌登录组件'))
+      fail()
     }
-    const previous = document.querySelector<HTMLScriptElement>(`script[src="${GIS_SRC}"]`)
-    if (previous) {
-      previous.addEventListener('load', ready, { once: true })
-      previous.addEventListener('error', () => reject(new Error('无法载入谷歌登录组件')), { once: true })
-      if (window.google?.accounts?.oauth2) ready()
-      return
-    }
+
     const script = document.createElement('script')
     script.src = GIS_SRC
     script.async = true
     script.onload = ready
-    script.onerror = () => {
-      gisLoading = null
-      reject(new Error('无法载入谷歌登录组件'))
-    }
+    script.onerror = fail
     document.head.appendChild(script)
   })
   return gisLoading
@@ -193,9 +275,20 @@ function driveErrorMessage(status: number, fallback = '操作失败，请稍后�
 function tokenErrorMessage(error?: string, description?: string): string {
   const raw = `${error || ''} ${description || ''}`.toLowerCase()
   if (raw.includes('popup_closed') || raw.includes('popup_closed_by_user')) return '已取消连接谷歌云盘'
-  if (raw.includes('popup_blocked') || raw.includes('popup_failed')) return '请允许浏览器弹出窗口以连接谷歌云盘'
+  if (raw.includes('popup_blocked') || raw.includes('popup_failed')) return DRIVE_POPUP_INCOMPLETE_ERROR
   if (raw.includes('access_denied')) return '未获得谷歌云盘授权'
   return '连接谷歌云盘失败，请稍后重试'
+}
+
+function persistAccessToken(response: GoogleTokenResponse): string | null {
+  if (!response.access_token || response.error) return null
+  const expiresIn = typeof response.expires_in === 'number' && response.expires_in > 0 ? response.expires_in : 3600
+  persistToken({
+    accessToken: response.access_token,
+    expiresAt: Date.now() + expiresIn * 1000,
+    email: memoryToken?.email,
+  })
+  return response.access_token
 }
 
 async function ensureTokenClient(): Promise<TokenClient> {
@@ -207,24 +300,17 @@ async function ensureTokenClient(): Promise<TokenClient> {
     client_id: clientId,
     scope: DRIVE_SCOPE,
     callback: (response) => {
+      const token = persistAccessToken(response)
       const pending = pendingToken
-      pendingToken = null
       if (!pending) return
-      if (!response.access_token || response.error) {
+      if (!token) {
         pending.reject(new Error(tokenErrorMessage(response.error, response.error_description)))
         return
       }
-      const expiresIn = typeof response.expires_in === 'number' && response.expires_in > 0 ? response.expires_in : 3600
-      persistToken({
-        accessToken: response.access_token,
-        expiresAt: Date.now() + expiresIn * 1000,
-        email: memoryToken?.email,
-      })
-      pending.resolve(response.access_token)
+      pending.resolve(token)
     },
     error_callback: (error) => {
       const pending = pendingToken
-      pendingToken = null
       if (!pending) return
       pending.reject(new Error(tokenErrorMessage(error.type, error.message)))
     },
@@ -232,21 +318,47 @@ async function ensureTokenClient(): Promise<TokenClient> {
   return tokenClient
 }
 
-export async function requestDriveAccess(prompt: '' | 'consent' = ''): Promise<string> {
+export async function preloadDriveAuth(): Promise<void> {
+  await ensureTokenClient()
+}
+
+export function isDriveAuthReady(): boolean {
+  return tokenClient !== null
+}
+
+export function requestDriveAccess(prompt: '' | 'consent' = ''): Promise<string> {
   const current = peekAccessToken()
-  if (current && prompt !== 'consent') return current
-  const client = await ensureTokenClient()
+  if (current && prompt !== 'consent') return Promise.resolve(current)
+  const client = tokenClient
+  if (!client) return Promise.reject(new Error(DRIVE_AUTH_NOT_READY_ERROR))
+  if (pendingToken) return Promise.reject(new Error('正在连接谷歌云盘，请稍候'))
+
   return new Promise<string>((resolve, reject) => {
-    if (pendingToken) {
-      reject(new Error('正在连接谷歌云盘，请稍候'))
-      return
+    let settled = false
+    const settle = (action: () => void) => {
+      if (settled) return
+      settled = true
+      if (tokenTimer !== null) {
+        clearTimeout(tokenTimer)
+        tokenTimer = null
+      }
+      pendingToken = null
+      action()
     }
-    pendingToken = { resolve, reject }
+    tokenTimer = setTimeout(() => {
+      settle(() => reject(new Error(DRIVE_POPUP_INCOMPLETE_ERROR)))
+    }, tokenTimeoutMs)
+
+    pendingToken = {
+      resolve: (value) => settle(() => resolve(value)),
+      reject: (error) => settle(() => reject(error)),
+    }
+
     try {
       client.requestAccessToken({ prompt })
     } catch (error) {
-      pendingToken = null
-      reject(error instanceof Error ? error : new Error('连接谷歌云盘失败，请稍后重试'))
+      const next = error instanceof Error ? error : new Error('连接谷歌云盘失败，请稍后重试')
+      pendingToken.reject(next)
     }
   })
 }
@@ -257,12 +369,39 @@ export async function getDriveAccessToken(): Promise<string> {
   return requestDriveAccess('')
 }
 
+function isAbortError(error: unknown): boolean {
+  if (typeof DOMException !== 'undefined' && error instanceof DOMException && error.name === 'AbortError') return true
+  return error instanceof Error && (error.name === 'AbortError' || error.message.toLowerCase().includes('aborted'))
+}
+
+function isNetworkError(error: unknown): boolean {
+  if (!(error instanceof Error)) return false
+  const raw = `${error.name} ${error.message}`.toLowerCase()
+  return raw.includes('failed to fetch') || raw.includes('networkerror') || raw.includes('load failed')
+}
+
 async function driveFetch(token: string, url: string, init: RequestInit = {}): Promise<Response> {
   const headers = new Headers(init.headers)
   headers.set('Authorization', `Bearer ${token}`)
-  const response = await fetch(url, { ...init, headers })
-  if (response.status === 401) clearDriveAccess()
-  return response
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), apiTimeoutMs)
+  const parentSignal = init.signal
+  const onParentAbort = () => controller.abort()
+  if (parentSignal) {
+    if (parentSignal.aborted) controller.abort()
+    else parentSignal.addEventListener('abort', onParentAbort, { once: true })
+  }
+  try {
+    const response = await fetch(url, { ...init, headers, signal: controller.signal })
+    if (response.status === 401) clearDriveAccess()
+    return response
+  } catch (error) {
+    if (isAbortError(error) || isNetworkError(error)) throw new Error(DRIVE_NETWORK_ERROR)
+    throw error instanceof Error ? error : new Error(DRIVE_NETWORK_ERROR)
+  } finally {
+    clearTimeout(timer)
+    if (parentSignal) parentSignal.removeEventListener('abort', onParentAbort)
+  }
 }
 
 export async function getDriveUserEmail(token: string): Promise<string> {

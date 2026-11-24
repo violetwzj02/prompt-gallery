@@ -9,6 +9,9 @@
     "preview": "vite preview --host 0.0.0.0 --port 4173",
     "parse": "python3 scripts/parse_prompts.py",
     "ingest:quyi": "python3 scripts/ingest_quyi.py",
+    "test": "node scripts/test-download-original.mjs && node scripts/test-google-drive-auth.mjs && python3 scripts/test_ingest_quyi.py",
+    "test:download": "node scripts/test-download-original.mjs",
+    "test:drive": "node scripts/test-google-drive-auth.mjs",
     "test:quyi": "python3 scripts/test_ingest_quyi.py"
   },
   "dependencies": {
