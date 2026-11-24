@@ -11,6 +11,7 @@ export interface AccountRoute {
   itemId: string | null
   folderId: string | null
   cat: string | null
+  bin?: boolean
 }
 
 const ACCOUNT_TABS: readonly AccountHomeTab[] = ['works', 'likes', 'favorites']
@@ -41,7 +42,14 @@ export function parseAccountRoute(hash: string): AccountRoute | null {
 
   if (path === 'me/album' || path.startsWith('me/album/')) {
     const catRaw = (params.get('cat') || '').trim()
-    return { view: 'album', tab: 'works', itemId: item || null, folderId: folder || null, cat: catRaw || null }
+    return {
+      view: 'album',
+      tab: 'works',
+      itemId: item || null,
+      folderId: folder || null,
+      cat: catRaw || null,
+      bin: params.get('bin') === '1',
+    }
   }
   if (path === 'me/account' || path.startsWith('me/account/')) {
     return { view: 'account', tab: 'works', itemId: item || null, folderId: null, cat: null }
@@ -72,8 +80,9 @@ export function toAccountHash(route: Pick<AccountRoute, 'view'> & Partial<Accoun
   if (route.view === 'admin-review') return '#/me/admin/review'
   if (route.view === 'album') {
     const albumParams = new URLSearchParams()
-    if (route.cat) albumParams.set('cat', route.cat)
-    if (route.folderId) albumParams.set('folder', route.folderId)
+    if (route.bin) albumParams.set('bin', '1')
+    else if (route.cat) albumParams.set('cat', route.cat)
+    if (!route.bin && route.folderId) albumParams.set('folder', route.folderId)
     if (route.itemId) albumParams.set('item', route.itemId)
     const albumQs = albumParams.toString()
     return albumQs ? `#/me/album?${albumQs}` : '#/me/album'

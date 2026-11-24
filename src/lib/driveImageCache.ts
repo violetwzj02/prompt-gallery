@@ -16,6 +16,7 @@ export interface DriveImageCache {
   release: (record: DriveImageRecord) => void
   prefetch: (token: string, fileIds: readonly string[]) => void
   rebindToken: (token: string) => void
+  evict: (fileId: string) => void
   clear: (reason?: DriveImageCacheFailureReason) => void
   session: () => DriveImageSessionState
   subscribe: (listener: DriveImageSessionListener) => () => void
@@ -152,6 +153,8 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
     if (recent.length > recentLimit) recent.shift()
   }
 
+  const evicted = new Set<string>()
+
   function evictEntry(fileId: string, entry: CacheEntry): void {
     URL.revokeObjectURL(entry.url)
     entries.delete(fileId)
@@ -244,6 +247,10 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
   }
 
   function storeBlob(fileId: string, blob: Blob): DriveImageRecord {
+    if (evicted.has(fileId)) {
+      evicted.delete(fileId)
+      throw new Error('图片已从缓存移除')
+    }
     const existing = entries.get(fileId)
     if (existing) {
       existing.refs += 1
@@ -354,6 +361,18 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
     if (sessionState.status === 'ended') setSessionState({ status: 'active' })
   }
 
+  function evict(fileId: string): void {
+    evicted.add(fileId)
+    for (let index = queue.length - 1; index >= 0; index -= 1) {
+      if (queue[index].fileId !== fileId) continue
+      const job = queue.splice(index, 1)[0]
+      job.reject(new Error('图片已从缓存移除'))
+    }
+    const entry = entries.get(fileId)
+    if (entry) evictEntry(fileId, entry)
+    if (!inflight.has(fileId)) evicted.delete(fileId)
+  }
+
   function clear(reason: DriveImageCacheFailureReason = 'reset'): void {
     lastClearReason = reason
     generation += 1
@@ -362,6 +381,7 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
     const pending = queue.splice(0, queue.length)
     for (const job of pending) job.reject(new DriveImageCacheError(reason))
     inflight.clear()
+    evicted.clear()
     for (const entry of entries.values()) URL.revokeObjectURL(entry.url)
     entries.clear()
     recent.splice(0, recent.length)
@@ -392,7 +412,7 @@ export function createDriveImageCache(options: CreateDriveImageCacheOptions): Dr
     }
   }
 
-  return { peek, acquire, release, prefetch, rebindToken, clear, session, subscribe, stats }
+  return { peek, acquire, release, prefetch, rebindToken, evict, clear, session, subscribe, stats }
 }
 
 let fetchBlobImpl: CreateDriveImageCacheOptions['fetchBlob'] | null = null
@@ -430,6 +450,10 @@ export function prefetchDriveImages(token: string, fileIds: readonly string[]): 
 
 export function rebindDriveImageToken(token: string): void {
   albumDriveImageCache.rebindToken(token)
+}
+
+export function evictDriveImage(fileId: string): void {
+  albumDriveImageCache.evict(fileId)
 }
 
 export function clearDriveImageCache(reason: DriveImageCacheFailureReason = 'reset'): void {

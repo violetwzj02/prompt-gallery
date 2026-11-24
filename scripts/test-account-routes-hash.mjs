@@ -90,6 +90,7 @@ const {
   ensureHashNavigationEvents,
   resetHashNavigationEventsForTests,
   toAccountHash,
+  parseAccountRoute,
 } = mod
 
 resetHashNavigationEventsForTests()
@@ -150,6 +151,16 @@ closeAlbumHashLayer({
   },
 })
 check('deep link close uses fallback', fallbacks, 1)
+
+check('album trash hash', toAccountHash({ view: 'album', bin: true }), '#/me/album?bin=1')
+check(
+  'album trash hash keeps item and drops live category',
+  toAccountHash({ view: 'album', bin: true, itemId: 'abc', cat: '场景' }),
+  '#/me/album?bin=1&item=abc',
+)
+check('parse album trash hash', parseAccountRoute('#/me/album?bin=1')?.bin, true)
+check('parse live album hash has no bin', parseAccountRoute('#/me/album?cat=场景')?.bin, false)
+check('parse live album keeps category', parseAccountRoute('#/me/album?cat=场景')?.cat, '场景')
 
 const failed = cases.filter((c) => !c.ok)
 console.log(`${cases.length - failed.length}/${cases.length} passed`)

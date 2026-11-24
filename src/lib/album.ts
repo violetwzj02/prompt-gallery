@@ -6,12 +6,19 @@ import {
   sanitizeUploadFilename,
   type AcceptedImageType,
 } from './googleDrive'
-import { isMissingRelationError } from './schemaErrors'
+import { isMissingColumnError, isMissingRelationError } from './schemaErrors'
 import { supabase, syncErrorMessage } from './supabase'
+import {
+  ALBUM_TRASH_SCHEMA_UNAVAILABLE,
+  restoreAlbumItemInStore,
+  softDeleteAlbumItemInStore,
+} from './albumPurge'
 
 export const ALBUM_SCHEMA_UNAVAILABLE = '相册数据尚未就绪，请稍后再试。'
 export const ALBUM_NOT_ENABLED = '云端相册尚未启用。请先配置谷歌云盘接口后再试。'
 export const ALBUM_CONNECT_FIRST = '请先打开云端相册并连接谷歌云盘。'
+export type AlbumItemScope = 'live' | 'trash'
+export type AlbumPurgeStatus = 'idle' | 'pending' | 'drive_purged' | 'failed'
 
 export type AlbumCategoryKind = 'preset' | 'custom'
 export type AlbumItemSource = 'upload' | 'generated'
@@ -45,6 +52,11 @@ export interface AlbumItem {
   customCategories: string[]
   createdAt: string
   updatedAt: string | null
+  deletedAt: string | null
+  deletedBy: string | null
+  purgeStatus: AlbumPurgeStatus
+  purgeError: string | null
+  drivePurgedAt: string | null
 }
 
 export class AlbumSchemaError extends Error {
@@ -52,6 +64,23 @@ export class AlbumSchemaError extends Error {
     super(message)
     this.name = 'AlbumSchemaError'
   }
+}
+
+export class AlbumTrashSchemaError extends Error {
+  constructor(message = ALBUM_TRASH_SCHEMA_UNAVAILABLE) {
+    super(message)
+    this.name = 'AlbumTrashSchemaError'
+  }
+}
+
+function rethrowTrashOrSchema(error: { code?: string; message?: string } | null, fallback: string): never {
+  if (isMissingColumnError(error)) throw new AlbumTrashSchemaError()
+  rethrowSchema(error, fallback)
+}
+
+function asPurgeStatus(value: unknown): AlbumPurgeStatus {
+  if (value === 'pending' || value === 'drive_purged' || value === 'failed' || value === 'idle') return value
+  return 'idle'
 }
 
 function requireClient() {
@@ -104,6 +133,11 @@ function rowToItem(row: Record<string, unknown>): AlbumItem {
     customCategories: asStringArray(row.custom_categories),
     createdAt: typeof row.created_at === 'string' ? row.created_at : '',
     updatedAt: typeof row.updated_at === 'string' ? row.updated_at : null,
+    deletedAt: typeof row.deleted_at === 'string' ? row.deleted_at : null,
+    deletedBy: typeof row.deleted_by === 'string' ? row.deleted_by : null,
+    purgeStatus: asPurgeStatus(row.purge_status),
+    purgeError: typeof row.purge_error === 'string' ? row.purge_error : null,
+    drivePurgedAt: typeof row.drive_purged_at === 'string' ? row.drive_purged_at : null,
   }
 }
 
@@ -191,10 +225,19 @@ export async function deleteAlbumCategory(id: string): Promise<void> {
   if (error) rethrowSchema(error, syncErrorMessage('删除分类'))
 }
 
-export async function fetchAlbumItems(): Promise<AlbumItem[]> {
+export async function fetchAlbumItemsLegacy(): Promise<AlbumItem[]> {
   const client = requireClient()
   const { data, error } = await client.from('album_items').select('*').order('created_at', { ascending: false })
   if (error) rethrowSchema(error, syncErrorMessage('加载相册'))
+  return ((data ?? []) as Record<string, unknown>[]).map(rowToItem)
+}
+
+export async function fetchAlbumItems(scope: AlbumItemScope = 'live'): Promise<AlbumItem[]> {
+  const client = requireClient()
+  let query = client.from('album_items').select('*')
+  query = scope === 'trash' ? query.not('deleted_at', 'is', null) : query.is('deleted_at', null)
+  const { data, error } = await query.order(scope === 'trash' ? 'deleted_at' : 'created_at', { ascending: false })
+  if (error) rethrowTrashOrSchema(error, syncErrorMessage('加载相册'))
   return ((data ?? []) as Record<string, unknown>[]).map(rowToItem)
 }
 
@@ -204,9 +247,21 @@ export async function fetchAlbumItemByPromptId(promptId: string): Promise<AlbumI
     .from('album_items')
     .select('*')
     .eq('prompt_id', promptId)
+    .is('deleted_at', null)
     .order('created_at', { ascending: false })
     .limit(1)
     .maybeSingle()
+  if (error && isMissingColumnError(error)) {
+    const fallback = await client
+      .from('album_items')
+      .select('*')
+      .eq('prompt_id', promptId)
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .maybeSingle()
+    if (fallback.error) rethrowSchema(fallback.error, syncErrorMessage('查询相册'))
+    return fallback.data ? rowToItem(fallback.data as Record<string, unknown>) : null
+  }
   if (error) rethrowSchema(error, syncErrorMessage('查询相册'))
   return data ? rowToItem(data as Record<string, unknown>) : null
 }
@@ -261,7 +316,64 @@ export async function updateAlbumItem(id: string, patch: {
 export async function deleteAlbumItemRow(id: string): Promise<void> {
   const client = requireClient()
   const { error } = await client.from('album_items').delete().eq('id', id)
-  if (error) rethrowSchema(error, syncErrorMessage('删除相册条目'))
+  if (error) rethrowTrashOrSchema(error, syncErrorMessage('删除相册条目'))
+}
+
+async function getAlbumItemById(id: string): Promise<AlbumItem | null> {
+  const client = requireClient()
+  const { data, error } = await client.from('album_items').select('*').eq('id', id).maybeSingle()
+  if (error) rethrowTrashOrSchema(error, syncErrorMessage('查询相册条目'))
+  return data ? rowToItem(data as Record<string, unknown>) : null
+}
+
+async function updateAlbumTrashFields(
+  id: string,
+  patch: {
+    deletedAt?: string | null
+    deletedBy?: string | null
+    purgeStatus?: AlbumPurgeStatus
+    purgeError?: string | null
+    drivePurgedAt?: string | null
+  },
+): Promise<AlbumItem> {
+  const client = requireClient()
+  const body: Record<string, unknown> = {}
+  if (patch.deletedAt !== undefined) body.deleted_at = patch.deletedAt
+  if (patch.deletedBy !== undefined) body.deleted_by = patch.deletedBy
+  if (patch.purgeStatus !== undefined) body.purge_status = patch.purgeStatus
+  if (patch.purgeError !== undefined) body.purge_error = patch.purgeError
+  if (patch.drivePurgedAt !== undefined) body.drive_purged_at = patch.drivePurgedAt
+  const { data, error } = await client.from('album_items').update(body).eq('id', id).select('*').single()
+  if (error) rethrowTrashOrSchema(error, syncErrorMessage('更新回收站记录'))
+  return rowToItem(data as Record<string, unknown>)
+}
+
+export function albumTrashStore() {
+  return {
+    getItem: getAlbumItemById,
+    updateItem: updateAlbumTrashFields,
+    deleteRow: deleteAlbumItemRow,
+  }
+}
+
+export async function softDeleteAlbumItem(id: string): Promise<AlbumItem> {
+  try {
+    return await softDeleteAlbumItemInStore(id, albumTrashStore())
+  } catch (error) {
+    if (error instanceof AlbumTrashSchemaError || error instanceof AlbumSchemaError) throw error
+    if (error instanceof Error) throw error
+    throw new Error('无法移入回收站')
+  }
+}
+
+export async function restoreAlbumItem(id: string): Promise<AlbumItem> {
+  try {
+    return await restoreAlbumItemInStore(id, albumTrashStore())
+  } catch (error) {
+    if (error instanceof AlbumTrashSchemaError || error instanceof AlbumSchemaError) throw error
+    if (error instanceof Error) throw error
+    throw new Error('无法恢复这条记录')
+  }
 }
 
 export function resolvePromptCoverUrl(item: PromptItem): string | null {

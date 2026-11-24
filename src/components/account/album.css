@@ -695,3 +695,12 @@
     padding: 0.45rem 0.35rem;
   }
 }
+
+
+.album-chip--trash {
+  margin-left: 0.25rem;
+}
+
+.album-chip--trash.is-active {
+  background: color-mix(in srgb, var(--text) 12%, var(--bg-raise));
+}

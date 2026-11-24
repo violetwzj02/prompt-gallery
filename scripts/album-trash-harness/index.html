@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var KEY = 'prompt-gallery-theme'
+        var pref = 'system'
+        try {
+          var stored = localStorage.getItem(KEY)
+          if (stored === 'dark' || stored === 'light' || stored === 'system') pref = stored
+        } catch (e) {}
+        var resolved =
+          pref === 'system'
+            ? window.matchMedia('(prefers-color-scheme: light)').matches
+              ? 'light'
+              : 'dark'
+            : pref
+        var root = document.documentElement
+        root.setAttribute('data-theme', resolved)
+        root.setAttribute('data-theme-pref', pref)
+        root.style.colorScheme = resolved
+      })()
+    </script>
+    <title>云端相册回收站测试台</title>
+    <link rel="stylesheet" href="./main.css" />
+    <!-- harness-css-evidence -->
+    <style>
+      .harness-doc {
+        max-width: 72rem;
+        margin: 0 auto;
+        padding: 1rem 1.2rem 1.25rem;
+        color: var(--text);
+        background: var(--bg);
+        min-width: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .harness-doc h1 { font-size: 1.15rem; margin: 0 0 0.4rem; }
+      .harness-doc ol, .harness-doc ul { margin: 0.3rem 0 0.6rem; padding-left: 1.2rem; }
+      .harness-doc p, .harness-doc li { line-height: 1.5; }
+      .harness-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
+        align-items: center;
+        margin-top: 0.75rem;
+      }
+      .harness-log {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.8rem;
+        white-space: pre-wrap;
+        background: var(--bg-raise);
+        border: 1px solid var(--line);
+        padding: 0.6rem 0.75rem;
+        min-height: 3.5rem;
+      }
+      .harness-counters {
+        margin-top: 0.75rem;
+        padding: 0.6rem 0.75rem;
+        border: 1px solid var(--line);
+        background: var(--bg-raise);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+      .harness-counters ul { margin: 0.35rem 0 0; padding-left: 1.1rem; }
+      .harness-app { min-height: 100vh; min-width: 0; background: var(--bg); }
+      .harness-album { max-width: 72rem; margin: 0 auto; padding: 0 1.2rem 2rem; min-width: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

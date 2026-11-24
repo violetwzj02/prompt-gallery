@@ -12,7 +12,7 @@ const PROMPT_CATEGORY_TO_PRESET: Record<string, AlbumPresetName> = {
   特效: 'CG',
 }
 
-const RESERVED_NAMES = new Set(['全部', '自定义', 'admin'])
+const RESERVED_NAMES = new Set(['全部', '自定义', 'admin', '回收站'])
 
 function hasAsciiWord(haystack: string, word: string): boolean {
   const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')

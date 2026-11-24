@@ -9,6 +9,10 @@ import {
   type AlbumItem,
 } from '../../lib/album'
 import {
+  ALBUM_TRASH_NAME,
+  ALBUM_TRASH_SCHEMA_UNAVAILABLE,
+} from '../../lib/albumPurge'
+import {
   DRIVE_AUTH_READY_RETRY_MESSAGE,
   DRIVE_NETWORK_ERROR,
   clearDriveAccess,
@@ -45,8 +49,16 @@ import { loadQuyiMeta, PENDING_CHARACTER, sortCharacterNames, type QuyiCharacter
 import { AlbumFlipBook } from './AlbumFlipBook'
 import './album.css'
 
+export interface CloudAlbumTestHooks {
+  album?: ReturnType<typeof useAlbum>
+  accessToken?: string | null
+  googleEnabled?: boolean
+  confirm?: (message: string) => boolean
+}
+
 interface Props {
   route: AccountRoute
+  test?: CloudAlbumTestHooks
 }
 
 interface DraftFile {
@@ -66,13 +78,15 @@ interface UploadJob {
   total: number
 }
 
-export function CloudAlbum({ route }: Props) {
+export function CloudAlbum({ route, test }: Props) {
   const clientId = googleClientId()
-  const album = useAlbum(Boolean(clientId))
-  const [token, setToken] = useState<string | null>(() => peekAccessToken())
+  const albumHook = useAlbum((Boolean(clientId) || Boolean(test?.googleEnabled)) && !test?.album)
+  const album = test?.album ?? albumHook
+  const requestConfirm = test?.confirm ?? ((message: string) => window.confirm(message))
+  const [tokenState, setToken] = useState<string | null>(() => peekAccessToken())
   const [driveEmail, setDriveEmail] = useState<string | undefined>(() => peekDriveEmail())
   const [connecting, setConnecting] = useState(false)
-  const [authPreparing, setAuthPreparing] = useState(() => !isDriveAuthReady())
+  const [authPreparing, setAuthPreparing] = useState(() => !test && !isDriveAuthReady())
   const [driveError, setDriveError] = useState<string | null>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [drafts, setDrafts] = useState<DraftFile[]>([])
@@ -85,6 +99,7 @@ export function CloudAlbum({ route }: Props) {
   const [renameValue, setRenameValue] = useState('')
   const fileRef = useRef<HTMLInputElement>(null)
   const folderId = album.settings?.driveRootFolderId ?? null
+  const token = test?.accessToken !== undefined ? test.accessToken : tokenState
   const [plannedCharacters, setPlannedCharacters] = useState<QuyiCharacter[]>([])
 
   useEffect(() => {
@@ -92,6 +107,7 @@ export function CloudAlbum({ route }: Props) {
   }, [])
 
   useEffect(() => {
+    if (test) return
     let cancelled = false
     if (isDriveAuthReady()) {
       setAuthPreparing(false)
@@ -110,7 +126,7 @@ export function CloudAlbum({ route }: Props) {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [test])
 
 
   useEffect(() => {
@@ -121,11 +137,13 @@ export function CloudAlbum({ route }: Props) {
 
   const cat = route.cat
   const characterFolder = route.folderId
-  const inAdult = cat === ADULT_CATEGORY
+  const inTrash = Boolean(route.bin)
+  const inAdult = !inTrash && cat === ADULT_CATEGORY
   const activeId = route.itemId
+  const catalogItems = inTrash ? album.trashItems : album.items
   const selected = useMemo(
-    () => (activeId ? album.items.find((item) => item.id === activeId) ?? null : null),
-    [activeId, album.items],
+    () => (activeId ? catalogItems.find((item) => item.id === activeId) ?? null : null),
+    [activeId, catalogItems],
   )
 
   const presets = useMemo(
@@ -149,12 +167,14 @@ export function CloudAlbum({ route }: Props) {
   const existingNames = useMemo(() => album.categories.map((category) => category.name), [album.categories])
 
   const visibleItems = useMemo(
-    () =>
-      album.items.filter((item) => itemHasCategory(item, cat)).filter((item) => {
+    () => {
+      if (inTrash) return album.trashItems
+      return album.items.filter((item) => itemHasCategory(item, cat)).filter((item) => {
         if (!characterFolder) return true
         return itemHasCategory(item, characterFolder)
-      }),
-    [album.items, cat, characterFolder],
+      })
+    },
+    [album.items, album.trashItems, cat, characterFolder, inTrash],
   )
 
   const adultFolders = useMemo(() => {
@@ -191,14 +211,16 @@ export function CloudAlbum({ route }: Props) {
   }, [album.items])
 
   const setAlbumHash = (
-    next: { cat?: string | null; itemId?: string | null; folderId?: string | null },
+    next: { cat?: string | null; itemId?: string | null; folderId?: string | null; bin?: boolean },
     mode: 'push' | 'replace' = 'replace',
   ) => {
-    const nextCat = next.cat === undefined ? cat : next.cat
-    const nextFolder = next.folderId === undefined ? characterFolder : next.folderId
+    const nextBin = next.bin === undefined ? inTrash : next.bin
+    const nextCat = nextBin ? null : next.cat === undefined ? cat : next.cat
+    const nextFolder = nextBin ? null : next.folderId === undefined ? characterFolder : next.folderId
     const nextItem = next.itemId === undefined ? activeId : next.itemId
     const hash = toAccountHash({
       view: 'album',
+      bin: nextBin,
       cat: nextCat,
       itemId: nextItem,
       folderId: nextCat === ADULT_CATEGORY ? nextFolder : null,
@@ -449,25 +471,91 @@ export function CloudAlbum({ route }: Props) {
     }
   }
 
-  const deleteItem = async (item: AlbumItem) => {
-    const label = item.title || '这张图片'
-    const ok = window.confirm(`确定删除「${label}」？图片会从谷歌云盘和相册记录中一并移除。`)
+  const closeAfterItemRemoved = (item: AlbumItem) => {
+    if (activeId !== item.id) return
+    const remaining = visibleItems.filter((entry) => entry.id !== item.id)
+    if (remaining.length === 0 && characterFolder) {
+      setAlbumHash({ itemId: null, folderId: null })
+      return
+    }
+    setAlbumHash({ itemId: null })
+  }
+
+  const moveToTrash = async (item: AlbumItem) => {
+    if (album.trashSchemaMissing) {
+      setMessage(ALBUM_TRASH_SCHEMA_UNAVAILABLE)
+      return
+    }
+    const label = albumDisplayTitle({ title: item.title, index: 1 }) || '这张图片'
+    const ok = requestConfirm(`确定将「${label}」移入回收站？之后可以恢复。此操作不会删除谷歌云盘中的原文件。`)
+    if (!ok) return
+    try {
+      await album.softDeleteItem(item.id)
+      closeAfterItemRemoved(item)
+      setMessage('已移入回收站')
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : '无法移入回收站')
+    }
+  }
+
+  const restoreFromTrash = async (item: AlbumItem) => {
+    if (album.trashSchemaMissing) {
+      setMessage(ALBUM_TRASH_SCHEMA_UNAVAILABLE)
+      return
+    }
+    try {
+      await album.restoreItem(item.id)
+      closeAfterItemRemoved(item)
+      setMessage('已恢复到原来的分类')
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : '无法恢复这条记录')
+    }
+  }
+
+  const permanentlyDelete = async (item: AlbumItem) => {
+    if (album.trashSchemaMissing) {
+      setMessage(ALBUM_TRASH_SCHEMA_UNAVAILABLE)
+      return
+    }
+    const label = albumDisplayTitle({ title: item.title, index: 1 }) || '这张图片'
+    const ok = requestConfirm(`确定永久删除「${label}」？原文件将从谷歌云盘永久删除，且无法恢复。`)
     if (!ok) return
     if (!token) {
       setDriveError(ALBUM_CONNECT_FIRST)
       return
     }
-    try {
-      await deleteDriveFile(token, item.driveFileId)
-      await album.removeItem(item.id)
-      if (activeId === item.id) setAlbumHash({ itemId: null })
-      setMessage('已删除')
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : '删除失败，请稍后重试')
+    const result = await album.purgeItem(item.id, token)
+    if (result.ok) {
+      closeAfterItemRemoved(item)
+      setMessage('已永久删除')
+      return
     }
+    setMessage(result.error)
   }
 
-  if (!clientId) {
+  const emptyTrash = async () => {
+    if (album.trashSchemaMissing) {
+      setMessage(ALBUM_TRASH_SCHEMA_UNAVAILABLE)
+      return
+    }
+    const ids = album.trashItems.map((item) => item.id)
+    if (ids.length === 0) return
+    const ok = requestConfirm(`确定清空回收站中的 ${ids.length} 项？原文件将从谷歌云盘永久删除，且无法恢复。`)
+    if (!ok) return
+    if (!token) {
+      setDriveError(ALBUM_CONNECT_FIRST)
+      return
+    }
+    const result = await album.purgeItems(ids, token)
+    if (activeId) setAlbumHash({ itemId: null })
+    if (result.ok) {
+      setMessage('回收站已清空')
+      return
+    }
+    setMessage(`已永久删除 ${result.succeeded} 项，${result.failed} 项失败，请重试失败项。`)
+  }
+
+  if (!clientId && !test?.googleEnabled && !test?.album) {
     return (
       <div className="account-gate">
         <h2>云端相册尚未启用</h2>
@@ -620,13 +708,14 @@ export function CloudAlbum({ route }: Props) {
 
       {driveError && <p className="album__error">{driveError}</p>}
       {album.error && !album.schemaMissing && <p className="album__error">{album.error}</p>}
+      {album.trashSchemaMissing && <p className="album__error">{ALBUM_TRASH_SCHEMA_UNAVAILABLE}</p>}
       {message && <p className="album__hint">{message}</p>}
 
       <div className="album-chips" role="tablist" aria-label="相册分类">
         <button
           type="button"
           className={`album-chip ${!cat ? 'is-active' : ''}`}
-          onClick={() => setAlbumHash({ cat: null, itemId: null, folderId: null })}
+          onClick={() => setAlbumHash({ bin: false, cat: null, itemId: null, folderId: null })}
         >
           全部 <span>{counts['全部'] ?? 0}</span>
         </button>
@@ -635,7 +724,7 @@ export function CloudAlbum({ route }: Props) {
             type="button"
             key={category.id}
             className={`album-chip is-preset ${cat === category.name ? 'is-active' : ''}`}
-            onClick={() => setAlbumHash({ cat: category.name, itemId: null, folderId: null })}
+            onClick={() => setAlbumHash({ bin: false, cat: category.name, itemId: null, folderId: null })}
           >
             {category.name} <span>{counts[category.name] ?? 0}</span>
           </button>
@@ -670,8 +759,8 @@ export function CloudAlbum({ route }: Props) {
                 className={`album-chip ${cat === category.name || characterFolder === category.name ? 'is-active' : ''}`}
                 onClick={() =>
                   inAdult
-                    ? setAlbumHash({ cat: ADULT_CATEGORY, folderId: category.name, itemId: null }, 'push')
-                    : setAlbumHash({ cat: category.name, itemId: null, folderId: null })
+                    ? setAlbumHash({ bin: false, cat: ADULT_CATEGORY, folderId: category.name, itemId: null }, 'push')
+                    : setAlbumHash({ bin: false, cat: category.name, itemId: null, folderId: null })
                 }
               >
                 {category.name} <span>{counts[category.name] ?? 0}</span>
@@ -695,6 +784,24 @@ export function CloudAlbum({ route }: Props) {
               )}
             </span>
           ),
+        )}
+        <button
+          type="button"
+          className={`album-chip album-chip--trash ${inTrash ? 'is-active' : ''}`}
+          disabled={album.trashSchemaMissing}
+          onClick={() => setAlbumHash({ bin: true, cat: null, folderId: null, itemId: null })}
+        >
+          {ALBUM_TRASH_NAME} <span>{album.trashItems.length}</span>
+        </button>
+        {inTrash && (
+          <button
+            type="button"
+            className="btn btn-danger"
+            disabled={album.trashSchemaMissing || album.trashItems.length === 0}
+            onClick={() => void emptyTrash()}
+          >
+            清空回收站
+          </button>
         )}
         <button type="button" className="album-chip album-chip--quiet" onClick={() => setManageCats((value) => !value)}>
           {manageCats ? '完成管理' : '管理分类'}
@@ -728,7 +835,7 @@ export function CloudAlbum({ route }: Props) {
                 type="button"
                 key={folder.name}
                 className={`album-drawer${folder.pending ? ' is-pending' : ''}`}
-                onClick={() => setAlbumHash({ cat: ADULT_CATEGORY, folderId: folder.name, itemId: null }, 'push')}
+                onClick={() => setAlbumHash({ bin: false, cat: ADULT_CATEGORY, folderId: folder.name, itemId: null }, 'push')}
               >
                 <div className="album-drawer__stack" aria-hidden>
                   <div className="album-drawer__layer album-drawer__layer--2" />
@@ -772,7 +879,11 @@ export function CloudAlbum({ route }: Props) {
       )}
 
       {!inAdult && visibleItems.length === 0 && (
-        <p className="album__empty">这个分类里还没有图片。可以上传，或从图鉴详情页把封面加入云端相册。</p>
+        <p className="album__empty">
+          {inTrash
+            ? '回收站是空的。'
+            : '这个分类里还没有图片。可以上传，或从图鉴详情页把封面加入云端相册。'}
+        </p>
       )}
       {!inAdult && visibleItems.length > 0 && (
         <div className="album-grid">
@@ -820,7 +931,12 @@ export function CloudAlbum({ route }: Props) {
               setMessage(error instanceof Error ? error.message : '无法更新这条记录')
             }
           }}
-          onDelete={() => void deleteItem(selected)}
+          trash={inTrash}
+          trashDisabled={album.trashSchemaMissing}
+          canPurge={Boolean(token)}
+          onDelete={() => void moveToTrash(selected)}
+          onRestore={() => void restoreFromTrash(selected)}
+          onPurge={() => void permanentlyDelete(selected)}
         />
       )}
     </section>
@@ -975,17 +1091,27 @@ function AlbumLightbox({
   token,
   customs,
   existingNames,
+  trash = false,
+  trashDisabled = false,
+  canPurge = false,
   onClose,
   onSave,
   onDelete,
+  onRestore,
+  onPurge,
 }: {
   item: AlbumItem
   token: string | null
   customs: AlbumCategory[]
   existingNames: string[]
+  trash?: boolean
+  trashDisabled?: boolean
+  canPurge?: boolean
   onClose: () => void
   onSave: (patch: { title: string; autoCategories: string[]; customCategories: string[] }) => Promise<void>
   onDelete: () => void
+  onRestore?: () => void
+  onPurge?: () => void
 }) {
   const [title, setTitle] = useState(item.title ?? '')
   const [auto, setAuto] = useState(item.autoCategories)
@@ -1119,24 +1245,44 @@ function AlbumLightbox({
             </button>
           </form>
           <div className="album__actions">
-            <button
-              type="button"
-              className="btn btn-primary"
-              disabled={saving}
-              onClick={() => {
-                setSaving(true)
-                void onSave({
-                  title: title.trim(),
-                  autoCategories: splitAlbumCategories(auto).auto,
-                  customCategories: splitAlbumCategories(custom).custom,
-                }).finally(() => setSaving(false))
-              }}
-            >
-              保存分类
-            </button>
-            <button type="button" className="btn btn-danger" onClick={onDelete}>
-              删除图片
-            </button>
+            {!trash && (
+              <>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  disabled={saving}
+                  onClick={() => {
+                    setSaving(true)
+                    void onSave({
+                      title: title.trim(),
+                      autoCategories: splitAlbumCategories(auto).auto,
+                      customCategories: splitAlbumCategories(custom).custom,
+                    }).finally(() => setSaving(false))
+                  }}
+                >
+                  保存分类
+                </button>
+                <button type="button" className="btn btn-danger" disabled={trashDisabled} onClick={onDelete}>
+                  删除图片
+                </button>
+              </>
+            )}
+            {trash && (
+              <>
+                <button type="button" className="btn btn-primary" disabled={trashDisabled} onClick={onRestore}>
+                  恢复
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  disabled={trashDisabled || !canPurge}
+                  onClick={onPurge}
+                  title={canPurge ? undefined : '永久删除需要先连接谷歌云盘'}
+                >
+                  永久删除
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>

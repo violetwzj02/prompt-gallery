@@ -312,6 +312,20 @@ starveCache.release(low2rec)
 starveCache.release(low3rec)
 starveCache.release(high1rec)
 
+const evictCache = createDriveImageCache({
+  fetchBlob: async ({ fileId }) => solidBlob(fileId, 8),
+  maxEntries: 10,
+  maxBytes: 10_000,
+})
+const recKeep = await evictCache.acquire('tok', 'keep-a')
+const recDrop = await evictCache.acquire('tok', 'drop-b')
+evictCache.release(recKeep)
+evictCache.release(recDrop)
+evictCache.evict('drop-b')
+check('evict removes only that file', evictCache.peek('drop-b'), null)
+check('evict leaves other files', evictCache.peek('keep-a')?.fileId, 'keep-a')
+check('evict does not clear the whole cache', evictCache.stats().entries, 1)
+
 const failed = cases.filter((c) => !c.ok)
 console.log(`${cases.length - failed.length}/${cases.length} passed`)
 if (failed.length) process.exit(1)
