@@ -6,7 +6,7 @@
 
 内容源自原仓库 · **CC BY 4.0**。
 
-源库 106 条主条目会按合集拆成可独立复制的子 Prompt（例如「仙侠人物特效」35 条、「短剧景别构图」30 条），并归回人物 / 场景 / 构图 / 特效 / 周边 / 艺术等原大类。大类「MJ」只收明确适用于 Midjourney 的条目（标题含 Midjourney 的十张人物卡，以及邵氏赛博七张）。另有来自 Obsidian 笔记的补充卡片，以及「凤冠特写」。当前共 **216** 张卡片。
+源库 106 条主条目会按合集拆成可独立复制的子 Prompt（例如「仙侠人物特效」35 条、「短剧景别构图」30 条），并归回人物 / 场景 / 构图 / 特效 / 周边 / 艺术等原大类。大类「MJ」只收明确适用于 Midjourney 的条目（标题含 Midjourney 的十张人物卡，以及邵氏赛博七张）。另有来自 Obsidian 笔记的补充卡片，以及「凤冠特写」。大类「Grok」收录从 Miku Inspiration 归纳的 35 条（人像写真、海报封面、插画角色、场景概念、产品转化）。当前共 **251** 张卡片。
 
 ## 本地运行
 
@@ -50,7 +50,7 @@ npm run parse
 
 ## 封面图
 
-- 内置大类氛围封面：`public/covers/categories/{renwu,changjing,goutu,texiao,zhoubian,yishu,mj}.jpg`（另有 `zidingyi`、`eighteen`）
+- 内置大类氛围封面：`public/covers/categories/{renwu,changjing,goutu,texiao,zhoubian,yishu,mj,grok}.jpg`（另有 `zidingyi`、`eighteen`）
 - 卡片默认 = 类别封面 + 基于合集与条目 `id` 的稳定配色/几何纹理（同一合集色调相近，子条目纹理不同）
 - 真实封面：把图片放到 `public/covers/entries/<id>.jpg`（或 png），并在 `prompts.json` 对应条目把 `cover` 设为 `covers/entries/<id>.jpg`
 - 前端「添加风格」面板支持本地上传封面（base64 存 localStorage），并可填写大类、合集与标签

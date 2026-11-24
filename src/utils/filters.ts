@@ -1,6 +1,6 @@
 import { isReservedHash } from './accountRoutes'
 import type { Category, Density, PromptItem } from '../types'
-import { canonicalCategoryName } from './category'
+import { canonicalCategoryName, categorySlug, isBuiltinCategory } from './category'
 
 export interface FilterContext {
   /** item id → folder id */
@@ -43,7 +43,7 @@ export function normalizeItem(item: PromptItem): PromptItem {
   return {
     ...item,
     category,
-    categorySlug: category === 'MJ' ? 'mj' : item.categorySlug,
+    categorySlug: isBuiltinCategory(category) ? categorySlug(category) : item.categorySlug,
     parentId: item.parentId ?? null,
     collection: item.collection ?? null,
     collectionIndex: item.collectionIndex ?? null,

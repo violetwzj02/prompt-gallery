@@ -62,6 +62,11 @@ COLLECTION_NAMES = {
     "changjing-4": "未来景观",
     "changjing-9": "邵氏赛博",
     "changjing-10": "仙侠繁华试",
+    "grok-renxiang": "人像写真",
+    "grok-haibao": "海报封面",
+    "grok-chahua": "插画角色",
+    "grok-changjing": "场景概念",
+    "grok-chanpin": "产品转化",
 }
 
 # Controlled style / purpose vocabulary. Order is the UI facet order.
@@ -787,7 +792,7 @@ def resolve_cross_duplicates(items: list[dict]) -> None:
 
 
 def build_meta(items: list[dict], generated_from: str, master_count: int) -> dict:
-    cat_counts = {k: 0 for k in ["人物", "场景", "构图", "特效", "周边", "艺术", "MJ"]}
+    cat_counts = {k: 0 for k in ["人物", "场景", "构图", "特效", "周边", "艺术", "MJ", "Grok"]}
     for it in items:
         cat_counts[it["category"]] = cat_counts.get(it["category"], 0) + 1
 
@@ -809,7 +814,7 @@ def build_meta(items: list[dict], generated_from: str, master_count: int) -> dic
     aspect_counts = Counter(it["aspect"] for it in items if it.get("aspect"))
 
     style_counts: Counter = Counter()
-    structural = set(["人物", "场景", "构图", "特效", "周边", "艺术", "MJ", "MJ风格"]) | set(COLLECTION_NAMES.values()) | set(MEDIUMS)
+    structural = set(["人物", "场景", "构图", "特效", "周边", "艺术", "MJ", "MJ风格", "Grok"]) | set(COLLECTION_NAMES.values()) | set(MEDIUMS)
     for it in items:
         for t in it.get("tags") or []:
             if t in STYLE_VOCAB and t not in structural and t != it.get("aspect"):

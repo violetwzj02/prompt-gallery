@@ -6,6 +6,7 @@ export type BuiltinCategory =
   | '周边'
   | '艺术'
   | 'MJ'
+  | 'Grok'
   | '自定义'
   | '18+'
 
@@ -20,6 +21,7 @@ export const BUILTIN_CATEGORIES: BuiltinCategory[] = [
   '周边',
   '艺术',
   'MJ',
+  'Grok',
   '自定义',
   '18+',
 ]
@@ -33,6 +35,7 @@ export const FIXED_RAIL_CATEGORIES: BuiltinCategory[] = [
   '周边',
   '艺术',
   'MJ',
+  'Grok',
 ]
 
 export const LEGACY_CUSTOM_CATEGORY = '自定义' as const
@@ -120,6 +123,7 @@ export const CATEGORY_SLUG: Record<BuiltinCategory, string> = {
   周边: 'zhoubian',
   艺术: 'yishu',
   MJ: 'mj',
+  Grok: 'grok',
   自定义: 'zidingyi',
   '18+': 'eighteen',
 }
@@ -133,6 +137,7 @@ export const CATEGORY_ACCENT: Record<BuiltinCategory, string> = {
   周边: '#6a9aa4',
   艺术: '#b08aaa',
   MJ: '#6d83b0',
+  Grok: '#5f7f8c',
   自定义: '#a39480',
   '18+': '#8d6d73',
 }

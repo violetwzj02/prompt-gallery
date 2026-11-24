@@ -9,7 +9,7 @@
     "preview": "vite preview --host 0.0.0.0 --port 4173",
     "parse": "python3 scripts/parse_prompts.py",
     "ingest:quyi": "python3 scripts/ingest_quyi.py",
-    "test": "node scripts/test-download-original.mjs && node scripts/test-google-drive-auth.mjs && node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs && node scripts/test-album-image-lifecycle.mjs && node scripts/test-album-trash.mjs && node scripts/test-album-trash-memory.mjs && node scripts/test-album-trash-ui.mjs && node scripts/test-cover-src.mjs && node scripts/test-dialog-chrome.mjs && node scripts/test-harness-css.mjs && python3 scripts/test_ingest_quyi.py",
+    "test": "node scripts/test-download-original.mjs && node scripts/test-google-drive-auth.mjs && node scripts/test-album-display-title.mjs && node scripts/test-account-routes-hash.mjs && node scripts/test-drive-image-cache.mjs && node scripts/test-album-image-lifecycle.mjs && node scripts/test-album-trash.mjs && node scripts/test-album-trash-memory.mjs && node scripts/test-album-trash-ui.mjs && node scripts/test-cover-src.mjs && node scripts/test-dialog-chrome.mjs && node scripts/test-harness-css.mjs && python3 scripts/test_ingest_quyi.py && python3 scripts/test-grok-import.py",
     "test:download": "node scripts/test-download-original.mjs",
     "test:drive": "node scripts/test-google-drive-auth.mjs",
     "test:quyi": "python3 scripts/test_ingest_quyi.py",
