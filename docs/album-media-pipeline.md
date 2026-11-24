@@ -76,6 +76,23 @@ python scripts/quyi_titles.py --write    # 写入 public/data/quyi-cards.json
 提示词里没有可用描述时保留原名，不靠编号凑数；同角色同姿态的多张卡自动加（2）（3）区分。
 每次 `ingest_quyi.py` 重新生成 `quyi-cards.json` 之后都要再跑一次这一步。
 
+## 7. 给相册里的图片命名（看图取名）
+
+相册条目的标题存在 `album_items.title`，原来直接沿用上传时的 uuid。用三步把它换成「角色 · 画面特色」：
+
+```bash
+python scripts/album_import.py export                  # 先导出 items.json
+python scripts/album_naming.py fetch                   # 取每个条目的预览图 -> I:\wangzhanbendinglbum-thumbs
+python scripts/album_naming.py sheet                   # 拼成联系人表 -> sheets/sheet-01.jpg + labels.json
+# 看过 sheet 之后写一份 names.json：{"<album_id>": "蒂法·侧身跪坐", ...}
+python scripts/album_naming.py apply --map names.json  # 写回 album_items.title
+```
+
+- `fetch` 自带续传：已有预览的不重复下载，没取到缩略图的条目会记账并在下次重试。
+- `sheet` 每格左上角有 `#001` 形式的编号，`labels.json` 记录「编号 → album_id」，照着编号写名字即可。
+- `apply` 只改 `title`，空标题跳过；失败逐条打印不中断。
+- 只读预览图，不下载原图、不上传、不改分类。
+
 ## 校验
 
 ```bash
