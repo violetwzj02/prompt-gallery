@@ -680,3 +680,18 @@
     left: 0.9rem;
   }
 }
+
+/* ---------- T8 general UI chrome ---------- */
+
+@media (max-width: 560px), (pointer: coarse) {
+  .album-lightbox__close,
+  .album-viewer__close {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .album-viewer__back {
+    min-height: 2.75rem;
+    padding: 0.45rem 0.35rem;
+  }
+}

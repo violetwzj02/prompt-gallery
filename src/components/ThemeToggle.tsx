@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { useEscapeLayer } from '../hooks/useDialogChrome'
 import { THEME_OPTIONS, type ThemePref, type ResolvedTheme } from '../hooks/useTheme'
 
 interface Props {
@@ -11,20 +12,16 @@ export function ThemeToggle({ pref, resolved, onChange }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
   const currentLabel = THEME_OPTIONS.find((o) => o.id === pref)?.label ?? '系统'
+  useEscapeLayer(menuOpen, () => setMenuOpen(false), wrapRef)
 
   useEffect(() => {
     if (!menuOpen) return
     const onDoc = (e: MouseEvent) => {
       if (!wrapRef.current?.contains(e.target as Node)) setMenuOpen(false)
     }
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false)
-    }
     document.addEventListener('mousedown', onDoc)
-    document.addEventListener('keydown', onKey)
     return () => {
       document.removeEventListener('mousedown', onDoc)
-      document.removeEventListener('keydown', onKey)
     }
   }, [menuOpen])
 

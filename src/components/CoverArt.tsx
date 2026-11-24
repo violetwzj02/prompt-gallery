@@ -2,6 +2,7 @@ import { useEffect, useState, type CSSProperties } from 'react'
 import type { PromptItem } from '../types'
 import { CATEGORY_SLUG } from '../types'
 import { categoryAccent } from '../utils/category'
+import { resolveCoverSrc } from '../utils/coverSrc'
 import { collectionPalette } from '../utils/hash'
 
 interface Props {
@@ -76,7 +77,7 @@ export function CoverArt({ item, className = '', large = false, fit = 'cover' }:
   if (item.cover) {
     return (
       <div className={wrapClass}>
-        <SafeImage src={`./${item.cover}`} className="cover-art__img" />
+        <SafeImage src={resolveCoverSrc(item.cover)} className="cover-art__img" />
       </div>
     )
   }

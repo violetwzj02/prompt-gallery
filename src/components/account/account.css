@@ -406,3 +406,18 @@
     letter-spacing: 0;
   }
 }
+
+/* ---------- T8 general UI chrome ---------- */
+
+.account-profile__text h2,
+.download-center__path,
+.account-profile__email {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px), (pointer: coarse) {
+  .account-subnav a,
+  .account-tab {
+    min-height: 2.75rem;
+  }
+}

@@ -381,6 +381,8 @@ function GalleryApp() {
             className="icon-btn rail-toggle"
             onClick={() => setRailOpen(true)}
             aria-label="打开筛选"
+            aria-expanded={railOpen}
+            aria-controls="gallery-filter-rail"
           >
             筛选
           </button>

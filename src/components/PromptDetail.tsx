@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { useDialogChrome, useEscapeLayer } from '../hooks/useDialogChrome'
 import ReactMarkdown from 'react-markdown'
 import type { PromptItem } from '../types'
 import { categoryAccent } from '../utils/category'
@@ -96,6 +97,7 @@ export function PromptDetail({
   const [favOpen, setFavOpen] = useState(false)
   const [newFolder, setNewFolder] = useState('')
   const favWrapRef = useRef<HTMLDivElement>(null)
+  const sheetRef = useRef<HTMLDivElement>(null)
   const accent = categoryAccent(item.category)
   const indexInList = items.findIndex((i) => i.id === item.id)
   const gallery = useMemo(() => itemGallery(item), [item])
@@ -103,20 +105,11 @@ export function PromptDetail({
   const originLabel = styleOriginLabel(item, viewerId)
   const reviewLabel = reviewBadgeLabel(item, viewerId)
 
+  useDialogChrome({ open: true, onClose, containerRef: sheetRef })
+  useEscapeLayer(favOpen, () => setFavOpen(false), favWrapRef)
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (albumOpen) {
-          setAlbumOpen(false)
-          return
-        }
-        if (favOpen) {
-          setFavOpen(false)
-          return
-        }
-        onClose()
-        return
-      }
       if (multiCover && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
         return
       }
@@ -130,12 +123,10 @@ export function PromptDetail({
       }
     }
     window.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
     return () => {
       window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
     }
-  }, [onClose, onSelect, items, indexInList, favOpen, albumOpen, multiCover])
+  }, [onSelect, items, indexInList, multiCover])
 
   useEffect(() => {
     setFavOpen(false)
@@ -194,10 +185,11 @@ export function PromptDetail({
     <div className="detail-overlay" onClick={onClose} role="presentation">
       <div
         className="detail-sheet"
+        ref={sheetRef}
         style={{ '--card-accent': accent } as CSSProperties}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
-        aria-modal
+        aria-modal="true"
         aria-label={item.title}
       >
         <button type="button" className="detail-close" onClick={onClose} aria-label="关闭">

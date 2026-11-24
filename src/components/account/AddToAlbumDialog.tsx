@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useDialogChrome } from '../../hooks/useDialogChrome'
 import type { PromptItem } from '../../types'
 import {
   ALBUM_CONNECT_FIRST,
@@ -48,6 +49,8 @@ export function AddToAlbumDialog({ item, open, onClose, onAdded }: Props) {
   const [loading, setLoading] = useState(false)
   const [saving, setSaving] = useState(false)
   const [file, setFile] = useState<File | null>(null)
+  const sheetRef = useRef<HTMLDivElement>(null)
+  useDialogChrome({ open, onClose, containerRef: sheetRef })
 
   useEffect(() => {
     if (!open) return
@@ -165,8 +168,9 @@ export function AddToAlbumDialog({ item, open, onClose, onAdded }: Props) {
     <div className="album-lightbox" onClick={(event) => { event.stopPropagation(); onClose() }} role="presentation">
       <div
         className="album-lightbox__sheet"
+        ref={sheetRef}
         role="dialog"
-        aria-modal
+        aria-modal="true"
         aria-label="加入云端相册"
         onClick={(event) => event.stopPropagation()}
       >

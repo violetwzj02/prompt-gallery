@@ -1,4 +1,6 @@
-import { useMemo, useState, type FormEvent, type ReactNode } from 'react'
+import { useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react'
+import { useDialogChrome } from '../hooks/useDialogChrome'
+import { MOBILE_FILTER_QUERY, useMediaQuery } from '../hooks/useMediaQuery'
 import type { Category, CollectionInfo } from '../types'
 import { categoryAccent } from '../utils/category'
 import type { FavoriteFolder } from '../hooks/useFavorites'
@@ -135,6 +137,14 @@ export function FilterRail({
   onDeleteFolder,
   showLibraryDrawers = true,
 }: Props) {
+  const railRef = useRef<HTMLElement>(null)
+  const mobile = useMediaQuery(MOBILE_FILTER_QUERY)
+  const mobileModal = Boolean(mobile && onCloseMobile)
+  useDialogChrome({
+    open: Boolean(mobileModal && active),
+    onClose: onCloseMobile ?? (() => {}),
+    containerRef: railRef,
+  })
   const visibleCollections = collections.filter(
     (c) => (counts.collection[c.id] ?? 0) > 0 || filters.collectionId === c.id,
   )
@@ -214,7 +224,14 @@ export function FilterRail({
   }
 
   return (
-    <aside className={`rail ${active ? 'is-open' : ''}`} aria-label="筛选">
+    <aside
+      ref={railRef}
+      id="gallery-filter-rail"
+      className={`rail ${active ? 'is-open' : ''}`}
+      aria-label="筛选"
+      aria-hidden={mobileModal && !active ? true : undefined}
+      inert={mobileModal && !active ? true : undefined}
+    >
       <div className="rail-mobile-head">
         <span>筛选</span>
         {onCloseMobile && (

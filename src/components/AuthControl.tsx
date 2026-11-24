@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useEscapeLayer } from '../hooks/useDialogChrome'
 import type { AuthState } from '../hooks/useAuth'
 import { isAdmin } from '../lib/admin'
 import { isReservedHash, replaceHash } from '../utils/accountRoutes'
@@ -18,20 +19,16 @@ export function AuthControl({ auth, displayName, avatarUrl }: Props) {
   const admin = isAdmin(user)
   const email = user?.email ?? ''
   const name = displayName?.trim() || ''
+  useEscapeLayer(open, () => setOpen(false), wrapRef)
 
   useEffect(() => {
     if (!open) return
     const onDoc = (e: MouseEvent) => {
       if (!wrapRef.current?.contains(e.target as Node)) setOpen(false)
     }
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false)
-    }
     document.addEventListener('mousedown', onDoc)
-    document.addEventListener('keydown', onKey)
     return () => {
       document.removeEventListener('mousedown', onDoc)
-      document.removeEventListener('keydown', onKey)
     }
   }, [open])
 

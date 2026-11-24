@@ -717,6 +717,10 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .prompt-card__tags {
@@ -1732,13 +1736,14 @@
     overscroll-behavior: contain;
   }
 
-  .detail-close {
-    position: sticky;
-    top: 0.75rem;
-    right: auto;
-    align-self: flex-end;
-    margin: 0.75rem 0.85rem -2.95rem 0;
-    z-index: 5;
+  .detail-overlay .detail-close {
+    position: fixed;
+    top: max(0.75rem, env(safe-area-inset-top, 0px));
+    right: max(0.75rem, env(safe-area-inset-right, 0px));
+    left: auto;
+    align-self: auto;
+    margin: 0;
+    z-index: 110;
     flex: none;
   }
 
@@ -2237,5 +2242,124 @@ html[data-theme="light"] .rail-dot {
   .app--account .topbar {
     grid-template-areas: "brand actions";
     grid-template-columns: 1fr auto;
+  }
+}
+
+/* ---------- T8 general UI chrome ---------- */
+
+html,
+body,
+#root,
+.app {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+html.is-overlay-locked,
+html.is-overlay-locked body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.prompt-card,
+.grid,
+.main,
+.topbar,
+.footer,
+.harness-app {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.icon-btn:focus-visible,
+.btn:focus-visible,
+.theme-menu-btn:focus-visible,
+.density button:focus-visible,
+.detail-close:focus-visible,
+.character-chip:focus-visible,
+.card-mark:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--focus) 70%, transparent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 980px) {
+  .topbar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+  }
+
+  .topbar__actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .rail:not(.is-open) {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    grid-template-areas:
+      "brand brand"
+      "actions actions"
+      "search search"
+      "meta meta";
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .topbar__actions {
+    justify-content: flex-start;
+  }
+
+  .btn,
+  .icon-btn,
+  .theme-menu-btn,
+  .auth-btn,
+  .rail-toggle,
+  .search,
+  .character-chip,
+  .density button {
+    min-height: 2.75rem;
+  }
+
+  .detail-close,
+  .cover-gallery__nav {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .account-trigger {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-mark {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .icon-btn,
+  .theme-menu-btn,
+  .auth-btn,
+  .rail-toggle,
+  .character-chip,
+  .account-subnav a,
+  .account-tab {
+    min-height: 2.75rem;
+  }
+
+  .detail-close,
+  .card-mark,
+  .account-trigger {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
   }
 }

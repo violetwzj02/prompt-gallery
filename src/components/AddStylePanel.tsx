@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
+import { useDialogChrome } from '../hooks/useDialogChrome'
 import type { Medium, PromptItem } from '../types'
 import { MEDIUMS } from '../types'
 import { ADD_STYLE_CATEGORIES, validateCategoryName } from '../utils/category'
@@ -48,6 +49,9 @@ export function AddStylePanel({
     if (editing?.category && !names.includes(editing.category)) names.push(editing.category)
     return names
   }, [customCategories, editing])
+
+  const panelRef = useRef<HTMLDivElement>(null)
+  useDialogChrome({ open, onClose, containerRef: panelRef })
 
   useEffect(() => {
     if (!open) return
@@ -174,9 +178,9 @@ export function AddStylePanel({
 
   return (
     <div className="add-overlay" onClick={onClose} role="presentation">
-      <div className="add-panel" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal>
+      <div className="add-panel" ref={panelRef} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-labelledby="add-style-title">
         <div className="add-header">
-          <h2>{editing ? '编辑风格' : '添加风格'}</h2>
+          <h2 id="add-style-title">{editing ? '编辑风格' : '添加风格'}</h2>
           <button type="button" className="detail-close" onClick={onClose} aria-label="关闭">
             ×
           </button>
