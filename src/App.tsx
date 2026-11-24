@@ -204,9 +204,13 @@ function GalleryApp() {
 
   const adultCollections = useMemo(() => {
     const list = collections.filter((col) => isAdultCategory(col.category))
+    // Use album-drawer image counts (imagineItemCount), not merged card counts,
+    // so 18+ sub-nav order matches the cloud album.
     const names = sortCharacterNames(
       list.map((col) => col.name),
-      Object.fromEntries(list.map((col) => [col.name, counts.collection[col.id] ?? col.count])),
+      Object.fromEntries(
+        list.map((col) => [col.name, col.imagineItemCount ?? counts.collection[col.id] ?? col.count]),
+      ),
     )
     return names
       .map((name) => list.find((col) => col.name === name))

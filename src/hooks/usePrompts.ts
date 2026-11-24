@@ -11,7 +11,7 @@ import {
 import { loadLocalItems, saveLocalItems } from '../lib/localStore'
 import { supabase, syncErrorMessage } from '../lib/supabase'
 import { isVisibleCustomStyle } from '../utils/styleOrigin'
-import { QUYI_CARDS_URL } from '../utils/quyiCharacters'
+import { QUYI_CARDS_URL, QUYI_META_URL } from '../utils/quyiCharacters'
 
 export interface GalleryMeta {
   count: number
@@ -34,9 +34,10 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
     let cancelled = false
     ;(async () => {
       try {
-        const [res, quyiRes] = await Promise.all([
+        const [res, quyiRes, quyiMetaRes] = await Promise.all([
           fetch(`./data/prompts.json?t=${Date.now()}`, { cache: 'no-store' }),
           fetch(`${QUYI_CARDS_URL}?t=${Date.now()}`, { cache: 'no-store' }).catch(() => null),
+          fetch(`${QUYI_META_URL}?t=${Date.now()}`, { cache: 'no-store' }).catch(() => null),
         ])
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         const data = (await res.json()) as PromptsData
@@ -54,9 +55,25 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
               ...collections,
               ...(quyi.collections ?? []).filter((col) => !colSeen.has(col.id)),
             ]
+            const imagineCounts: Record<string, number> = {}
+            if (quyiMetaRes && quyiMetaRes.ok) {
+              try {
+                const meta = (await quyiMetaRes.json()) as {
+                  characters?: { displayName: string; imagineItemCount?: number }[]
+                }
+                for (const character of meta.characters ?? []) {
+                  if (character.displayName) {
+                    imagineCounts[character.displayName] = character.imagineItemCount ?? 0
+                  }
+                }
+              } catch {
+                /* Sort still falls back to card counts if meta is missing. */
+              }
+            }
             collections = collections.map((col) => ({
               ...col,
               count: items.filter((item) => item.parentId === col.id).length,
+              imagineItemCount: imagineCounts[col.name] ?? col.imagineItemCount,
             }))
           } catch {
             /* Homepage still loads the core library if 18+ extras are missing. */

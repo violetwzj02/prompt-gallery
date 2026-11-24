@@ -90,6 +90,8 @@ export interface CollectionInfo {
   name: string
   category: Category
   count: number
+  /** Raw Imagine / album-drawer image count; used to keep 18+ sub-nav order in sync with the album. */
+  imagineItemCount?: number
 }
 
 export interface TagFacets {
