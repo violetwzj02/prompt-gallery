@@ -34,8 +34,8 @@ export function CharacterSubnav({ characters, activeId, totalCount, onSelect }: 
             <a
               key={character.id}
               className="character-chip is-album"
-              href={`#/me/album?cat=18+&folder=${encodeURIComponent(character.name)}`}
-              title="在云端相册中打开该角色的抽屉"
+              href="#/me/album"
+              title="该角色的图片只在云端相册里，点击打开相册查看"
             >
               {character.name}
               <span>{character.count}</span>
