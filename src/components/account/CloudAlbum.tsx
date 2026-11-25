@@ -827,9 +827,13 @@ export function CloudAlbum({ route, test }: Props) {
         </form>
       </div>
 
-      {inAdult && (
+      {(inAdult || adultFolders.length > 0) && (
         <div hidden={Boolean(characterFolder)}>
-          <p className="album__hint">在 18+ 下按角色打开抽屉。文件夹里可以翻阅、层层堆叠。角色名与首页 18+ 子导航一致。</p>
+          <p className="album__hint">
+            {inAdult
+              ? '在 18+ 下按角色打开抽屉。文件夹里可以翻阅、层层堆叠。角色名与首页 18+ 子导航一致。'
+              : '按角色抽屉查看 18+ 素材：点开一个抽屉即可左右翻阅，不必在整面墙里找单张卡片。'}
+          </p>
           <div className="album-drawers">
             {adultFolders.map((folder) => (
               <button
