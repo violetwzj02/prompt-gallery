@@ -17,3 +17,7 @@ scripts/__pycache__/
 .publish*
 *.log
 quyi-worklist.txt
+
+# 本地构建配置（仅公开 key，仍不入库）
+.env
+.env.local
