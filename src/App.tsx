@@ -220,8 +220,9 @@ function GalleryApp() {
       .map((col) => ({
         id: col.id,
         name: col.name,
-        count: counts.collection[col.id] ?? col.count,
+        count: col.imagineItemCount ?? counts.collection[col.id] ?? col.count,
         pending: col.name === '待归类',
+        albumOnly: Boolean(col.albumOnly),
       }))
   }, [collections, counts.collection])
 

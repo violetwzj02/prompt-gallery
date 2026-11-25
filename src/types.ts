@@ -95,6 +95,8 @@ export interface CollectionInfo {
   count: number
   /** Raw Imagine / album-drawer image count; used to keep 18+ sub-nav order in sync with the album. */
   imagineItemCount?: number
+  /** 仅存在于云端相册：卡片列表里没有条目，子导航直接跳相册抽屉 */
+  albumOnly?: boolean
 }
 
 export interface TagFacets {

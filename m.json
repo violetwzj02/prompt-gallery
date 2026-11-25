@@ -1,0 +1,365 @@
+{
+  "generatedFrom": "Grok Imagine 去衣 inventory (imagine-manifest.json)",
+  "pendingName": "待归类",
+  "priorityDisplay": [
+    "甘雨",
+    "申鹤",
+    "蒂法",
+    "雷神"
+  ],
+  "characters": [
+    {
+      "displayName": "甘雨",
+      "franchise": "原神",
+      "slug": "ganyu",
+      "collectionId": "eighteen-ganyu",
+      "cardCount": 7,
+      "imagineItemCount": 11,
+      "pending": false
+    },
+    {
+      "displayName": "申鹤",
+      "franchise": "原神",
+      "slug": "shenhe",
+      "collectionId": "eighteen-shenhe",
+      "cardCount": 8,
+      "imagineItemCount": 14,
+      "pending": false
+    },
+    {
+      "displayName": "蒂法",
+      "franchise": "最终幻想7",
+      "slug": "tifa",
+      "collectionId": "eighteen-tifa",
+      "cardCount": 16,
+      "imagineItemCount": 17,
+      "pending": false
+    },
+    {
+      "displayName": "雷神",
+      "franchise": "原神",
+      "slug": "raiden",
+      "collectionId": "eighteen-raiden",
+      "cardCount": 2,
+      "imagineItemCount": 3,
+      "pending": false
+    },
+    {
+      "displayName": "Saber",
+      "franchise": "Fate",
+      "slug": "saber",
+      "collectionId": "eighteen-saber",
+      "cardCount": 11,
+      "imagineItemCount": 14,
+      "pending": false
+    },
+    {
+      "displayName": "小舞",
+      "franchise": "斗罗大陆",
+      "slug": "xiaowu",
+      "collectionId": "eighteen-xiaowu",
+      "cardCount": 11,
+      "imagineItemCount": 13,
+      "pending": false
+    },
+    {
+      "displayName": "小医仙",
+      "franchise": "斗破苍穹",
+      "slug": "xiaoyixian",
+      "collectionId": "eighteen-xiaoyixian",
+      "cardCount": 10,
+      "imagineItemCount": 11,
+      "pending": false
+    },
+    {
+      "displayName": "陆雪琪",
+      "franchise": "诛仙",
+      "slug": "luxueqi",
+      "collectionId": "eighteen-luxueqi",
+      "cardCount": 7,
+      "imagineItemCount": 9,
+      "pending": false
+    },
+    {
+      "displayName": "萧薰儿",
+      "franchise": "斗破苍穹",
+      "slug": "xiaoxuner",
+      "collectionId": "eighteen-xiaoxuner",
+      "cardCount": 6,
+      "imagineItemCount": 6,
+      "pending": false
+    },
+    {
+      "displayName": "02",
+      "franchise": "国家队",
+      "slug": "02",
+      "collectionId": "eighteen-02",
+      "cardCount": 5,
+      "imagineItemCount": 5,
+      "pending": false
+    },
+    {
+      "displayName": "D.Va",
+      "franchise": "守望先锋",
+      "slug": "dva",
+      "collectionId": "eighteen-dva",
+      "cardCount": 4,
+      "imagineItemCount": 4,
+      "pending": false
+    },
+    {
+      "displayName": "千仞雪",
+      "franchise": "斗罗大陆",
+      "slug": "qianrenxue",
+      "collectionId": "eighteen-qianrenxue",
+      "cardCount": 1,
+      "imagineItemCount": 4,
+      "pending": false
+    },
+    {
+      "displayName": "盛彩儿",
+      "franchise": "神印王座",
+      "slug": "shengcaier",
+      "collectionId": "eighteen-shengcaier",
+      "cardCount": 3,
+      "imagineItemCount": 4,
+      "pending": false
+    },
+    {
+      "displayName": "韩雅",
+      "franchise": "一战苍穹",
+      "slug": "hanya",
+      "collectionId": "eighteen-hanya",
+      "cardCount": 3,
+      "imagineItemCount": 4,
+      "pending": false
+    },
+    {
+      "displayName": "宁荣荣",
+      "franchise": "斗罗大陆",
+      "slug": "ningrongrong",
+      "collectionId": "eighteen-ningrongrong",
+      "cardCount": 1,
+      "imagineItemCount": 3,
+      "pending": false
+    },
+    {
+      "displayName": "真希波",
+      "franchise": "EVA",
+      "slug": "makinami",
+      "collectionId": "eighteen-makinami",
+      "cardCount": 3,
+      "imagineItemCount": 3,
+      "pending": false
+    },
+    {
+      "displayName": "不知火舞",
+      "franchise": "死或生",
+      "slug": "mai",
+      "collectionId": "eighteen-mai",
+      "cardCount": 2,
+      "imagineItemCount": 2,
+      "pending": false
+    },
+    {
+      "displayName": "伊芙",
+      "franchise": "剑星",
+      "slug": "eve",
+      "collectionId": "eighteen-eve",
+      "cardCount": 2,
+      "imagineItemCount": 2,
+      "pending": false
+    },
+    {
+      "displayName": "洛琪",
+      "franchise": "一战苍穹",
+      "slug": "luoqi",
+      "collectionId": "eighteen-luoqi",
+      "cardCount": 2,
+      "imagineItemCount": 2,
+      "pending": false
+    },
+    {
+      "displayName": "爱丽丝",
+      "franchise": "最终幻想7",
+      "slug": "aerith",
+      "collectionId": "eighteen-aerith",
+      "cardCount": 2,
+      "imagineItemCount": 2,
+      "pending": false
+    },
+    {
+      "displayName": "甘露寺蜜璃",
+      "franchise": "鬼灭之刃",
+      "slug": "kanroji",
+      "collectionId": "eighteen-kanroji",
+      "cardCount": 1,
+      "imagineItemCount": 2,
+      "pending": false
+    },
+    {
+      "displayName": "绘梨衣",
+      "franchise": "龙族",
+      "slug": "erii",
+      "collectionId": "eighteen-erii",
+      "cardCount": 2,
+      "imagineItemCount": 2,
+      "pending": false
+    },
+    {
+      "displayName": "Caster",
+      "franchise": "Fate",
+      "slug": "caster",
+      "collectionId": "eighteen-caster",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "Dragon Girl",
+      "franchise": "百炼成神",
+      "slug": "dragon-girl",
+      "collectionId": "eighteen-dragon-girl",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "凤年芸",
+      "franchise": "百炼成神",
+      "slug": "fengnianyun",
+      "collectionId": "eighteen-fengnianyun",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "唐舞桐",
+      "franchise": "斗罗大陆",
+      "slug": "tangwutong",
+      "collectionId": "eighteen-tangwutong",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "明日香",
+      "franchise": "EVA",
+      "slug": "asuka",
+      "collectionId": "eighteen-asuka",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "清霄",
+      "franchise": "鸣潮",
+      "slug": "qingxiao",
+      "collectionId": "eighteen-qingxiao",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "玛丽·萝丝",
+      "franchise": "死或生",
+      "slug": "marie-rose",
+      "collectionId": "eighteen-marie-rose",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "米拉珍",
+      "franchise": "妖精的尾巴",
+      "slug": "mirajane",
+      "collectionId": "eighteen-mirajane",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "胡蝶忍",
+      "franchise": "鬼灭之刃",
+      "slug": "shinobu",
+      "collectionId": "eighteen-shinobu",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "艾达王",
+      "franchise": "生化危机",
+      "slug": "ada",
+      "collectionId": "eighteen-ada",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "葛城美里",
+      "franchise": "EVA",
+      "slug": "misato",
+      "collectionId": "eighteen-misato",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "远坂凛",
+      "franchise": "Fate",
+      "slug": "rin",
+      "collectionId": "eighteen-rin",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "金克丝",
+      "franchise": "英雄联盟",
+      "slug": "jinx",
+      "collectionId": "eighteen-jinx",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "霞",
+      "franchise": "死或生",
+      "slug": "kasumi",
+      "collectionId": "eighteen-kasumi",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "露西",
+      "franchise": "赛博朋克2077",
+      "slug": "lucy",
+      "collectionId": "eighteen-lucy",
+      "cardCount": 1,
+      "imagineItemCount": 1,
+      "pending": false
+    },
+    {
+      "displayName": "待归类",
+      "franchise": null,
+      "slug": "pending",
+      "collectionId": "eighteen-pending",
+      "cardCount": 30,
+      "imagineItemCount": 59,
+      "pending": true
+    }
+  ],
+  "stats": {
+    "manifestItems": 211,
+    "homepageCards": 154,
+    "plannedSwipeGroups": 25,
+    "multiItemGroups": 30,
+    "mixedStillVideoGroups": 3,
+    "videoOnlyGroups": 2,
+    "swipeCardsWithCovers": 27,
+    "albumRows": 211,
+    "downloadsFound": 211
+  }
+}

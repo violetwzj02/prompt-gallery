@@ -1,5 +1,5 @@
 {
-  "generatedFrom": "Grok Imagine 去衣 inventory (imagine-manifest.json)",
+  "generatedFrom": "cloud album + quyi-cards (album-first subnav)",
   "pendingName": "待归类",
   "priorityDisplay": [
     "甘雨",
@@ -14,7 +14,9 @@
       "slug": "ganyu",
       "collectionId": "eighteen-ganyu",
       "cardCount": 7,
-      "imagineItemCount": 11,
+      "imagineItemCount": 73,
+      "albumCount": 73,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -23,7 +25,9 @@
       "slug": "shenhe",
       "collectionId": "eighteen-shenhe",
       "cardCount": 8,
-      "imagineItemCount": 14,
+      "imagineItemCount": 173,
+      "albumCount": 173,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -32,7 +36,9 @@
       "slug": "tifa",
       "collectionId": "eighteen-tifa",
       "cardCount": 16,
-      "imagineItemCount": 17,
+      "imagineItemCount": 84,
+      "albumCount": 84,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -41,7 +47,20 @@
       "slug": "raiden",
       "collectionId": "eighteen-raiden",
       "cardCount": 2,
-      "imagineItemCount": 3,
+      "imagineItemCount": 33,
+      "albumCount": 33,
+      "albumOnly": false,
+      "pending": false
+    },
+    {
+      "displayName": "露西",
+      "franchise": null,
+      "slug": "lucy",
+      "collectionId": "eighteen-lucy",
+      "cardCount": 1,
+      "imagineItemCount": 322,
+      "albumCount": 322,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -50,7 +69,86 @@
       "slug": "saber",
       "collectionId": "eighteen-saber",
       "cardCount": 11,
-      "imagineItemCount": 14,
+      "imagineItemCount": 56,
+      "albumCount": 56,
+      "albumOnly": false,
+      "pending": false
+    },
+    {
+      "displayName": "D.Va",
+      "franchise": "守望先锋",
+      "slug": "dva",
+      "collectionId": "eighteen-dva",
+      "cardCount": 4,
+      "imagineItemCount": 36,
+      "albumCount": 36,
+      "albumOnly": false,
+      "pending": false
+    },
+    {
+      "displayName": "02",
+      "franchise": "国家队",
+      "slug": "02",
+      "collectionId": "eighteen-02",
+      "cardCount": 5,
+      "imagineItemCount": 27,
+      "albumCount": 27,
+      "albumOnly": false,
+      "pending": false
+    },
+    {
+      "displayName": "真希波",
+      "franchise": "新世纪福音战士",
+      "slug": "makinami",
+      "collectionId": "eighteen-makinami",
+      "cardCount": 3,
+      "imagineItemCount": 27,
+      "albumCount": 27,
+      "albumOnly": false,
+      "pending": false
+    },
+    {
+      "displayName": "不知火舞",
+      "franchise": "拳皇",
+      "slug": "mai",
+      "collectionId": "eighteen-mai",
+      "cardCount": 2,
+      "imagineItemCount": 20,
+      "albumCount": 20,
+      "albumOnly": false,
+      "pending": false
+    },
+    {
+      "displayName": "明日香",
+      "franchise": "新世纪福音战士",
+      "slug": "asuka",
+      "collectionId": "eighteen-asuka",
+      "cardCount": 1,
+      "imagineItemCount": 19,
+      "albumCount": 19,
+      "albumOnly": false,
+      "pending": false
+    },
+    {
+      "displayName": "爱丽丝",
+      "franchise": "最终幻想7",
+      "slug": "aerith",
+      "collectionId": "eighteen-aerith",
+      "cardCount": 2,
+      "imagineItemCount": 18,
+      "albumCount": 18,
+      "albumOnly": false,
+      "pending": false
+    },
+    {
+      "displayName": "萧薰儿",
+      "franchise": "斗破苍穹",
+      "slug": "xiaoxuner",
+      "collectionId": "eighteen-xiaoxuner",
+      "cardCount": 6,
+      "imagineItemCount": 18,
+      "albumCount": 18,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -60,6 +158,19 @@
       "collectionId": "eighteen-xiaowu",
       "cardCount": 11,
       "imagineItemCount": 13,
+      "albumCount": 13,
+      "albumOnly": false,
+      "pending": false
+    },
+    {
+      "displayName": "妲己",
+      "franchise": null,
+      "slug": "妲己",
+      "collectionId": "eighteen-妲己",
+      "cardCount": 0,
+      "imagineItemCount": 12,
+      "albumCount": 12,
+      "albumOnly": true,
       "pending": false
     },
     {
@@ -69,6 +180,8 @@
       "collectionId": "eighteen-xiaoyixian",
       "cardCount": 10,
       "imagineItemCount": 11,
+      "albumCount": 11,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -78,33 +191,19 @@
       "collectionId": "eighteen-luxueqi",
       "cardCount": 7,
       "imagineItemCount": 9,
+      "albumCount": 9,
+      "albumOnly": false,
       "pending": false
     },
     {
-      "displayName": "萧薰儿",
-      "franchise": "斗破苍穹",
-      "slug": "xiaoxuner",
-      "collectionId": "eighteen-xiaoxuner",
-      "cardCount": 6,
+      "displayName": "Dragon Girl",
+      "franchise": null,
+      "slug": "dragon-girl",
+      "collectionId": "eighteen-dragon girl",
+      "cardCount": 1,
       "imagineItemCount": 6,
-      "pending": false
-    },
-    {
-      "displayName": "02",
-      "franchise": "国家队",
-      "slug": "02",
-      "collectionId": "eighteen-02",
-      "cardCount": 5,
-      "imagineItemCount": 5,
-      "pending": false
-    },
-    {
-      "displayName": "D.Va",
-      "franchise": "守望先锋",
-      "slug": "dva",
-      "collectionId": "eighteen-dva",
-      "cardCount": 4,
-      "imagineItemCount": 4,
+      "albumCount": 6,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -114,6 +213,8 @@
       "collectionId": "eighteen-qianrenxue",
       "cardCount": 1,
       "imagineItemCount": 4,
+      "albumCount": 4,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -123,15 +224,19 @@
       "collectionId": "eighteen-shengcaier",
       "cardCount": 3,
       "imagineItemCount": 4,
+      "albumCount": 4,
+      "albumOnly": false,
       "pending": false
     },
     {
       "displayName": "韩雅",
-      "franchise": "一战苍穹",
-      "slug": "hanya",
-      "collectionId": "eighteen-hanya",
+      "franchise": null,
+      "slug": "韩雅",
+      "collectionId": "eighteen-韩雅",
       "cardCount": 3,
       "imagineItemCount": 4,
+      "albumCount": 4,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -141,51 +246,30 @@
       "collectionId": "eighteen-ningrongrong",
       "cardCount": 1,
       "imagineItemCount": 3,
-      "pending": false
-    },
-    {
-      "displayName": "真希波",
-      "franchise": "EVA",
-      "slug": "makinami",
-      "collectionId": "eighteen-makinami",
-      "cardCount": 3,
-      "imagineItemCount": 3,
-      "pending": false
-    },
-    {
-      "displayName": "不知火舞",
-      "franchise": "死或生",
-      "slug": "mai",
-      "collectionId": "eighteen-mai",
-      "cardCount": 2,
-      "imagineItemCount": 2,
+      "albumCount": 3,
+      "albumOnly": false,
       "pending": false
     },
     {
       "displayName": "伊芙",
-      "franchise": "剑星",
-      "slug": "eve",
-      "collectionId": "eighteen-eve",
+      "franchise": null,
+      "slug": "伊芙",
+      "collectionId": "eighteen-伊芙",
       "cardCount": 2,
       "imagineItemCount": 2,
+      "albumCount": 2,
+      "albumOnly": false,
       "pending": false
     },
     {
       "displayName": "洛琪",
-      "franchise": "一战苍穹",
-      "slug": "luoqi",
-      "collectionId": "eighteen-luoqi",
+      "franchise": null,
+      "slug": "洛琪",
+      "collectionId": "eighteen-洛琪",
       "cardCount": 2,
       "imagineItemCount": 2,
-      "pending": false
-    },
-    {
-      "displayName": "爱丽丝",
-      "franchise": "最终幻想7",
-      "slug": "aerith",
-      "collectionId": "eighteen-aerith",
-      "cardCount": 2,
-      "imagineItemCount": 2,
+      "albumCount": 2,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -195,6 +279,8 @@
       "collectionId": "eighteen-kanroji",
       "cardCount": 1,
       "imagineItemCount": 2,
+      "albumCount": 2,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -204,24 +290,19 @@
       "collectionId": "eighteen-erii",
       "cardCount": 2,
       "imagineItemCount": 2,
+      "albumCount": 2,
+      "albumOnly": false,
       "pending": false
     },
     {
       "displayName": "Caster",
-      "franchise": "Fate",
+      "franchise": null,
       "slug": "caster",
       "collectionId": "eighteen-caster",
       "cardCount": 1,
       "imagineItemCount": 1,
-      "pending": false
-    },
-    {
-      "displayName": "Dragon Girl",
-      "franchise": "百炼成神",
-      "slug": "dragon-girl",
-      "collectionId": "eighteen-dragon-girl",
-      "cardCount": 1,
-      "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -231,6 +312,8 @@
       "collectionId": "eighteen-fengnianyun",
       "cardCount": 1,
       "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -240,24 +323,19 @@
       "collectionId": "eighteen-tangwutong",
       "cardCount": 1,
       "imagineItemCount": 1,
-      "pending": false
-    },
-    {
-      "displayName": "明日香",
-      "franchise": "EVA",
-      "slug": "asuka",
-      "collectionId": "eighteen-asuka",
-      "cardCount": 1,
-      "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
       "displayName": "清霄",
-      "franchise": "鸣潮",
-      "slug": "qingxiao",
-      "collectionId": "eighteen-qingxiao",
+      "franchise": null,
+      "slug": "清霄",
+      "collectionId": "eighteen-清霄",
       "cardCount": 1,
       "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -267,6 +345,8 @@
       "collectionId": "eighteen-marie-rose",
       "cardCount": 1,
       "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -276,6 +356,8 @@
       "collectionId": "eighteen-mirajane",
       "cardCount": 1,
       "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -285,6 +367,8 @@
       "collectionId": "eighteen-shinobu",
       "cardCount": 1,
       "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -294,15 +378,19 @@
       "collectionId": "eighteen-ada",
       "cardCount": 1,
       "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
       "displayName": "葛城美里",
-      "franchise": "EVA",
+      "franchise": "新世纪福音战士",
       "slug": "misato",
       "collectionId": "eighteen-misato",
       "cardCount": 1,
       "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -312,6 +400,8 @@
       "collectionId": "eighteen-rin",
       "cardCount": 1,
       "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -321,24 +411,19 @@
       "collectionId": "eighteen-jinx",
       "cardCount": 1,
       "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
       "displayName": "霞",
-      "franchise": "死或生",
-      "slug": "kasumi",
-      "collectionId": "eighteen-kasumi",
+      "franchise": null,
+      "slug": "霞",
+      "collectionId": "eighteen-霞",
       "cardCount": 1,
       "imagineItemCount": 1,
-      "pending": false
-    },
-    {
-      "displayName": "露西",
-      "franchise": "赛博朋克2077",
-      "slug": "lucy",
-      "collectionId": "eighteen-lucy",
-      "cardCount": 1,
-      "imagineItemCount": 1,
+      "albumCount": 1,
+      "albumOnly": false,
       "pending": false
     },
     {
@@ -347,19 +432,26 @@
       "slug": "pending",
       "collectionId": "eighteen-pending",
       "cardCount": 30,
-      "imagineItemCount": 59,
+      "imagineItemCount": 533,
+      "albumCount": 533,
+      "albumOnly": false,
+      "pending": true
+    },
+    {
+      "displayName": "视频",
+      "franchise": null,
+      "slug": "video",
+      "collectionId": "eighteen-video",
+      "cardCount": 0,
+      "imagineItemCount": 21,
+      "albumCount": 21,
+      "albumOnly": true,
       "pending": true
     }
   ],
   "stats": {
-    "manifestItems": 211,
-    "homepageCards": 154,
-    "plannedSwipeGroups": 25,
-    "multiItemGroups": 30,
-    "mixedStillVideoGroups": 3,
-    "videoOnlyGroups": 2,
-    "swipeCardsWithCovers": 27,
-    "albumRows": 211,
-    "downloadsFound": 211
+    "cards": 154,
+    "albumItems": 1546,
+    "characters": 38
   }
 }

@@ -5,6 +5,8 @@ export interface CharacterNavItem {
   name: string
   count: number
   pending?: boolean
+  /** 只有相册里有内容：点击直接打开云端相册对应抽屉 */
+  albumOnly?: boolean
 }
 
 interface Props {
@@ -27,17 +29,29 @@ export function CharacterSubnav({ characters, activeId, totalCount, onSelect }: 
         >
           全部 <span>{totalCount}</span>
         </button>
-        {characters.map((character) => (
-          <button
-            type="button"
-            key={character.id}
-            className={`character-chip${character.pending ? ' is-pending' : ''}${activeId === character.id ? ' is-active' : ''}`}
-            onClick={() => onSelect(character.id === activeId ? null : character.id)}
-          >
-            {character.name}
-            <span>{character.count}</span>
-          </button>
-        ))}
+        {characters.map((character) =>
+          character.albumOnly ? (
+            <a
+              key={character.id}
+              className="character-chip is-album"
+              href={`#/me/album?cat=18+&folder=${encodeURIComponent(character.name)}`}
+              title="在云端相册中打开该角色的抽屉"
+            >
+              {character.name}
+              <span>{character.count}</span>
+            </a>
+          ) : (
+            <button
+              type="button"
+              key={character.id}
+              className={`character-chip${character.pending ? ' is-pending' : ''}${activeId === character.id ? ' is-active' : ''}`}
+              onClick={() => onSelect(character.id === activeId ? null : character.id)}
+            >
+              {character.name}
+              <span>{character.count}</span>
+            </button>
+          ),
+        )}
       </div>
       {activeId && characters.find((c) => c.id === activeId)?.pending && (
         <p className="character-subnav__hint">

@@ -59,11 +59,30 @@ export function usePrompts(userId: string | null = null, authLoading = false) {
             if (quyiMetaRes && quyiMetaRes.ok) {
               try {
                 const meta = (await quyiMetaRes.json()) as {
-                  characters?: { displayName: string; imagineItemCount?: number }[]
+                  characters?: {
+                    displayName: string
+                    slug?: string
+                    imagineItemCount?: number
+                    albumOnly?: boolean
+                  }[]
                 }
+                const existing = new Set(collections.map((col) => col.name))
                 for (const character of meta.characters ?? []) {
-                  if (character.displayName) {
-                    imagineCounts[character.displayName] = character.imagineItemCount ?? 0
+                  if (!character.displayName) continue
+                  imagineCounts[character.displayName] = character.imagineItemCount ?? 0
+                  if (character.albumOnly && !existing.has(character.displayName)) {
+                    // 只有相册里有的角色：补一个占位 collection，子导航据此跳相册抽屉
+                    collections = [
+                      ...collections,
+                      {
+                        id: `eighteen-${character.slug ?? character.displayName}`,
+                        name: character.displayName,
+                        category: '18+',
+                        count: 0,
+                        imagineItemCount: character.imagineItemCount ?? 0,
+                        albumOnly: true,
+                      } as (typeof collections)[number],
+                    ]
                   }
                 }
               } catch {
