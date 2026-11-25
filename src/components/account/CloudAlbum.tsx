@@ -1253,6 +1253,34 @@ function AlbumLightbox({
                 </button>
               ))}
           </div>
+
+          {customs.length > 0 && (
+            <label className="album-move">
+              <span>移动到</span>
+              <select
+                value={custom[0] ?? ''}
+                disabled={saving}
+                onChange={async (event) => {
+                  const target = event.target.value
+                  if (!target) return
+                  setCustom([target])
+                  setSaving(true)
+                  try {
+                    await onSave({ title, autoCategories: auto, customCategories: [target] })
+                  } finally {
+                    setSaving(false)
+                  }
+                }}
+              >
+                <option value="">选择分类…</option>
+                {customs.map((category) => (
+                  <option key={category.id} value={category.name}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
           <form
             className="album-newcat"
             onSubmit={(event) => {

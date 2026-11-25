@@ -32,6 +32,7 @@ import argparse
 import hashlib
 import json
 import mimetypes
+import time
 import os
 import sys
 import time
@@ -57,27 +58,104 @@ def supabase_base() -> str:
     return env("SUPABASE_URL").rstrip("/")
 
 
+def _jwt_exp(token: str) -> int:
+    import base64, json as _json
+    try:
+        part = token.split(".")[1]
+        part += "=" * (-len(part) % 4)
+        return int(_json.loads(base64.urlsafe_b64decode(part))["exp"])
+    except Exception:
+        return 0
+
+
+def refresh_supabase_jwt() -> str | None:
+    """Mint a fresh access token from the stored refresh token when the JWT expired."""
+    import time
+    creds_file = os.environ.get("SUPABASE_CREDS_FILE")
+    refresh = os.environ.get("SUPABASE_REFRESH_TOKEN")
+    if not refresh and creds_file and os.path.isfile(creds_file):
+        try:
+            import json as _json
+            data = _json.load(open(creds_file, encoding="utf-8"))
+            refresh = data.get("supabase", {}).get("refresh_token")
+        except Exception:
+            refresh = None
+    if not refresh:
+        return None
+    payload = json.dumps({"refresh_token": refresh}).encode()
+    req = request.Request(f"{supabase_base()}/auth/v1/token?grant_type=refresh_token", data=payload, method="POST")
+    req.add_header("apikey", os.environ.get("SUPABASE_ANON_KEY") or env("SUPABASE_SERVICE_KEY"))
+    req.add_header("Content-Type", "application/json")
+    try:
+        with request.urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read().decode())
+    except Exception:
+        return None
+    token = data.get("access_token")
+    if token:
+        os.environ["SUPABASE_ADMIN_JWT"] = token
+        if data.get("refresh_token") and creds_file and os.path.isfile(creds_file):
+            try:
+                c = json.load(open(creds_file, encoding="utf-8"))
+                c["supabase"]["access_token"] = token
+                c["supabase"]["refresh_token"] = data["refresh_token"]
+                json.dump(c, open(creds_file, "w", encoding="utf-8"), indent=2)
+            except Exception:
+                pass
+    return token
+
+
 def supabase_headers() -> dict:
+    """Admin JWT goes in Authorization; apikey stays the public project key."""
     key = os.environ.get("SUPABASE_ADMIN_JWT") or env("SUPABASE_SERVICE_KEY")
+    apikey = (
+        os.environ.get("SUPABASE_ANON_KEY")
+        or os.environ.get("SUPABASE_SERVICE_KEY")
+        or key
+    )
+    import time
+    if _jwt_exp(key) < time.time() + 120:
+        key = refresh_supabase_jwt() or key
     return {
-        "apikey": os.environ.get("SUPABASE_SERVICE_KEY") or key,
+        "apikey": apikey,
         "Authorization": f"Bearer {key}",
         "Content-Type": "application/json",
     }
 
 
+_DIRECT = request.build_opener(request.ProxyHandler({}))
+
+
 def http_json(method: str, url: str, headers: dict, payload=None, timeout: int = 60):
+    """Supabase is reachable directly; Google needs the system proxy.
+
+    The proxy also occasionally drops TLS mid-handshake, so both paths retry.
+    """
     data = None if payload is None else json.dumps(payload).encode("utf-8")
-    req = request.Request(url, data=data, method=method)
-    for key, value in headers.items():
-        req.add_header(key, value)
-    try:
-        with request.urlopen(req, timeout=timeout) as resp:
-            body = resp.read().decode("utf-8")
-            return resp.status, (json.loads(body) if body.strip() else None)
-    except error.HTTPError as exc:
-        body = exc.read().decode("utf-8", "replace")
-        return exc.code, body
+    direct = "supabase.co" in url
+    last_err = None
+    for attempt in range(4):
+        req = request.Request(url, data=data, method=method)
+        for key, value in headers.items():
+            req.add_header(key, value)
+        try:
+            if direct:
+                with _DIRECT.open(req, timeout=timeout) as resp:
+                    body = resp.read().decode("utf-8")
+                    return resp.status, (json.loads(body) if body.strip() else None)
+            with request.urlopen(req, timeout=timeout) as resp:
+                body = resp.read().decode("utf-8")
+                return resp.status, (json.loads(body) if body.strip() else None)
+        except error.HTTPError as exc:
+            body = exc.read().decode("utf-8", "replace")
+            if exc.code >= 500 and attempt < 3:
+                time.sleep(1 + attempt)
+                continue
+            return exc.code, body
+        except error.URLError as exc:
+            last_err = exc
+            time.sleep(1 + attempt)
+    raise SystemExit(f"网络错误 {method} {url}: {last_err}")
 
 
 def google_token() -> str:
@@ -122,8 +200,8 @@ def ensure_folder(token: str, parent: str, name: str, cache: dict[str, str]) -> 
             return child["id"]
     status, data = http_json(
         "POST",
-        f"{DRIVE_API}/files?fields=id",
-        drive_headers(token),
+        f"{DRIVE_API}/files?fields=id,mimeType",
+        {**drive_headers(token), "Content-Type": "application/json"},
         {"name": name, "mimeType": FOLDER_MIME, "parents": [parent]},
     )
     if status not in (200, 201):

@@ -704,3 +704,27 @@
 .album-chip--trash.is-active {
   background: color-mix(in srgb, var(--text) 12%, var(--bg-raise));
 }
+
+/* 「移动到…」快捷归类：一次选择即保存，替代逐个别 chip 点选 */
+.album-move {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--album-muted, #6b6b76);
+}
+
+.album-move select {
+  font: inherit;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--album-line, #d9d9de);
+  background: var(--album-surface, #fff);
+  color: inherit;
+  min-width: 140px;
+}
+
+.album-move select:disabled {
+  opacity: 0.6;
+}

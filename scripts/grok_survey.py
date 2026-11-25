@@ -29,6 +29,8 @@ SURVEY_DIR = ROOT / "covers-inbox" / "quyi-survey"
 DOWNLOADS = ROOT / "covers-inbox" / "quyi-downloads"
 
 LIST_URL = "https://grok.com/rest/media/post/list"
+COLLECTION_URL = "https://grok.com/rest/media/collection/assets/list"
+POST_GET_URL = "https://grok.com/rest/media/post/get"
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
@@ -123,6 +125,64 @@ def post_json(url: str, payload: dict, cookie: str, timeout: int = 40) -> dict:
     except error.HTTPError as exc:
         detail = exc.read().decode("utf-8", "replace")[:300]
         raise SystemExit(f"Grok 接口返回 {exc.code}：{detail}") from exc
+    except error.URLError as exc:
+        raise SystemExit(f"Grok 网络错误：{exc.reason}") from exc
+
+
+def fetch_collection(cookie: str, collection_id: str, page_size: int, max_pages: int) -> dict:
+    """Every asset in one Imagine collection (the「去衣」tag is a collection)."""
+    assets: list[dict] = []
+    cursor: str | None = None
+    seen: set[str] = set()
+    for page in range(max_pages):
+        payload: dict = {"collectionId": collection_id, "limit": page_size}
+        if cursor:
+            payload["cursor"] = cursor
+        data = post_json(COLLECTION_URL, payload, cookie)
+        chunk = data.get("items") or []
+        for asset in chunk:
+            aid = str(asset.get("assetId") or "")
+            if aid and aid not in seen:
+                seen.add(aid)
+                assets.append(asset)
+        cursor = data.get("nextCursor") or None
+        print(f"  第 {page + 1} 页：+{len(chunk)}，累计 {len(assets)}", file=sys.stderr)
+        if not cursor or not chunk:
+            break
+        time.sleep(0.3)
+    return {"collectionId": collection_id, "count": len(assets), "assets": assets}
+
+
+def fetch_details(cookie: str, assets: list[dict], out: Path) -> list[dict]:
+    """Expand each collection asset into its full post (children included)."""
+    posts: list[dict] = []
+    if out.is_file():
+        previous = json.loads(out.read_text(encoding="utf-8"))
+        posts = previous.get("posts") or []
+    have = {str(p.get("id")) for p in posts}
+    for index, asset in enumerate(assets, 1):
+        aid = str(asset.get("assetId") or "")
+        if not aid or aid in have:
+            continue
+        for attempt in range(3):
+            try:
+                data = post_json(POST_GET_URL, {"id": aid, "isNsfwEnabled": True}, cookie)
+                post = data.get("post")
+                if isinstance(post, dict):
+                    posts.append(post)
+                    have.add(aid)
+                break
+            except (SystemExit, Exception) as exc:  # noqa: BLE001 - retry transient failures
+                if attempt == 2:
+                    print(f"  ! {aid} {exc}", file=sys.stderr)
+                else:
+                    time.sleep(2 + attempt * 2)
+        if index % 20 == 0:
+            out.write_text(json.dumps({"posts": posts}, indent=2, ensure_ascii=False), encoding="utf-8")
+            print(f"  详情 {index}/{len(assets)}（已存 {len(posts)}）", file=sys.stderr)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps({"posts": posts}, indent=2, ensure_ascii=False), encoding="utf-8")
+    return posts
 
 
 def fetch_listing(cookie: str, page_size: int, max_pages: int, extra: dict | None = None) -> dict:
@@ -327,6 +387,18 @@ def main() -> None:
     p_list.add_argument("--filter", default=None, help="透传给接口的 filter 字段")
     p_list.add_argument("--out", default=str(SURVEY_DIR / "raw-posts.json"))
 
+    p_col = sub.add_parser("collection", help="枚举某个 collection（标签）里的全部资产")
+    p_col.add_argument("--cookie", default=None)
+    p_col.add_argument("--collection-id", required=True)
+    p_col.add_argument("--page-size", type=int, default=100)
+    p_col.add_argument("--max-pages", type=int, default=200)
+    p_col.add_argument("--out", default=str(SURVEY_DIR / "collection-assets.json"))
+
+    p_det = sub.add_parser("details", help="逐个拉取资产详情（含嵌套子图）")
+    p_det.add_argument("--cookie", default=None)
+    p_det.add_argument("--assets", default=str(SURVEY_DIR / "collection-assets.json"))
+    p_det.add_argument("--out", default=str(SURVEY_DIR / "raw-posts.json"))
+
     p_manifest = sub.add_parser("manifest", help="把列表展开成嵌套完整的清单")
     p_manifest.add_argument("--posts", default=str(SURVEY_DIR / "raw-posts.json"))
     p_manifest.add_argument("--out", default=str(SURVEY_DIR / "imagine-manifest.json"))
@@ -346,6 +418,26 @@ def main() -> None:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"已保存 {len(data['posts'])} 条 post -> {out}")
+        return
+
+    if args.cmd == "collection":
+        cookie = cookie_header(args.cookie)
+        data = fetch_collection(cookie, args.collection_id, args.page_size, args.max_pages)
+        out = Path(args.out)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+        kinds: dict[str, int] = {}
+        for asset in data["assets"]:
+            kinds[asset.get("mimeType") or "?"] = kinds.get(asset.get("mimeType") or "?", 0) + 1
+        print(f"collection 共 {data['count']} 个资产 {kinds} -> {out}")
+        return
+
+    if args.cmd == "details":
+        cookie = cookie_header(args.cookie)
+        raw = json.loads(Path(args.assets).read_text(encoding="utf-8"))
+        assets = raw.get("assets") if isinstance(raw, dict) else raw
+        posts = fetch_details(cookie, assets or [], Path(args.out))
+        print(f"已取详情 {len(posts)} 条 -> {args.out}")
         return
 
     if args.cmd == "manifest":
