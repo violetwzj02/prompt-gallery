@@ -728,3 +728,10 @@
 .album-move select:disabled {
   opacity: 0.6;
 }
+
+.album-lightbox__video {
+  width: 100%;
+  max-height: 72vh;
+  border-radius: 10px;
+  background: #000;
+}

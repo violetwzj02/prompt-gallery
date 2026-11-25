@@ -1072,6 +1072,26 @@ function DriveThumbImage({
   )
 }
 
+function DriveVideo({
+  token,
+  fileId,
+  title,
+}: {
+  token: string | null
+  fileId: string
+  title?: string | null
+}) {
+  const slot = useDriveImageSlot({ token, fileId, priority: 'high' })
+  const poster = useDriveThumb(token, fileId)
+  if (slot.error) return <div className="album-ph">{slot.error}</div>
+  if (!token) return <div className="album-ph">连接谷歌云盘后可预览</div>
+  if (!slot.url) {
+    if (poster) return <img src={poster} alt={title || ''} style={{ objectFit: 'contain' }} />
+    return <div className="album-ph">载入中…</div>
+  }
+  return <video className="album-lightbox__video" src={slot.url} poster={poster ?? undefined} controls playsInline preload="metadata" />
+}
+
 function DriveImage({
   token,
   fileId,
@@ -1201,7 +1221,11 @@ function AlbumLightbox({
         onClick={(event) => event.stopPropagation()}
       >
         <div className="album-lightbox__media">
-          <DriveImage token={token} fileId={item.driveFileId} title={albumDisplayTitle({ title: item.title, index: 1 })} contain download />
+          {item.mimeType ? (
+            <DriveImage token={token} fileId={item.driveFileId} title={albumDisplayTitle({ title: item.title, index: 1 })} contain download />
+          ) : (
+            <DriveVideo token={token} fileId={item.driveFileId} title={albumDisplayTitle({ title: item.title, index: 1 })} />
+          )}
         </div>
         <div className="album-lightbox__body">
           <div className="album-lightbox__top">

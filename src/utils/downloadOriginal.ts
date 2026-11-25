@@ -79,6 +79,9 @@ export function basenameFromUrl(url: string): string {
 }
 
 export function extFromMime(mime: string): string {
+  if (mime.includes('mp4')) return 'mp4'
+  if (mime.includes('webm')) return 'webm'
+  if (mime.includes('quicktime')) return 'mov'
   if (mime.includes('png')) return 'png'
   if (mime.includes('webp')) return 'webp'
   if (mime.includes('gif')) return 'gif'
