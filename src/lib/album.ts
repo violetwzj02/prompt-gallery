@@ -232,13 +232,29 @@ export async function fetchAlbumItemsLegacy(): Promise<AlbumItem[]> {
   return ((data ?? []) as Record<string, unknown>[]).map(rowToItem)
 }
 
+const ALBUM_PAGE = 1000
+
+/**
+ * PostgREST caps a single response (1000 rows by default). The album now holds
+ * far more than that, so one request silently dropped the oldest rows and every
+ * drawer built from that list showed wrong counts (some looked empty). Page
+ * through until a short page arrives.
+ */
 export async function fetchAlbumItems(scope: AlbumItemScope = 'live'): Promise<AlbumItem[]> {
   const client = requireClient()
-  let query = client.from('album_items').select('*')
-  query = scope === 'trash' ? query.not('deleted_at', 'is', null) : query.is('deleted_at', null)
-  const { data, error } = await query.order(scope === 'trash' ? 'deleted_at' : 'created_at', { ascending: false })
-  if (error) rethrowTrashOrSchema(error, syncErrorMessage('加载相册'))
-  return ((data ?? []) as Record<string, unknown>[]).map(rowToItem)
+  const rows: Record<string, unknown>[] = []
+  for (let offset = 0; ; offset += ALBUM_PAGE) {
+    let query = client.from('album_items').select('*')
+    query = scope === 'trash' ? query.not('deleted_at', 'is', null) : query.is('deleted_at', null)
+    const { data, error } = await query
+      .order(scope === 'trash' ? 'deleted_at' : 'created_at', { ascending: false })
+      .range(offset, offset + ALBUM_PAGE - 1)
+    if (error) rethrowTrashOrSchema(error, syncErrorMessage('加载相册'))
+    const page = (data ?? []) as Record<string, unknown>[]
+    rows.push(...page)
+    if (page.length < ALBUM_PAGE) break
+  }
+  return rows.map(rowToItem)
 }
 
 export async function fetchAlbumItemByPromptId(promptId: string): Promise<AlbumItem | null> {
