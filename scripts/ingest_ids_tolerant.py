@@ -125,9 +125,15 @@ def main() -> None:
             with LOCK:
                 stats["skip"] += 1
             return
+        # 视角可能整段缺失（用户某些 prompt 没写视角），此时仍按姿势归档，视角记为 na
         m = re.search(r"（[^）]*姿势：(.+?)，(正面平视|斜\s?45\s?度|侧面平视|俯视机位，镜头从上往下|仰视机位，镜头从下往上)，", prompt)
-        pid = match_pose(m.group(1), exact, loose) if m else None
-        code = ANGLES.get(re.sub(r"\s+", "", m.group(2))) if m else None
+        if m:
+            raw_pose, raw_angle = m.group(1), m.group(2)
+        else:
+            m2 = re.search(r"（[^）]*姿势：(.+?)，人体结构自然", prompt)
+            raw_pose, raw_angle = (m2.group(1), None) if m2 else (None, None)
+        pid = match_pose(raw_pose, exact, loose) if raw_pose else None
+        code = ANGLES.get(re.sub(r"\s+", "", raw_angle)) if raw_angle else ("na" if pid else None)
         if not pid or not code:
             with LOCK:
                 stats["unparsed"] += 1
