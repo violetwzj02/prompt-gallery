@@ -193,12 +193,15 @@ export function CloudAlbum({ route, test }: Props) {
     const planned = plannedCharacters.map((character) => character.displayName)
     const extra = Object.keys(countMap).filter((name) => !planned.includes(name))
     const names = sortCharacterNames([...planned, ...extra], countMap)
-    return names.map((name) => ({
-      name,
-      count: countMap[name] ?? 0,
-      pending: name === PENDING_CHARACTER,
-      thumb: thumbs[name] ?? null,
-    }))
+    return names
+      .map((name) => ({
+        name,
+        count: countMap[name] ?? 0,
+        pending: name === PENDING_CHARACTER,
+        thumb: thumbs[name] ?? null,
+      }))
+      // 没有条目的角色不再渲染成「空文件夹」，避免误以为素材丢了
+      .filter((folder) => folder.count > 0)
   }, [album.items, plannedCharacters])
 
   const counts = useMemo(() => {
