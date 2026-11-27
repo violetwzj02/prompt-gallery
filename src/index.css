@@ -7,6 +7,11 @@
   --danger: #d70015;
   --topbar-h: 72px;
   --rail-w: 240px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --theme-color-dark: #0a0a0b;
+  --theme-color-light: #f5f5f7;
 }
 
 /* Resolved theme is set on <html data-theme="dark|light"> before paint. */
@@ -19,7 +24,7 @@ html[data-theme="dark"],
   --bg-elev-2: #1c1c1f;
   --text: #f5f5f7;
   --text-dim: #a1a1a6;
-  --text-faint: #6e6e73;
+  --text-faint: #7c7c81;
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.14);
   --fill: rgba(255, 255, 255, 0.03);
@@ -60,8 +65,8 @@ html[data-theme="light"] {
   --bg-elev: #ffffff;
   --bg-elev-2: #f0f0f2;
   --text: #1d1d1f;
-  --text-dim: #6e6e73;
-  --text-faint: #86868b;
+  --text-dim: #5c5c60;
+  --text-faint: #6e6e73;
   --line: rgba(0, 0, 0, 0.08);
   --line-strong: rgba(0, 0, 0, 0.14);
   --fill: rgba(0, 0, 0, 0.03);
@@ -101,11 +106,16 @@ html[data-theme="light"] {
   box-sizing: border-box;
 }
 
+html {
+  scroll-padding-top: 5.5rem;
+}
+
 html,
 body,
 #root {
   margin: 0;
   min-height: 100%;
+  min-height: 100dvh;
 }
 
 body {
@@ -115,6 +125,17 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+button,
+a,
+[role="button"],
+[role="menuitem"],
+[role="menuitemradio"],
+[role="tab"],
+[role="radio"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--focus) 22%, transparent);
 }
 
 a {
@@ -149,4 +170,34 @@ code {
 
 ::selection {
   background: var(--selection);
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 200;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: none;
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  .skip-link {
+    transition: none;
+  }
 }

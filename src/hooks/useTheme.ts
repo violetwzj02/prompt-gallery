@@ -35,6 +35,10 @@ export function applyTheme(pref: ThemePref, resolved: ResolvedTheme = resolveThe
   root.setAttribute('data-theme', resolved)
   root.setAttribute('data-theme-pref', pref)
   root.style.colorScheme = resolved
+  const themeMeta = document.querySelector('meta[name="theme-color"]')
+  if (themeMeta) {
+    themeMeta.setAttribute('content', resolved === 'light' ? '#f5f5f7' : '#0a0a0b')
+  }
 }
 
 export function useTheme() {

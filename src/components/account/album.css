@@ -214,6 +214,11 @@
   border-color: var(--line-strong);
 }
 
+.album-card:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--focus) 70%, transparent);
+  outline-offset: 2px;
+}
+
 .album-card__media {
   position: relative;
   aspect-ratio: 1;
@@ -340,13 +345,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.2rem;
+  padding: max(1.2rem, env(safe-area-inset-top, 0px)) max(1.2rem, env(safe-area-inset-right, 0px)) max(1.2rem, env(safe-area-inset-bottom, 0px)) max(1.2rem, env(safe-area-inset-left, 0px));
 }
 
 .album-lightbox__sheet {
   width: min(56rem, 100%);
   max-height: calc(100vh - 2.4rem);
+  max-height: calc(100dvh - 2.4rem);
   overflow: auto;
+  overscroll-behavior: contain;
   background: var(--bg-raise);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -415,8 +422,8 @@
 .album-lightbox__close,
 .album-viewer__close {
   position: fixed;
-  top: 0.8rem;
-  right: 0.8rem;
+  top: max(0.8rem, env(safe-area-inset-top, 0px));
+  right: max(0.8rem, env(safe-area-inset-right, 0px));
   z-index: 112;
   width: 2.4rem;
   height: 2.4rem;
@@ -439,8 +446,9 @@
   flex-direction: column;
   gap: 0.85rem;
   background: var(--bg);
-  padding: 0.85rem 1rem 1.2rem;
+  padding: max(0.85rem, env(safe-area-inset-top, 0px)) max(1rem, env(safe-area-inset-right, 0px)) max(1.2rem, env(safe-area-inset-bottom, 0px)) max(1rem, env(safe-area-inset-left, 0px));
   overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .album-viewer__bar {
@@ -520,7 +528,11 @@
 .album-drawer:hover,
 .album-drawer:focus-visible {
   border-color: color-mix(in srgb, #8d6d73 45%, var(--line));
-  outline: none;
+}
+
+.album-drawer:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--focus) 70%, transparent);
+  outline-offset: 2px;
 }
 
 .album-drawer.is-pending {
@@ -734,4 +746,38 @@
   max-height: 72vh;
   border-radius: 10px;
   background: #000;
+}
+
+.album-chip-edit input:focus,
+.album-chip-edit input:focus-visible,
+.album-newcat input:focus,
+.album-newcat input:focus-visible,
+.album-review__fields input[type='text']:focus,
+.album-review__fields input[type='text']:focus-visible,
+.album-move select:focus,
+.album-move select:focus-visible {
+  border-color: color-mix(in srgb, var(--focus) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 28%, transparent);
+}
+
+.album-lightbox__close:focus-visible,
+.album-viewer__close:focus-visible,
+.album-viewer__back:focus-visible,
+.album-flip__nav:focus-visible,
+.album-flip__dot:focus-visible,
+.album-chip:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--focus) 70%, transparent);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .album-chip,
+  .album-viewer__back,
+  .album-flip__nav {
+    min-height: 2.75rem;
+  }
+
+  .album-flip__nav {
+    min-width: 2.75rem;
+  }
 }

@@ -55,7 +55,7 @@ export function AccountCenter({
 
   if (loading || pendingRedirect) {
     return (
-      <main className="account-main">
+      <main id="main-content" className="account-main" tabIndex={-1}>
         <p className="state">正在载入个人中心…</p>
       </main>
     )
@@ -63,7 +63,7 @@ export function AccountCenter({
 
   if (!user) {
     return (
-      <main className="account-main">
+      <main id="main-content" className="account-main" tabIndex={-1}>
         <AccountSubNav route={route} admin={false} />
         <div className="account-gate">
           <h2>请先登录</h2>
@@ -76,7 +76,7 @@ export function AccountCenter({
 
   if (adminView && !admin) {
     return (
-      <main className="account-main">
+      <main id="main-content" className="account-main" tabIndex={-1}>
         <AccountSubNav route={route} admin={false} />
         <div className="account-gate">
           <h2>这不是管理员账号</h2>
@@ -91,7 +91,7 @@ export function AccountCenter({
 
   if (albumView && !admin) {
     return (
-      <main className="account-main">
+      <main id="main-content" className="account-main" tabIndex={-1}>
         <AccountSubNav route={route} admin={false} />
         <div className="account-gate">
           <h2>云端相册目前仅对管理员开放</h2>
@@ -105,7 +105,7 @@ export function AccountCenter({
   }
 
   return (
-    <main className="account-main">
+    <main id="main-content" className="account-main" tabIndex={-1}>
       <AccountSubNav route={route} admin={admin} />
       {route.view === 'home' && (
         <AccountHome

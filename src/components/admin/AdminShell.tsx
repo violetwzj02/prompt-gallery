@@ -29,7 +29,6 @@ export function AdminShell({
     <div className="admin-app">
       <header className="admin-topbar">
         <div className="admin-topbar__brand">
-          <p className="eyebrow">Admin</p>
           <h1>图鉴管理后台</h1>
         </div>
         <nav className="admin-nav" aria-label="管理后台">

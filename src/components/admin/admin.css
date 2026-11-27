@@ -14,6 +14,7 @@
 
 .admin-loading {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,6 +28,7 @@
 
 .admin-login {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,8 +89,10 @@
   letter-spacing: 0;
 }
 
-.admin-login__card input:focus {
+.admin-login__card input:focus,
+.admin-login__card input:focus-visible {
   border-color: color-mix(in srgb, var(--focus) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 28%, transparent);
 }
 
 .admin-login__actions {
@@ -106,6 +110,7 @@
 
 .admin-app {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background: var(--bg);
@@ -500,10 +505,6 @@
     letter-spacing: 0;
   }
 
-  .admin-topbar .eyebrow {
-    letter-spacing: 0.06em;
-  }
-
   .admin-nav {
     order: 3;
     flex-basis: 100%;
@@ -584,5 +585,19 @@
 
   .admin-review-cover {
     margin-left: auto;
+  }
+}
+
+.admin-nav__item:focus-visible,
+.admin-tab:focus-visible,
+.admin-login__card input:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--focus) 70%, transparent);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .admin-nav__item,
+  .admin-tab {
+    min-height: 2.75rem;
   }
 }

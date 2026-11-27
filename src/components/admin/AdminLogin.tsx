@@ -64,7 +64,6 @@ export function AdminLogin({ auth, notice, themePref, themeResolved, onThemeChan
         <ThemeToggle pref={themePref} resolved={themeResolved} onChange={onThemeChange} />
       </div>
       <form className="admin-login__card" onSubmit={(e) => void onSubmit(e)}>
-        <p className="eyebrow">Admin</p>
         <h1>管理员登录</h1>
         <p className="admin-login__lead">请使用管理员账号进入图鉴管理后台。此处不开放注册。</p>
         {!configured && <p className="auth-msg auth-msg--error">账号服务暂不可用</p>}

@@ -342,17 +342,22 @@ function GalleryApp() {
 
   return (
     <div className={reservedRoute ? "app app--account" : "app"}>
+      <a className="skip-link" href="#main-content">
+        跳到主要内容
+      </a>
       <header className="topbar">
         <div className="topbar__brand">
           <a className="topbar__brand-link" href="#/" aria-label="返回图鉴首页">
-            <p className="eyebrow">Prompt Library</p>
             <h1>风格 Prompt 图鉴</h1>
           </a>
         </div>
 
         <div className="topbar__search">
-          <span className="search-icon" aria-hidden>
-            ⌕
+          <span className="search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="6.25" />
+              <path d="M16 16l4.5 4.5" />
+            </svg>
           </span>
           <input
             className="search"
@@ -457,7 +462,7 @@ function GalleryApp() {
           showLibraryDrawers={!userId}
         />
 
-        <main className="main">
+        <main id="main-content" className="main" tabIndex={-1}>
           {loading && <p className="state">正在载入图鉴…</p>}
           {error && (
             <p className="state state-error">无法载入图鉴数据：{error}。请确认 data/prompts.json 可访问。</p>
